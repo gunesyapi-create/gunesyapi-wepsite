@@ -99,89 +99,6 @@
             margin-top: 50px;
         }
 
-        /* POPUP (Yaz Kampanyası) */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            animation: fadeIn 0.3s ease;
-        }
-        .popup-content {
-            background: linear-gradient(135deg, #fff5e8, #ffdec2);
-            max-width: 450px;
-            width: 90%;
-            border-radius: 30px;
-            text-align: center;
-            padding: 35px 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-            animation: slideIn 0.4s ease;
-        }
-        .popup-content .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #e67e22;
-            font-weight: bold;
-        }
-        .popup-content .close-popup:hover {
-            color: #d35400;
-        }
-        .popup-content .icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-        .popup-content h3 {
-            color: #e67e22;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        .popup-content p {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-        .popup-content .phone {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e67e22;
-            margin: 20px 0;
-        }
-        .popup-content button {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .popup-content button:hover {
-            background: #d35400;
-            transform: scale(1.02);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         /* YAPAY ZEKA ASİSTANI */
         .ai-container {
             position: fixed;
@@ -343,9 +260,6 @@
             .ai-messages { height: 350px; }
             .ai-button { width: 50px; height: 50px; }
             .ai-button span { font-size: 24px; }
-            .popup-content h3 { font-size: 24px; }
-            .popup-content p { font-size: 16px; }
-            .popup-content .phone { font-size: 20px; }
         }
     </style>
 </head>
@@ -392,14 +306,15 @@
             <div class="ai-messages" id="aiMessages">
                 <div class="message bot">
                     <div class="message-content">
-                        Merhaba! 👋 Ben Güneş Yapı'nın yapay zeka asistanıyım.<br><br>
+                        Merhaba! 👋 Ben Güneş Yapı'nın asistanıyım.<br><br>
                         Sana nasıl yardımcı olabilirim?<br><br>
                         💰 Fiyat bilgisi<br>
                         🎨 Boya & tadilat<br>
                         📅 Randevu<br>
                         🎉 İndirimler<br>
-                        📞 İletişim<br><br>
-                        <span style="font-size: 12px; color: #e67e22;">✨ Sohbet etmek, fıkra anlatmak, matematik çözmek için de buradayım!</span>
+                        📞 İletişim<br>
+                        🧮 Matematik işlemleri<br><br>
+                        <span style="font-size: 12px; color: #e67e22;">✨ Sorularını bekliyorum!</span>
                     </div>
                 </div>
             </div>
@@ -411,48 +326,6 @@
     </div>
 
     <script>
-        // POPUP - SADECE İLK ZİYARETTE (sayfa yenilemede değil, session bazlı)
-        if (!sessionStorage.getItem('popupShown')) {
-            setTimeout(function() {
-                var popup = document.createElement('div');
-                popup.className = 'popup-overlay';
-                popup.id = 'campaignPopup';
-                popup.innerHTML = `
-                    <div class="popup-content">
-                        <span class="close-popup" onclick="closePopup()">✕</span>
-                        <div class="icon">☀️</div>
-                        <h3>Yaz Kampanyası Başladı!</h3>
-                        <p>Ücretsiz Keşif + <strong>%10 İndirim</strong></p>
-                        <p>Fırsatı kaçırma, hemen arayıp randevunu oluştur!</p>
-                        <div class="phone">📞 0535 985 95 35</div>
-                        <button onclick="window.location.href='tel:05359859535'">Hemen Ara</button>
-                    </div>
-                `;
-                document.body.appendChild(popup);
-                sessionStorage.setItem('popupShown', 'true');
-            }, 1000);
-        }
-        
-        function closePopup() {
-            var popup = document.getElementById('campaignPopup');
-            if (popup) popup.remove();
-        }
-        
-        // HOŞ GELDİN MESAJI (sadece ilk ziyarette)
-        if (!localStorage.getItem('welcomeShown')) {
-            var welcomeDiv = document.createElement('div');
-            welcomeDiv.id = 'welcomeOverlay';
-            welcomeDiv.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 9999;';
-            welcomeDiv.innerHTML = '<div style="background: #e67e22; color: white; padding: 30px 50px; border-radius: 20px; font-size: 32px; font-weight: bold; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: zoomIn 0.5s ease;">✨ Hoş Geldiniz! ✨</div>';
-            document.body.appendChild(welcomeDiv);
-            setTimeout(function() {
-                if (welcomeDiv) welcomeDiv.remove();
-            }, 3000);
-            localStorage.setItem('welcomeShown', 'true');
-        }
-        
-        let isPatron = false;
-        
         function toggleAI() {
             var chat = document.getElementById('aiChat');
             chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
@@ -482,19 +355,6 @@
             
             messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            if (msg === "2698") {
-                isPatron = true;
-                addTypingIndicator();
-                setTimeout(() => {
-                    removeTypingIndicator();
-                    messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">👑 Evine hoş geldin patron! Artık sınırsız gücüm emrinde. Ne istersen yapabilirim. Sohbet, matematik, fıkra, şiir, her şey!</div></div>`;
-                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                }, 500);
-                input.value = "";
-                return;
-            }
-            
             input.value = "";
             addTypingIndicator();
             
@@ -517,15 +377,15 @@
         
         function getSmartResponse(question) {
             var q = question.toLowerCase();
-            var hitap = isPatron ? "Patron, " : "";
             
+            // MATEMATİK
             try {
                 if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
                     var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
                     if (islem.match(/[\d+\-*/.]/) && !islem.includes('--')) {
                         var sonuc = eval(islem);
                         if (!isNaN(sonuc) && isFinite(sonuc)) {
-                            return `${hitap}🧮 ${islem} = ${sonuc}`;
+                            return `🧮 ${islem} = ${sonuc}`;
                         }
                     }
                 }
@@ -533,29 +393,55 @@
                     var sayi = parseInt(q.match(/\d+/));
                     if (sayi && sayi > 0) {
                         var kok = Math.sqrt(sayi);
-                        return `${hitap}📐 ${sayi} sayısının karekökü = ${kok}`;
+                        return `📐 ${sayi} sayısının karekökü = ${kok}`;
                     }
                 }
                 if (q.includes('%') || q.includes('yüzde')) {
                     var sayilar = q.match(/\d+/g);
                     if (sayilar && sayilar.length >= 2) {
                         var yuzde = (sayilar[1] * sayilar[0]) / 100;
-                        return `${hitap}💰 ${sayilar[1]}'ün %${sayilar[0]}'i = ${yuzde}`;
+                        return `💰 ${sayilar[1]}'ün %${sayilar[0]}'i = ${yuzde}`;
                     }
                 }
             } catch(e) {}
             
-            if (isPatron && (q.includes('fıkra') || q.includes('şaka') || q.includes('güldür'))) {
-                const fikralar = [
-                    "Temel'e sormuşlar: 'Dünyanın en hızlı şeyi nedir?' Temel: 'Ateş böceği.' 'Neden?' 'Çünkü yanıp sönüyor.' 😄",
-                    "Nasrettin Hoca'nın eşeği ölmüş. Komşular taziye ziyaretine gelmiş. Hoca ağlayarak: 'Eşeğim öldü, vah vah.' Komşular: 'Hoca, bu kadar üzülme, yenisini alırsın.' Hoca: 'Onu değil, eşeğim ölmeden önce bana 50 altın borç vermişti, şimdi kime gideceğim?' 😂",
-                    "Bir müşteri boyacıya sormuş: 'Bu boya ne kadar dayanır?' Boyacı: 'Biraz daha yürürseniz dayanır.' 🤪"
-                ];
-                return `${hitap}${fikralar[Math.floor(Math.random() * fikralar.length)]}`;
+            // İŞLETME SORULARI
+            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
+                return `💰 İşin büyüklüğüne göre değişir. En doğru teklif için bizi arayın: 0535 985 95 35`;
+            }
+            if (q.includes('boya') || q.includes('badana')) {
+                return `🎨 İç cephe, dış cephe, dekoratif boya hizmetlerimiz var. 10 yıllık ekibimizle kaliteli işçilik!`;
+            }
+            if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
+                return `🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı yapıyoruz. Uygun fiyat garantisi!`;
+            }
+            if (q.includes('tadilat') || q.includes('yenileme')) {
+                return `🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim hizmet!`;
+            }
+            if (q.includes('randevu')) {
+                return `📅 Randevu için menüdeki Randevu sayfasını kullanabilir veya bizi arayabilirsiniz: 0535 985 95 35`;
+            }
+            if (q.includes('indirim') || q.includes('kampanya')) {
+                return `🎉 Kampanyalarımız için İndirimler sayfamızı ziyaret edebilirsiniz! İlk keşif ücretsizdir.`;
+            }
+            if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
+                return `📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 Hizmet Bölgesi: İstanbul & Kocaeli`;
             }
             
-            if (isPatron && (q.includes('şiir') || q.includes('şair'))) {
-                return `${hitap}📝 Patron, sana küçük bir şiir yazayım:\n\nGüneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!`;
+            // SOHBET
+            if (q.includes('nasılsın') || q.includes('nasıl')) {
+                return `🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız? Size yardımcı olabilir miyim?`;
+            }
+            if (q.includes('merhaba') || q.includes('selam')) {
+                return `👋 Merhaba! Hoş geldiniz. Size nasıl yardımcı olabilirim?`;
+            }
+            if (q.includes('teşekkür') || q.includes('sağol')) {
+                return `🙏 Rica ederim! Başka sorunuz olursa her zaman buradayım.`;
             }
             
-            if (q.incl
+            // GENEL
+            return `🤝 Sorunuz için teşekkürler! Fiyat, hizmetlerimiz, tadilat, randevu veya iletişim bilgileri hakkında sorularınızı bekliyorum. Bize 0535 985 95 35 numaralı telefondan da ulaşabilirsiniz. Sohbet etmekten mutluluk duyarım! 😊`;
+        }
+    </script>
+</body>
+</html>
