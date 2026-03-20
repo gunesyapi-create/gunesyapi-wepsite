@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Yapı & İnşaat</title>
+    <title>Güneş Yapı | Ana Sayfa</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,31 +15,31 @@
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 15px 20px;
         }
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
         }
         .logo {
-            width: 60px;
+            width: 50px;
             height: auto;
+            border-radius: 8px;
         }
         .site-title h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 28px;
         }
         .site-title p {
-            margin: 5px 0 0;
-            font-size: 14px;
+            margin: 3px 0 0;
+            font-size: 12px;
             opacity: 0.8;
         }
         nav {
             background-color: #e67e22;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
         }
         nav a {
@@ -48,6 +48,7 @@
             padding: 10px 20px;
             margin: 0 5px;
             display: inline-block;
+            font-weight: bold;
         }
         nav a:hover {
             background-color: #d35400;
@@ -137,7 +138,7 @@
                 width: 40px;
             }
             .site-title h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
     </style>
@@ -145,7 +146,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo">
             <div class="site-title">
                 <h1>Güneş Yapı</h1>
                 <p>Yapı & İnşaat</p>
@@ -154,10 +155,10 @@
     </header>
     
     <nav>
-        <a href="#">Ana Sayfa</a>
-        <a href="#">Hizmetlerimiz</a>
-        <a href="#">Projelerimiz</a>
-        <a href="#">İletişim</a>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetlerimiz</a>
+        <a href="projeler.html">Projelerimiz</a>
+        <a href="iletisim.html">İletişim</a>
     </nav>
     
     <div class="container">
@@ -185,7 +186,453 @@
         <div class="contact">
             <h2>Bize Ulaşın</h2>
             <p>📞 Telefon: <a href="tel:05359859535" style="color:#e67e22;">0535 985 95 35</a></p>
-            <p>📧 E-posta: <a href="mailto:mehmetgnes456@gmail.com" style="color:#e67e22;">mehmetgnes456@gmail.com</a></p>
+            <p>📧 E-posta: <a href="mailto:info@gunesyapi.com" style="color:#e67e22;">info@gunesyapi.com</a></p>
+            <p>📍 Adres: İstanbul & Kocaeli</p>
+            <div class="social-icons">
+                <a href="https://instagram.com/gunesyapi954" target="_blank">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+        <p>Kaliteli hizmet, güvenilir çözüm</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | Hizmetlerimiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .site-title h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .site-title p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        nav {
+            background-color: #e67e22;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #d35400;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 30px;
+        }
+        .service-detail {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .service-detail h3 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 5px;
+            }
+            .logo {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo">
+            <div class="site-title">
+                <h1>Güneş Yapı</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetlerimiz</a>
+        <a href="projeler.html">Projelerimiz</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">Hizmetlerimiz</h1>
+        
+        <div class="service-detail">
+            <h3>🏠 Boya & Badana</h3>
+            <p>İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya uygulamaları. Profesyonel ekibimizle kaliteli ve uzun ömürlü boya hizmeti.</p>
+        </div>
+        
+        <div class="service-detail">
+            <h3>🛠️ Alçı & Alçıpan</h3>
+            <p>Asma tavan, bölme duvar, ses yalıtımı, ısı yalıtımı, alçı sıva uygulamaları. Modern ve estetik çözümler.</p>
+        </div>
+        
+        <div class="service-detail">
+            <h3>🔨 Fayans & Seramik</h3>
+            <p>Banyo, mutfak, zemin ve duvar fayans işçiliği, seramik kaplama, tadilat ve yenileme hizmetleri.</p>
+        </div>
+        
+        <div class="service-detail">
+            <h3>🏗️ Tadilat & Yenileme</h3>
+            <p>Ev, iş yeri, bina tadilatları, mutfak ve banyo yenileme, anahtar teslim tadilat hizmetleri.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+        <p>Kaliteli hizmet, güvenilir çözüm</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | Projelerimiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .site-title h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .site-title p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        nav {
+            background-color: #e67e22;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #d35400;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 30px;
+        }
+        .projects {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .project-card .placeholder {
+            background-color: #ddd;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .project-card h3 {
+            margin: 15px 0 5px;
+            color: #e67e22;
+        }
+        .project-card p {
+            padding: 0 15px 15px;
+            color: #666;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 5px;
+            }
+            .logo {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo">
+            <div class="site-title">
+                <h1>Güneş Yapı</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetlerimiz</a>
+        <a href="projeler.html">Projelerimiz</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">Projelerimiz</h1>
+        <div class="projects">
+            <div class="project-card">
+                <div class="placeholder">📸 Proje Fotoğrafı</div>
+                <h3>Örnek Proje 1</h3>
+                <p>Proje açıklaması buraya gelecek. Fotoğraf ekleyebilirsiniz.</p>
+            </div>
+            <div class="project-card">
+                <div class="placeholder">📸 Proje Fotoğrafı</div>
+                <h3>Örnek Proje 2</h3>
+                <p>Proje açıklaması buraya gelecek. Fotoğraf ekleyebilirsiniz.</p>
+            </div>
+            <div class="project-card">
+                <div class="placeholder">📸 Proje Fotoğrafı</div>
+                <h3>Örnek Proje 3</h3>
+                <p>Proje açıklaması buraya gelecek. Fotoğraf ekleyebilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+        <p>Kaliteli hizmet, güvenilir çözüm</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | İletişim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .site-title h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .site-title p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        nav {
+            background-color: #e67e22;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #d35400;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .contact-info p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .contact-info a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .social-icons {
+            margin-top: 25px;
+        }
+        .social-icons a {
+            color: #e67e22;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 15px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 5px;
+            }
+            .logo {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo">
+            <div class="site-title">
+                <h1>Güneş Yapı</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetlerimiz</a>
+        <a href="projeler.html">Projelerimiz</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">İletişim</h1>
+        <div class="contact-info">
+            <p>📞 Telefon: <a href="tel:05359859535">0535 985 95 35</a></p>
+            <p>📧 E-posta: <a href="mailto:info@gunesyapi.com">info@gunesyapi.com</a></p>
             <p>📍 Adres: İstanbul & Kocaeli</p>
             <div class="social-icons">
                 <a href="https://instagram.com/gunesyapi954" target="_blank">📷 Instagram</a>
