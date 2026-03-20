@@ -2,177 +2,140 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Güneş Yapı | İletişim</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background: #f5f5f5;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #2c3e50;
-        }
-        header {
+        .header {
             background: #2c3e50;
             padding: 20px;
             text-align: center;
             color: white;
         }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
         .logo {
-            width: 55px;
-            height: auto;
-            border-radius: 12px;
-            background: white;
-            padding: 5px;
+            width: 50px;
+            vertical-align: middle;
+        }
+        .site-title {
+            display: inline-block;
+            margin-left: 10px;
         }
         .site-title h1 {
-            font-size: 28px;
+            margin: 0;
+            font-size: 24px;
         }
         .site-title p {
-            font-size: 13px;
-            opacity: 0.8;
-            margin-top: 5px;
+            margin: 0;
+            font-size: 12px;
         }
-        nav {
+        .nav {
             background: #e67e22;
             padding: 12px;
             text-align: center;
         }
-        nav a {
+        .nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 25px;
-            margin: 0 5px;
+            padding: 10px 20px;
             display: inline-block;
             font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
         }
-        nav a:hover {
+        .nav a:hover {
             background: #d35400;
         }
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 60px auto;
-            padding: 20px;
-        }
-        .contact-box {
             background: white;
-            padding: 45px 35px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .contact-box h2 {
+        .container h2 {
             color: #e67e22;
-            margin-bottom: 15px;
-            font-size: 32px;
+            margin-bottom: 20px;
         }
-        .contact-slogan {
+        .slogan {
             font-style: italic;
             color: #e67e22;
-            margin-bottom: 35px;
-            font-size: 16px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
             padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
         }
-        .contact-item {
-            margin: 25px 0;
-        }
-        .contact-item p {
+        .contact p {
             font-size: 18px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
-        .contact-item a {
+        .contact a {
             color: #2c3e50;
             text-decoration: none;
-            font-weight: bold;
         }
-        .contact-item a:hover {
+        .contact a:hover {
             color: #e67e22;
         }
-        .insta-btn {
+        .insta {
             display: inline-block;
             background: #e67e22;
             color: white;
-            padding: 12px 30px;
-            border-radius: 40px;
+            padding: 10px 25px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
             margin-top: 20px;
-            transition: 0.3s;
         }
-        .insta-btn:hover {
-            background: #d35400;
-            transform: scale(1.02);
-        }
-        footer {
+        .footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             margin-top: 50px;
         }
-        @media (max-width: 768px) {
-            nav a {
+        @media (max-width: 600px) {
+            .nav a {
                 display: block;
-                margin: 8px;
+                margin: 5px;
             }
-            .logo {
-                width: 40px;
-            }
-            .site-title h1 {
-                font-size: 22px;
-            }
-            .contact-box {
-                padding: 30px 20px;
+            .container {
+                margin: 30px 15px;
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <div class="site-title">
-                <h1>GÜNEŞ YAPI</h1>
-                <p>Yapı & İnşaat</p>
-            </div>
+    <div class="header">
+        <img src="abc.jpeg" alt="Logo" class="logo">
+        <div class="site-title">
+            <h1>GÜNEŞ YAPI</h1>
+            <p>Yapı & İnşaat</p>
         </div>
-    </header>
+    </div>
     
-    <nav>
+    <div class="nav">
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="projeler.html">Projeler</a>
         <a href="iletisim.html">İletişim</a>
-    </nav>
+    </div>
     
     <div class="container">
-        <div class="contact-box">
-            <h2>İletişim</h2>
-            <div class="contact-slogan">"Sizi dinlemek, hayalinizi anlamak için buradayız."</div>
-            <div class="contact-item">
-                <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
-                <p>📧 <a href="mailto:info@gunesyapi.com">info@gunesyapi.com</a></p>
-                <p>📍 İstanbul & Kocaeli</p>
-            </div>
-            <a href="https://instagram.com/gunesyapi954" target="_blank" class="insta-btn">📷 Bizi Instagram'da Takip Edin</a>
+        <h2>İletişim</h2>
+        <div class="slogan">"Sizi dinlemek, hayalinizi anlamak için buradayız."</div>
+        <div class="contact">
+            <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
+            <p>📧 <a href="mailto:info@gunesyapi.com">info@gunesyapi.com</a></p>
+            <p>📍 İstanbul & Kocaeli</p>
+            <a href="https://instagram.com/gunesyapi954" target="_blank" class="insta">📷 Instagram</a>
         </div>
     </div>
     
-    <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+    </div>
 </body>
 </html>
 
