@@ -11,7 +11,6 @@
             box-sizing: border-box;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-        /* Açık Tema (varsayılan) */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #fff5e8, #ffdec2);
@@ -149,6 +148,40 @@
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+        }
+        /* Hoş Geldin Mesajı */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 3s ease forwards;
+        }
+        .welcome-message {
+            background: #e67e22;
+            color: white;
+            padding: 30px 50px;
+            border-radius: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: zoomIn 0.5s ease;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; visibility: visible; }
+            70% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
         }
         /* Karanlık Mod Butonu */
         .theme-toggle {
@@ -335,10 +368,18 @@
             .ai-button { width: 50px; height: 50px; }
             .ai-button span { font-size: 24px; }
             .theme-toggle { width: 45px; height: 45px; font-size: 20px; bottom: 90px; }
+            .welcome-message { font-size: 24px; padding: 20px 30px; }
         }
     </style>
 </head>
 <body>
+    <!-- HOŞ GELDİN MESAJI (3 Saniye) -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-message">
+            ✨ Hoş Geldiniz! ✨
+        </div>
+    </div>
+
     <header>
         <div class="logo-container">
             <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
@@ -405,6 +446,14 @@
     </div>
 
     <script>
+        // 3 saniye sonra hoş geldin mesajını kaldır
+        setTimeout(function() {
+            var overlay = document.getElementById('welcomeOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }, 3000);
+        
         // Karanlık Mod
         function toggleTheme() {
             document.body.classList.toggle('dark');
@@ -457,7 +506,7 @@
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
             
             // GİZLİ ŞİFRE - 2698
-            if (msg === "4136") {
+            if (msg === "2698") {
                 isPatron = true;
                 addTypingIndicator();
                 setTimeout(() => {
@@ -532,33 +581,4 @@
             
             // ŞİİR
             if (isPatron && (q.includes('şiir') || q.includes('şair'))) {
-                return `${hitap}📝 Patron, sana küçük bir şiir yazayım:\n\nGüneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!`;
-            }
-            
-            // SOHBET
-            if (q.includes('nasılsın') || q.includes('nasıl')) {
-                if (isPatron) return `${hitap}🤖 Patron, siz sorduğunuz için çok iyiyim! Siz nasılsınız?`;
-                return `🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız?`;
-            }
-            if (q.includes('merhaba') || q.includes('selam')) {
-                if (isPatron) return `${hitap}👑 Merhaba Patron! Hoş geldiniz. Size nasıl yardımcı olabilirim?`;
-                return `👋 Merhaba! Hoş geldiniz. Size nasıl yardımcı olabilirim?`;
-            }
-            if (q.includes('teşekkür') || q.includes('sağol')) {
-                if (isPatron) return `${hitap}🙏 Patron, asıl ben teşekkür ederim. Her zaman buradayım!`;
-                return `🙏 Rica ederim!`;
-            }
-            
-            // İŞLETME
-            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
-                return `${hitap}💰 İşin büyüklüğüne göre değişir. Teklif için arayın: 0535 985 95 35`;
-            }
-            if (q.includes('boya') || q.includes('badana')) {
-                return `${hitap}🎨 İç-dış cephe, dekoratif boya. 10 yıllık ekibimizle kaliteli işçilik!`;
-            }
-            if (q.includes('tadilat') || q.includes('yenileme')) {
-                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim!`;
-            }
-            if (q.includes('randevu')) {
-                return `${hitap}📅 Randevu için menüdeki Randevu sayfası
-document.body.classList.toggle('dark')
+                return `${hitap}📝 Patron, sana küçük bir şiir yazayım:\n\nGüneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\
