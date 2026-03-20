@@ -28,7 +28,7 @@
             gap: 15px;
         }
         .logo {
-            width: 55px;
+            width: 50px;
             height: auto;
             border-radius: 12px;
             background: white;
@@ -72,9 +72,10 @@
             margin-bottom: 40px;
         }
         .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
             gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .project-card {
             background: white;
@@ -82,27 +83,42 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: 0.3s;
+            width: 350px;
+            text-align: center;
         }
         .project-card:hover {
             transform: translateY(-10px);
         }
-        .project-img {
-            background: #e67e22;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            color: white;
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
         }
         .project-card h3 {
-            padding: 20px 20px 10px;
+            padding: 20px 20px 5px;
             font-size: 22px;
-            color: #2c3e50;
+            color: #e67e22;
         }
-        .project-card p {
-            padding: 0 20px 20px;
-            color: #666;
+        .project-card .soz {
+            padding: 5px 20px;
+            font-style: italic;
+            color: #e67e22;
+            font-size: 14px;
+        }
+        .project-card button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            margin: 15px 20px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .project-card button:hover {
+            background: #d35400;
+            transform: scale(1.02);
         }
         footer {
             background: #2c3e50;
@@ -135,20 +151,34 @@
             </div>
         </div>
     </header>
+    
     <nav>
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="projeler.html">Projeler</a>
         <a href="iletisim.html">İletişim</a>
     </nav>
+    
     <div class="container">
         <h1 class="page-title">Projelerimiz</h1>
         <div class="projects">
-            <div class="project-card"><div class="project-img">🏗️</div><h3>Villa Projesi</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p></div>
-            <div class="project-card"><div class="project-img">🏢</div><h3>Ofis Tadilatı</h3><p>İstanbul'da 500 m² ofis alçıpan ve dekoratif boya uygulaması.</p></div>
-            <div class="project-card"><div class="project-img">🏠</div><h3>Site Dış Cephe</h3><p>Gebze'de 4 bloklu sitenin dış cephe boya ve izolasyonu.</p></div>
+            <div class="project-card">
+                <img src="paca123.jpeg" alt="Villa Projesi">
+                <h3>Villa Projesi</h3>
+                <div class="soz">"Her detayda kalite, her köşede estetik"</div>
+                <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+            </div>
+            <div class="project-card">
+                <img src="paca2.jpeg" alt="Ofis Tadilatı">
+                <h3>Ofis Tadilatı</h3>
+                <div class="soz">"Profesyonel işler, profesyonel ellerde"</div>
+                <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+            </div>
         </div>
     </div>
-    <footer><p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p></footer>
+    
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
+    </footer>
 </body>
 </html>
