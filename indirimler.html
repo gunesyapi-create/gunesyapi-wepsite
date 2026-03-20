@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | İndirimler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5e8, #ffdec2);
+            color: #2c3e50;
+        }
+        header {
+            background: #2c3e50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            border-radius: 12px;
+            background: white;
+            padding: 5px;
+        }
+        .site-title h1 {
+            font-size: 28px;
+        }
+        .site-title p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        nav {
+            background: #e67e22;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 3px;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #d35400;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .coming-soon {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .coming-soon h2 {
+            color: #e67e22;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .coming-soon p {
+            font-size: 20px;
+            color: #555;
+            margin: 20px 0;
+        }
+        .coming-soon .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+            .logo {
+                width: 40px;
+            }
+            .site-title h1 {
+                font-size: 22px;
+            }
+            .coming-soon h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
+            <div class="site-title">
+                <h1>GÜNEŞ YAPI</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="indirimler.html">İndirimler</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+    
+    <div class="container">
+        <div class="coming-soon">
+            <div class="icon">🎉</div>
+            <h2>Yakında!</h2>
+            <p>İndirimlerimiz ve kampanyalarımız çok yakında sizlerle.</p>
+            <p>Takipte kalın!</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
+    </footer>
+</body>
+</html>
