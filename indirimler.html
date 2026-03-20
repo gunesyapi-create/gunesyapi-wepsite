@@ -60,45 +60,91 @@
         nav a:hover {
             background: #d35400;
         }
-        .container {
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .coming-card {
-            background: white;
-            padding: 50px 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .coming-card h2 {
-            color: #e67e22;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        .coming-card .icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-        }
-        .coming-card p {
-            font-size: 18px;
-            color: #555;
-            margin: 15px 0;
-            line-height: 1.5;
-        }
-        .coming-card .phone {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e67e22;
-            margin-top: 20px;
-        }
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+        }
+
+        /* Kampanya Kutucukları */
+        .campaign-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .campaign-title {
+            text-align: center;
+            font-size: 36px;
+            color: #e67e22;
+            margin-bottom: 40px;
+        }
+        .campaign-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .campaign-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .campaign-card:hover {
+            transform: translateY(-10px);
+        }
+        .campaign-icon {
+            background: #e67e22;
+            padding: 30px;
+            font-size: 48px;
+            color: white;
+        }
+        .campaign-card h3 {
+            font-size: 28px;
+            color: #e67e22;
+            margin: 20px 0 10px;
+        }
+        .campaign-card .discount {
+            font-size: 42px;
+            font-weight: bold;
+            color: #e67e22;
+            margin: 10px 0;
+        }
+        .campaign-card .discount span {
+            font-size: 18px;
+        }
+        .campaign-card p {
+            color: #555;
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        .campaign-card button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 10px 20px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: calc(100% - 40px);
+        }
+        .campaign-card button:hover {
+            background: #d35400;
+            transform: scale(1.02);
+        }
+        .info-text {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
         }
         @media (max-width: 768px) {
             nav a {
@@ -111,11 +157,11 @@
             .site-title h1 {
                 font-size: 22px;
             }
-            .coming-card h2 {
+            .campaign-title {
                 font-size: 28px;
             }
-            .coming-card .phone {
-                font-size: 20px;
+            .campaign-card {
+                width: 280px;
             }
         }
     </style>
@@ -139,22 +185,33 @@
         <a href="randevu.html">Randevu</a>
         <a href="iletisim.html">İletişim</a>
     </nav>
-    
-    <div class="container">
-        <div class="coming-card">
-            <div class="icon">🎉</div>
-            <h2>Yakında!</h2>
-            <p>İndirimlerimiz ve kampanyalarımız çok yakında sizlerle.</p>
-            <p>Takipte kalın!</p>
-            <div class="phone">📞 0535 985 95 35</div>
+
+    <div class="campaign-section">
+        <h1 class="campaign-title">🏠 Daire Tipine Özel İndirimler 🏠</h1>
+        <div class="campaign-grid">
+            <!-- 2+1 Daire -->
+            <div class="campaign-card">
+                <div class="campaign-icon">🏢</div>
+                <h3>2+1 Daire</h3>
+                <div class="discount">%10 <span>İNDİRİM</span></div>
+                <p>2+1 dairelerde tüm tadilat ve boya işlerinde %10 indirim fırsatı!</p>
+                <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+            </div>
+            <!-- 3+1 Daire -->
+            <div class="campaign-card">
+                <div class="campaign-icon">🏠</div>
+                <h3>3+1 Daire</h3>
+                <div class="discount">%15 <span>İNDİRİM</span></div>
+                <p>3+1 dairelerde tüm tadilat ve boya işlerinde %15 indirim fırsatı!</p>
+                <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+            </div>
+        </div>
+        <div class="info-text">
+            🎉 Kampanya süresince geçerlidir. Hemen arayın, fırsatı kaçırmayın! 📞 0535 985 95 35
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
-    </footer>
-</body>
-</html>
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
     </footer>
 </body>
