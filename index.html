@@ -20,7 +20,6 @@
             padding: 20px;
             text-align: center;
             color: white;
-            position: relative;
         }
         .logo-container {
             display: flex;
@@ -51,7 +50,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 10px 16px;
             margin: 0 2px;
             display: inline-block;
             font-weight: bold;
@@ -314,7 +313,8 @@
                         • Randevu işlemleri<br>
                         • İndirimler<br>
                         • İletişim bilgileri<br><br>
-                        Sohbet etmekten mutluluk duyarım! 🤗
+                        Sohbet etmekten mutluluk duyarım! 🤗<br><br>
+                        <span style="font-size: 11px; color: #888;">🔐 Özel şifre: 2698</span>
                     </div>
                 </div>
             </div>
@@ -326,6 +326,8 @@
     </div>
 
     <script>
+        let isPatron = false;
+        
         function toggleAI() {
             var chat = document.getElementById('aiChat');
             chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
@@ -355,8 +357,21 @@
             
             messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            input.value = "";
             
+            // Şifre kontrolü (2698)
+            if (msg === "2698") {
+                isPatron = true;
+                addTypingIndicator();
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">👑 Hoş geldiniz Patron! Size nasıl yardımcı olabilirim? Size özel hizmetinizdeyim.</div></div>`;
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }, 500);
+                input.value = "";
+                return;
+            }
+            
+            input.value = "";
             addTypingIndicator();
             
             setTimeout(() => {
@@ -378,58 +393,40 @@
         
         function getSmartResponse(question) {
             var q = question.toLowerCase();
+            var hitap = isPatron ? "Patron, " : "";
             
-            // Fiyat soruları
-            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para') || q.includes('maliyet')) {
-                return "💰 Fiyatlarımız işin büyüklüğüne ve kullanılan malzemeye göre değişir. En doğru teklif için ücretsiz keşif hizmetimiz var. Bizi arayın: 0535 985 95 35";
+            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para')) {
+                return `${hitap}💰 Fiyatlarımız işin büyüklüğüne ve malzemeye göre değişir. Ücretsiz keşif için arayın: 0535 985 95 35`;
             }
-            // Boya soruları
             else if (q.includes('boya') || q.includes('badana')) {
-                return "🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi! Fiyat için arayın: 0535 985 95 35";
+                return `${hitap}🎨 İç cephe, dış cephe, dekoratif boya. 10 yıllık ekibimizle kaliteli işçilik!`;
             }
-            // Alçıpan
-            else if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan') || q.includes('bölme duvar')) {
-                return "🔨 Alçıpan hizmetlerimiz: Asma tavan, bölme duvar, ses yalıtımı, ısı yalıtımı. Uygun fiyat, kaliteli işçilik garantisi!";
+            else if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
+                return `${hitap}🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı. Uygun fiyat garantisi!`;
             }
-            // Fayans
-            else if (q.includes('fayans') || q.includes('seramik')) {
-                return "🪨 Fayans hizmetlerimiz: Banyo, mutfak, zemin, duvar, balkon, teras fayans işçiliği. Su yalıtımı ve tadilat hizmetlerimiz de mevcut.";
-            }
-            // Tadilat
             else if (q.includes('tadilat') || q.includes('yenileme')) {
-                return "🏗️ Tadilat hizmetlerimiz: Ev tadilatı, iş yeri tadilatı, mutfak tadilatı, banyo tadilatı, anahtar teslim yenileme. Detaylı bilgi için bizi arayın: 0535 985 95 35";
+                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim hizmet!`;
             }
-            // Randevu
             else if (q.includes('randevu')) {
-                return "📅 Randevu almak için ana menüdeki Randevu sayfasına gidin, formu doldurun veya bizi direkt arayın: 0535 985 95 35";
+                return `${hitap}📅 Randevu için menüdeki Randevu sayfasını kullanabilir veya bizi arayabilirsiniz: 0535 985 95 35`;
             }
-            // İndirim
             else if (q.includes('indirim') || q.includes('kampanya')) {
-                return "🎉 Özel indirimlerimiz ve kampanyalarımız yakında! Kaçırmamak için bizi takip edin. İlk keşif ücretsizdir!";
+                return `${hitap}🎉 Kampanyalarımız yakında! İlk keşif ücretsiz.`;
             }
-            // İletişim
-            else if (q.includes('telefon') || q.includes('numara') || q.includes('adres') || q.includes('iletisim') || q.includes('ulaşım')) {
-                return "📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 Hizmet Bölgesi: İstanbul, Kocaeli ve çevresi";
+            else if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
+                return `${hitap}📞 Tel: 0535 985 95 35 | 📧 info@gunesyapi.com | 📍 İstanbul & Kocaeli`;
             }
-            // Teşekkür
-            else if (q.includes('teşekkür') || q.includes('sağol') || q.includes('eyw')) {
-                return "🙏 Rica ederim! Başka sorunuz varsa her zaman buradayım. İyi günler dilerim!";
+            else if (q.includes('teşekkür') || q.includes('sağol')) {
+                return `${hitap}🙏 ${isPatron ? "Patron, ben teşekkür ederim. Her zaman emrinizdeyim!" : "Rica ederim!"}`;
             }
-            // Merhaba
-            else if (q.includes('merhaba') || q.includes('selam') || q.includes('iyi günler')) {
-                return "👋 Merhaba! Hoş geldiniz. Sohbet etmek güzel. Size nasıl yardımcı olabilirim? Fiyat, hizmet, randevu, indirim gibi konularda bilgi alabilirsiniz.";
+            else if (q.includes('merhaba') || q.includes('selam')) {
+                return `${hitap}👋 ${isPatron ? "Patron, hoş geldiniz!" : "Merhaba! Size nasıl yardımcı olabilirim?"}`;
             }
-            // Nasılsın
-            else if (q.includes('nasılsın') || q.includes('nasıl')) {
-                return "🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız? Size yardımcı olabileceğim bir konu var mı?";
+            else if (q.includes('nasılsın')) {
+                return `${hitap}🤖 ${isPatron ? "Patron, siz sorduğunuz için çok iyiyim!" : "Çok iyiyim, teşekkürler!"}`;
             }
-            // Ne yapıyorsun
-            else if (q.includes('ne yapıyorsun')) {
-                return "🤖 Güneş Yapı'nın yapay zeka asistanı olarak size yardım etmek için buradayım. İnşaat, tadilat, boya, alçıpan gibi konularda sorularınızı cevaplıyorum.";
-            }
-            // Genel
             else {
-                return "🤝 Sorunuz için teşekkürler! Ben Güneş Yapı'nın asistanıyım. Fiyat, hizmetlerimiz, tadilat, randevu, indirim veya iletişim bilgileri hakkında sorularınızı bekliyorum. Bize 0535 985 95 35 numaralı telefondan da ulaşabilirsiniz.";
+                return `${hitap}🤝 ${isPatron ? "Patron, size nasıl yardımcı olabilirim? Her konuda emrinizdeyim." : "Sorunuz için teşekkürler! Fiyat, hizmet, tadilat, randevu konularında bilgi alabilirsiniz. Bize 0535 985 95 35'ten ulaşabilirsiniz."}`;
             }
         }
     </script>
