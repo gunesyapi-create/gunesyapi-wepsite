@@ -100,7 +100,7 @@
             margin-top: 50px;
         }
 
-        /* YAPAY ZEKA ASİSTANI - PROFESYONEL TASARIM */
+        /* YAPAY ZEKA ASİSTANI */
         .ai-container {
             position: fixed;
             bottom: 20px;
@@ -167,10 +167,6 @@
             cursor: pointer;
             font-size: 20px;
             font-weight: bold;
-            transition: 0.3s;
-        }
-        .ai-header .close-btn:hover {
-            transform: scale(1.1);
         }
         .ai-messages {
             height: 400px;
@@ -195,7 +191,6 @@
             border-radius: 20px;
             font-size: 14px;
             line-height: 1.5;
-            word-wrap: break-word;
         }
         .user .message-content {
             background: #e67e22;
@@ -207,9 +202,6 @@
             border: 1px solid #e0e0e0;
             border-bottom-left-radius: 4px;
             color: #2c3e50;
-        }
-        .bot .message-content strong {
-            color: #e67e22;
         }
         .typing-indicator {
             display: flex;
@@ -247,7 +239,6 @@
             border-radius: 30px;
             outline: none;
             font-size: 14px;
-            transition: 0.3s;
         }
         .ai-input-area input:focus {
             border-color: #e67e22;
@@ -260,40 +251,16 @@
             border-radius: 30px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
-        }
-        .ai-input-area button:hover {
-            background: #d35400;
-            transform: scale(1.02);
         }
         @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 8px;
-            }
-            .hero h2 {
-                font-size: 28px;
-            }
-            .logo {
-                width: 40px;
-            }
-            .site-title h1 {
-                font-size: 22px;
-            }
-            .ai-chat {
-                width: 320px;
-                right: -10px;
-            }
-            .ai-messages {
-                height: 350px;
-            }
-            .ai-button {
-                width: 50px;
-                height: 50px;
-            }
-            .ai-button span {
-                font-size: 24px;
-            }
+            nav a { display: block; margin: 8px; }
+            .hero h2 { font-size: 28px; }
+            .logo { width: 40px; }
+            .site-title h1 { font-size: 22px; }
+            .ai-chat { width: 320px; right: -10px; }
+            .ai-messages { height: 350px; }
+            .ai-button { width: 50px; height: 50px; }
+            .ai-button span { font-size: 24px; }
         }
     </style>
 </head>
@@ -327,7 +294,7 @@
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
     </footer>
 
-    <!-- YAPAY ZEKA ASİSTANI - PROFESYONEL -->
+    <!-- YAPAY ZEKA ASİSTANI -->
     <div class="ai-container">
         <div class="ai-button" onclick="toggleAI()">
             <span>🤖</span>
@@ -340,15 +307,14 @@
             <div class="ai-messages" id="aiMessages">
                 <div class="message bot">
                     <div class="message-content">
-                        <strong>✨ Merhaba! Ben Güneş Yapı'nın yapay zeka asistanıyım.</strong><br><br>
-                        Size nasıl yardımcı olabilirim?<br>
-                        🎨 Boya & Badana<br>
-                        🔨 Alçı & Alçıpan<br>
-                        🪨 Fayans & Seramik<br>
-                        🏗️ Tadilat & Yenileme<br>
-                        💰 Fiyat & İndirim<br>
-                        📞 İletişim bilgileri<br><br>
-                        <span style="font-size: 11px; color: #888;">Sorunuzu yazın, size en iyi şekilde yardımcı olayım.</span>
+                        Merhaba! 👋 Ben Güneş Yapı'nın yapay zeka asistanıyım.<br><br>
+                        Bana her şeyi sorabilirsin:<br>
+                        • Fiyat bilgisi<br>
+                        • Boya, alçıpan, tadilat<br>
+                        • Randevu işlemleri<br>
+                        • İndirimler<br>
+                        • İletişim bilgileri<br><br>
+                        Sohbet etmekten mutluluk duyarım! 🤗
                     </div>
                 </div>
             </div>
@@ -387,27 +353,16 @@
             
             var messagesDiv = document.getElementById('aiMessages');
             
-            // Kullanıcı mesajını ekle
-            messagesDiv.innerHTML += `
-                <div class="message user">
-                    <div class="message-content">${escapeHtml(msg)}</div>
-                </div>
-            `;
+            messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
             input.value = "";
             
-            // Typing indicator göster
             addTypingIndicator();
             
-            // Cevabı al
             setTimeout(() => {
                 removeTypingIndicator();
                 var cevap = getSmartResponse(msg);
-                messagesDiv.innerHTML += `
-                    <div class="message bot">
-                        <div class="message-content">${cevap}</div>
-                    </div>
-                `;
+                messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">${cevap}</div></div>`;
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
             }, 500);
         }
@@ -424,53 +379,57 @@
         function getSmartResponse(question) {
             var q = question.toLowerCase();
             
-            // Fiyat/Ücret
-            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para')) {
-                return "💰 <strong>Fiyat Bilgisi</strong><br><br>Fiyatlarımız işin büyüklüğüne, kullanılan malzemeye ve işçilik süresine göre değişir.<br><br>📞 En doğru teklif için bizi arayın: <strong>0535 985 95 35</strong><br><br>🏠 Ücretsiz keşif hizmetimiz var!";
+            // Fiyat soruları
+            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para') || q.includes('maliyet')) {
+                return "💰 Fiyatlarımız işin büyüklüğüne ve kullanılan malzemeye göre değişir. En doğru teklif için ücretsiz keşif hizmetimiz var. Bizi arayın: 0535 985 95 35";
             }
-            // Boya
-            else if (q.includes('boya') || q.includes('badana') || q.includes('boyacı')) {
-                return "🎨 <strong>Boya & Badana Hizmetlerimiz</strong><br><br>• İç cephe boya<br>• Dış cephe boya<br>• Dekoratif boya<br>• Dokulu boya<br>• Silikonlu boya<br><br>✅ 10 yıllık ekibimizle kaliteli işçilik garantisi!<br>📞 Ücretsiz keşif için arayın: <strong>0535 985 95 35</strong>";
+            // Boya soruları
+            else if (q.includes('boya') || q.includes('badana')) {
+                return "🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi! Fiyat için arayın: 0535 985 95 35";
             }
-            // Alçı/Alçıpan
+            // Alçıpan
             else if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan') || q.includes('bölme duvar')) {
-                return "🔨 <strong>Alçı & Alçıpan Hizmetlerimiz</strong><br><br>• Asma tavan<br>• Bölme duvar<br>• Ses yalıtımı<br>• Isı yalıtımı<br>• Yangın dayanımlı alçıpan<br><br>✅ Uygun fiyat, kaliteli işçilik garantisi!";
+                return "🔨 Alçıpan hizmetlerimiz: Asma tavan, bölme duvar, ses yalıtımı, ısı yalıtımı. Uygun fiyat, kaliteli işçilik garantisi!";
             }
             // Fayans
-            else if (q.includes('fayans') || q.includes('seramik') || q.includes('granit')) {
-                return "🪨 <strong>Fayans & Seramik Hizmetlerimiz</strong><br><br>• Banyo fayans<br>• Mutfak fayans<br>• Zemin fayans<br>• Duvar fayans<br>• Balkon ve teras fayans<br><br>✅ Su yalıtımı ve tadilat hizmetlerimiz de mevcut!";
+            else if (q.includes('fayans') || q.includes('seramik')) {
+                return "🪨 Fayans hizmetlerimiz: Banyo, mutfak, zemin, duvar, balkon, teras fayans işçiliği. Su yalıtımı ve tadilat hizmetlerimiz de mevcut.";
             }
             // Tadilat
-            else if (q.includes('tadilat') || q.includes('yenileme') || q.includes('dekorasyon')) {
-                return "🏗️ <strong>Tadilat & Yenileme Hizmetlerimiz</strong><br><br>• Ev tadilatı<br>• İş yeri tadilatı<br>• Mutfak tadilatı<br>• Banyo tadilatı<br>• Anahtar teslim yenileme<br><br>📞 Hayalinizdeki mekana kavuşmak için bizi arayın: <strong>0535 985 95 35</strong>";
-            }
-            // İndirim
-            else if (q.includes('indirim') || q.includes('kampanya') || q.includes('fırsat') || q.includes('özel teklif')) {
-                return "🎉 <strong>Kampanya & İndirimler</strong><br><br>🎈 Özel indirimlerimiz ve kampanyalarımız yakında!<br><br>📱 Kaçırmamak için bizi Instagram'dan takip edin veya arayın.<br>🏠 İlk keşif ücretsizdir!";
-            }
-            // İletişim
-            else if (q.includes('iletişim') || q.includes('telefon') || q.includes('numara') || q.includes('adres') || q.includes('ulaşım')) {
-                return "📞 <strong>İletişim Bilgileri</strong><br><br>📱 Telefon: <strong>0535 985 95 35</strong><br>📧 E-posta: info@gunesyapi.com<br>📍 Hizmet Bölgeleri: İstanbul, Kocaeli, Gebze, İzmit, Darıca, Çayırova, Tuzla, Pendik, Kartal, Maltepe, Ataşehir, Kadıköy, Üsküdar, Beşiktaş, Şişli, Beyoğlu, Fatih, Zeytinburnu, Bakırköy, Küçükçekmece, Avcılar, Esenyurt, Beylikdüzü, Büyükçekmece";
-            }
-            // Hizmetler
-            else if (q.includes('hizmet') || q.includes('yaptığınız işler') || q.includes('neler yapıyorsunuz')) {
-                return "🔧 <strong>Hizmetlerimiz</strong><br><br>✅ Boya & Badana<br>✅ Alçı & Alçıpan<br>✅ Fayans & Seramik<br>✅ Tadilat & Yenileme<br>✅ Su Yalıtımı<br>✅ Isı Yalıtımı<br>✅ Ses Yalıtımı<br>✅ Dekorasyon<br>✅ Anahtar Teslim İnşaat<br><br>📞 Detaylı bilgi için bizi arayın: <strong>0535 985 95 35</strong>";
-            }
-            // Teşekkür
-            else if (q.includes('teşekkür') || q.includes('sağol') || q.includes('eyw') || q.includes('sağ ol')) {
-                return "🙏 <strong>Rica ederim!</strong><br><br>Başka sorunuz varsa her zaman buradayım. İyi günler dilerim! 🏠<br><br>📞 Bize ulaşın: <strong>0535 985 95 35</strong>";
-            }
-            // Merhaba
-            else if (q.includes('merhaba') || q.includes('selam') || q.includes('iyi günler') || q.includes('hello') || q.includes('hey')) {
-                return "👋 <strong>Merhaba! Hoş geldiniz!</strong><br><br>Ben Güneş Yapı'nın yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?<br><br>🔹 Fiyat bilgisi<br>🔹 Hizmetlerimiz<br>🔹 Tadilat & Yenileme<br>🔹 İndirimler<br>🔹 İletişim bilgileri<br><br>Sorunuzu yazın, size hemen yardımcı olayım! 🤖";
+            else if (q.includes('tadilat') || q.includes('yenileme')) {
+                return "🏗️ Tadilat hizmetlerimiz: Ev tadilatı, iş yeri tadilatı, mutfak tadilatı, banyo tadilatı, anahtar teslim yenileme. Detaylı bilgi için bizi arayın: 0535 985 95 35";
             }
             // Randevu
-            else if (q.includes('randevu') || q.includes('randevu al')) {
-                return "📅 <strong>Randevu Almak İçin</strong><br><br>Randevu almak için aşağıdaki adımları takip edebilirsiniz:<br><br>1️⃣ Ana menüden <strong>Randevu</strong> sayfasına gidin<br>2️⃣ Formu doldurun<br>3️⃣ WhatsApp veya E-posta ile gönderin<br><br>📞 Veya direkt bizi arayın: <strong>0535 985 95 35</strong><br><br>En kısa sürede size dönüş yapacağız!";
+            else if (q.includes('randevu')) {
+                return "📅 Randevu almak için ana menüdeki Randevu sayfasına gidin, formu doldurun veya bizi direkt arayın: 0535 985 95 35";
+            }
+            // İndirim
+            else if (q.includes('indirim') || q.includes('kampanya')) {
+                return "🎉 Özel indirimlerimiz ve kampanyalarımız yakında! Kaçırmamak için bizi takip edin. İlk keşif ücretsizdir!";
+            }
+            // İletişim
+            else if (q.includes('telefon') || q.includes('numara') || q.includes('adres') || q.includes('iletisim') || q.includes('ulaşım')) {
+                return "📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 Hizmet Bölgesi: İstanbul, Kocaeli ve çevresi";
+            }
+            // Teşekkür
+            else if (q.includes('teşekkür') || q.includes('sağol') || q.includes('eyw')) {
+                return "🙏 Rica ederim! Başka sorunuz varsa her zaman buradayım. İyi günler dilerim!";
+            }
+            // Merhaba
+            else if (q.includes('merhaba') || q.includes('selam') || q.includes('iyi günler')) {
+                return "👋 Merhaba! Hoş geldiniz. Sohbet etmek güzel. Size nasıl yardımcı olabilirim? Fiyat, hizmet, randevu, indirim gibi konularda bilgi alabilirsiniz.";
+            }
+            // Nasılsın
+            else if (q.includes('nasılsın') || q.includes('nasıl')) {
+                return "🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız? Size yardımcı olabileceğim bir konu var mı?";
+            }
+            // Ne yapıyorsun
+            else if (q.includes('ne yapıyorsun')) {
+                return "🤖 Güneş Yapı'nın yapay zeka asistanı olarak size yardım etmek için buradayım. İnşaat, tadilat, boya, alçıpan gibi konularda sorularınızı cevaplıyorum.";
             }
             // Genel
             else {
-                return "🤝 <strong>Size nasıl yardımcı olabilirim?</strong><br><br>Şu konularda bilgi alabilirsiniz:<br><br>💰 Fiyat bilgisi<br>🎨 Boya & Badana<br>🔨 Alçı & Alçıpan<br>🪨 Fayans & Seramik<br>🏗️ Tadilat & Yenileme<br>🎉 İndirim & Kampanyalar<br>📞 İletişim bilgileri<br>📅 Randevu işlemleri<br><br>📱 Bize ulaşın: <strong>0535 985 95 35</strong>";
+                return "🤝 Sorunuz için teşekkürler! Ben Güneş Yapı'nın asistanıyım. Fiyat, hizmetlerimiz, tadilat, randevu, indirim veya iletişim bilgileri hakkında sorularınızı bekliyorum. Bize 0535 985 95 35 numaralı telefondan da ulaşabilirsiniz.";
             }
         }
     </script>
