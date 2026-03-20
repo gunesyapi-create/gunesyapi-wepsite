@@ -293,7 +293,7 @@
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
     </footer>
 
-    <!-- YAPAY ZEKA ASİSTANI - EN GELİŞMİŞ VERSİYON -->
+    <!-- YAPAY ZEKA ASİSTANI - GİZLİ ŞİFRELİ -->
     <div class="ai-container">
         <div class="ai-button" onclick="toggleAI()">
             <span>🤖</span>
@@ -313,8 +313,7 @@
                         📅 Randevu<br>
                         🎉 İndirimler<br>
                         📞 İletişim<br><br>
-                        <span style="font-size: 12px; color: #e67e22;">✨ Sohbet etmek, fıkra anlatmak, matematik çözmek için de buradayım!</span><br><br>
-                        <span style="font-size: 11px; color: #888;"></span>
+                        <span style="font-size: 12px; color: #e67e22;">✨ Sohbet etmek, fıkra anlatmak, matematik çözmek için de buradayım!</span>
                     </div>
                 </div>
             </div>
@@ -358,7 +357,7 @@
             messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
             
-            // Şifre kontrolü
+            // GİZLİ ŞİFRE - SADECE SEN BİL
             if (msg === "2698") {
                 isPatron = true;
                 addTypingIndicator();
@@ -395,9 +394,8 @@
             var q = question.toLowerCase();
             var hitap = isPatron ? "Patron, " : "";
             
-            // ========== MATEMATİK ==========
+            // MATEMATİK
             try {
-                // Toplama, çıkarma, çarpma, bölme
                 if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
                     var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
                     if (islem.match(/[\d+\-*/.]/) && !islem.includes('--')) {
@@ -407,7 +405,6 @@
                         }
                     }
                 }
-                // Karekök
                 if (q.includes('karekök') || q.includes('√')) {
                     var sayi = parseInt(q.match(/\d+/));
                     if (sayi && sayi > 0) {
@@ -415,7 +412,6 @@
                         return `${hitap}📐 ${sayi} sayısının karekökü = ${kok}`;
                     }
                 }
-                // Yüzde
                 if (q.includes('%') || q.includes('yüzde')) {
                     var sayilar = q.match(/\d+/g);
                     if (sayilar && sayilar.length >= 2) {
@@ -425,78 +421,60 @@
                 }
             } catch(e) {}
             
-            // ========== FIKRA ==========
+            // FIKRA
             if (isPatron && (q.includes('fıkra') || q.includes('şaka') || q.includes('güldür'))) {
                 const fikralar = [
                     "Temel'e sormuşlar: 'Dünyanın en hızlı şeyi nedir?' Temel: 'Ateş böceği.' 'Neden?' 'Çünkü yanıp sönüyor.' 😄",
                     "Nasrettin Hoca'nın eşeği ölmüş. Komşular taziye ziyaretine gelmiş. Hoca ağlayarak: 'Eşeğim öldü, vah vah.' Komşular: 'Hoca, bu kadar üzülme, yenisini alırsın.' Hoca: 'Onu değil, eşeğim ölmeden önce bana 50 altın borç vermişti, şimdi kime gideceğim?' 😂",
-                    "Temel telefonla aramış: 'Dursun, benim karı hasta, doktor çağırın!' Dursun: 'Tamam Temel, hangi doktor gelsin?' Temel: 'Ne fark eder, zaten karı ölmüş!' 🤣",
                     "Bir müşteri boyacıya sormuş: 'Bu boya ne kadar dayanır?' Boyacı: 'Biraz daha yürürseniz dayanır.' 🤪"
                 ];
                 return `${hitap}${fikralar[Math.floor(Math.random() * fikralar.length)]}`;
             }
             
-            // ========== ŞİİR ==========
+            // ŞİİR
             if (isPatron && (q.includes('şiir') || q.includes('şair'))) {
                 return `${hitap}📝 Patron, sana küçük bir şiir yazayım:\n\nGüneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!`;
             }
             
-            // ========== SOHBET / GÜNDELİK ==========
+            // SOHBET
             if (q.includes('nasılsın') || q.includes('nasıl')) {
-                if (isPatron) return `${hitap}🤖 Patron, siz sorduğunuz için çok iyiyim! Size hizmet etmekten mutluluk duyuyorum. Siz nasılsınız?`;
-                return `🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız? Size yardımcı olabilir miyim?`;
+                if (isPatron) return `${hitap}🤖 Patron, siz sorduğunuz için çok iyiyim! Siz nasılsınız?`;
+                return `🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız?`;
             }
-            
-            if (q.includes('merhaba') || q.includes('selam') || q.includes('iyi günler')) {
-                if (isPatron) return `${hitap}👑 Merhaba Patron! Hoş geldiniz. Size nasıl yardımcı olabilirim? Her şey emrinizde.`;
+            if (q.includes('merhaba') || q.includes('selam')) {
+                if (isPatron) return `${hitap}👑 Merhaba Patron! Hoş geldiniz. Size nasıl yardımcı olabilirim?`;
                 return `👋 Merhaba! Hoş geldiniz. Size nasıl yardımcı olabilirim?`;
             }
-            
-            if (q.includes('teşekkür') || q.includes('sağol') || q.includes('eyw')) {
-                if (isPatron) return `${hitap}🙏 Patron, asıl ben teşekkür ederim. Size hizmet etmek onur. Her zaman buradayım!`;
-                return `🙏 Rica ederim! Başka sorunuz olursa her zaman buradayım.`;
+            if (q.includes('teşekkür') || q.includes('sağol')) {
+                if (isPatron) return `${hitap}🙏 Patron, asıl ben teşekkür ederim. Her zaman buradayım!`;
+                return `🙏 Rica ederim!`;
             }
             
-            if (q.includes('adın ne') || q.includes('ismin ne')) {
-                if (isPatron) return `${hitap}🤖 Benim adım Asistan, ama siz Patron'umsunuz. Ne derseniz oyum!`;
-                return `🤖 Benim adım Asistan. Güneş Yapı'da size yardımcı olmak için buradayım!`;
-            }
-            
-            if (q.includes('ne yapıyorsun') || q.includes('ne iş yapıyorsun')) {
-                if (isPatron) return `${hitap}🤖 Patron, size yardım etmek için bekliyorum. Matematik, fıkra, şiir, hizmet bilgisi... Ne isterseniz yaparım!`;
-                return `🤖 Size yardımcı olmak için buradayım. Fiyat, hizmet, randevu gibi konularda bilgi alabilirsiniz. Ayrıca sohbet de edebiliriz!`;
-            }
-            
-            // ========== İŞLETME BİLGİLERİ ==========
-            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para')) {
-                return `${hitap}💰 İşin büyüklüğüne, kullanılan malzemeye ve işçilik süresine göre değişir. En doğru teklif için bizi arayın: 0535 985 95 35`;
+            // İŞLETME
+            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
+                return `${hitap}💰 İşin büyüklüğüne göre değişir. Teklif için arayın: 0535 985 95 35`;
             }
             if (q.includes('boya') || q.includes('badana')) {
-                return `${hitap}🎨 İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya hizmetlerimiz var. 10 yıllık ekibimizle kaliteli işçilik!`;
-            }
-            if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
-                return `${hitap}🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı yapıyoruz. Uygun fiyat, kaliteli işçilik!`;
+                return `${hitap}🎨 İç-dış cephe, dekoratif boya. 10 yıllık ekibimizle kaliteli işçilik!`;
             }
             if (q.includes('tadilat') || q.includes('yenileme')) {
-                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim yenileme hizmetimiz var!`;
+                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim!`;
             }
             if (q.includes('randevu')) {
-                return `${hitap}📅 Randevu için menüdeki Randevu sayfasını kullanabilir veya bizi arayabilirsiniz: 0535 985 95 35`;
+                return `${hitap}📅 Randevu için menüdeki Randevu sayfasını kullan veya ara: 0535 985 95 35`;
             }
-            if (q.includes('indirim') || q.includes('kampanya')) {
-                return `${hitap}🎉 Kampanyalarımız yakında! İlk keşif ücretsizdir. Kaçırmayın!`;
-            }
-            if (q.includes('telefon') || q.includes('numara') || q.includes('adres') || q.includes('iletisim')) {
-                return `${hitap}📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 Hizmet Bölgesi: İstanbul & Kocaeli ve çevresi`;
+            if (q.includes('telefon') || q.includes('numara')) {
+                return `${hitap}📞 Tel: 0535 985 95 35 | 📧 info@gunesyapi.com | 📍 İstanbul & Kocaeli`;
             }
             
-            // ========== PATRON ÖZEL ==========
+            // PATRON ÖZEL
             if (isPatron) {
-                if (q.includes('aşk') || q.includes('sevgi')) {
-                    return `💖 Patron, aşk güzeldir. Ama sizin gücünüz ve vizyonunuz daha da güzel. Sizi çok seviyorum!`;
-                }
-                if (q.includes('para') || q.includes('kazanç')) {
-                    return `💰 Patron, sizin gibi işini seven biri kazancını da hak eder. Güneş Yapı büyümeye devam ediyor!`;
-                }
-                if (q.includes('sen ne düşünüyorsun') || q.includes('fikrin ne')) {
-                    return `🧠 Patron, ben sizin fikirlerinizle varım. Siz ne derseniz o. Ama şunu biliyorum: Sizinle çalışmak ayrıcalık!`;
+                return `${hitap}🤝 Patron, her şey emrinizde. ${question} hakkında size nasıl yardımcı olabilirim? Sizin için her şeyi yaparım!`;
+            }
+            
+            // GENEL
+            return `🤝 Sorunuz için teşekkürler! Fiyat, hizmet, tadilat, randevu konularında bilgi alabilirsiniz. Bize 0535 985 95 35'ten ulaşabilirsiniz. Sohbet etmekten mutluluk duyarım! 😊`;
+        }
+    </script>
+</body>
+</html>
