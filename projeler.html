@@ -83,19 +83,24 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: 0.3s;
-            width: 350px;
+            width: 320px;
             text-align: center;
         }
         .project-card:hover {
             transform: translateY(-10px);
         }
+        .project-card .image-container {
+            padding: 20px 20px 0 20px;
+            background: #f0f0f0;
+        }
         .project-card img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
+            border-radius: 10px;
         }
         .project-card h3 {
-            padding: 20px 20px 5px;
+            padding: 15px 20px 5px;
             font-size: 22px;
             color: #e67e22;
         }
@@ -138,6 +143,9 @@
             .site-title h1 {
                 font-size: 22px;
             }
+            .project-card {
+                width: 280px;
+            }
         }
     </style>
 </head>
@@ -163,13 +171,17 @@
         <h1 class="page-title">Projelerimiz</h1>
         <div class="projects">
             <div class="project-card">
-                <img src="paca123.jpeg" alt="Villa Projesi">
+                <div class="image-container">
+                    <img src="paca123.jpeg" alt="Villa Projesi">
+                </div>
                 <h3>Villa Projesi</h3>
                 <div class="soz">"Her detayda kalite, her köşede estetik"</div>
                 <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="project-card">
-                <img src="paca2.jpeg" alt="Ofis Tadilatı">
+                <div class="image-container">
+                    <img src="paca2.jpeg" alt="Ofis Tadilatı">
+                </div>
                 <h3>Ofis Tadilatı</h3>
                 <div class="soz">"Profesyonel işler, profesyonel ellerde"</div>
                 <button onclick="window.location.href='tel:05359859535'">Teklif Al</button>
