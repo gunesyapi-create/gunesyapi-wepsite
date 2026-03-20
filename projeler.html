@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | Projeler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        header {
+            background: #2c3e50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 55px;
+            height: auto;
+            border-radius: 12px;
+            background: white;
+            padding: 5px;
+        }
+        .site-title h1 {
+            font-size: 28px;
+        }
+        .site-title p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        nav {
+            background: #e67e22;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            margin: 0 5px;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #d35400;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 36px;
+            color: #e67e22;
+            margin-bottom: 40px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-img {
+            background: #e67e22;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: white;
+        }
+        .project-card h3 {
+            padding: 20px 20px 10px;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+        .project-card p {
+            padding: 0 20px 20px;
+            color: #666;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+            .logo {
+                width: 40px;
+            }
+            .site-title h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
+            <div class="site-title">
+                <h1>GÜNEŞ YAPI</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+    <div class="container">
+        <h1 class="page-title">Projelerimiz</h1>
+        <div class="projects">
+            <div class="project-card"><div class="project-img">🏗️</div><h3>Villa Projesi</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p></div>
+            <div class="project-card"><div class="project-img">🏢</div><h3>Ofis Tadilatı</h3><p>İstanbul'da 500 m² ofis alçıpan ve dekoratif boya uygulaması.</p></div>
+            <div class="project-card"><div class="project-img">🏠</div><h3>Site Dış Cephe</h3><p>Gebze'de 4 bloklu sitenin dış cephe boya ve izolasyonu.</p></div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p></footer>
+</body>
+</html>
