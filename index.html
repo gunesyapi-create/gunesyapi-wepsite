@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Boya | Kaliteli Boya Çözümleri</title>
+    <title>Güneş Yapı | Yapı & İnşaat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +17,25 @@
             color: white;
             padding: 20px;
             text-align: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 60px;
+            height: auto;
+        }
+        .site-title h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .site-title p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            opacity: 0.8;
         }
         nav {
             background-color: #e67e22;
@@ -54,6 +73,7 @@
             display: flex;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
         .service-box {
             background-color: white;
@@ -61,6 +81,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             flex: 1;
+            min-width: 200px;
             text-align: center;
         }
         .service-box h3 {
@@ -92,54 +113,89 @@
         button:hover {
             background-color: #d35400;
         }
+        .social-icons {
+            margin-top: 15px;
+        }
+        .social-icons a {
+            color: #e67e22;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        .social-icons a:hover {
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+            }
+            nav a {
+                display: block;
+                margin: 5px;
+            }
+            .logo {
+                width: 40px;
+            }
+            .site-title h1 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Güneş Boya</h1>
-        <p>Kaliteli ve Dayanıklı Boya Çözümleri</p>
+        <div class="logo-container">
+            <img src="logo.png" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <div class="site-title">
+                <h1>Güneş Yapı</h1>
+                <p>Yapı & İnşaat</p>
+            </div>
+        </div>
     </header>
     
     <nav>
         <a href="#">Ana Sayfa</a>
         <a href="#">Hizmetlerimiz</a>
-        <a href="#">Renk Kataloğu</a>
+        <a href="#">Projelerimiz</a>
         <a href="#">İletişim</a>
     </nav>
     
     <div class="container">
         <div class="hero">
-            <h1>Evini Yenilemeye Hazır Mısın?</h1>
-            <p>Profesyonel boya ekibi ile hayalinizdeki eve kavuşun</p>
-            <button onclick="alert('Bizi arayın: 0535 985 95 35')">Hemen Teklif Al</button>
+            <h1>Hayalinizdeki Yapıya Ulaşın</h1>
+            <p>Profesyonel ekibimiz ile tadilat, boya, alçıpan ve inşaat çözümleri</p>
+            <button onclick="window.location.href='tel:05359859535'">Hemen Teklif Al</button>
         </div>
         
         <div class="services">
             <div class="service-box">
-                <h3>İç Cephe Boya</h3>
-                <p>Salon, yatak odası, çocuk odası gibi iç mekanlarınız için özel boya çözümleri.</p>
+                <h3>Boya & Badana</h3>
+                <p>İç cephe, dış cephe, dekoratif boya uygulamaları.</p>
             </div>
             <div class="service-box">
-                <h3>Dış Cephe Boya</h3>
-                <p>Binanızın dış cephesini hava koşullarına dayanıklı boyalarla yenileyin.</p>
+                <h3>Alçı & Alçıpan</h3>
+                <p>Asma tavan, bölme duvar, ses yalıtımı.</p>
             </div>
             <div class="service-box">
-                <h3>Dekoratif Boya</h3>
-                <p>Dokulu, desenli ve özel efektli boyalarla fark yaratın.</p>
+                <h3>Fayans & Tadilat</h3>
+                <p>Fayans işçiliği, tadilat ve yenileme hizmetleri.</p>
             </div>
         </div>
         
         <div class="contact">
             <h2>Bize Ulaşın</h2>
-            <p>📞 Telefon: 0535 985 95 35</p>
-            <p>📧 E-posta: mehmetgnes456@gmail.com</p>
-            <p>📍 Adres: Kocaeli, Türkiye</p>
+            <p>📞 Telefon: <a href="tel:05359859535" style="color:#e67e22;">0535 985 95 35</a></p>
+            <p>📧 E-posta: <a href="mailto:mehmetgnes456@gmail.com" style="color:#e67e22;">mehmetgnes456@gmail.com</a></p>
+            <p>📍 Adres: İstanbul & Kocaeli</p>
+            <div class="social-icons">
+                <a href="https://instagram.com/gunesyapi954" target="_blank">📷 Instagram</a>
+            </div>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2026 Güneş Boya. Tüm hakları saklıdır.</p>
-        <p>Kaliteli boya, güvenilir hizmet</p>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+        <p>Kaliteli hizmet, güvenilir çözüm</p>
     </footer>
 </body>
 </html>
