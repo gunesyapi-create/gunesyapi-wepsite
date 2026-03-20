@@ -20,6 +20,7 @@
             padding: 20px;
             text-align: center;
             color: white;
+            position: relative;
         }
         .logo-container {
             display: flex;
@@ -98,6 +99,30 @@
             padding: 20px;
             margin-top: 50px;
         }
+        /* Yapay Zeka Asistanı Butonu */
+        .ai-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e67e22;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .ai-button:hover {
+            transform: scale(1.05);
+            background: #d35400;
+        }
+        .ai-button span {
+            font-size: 22px;
+        }
         @media (max-width: 768px) {
             nav a {
                 display: block;
@@ -112,6 +137,15 @@
             .site-title h1 {
                 font-size: 22px;
             }
+            .ai-button {
+                width: 38px;
+                height: 38px;
+                top: 15px;
+                right: 15px;
+            }
+            .ai-button span {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -123,6 +157,10 @@
                 <h1>GÜNEŞ YAPI</h1>
                 <p>Yapı & İnşaat</p>
             </div>
+        </div>
+        <!-- Yapay Zeka Asistanı Butonu - Sağ Üst -->
+        <div class="ai-button" onclick="alert('🤖 Merhaba! Size nasıl yardımcı olabilirim?\n\n📞 Bize 0535 985 95 35 numaralı telefondan ulaşabilirsiniz.\n📧 info@gunesyapi.com\n📍 İstanbul & Kocaeli')">
+            <span>🤖</span>
         </div>
     </header>
     
