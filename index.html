@@ -364,7 +364,7 @@
                 addTypingIndicator();
                 setTimeout(() => {
                     removeTypingIndicator();
-                    messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">👑 Hoş geldiniz Patron! Size nasıl yardımcı olabilirim? Size özel hizmetinizdeyim.</div></div>`;
+                    messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">👑 Evine hoş geldin patron! Size nasıl yardımcı olabilirim?</div></div>`;
                     messagesDiv.scrollTop = messagesDiv.scrollHeight;
                 }, 500);
                 input.value = "";
@@ -395,38 +395,80 @@
             var q = question.toLowerCase();
             var hitap = isPatron ? "Patron, " : "";
             
+            // Matematik işlemleri
+            try {
+                if (q.includes('+') || q.includes('-') || (q.includes('x') && !q.includes('x') ) || q.includes('*') || q.includes('/') || q.includes('÷')) {
+                    var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
+                    if (islem.match(/[\d+\-*/.]/)) {
+                        var sonuc = eval(islem);
+                        if (!isNaN(sonuc) && isFinite(sonuc)) {
+                            return `${hitap}🧮 ${islem} = ${sonuc}`;
+                        }
+                    }
+                }
+                if (q.includes('karekök') || q.includes('√')) {
+                    var sayi = parseInt(q.match(/\d+/));
+                    if (sayi) {
+                        var kok = Math.sqrt(sayi);
+                        return `${hitap}📐 ${sayi} sayısının karekökü = ${kok}`;
+                    }
+                }
+                if (q.includes('%') || q.includes('yüzde')) {
+                    var sayilar = q.match(/\d+/g);
+                    if (sayilar && sayilar.length >= 2) {
+                        var yuzde = (sayilar[1] * sayilar[0]) / 100;
+                        return `${hitap}💰 ${sayilar[1]}'ün %${sayilar[0]}'i = ${yuzde}`;
+                    }
+                }
+            } catch(e) {}
+            
+            // Fiyat soruları
             if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar') || q.includes('kaç para')) {
-                return `${hitap}💰 Fiyatlarımız işin büyüklüğüne ve malzemeye göre değişir. Ücretsiz keşif için arayın: 0535 985 95 35`;
+                return `${hitap}💰 İşin büyüklüğüne göre değişir. En doğru teklif için arayın: 0535 985 95 35`;
             }
+            // Boya
             else if (q.includes('boya') || q.includes('badana')) {
-                return `${hitap}🎨 İç cephe, dış cephe, dekoratif boya. 10 yıllık ekibimizle kaliteli işçilik!`;
+                return `${hitap}🎨 İç-dış cephe, dekoratif boya yapıyoruz. Kaliteli işçilik!`;
             }
+            // Alçıpan
             else if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
-                return `${hitap}🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı. Uygun fiyat garantisi!`;
+                return `${hitap}🔨 Asma tavan, bölme duvar, ses yalıtımı yapıyoruz.`;
             }
+            // Tadilat
             else if (q.includes('tadilat') || q.includes('yenileme')) {
-                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim hizmet!`;
+                return `${hitap}🏗️ Ev, iş yeri, mutfak, banyo tadilatı yapıyoruz. Anahtar teslim!`;
             }
+            // Randevu
             else if (q.includes('randevu')) {
-                return `${hitap}📅 Randevu için menüdeki Randevu sayfasını kullanabilir veya bizi arayabilirsiniz: 0535 985 95 35`;
+                return `${hitap}📅 Randevu için menüdeki Randevu sayfasını kullan veya ara: 0535 985 95 35`;
             }
+            // İndirim
             else if (q.includes('indirim') || q.includes('kampanya')) {
-                return `${hitap}🎉 Kampanyalarımız yakında! İlk keşif ücretsiz.`;
+                return `${hitap}🎉 Kampanyalar yakında! İlk keşif ücretsiz.`;
             }
+            // İletişim
             else if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
                 return `${hitap}📞 Tel: 0535 985 95 35 | 📧 info@gunesyapi.com | 📍 İstanbul & Kocaeli`;
             }
+            // Teşekkür
             else if (q.includes('teşekkür') || q.includes('sağol')) {
-                return `${hitap}🙏 ${isPatron ? "Patron, ben teşekkür ederim. Her zaman emrinizdeyim!" : "Rica ederim!"}`;
+                return `${hitap}🙏 ${isPatron ? "Patron, ben teşekkür ederim!" : "Rica ederim!"}`;
             }
+            // Merhaba
             else if (q.includes('merhaba') || q.includes('selam')) {
                 return `${hitap}👋 ${isPatron ? "Patron, hoş geldiniz!" : "Merhaba! Size nasıl yardımcı olabilirim?"}`;
             }
-            else if (q.includes('nasılsın')) {
+            // Nasılsın
+            else if (q.includes('nasılsın') || q.includes('nasıl')) {
                 return `${hitap}🤖 ${isPatron ? "Patron, siz sorduğunuz için çok iyiyim!" : "Çok iyiyim, teşekkürler!"}`;
             }
+            // Sohbet - her şeyi konuş
             else {
-                return `${hitap}🤝 ${isPatron ? "Patron, size nasıl yardımcı olabilirim? Her konuda emrinizdeyim." : "Sorunuz için teşekkürler! Fiyat, hizmet, tadilat, randevu konularında bilgi alabilirsiniz. Bize 0535 985 95 35'ten ulaşabilirsiniz."}`;
+                if (isPatron) {
+                    return `${hitap}🤝 Patron, ne derseniz yaparım! ${question} hakkında size nasıl yardımcı olabilirim? Bana istediğiniz her şeyi sorabilirsiniz.`;
+                } else {
+                    return `${hitap}🤝 Sorunuz için teşekkürler! Fiyat, hizmet, tadilat, randevu konularında bilgi alabilirsiniz. Bize 0535 985 95 35'ten ulaşabilirsiniz.`;
+                }
             }
         }
     </script>
