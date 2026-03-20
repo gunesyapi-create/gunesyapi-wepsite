@@ -327,19 +327,14 @@
     <script>
         // HOŞ GELDİN MESAJI - SADECE İLK ZİYARETTE
         if (!localStorage.getItem('welcomeShown')) {
-            // Mesajı göster
             var welcomeDiv = document.createElement('div');
             welcomeDiv.id = 'welcomeOverlay';
             welcomeDiv.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 9999;';
             welcomeDiv.innerHTML = '<div style="background: #e67e22; color: white; padding: 30px 50px; border-radius: 20px; font-size: 32px; font-weight: bold; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: zoomIn 0.5s ease;">✨ Hoş Geldiniz! ✨</div>';
             document.body.appendChild(welcomeDiv);
-            
-            // 3 saniye sonra kaldır
             setTimeout(function() {
                 if (welcomeDiv) welcomeDiv.remove();
             }, 3000);
-            
-            // Bir daha gösterme
             localStorage.setItem('welcomeShown', 'true');
         }
         
@@ -375,8 +370,7 @@
             messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
             
-            // GİZLİ ŞİFRE - 2698
-            if (msg === "4136") {
+            if (msg === "2698") {
                 isPatron = true;
                 addTypingIndicator();
                 setTimeout(() => {
@@ -412,7 +406,6 @@
             var q = question.toLowerCase();
             var hitap = isPatron ? "Patron, " : "";
             
-            // MATEMATİK
             try {
                 if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
                     var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
@@ -439,7 +432,6 @@
                 }
             } catch(e) {}
             
-            // FIKRA
             if (isPatron && (q.includes('fıkra') || q.includes('şaka') || q.includes('güldür'))) {
                 const fikralar = [
                     "Temel'e sormuşlar: 'Dünyanın en hızlı şeyi nedir?' Temel: 'Ateş böceği.' 'Neden?' 'Çünkü yanıp sönüyor.' 😄",
@@ -449,12 +441,10 @@
                 return `${hitap}${fikralar[Math.floor(Math.random() * fikralar.length)]}`;
             }
             
-            // ŞİİR
             if (isPatron && (q.includes('şiir') || q.includes('şair'))) {
                 return `${hitap}📝 Patron, sana küçük bir şiir yazayım:\n\nGüneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!`;
             }
             
-            // SOHBET
             if (q.includes('nasılsın') || q.includes('nasıl')) {
                 if (isPatron) return `${hitap}🤖 Patron, siz sorduğunuz için çok iyiyim! Siz nasılsınız?`;
                 return `🤖 Çok iyiyim, teşekkür ederim! Siz nasılsınız?`;
@@ -468,7 +458,6 @@
                 return `🙏 Rica ederim!`;
             }
             
-            // İŞLETME
             if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
                 return `${hitap}💰 İşin büyüklüğüne göre değişir. Teklif için arayın: 0535 985 95 35`;
             }
@@ -485,12 +474,10 @@
                 return `${hitap}📞 Tel: 0535 985 95 35 | 📧 info@gunesyapi.com | 📍 İstanbul & Kocaeli`;
             }
             
-            // PATRON ÖZEL
             if (isPatron) {
                 return `${hitap}🤝 Patron, her şey emrinizde. ${question} hakkında size nasıl yardımcı olabilirim? Sizin için her şeyi yaparım!`;
             }
             
-            // GENEL
             return `🤝 Sorunuz için teşekkürler! Fiyat, hizmet, tadilat, randevu konularında bilgi alabilirsiniz. Bize 0535 985 95 35'ten ulaşabilirsiniz. Sohbet etmekten mutluluk duyarım! 😊`;
         }
     </script>
