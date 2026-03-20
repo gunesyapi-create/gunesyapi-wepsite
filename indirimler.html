@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Ana Sayfa</title>
+    <title>Güneş Yapı | İndirimler</title>
     <style>
         * {
             margin: 0;
@@ -60,36 +60,38 @@
         nav a:hover {
             background: #d35400;
         }
-        .hero {
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            color: white;
-            border-radius: 20px;
-            margin: 40px 20px;
         }
-        .hero h2 {
-            font-size: 42px;
+        .coming-card {
+            background: white;
+            padding: 50px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .coming-card h2 {
+            color: #e67e22;
+            font-size: 36px;
             margin-bottom: 20px;
         }
-        .hero .slogan {
-            font-size: 20px;
-            font-style: italic;
-            margin-bottom: 30px;
+        .coming-card .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
         }
-        .hero button {
-            background: white;
-            color: #e67e22;
-            border: none;
-            padding: 15px 40px;
+        .coming-card p {
             font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
+            color: #555;
+            margin: 15px 0;
+            line-height: 1.5;
         }
-        .hero button:hover {
-            transform: scale(1.05);
+        .coming-card .phone {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-top: 20px;
         }
         footer {
             background: #2c3e50;
@@ -98,73 +100,10 @@
             padding: 20px;
             margin-top: 50px;
         }
-
-        /* İNDİRİM ÇARKI */
-        .wheel-section {
-            text-align: center;
-            padding: 30px 20px;
-            background: white;
-            border-radius: 30px;
-            margin: 30px 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .wheel-section h3 {
-            color: #e67e22;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .wheel-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-        }
-        canvas {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-        .spin-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: #e67e22;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-        .spin-btn:hover {
-            background: #d35400;
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-        .result-text {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
         @media (max-width: 768px) {
-            .wheel-container {
-                width: 250px;
-                height: 250px;
-            }
-            .spin-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 14px;
-            }
-            .hero h2 {
-                font-size: 28px;
+            nav a {
+                display: block;
+                margin: 8px;
             }
             .logo {
                 width: 40px;
@@ -172,166 +111,12 @@
             .site-title h1 {
                 font-size: 22px;
             }
-        }
-
-        /* YAPAY ZEKA ASİSTANI */
-        .ai-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .ai-button {
-            background: #e67e22;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(230,126,34,0); }
-            100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
-        }
-        .ai-button:hover {
-            transform: scale(1.1);
-            background: #d35400;
-        }
-        .ai-button span {
-            font-size: 28px;
-        }
-        .ai-chat {
-            display: none;
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: 380px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
-            animation: slideUp 0.3s ease;
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .ai-header {
-            background: linear-gradient(135deg, #e67e22, #d35400);
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .ai-header h3 {
-            margin: 0;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .ai-header .close-btn {
-            cursor: pointer;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .ai-messages {
-            height: 400px;
-            overflow-y: auto;
-            padding: 20px;
-            background: #fef9f0;
-        }
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        .message.user {
-            align-items: flex-end;
-        }
-        .message.bot {
-            align-items: flex-start;
-        }
-        .message-content {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .user .message-content {
-            background: #e67e22;
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-        .bot .message-content {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-bottom-left-radius: 4px;
-            color: #2c3e50;
-        }
-        .typing-indicator {
-            display: flex;
-            gap: 4px;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 20px;
-            width: fit-content;
-        }
-        .typing-indicator span {
-            width: 8px;
-            height: 8px;
-            background: #e67e22;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
-        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-            30% { transform: translateY(-8px); opacity: 1; }
-        }
-        .ai-input-area {
-            display: flex;
-            padding: 15px;
-            background: white;
-            border-top: 1px solid #eee;
-            gap: 10px;
-        }
-        .ai-input-area input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            outline: none;
-            font-size: 14px;
-        }
-        .ai-input-area input:focus {
-            border-color: #e67e22;
-        }
-        .ai-input-area button {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        @media (max-width: 768px) {
-            nav a { display: block; margin: 8px; }
-            .ai-chat { width: 320px; right: -10px; }
-            .ai-messages { height: 350px; }
-            .ai-button { width: 50px; height: 50px; }
-            .ai-button span { font-size: 24px; }
+            .coming-card h2 {
+                font-size: 28px;
+            }
+            .coming-card .phone {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -355,229 +140,18 @@
         <a href="iletisim.html">İletişim</a>
     </nav>
     
-    <div class="hero">
-        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <button onclick="window.location.href='tel:05359859535'">Hemen Teklif Al</button>
-    </div>
-
-    <!-- İNDİRİM ÇARKI -->
-    <div class="wheel-section">
-        <h3>🎡 Şans Çarkını Çevir, İndirim Kazan! 🎁</h3>
-        <div class="wheel-container">
-            <canvas id="wheelCanvas" width="500" height="500"></canvas>
-            <button class="spin-btn" id="spinBtn">ÇEVİR</button>
+    <div class="container">
+        <div class="coming-card">
+            <div class="icon">🎉</div>
+            <h2>Yakında!</h2>
+            <p>İndirimlerimiz ve kampanyalarımız çok yakında sizlerle.</p>
+            <p>Takipte kalın!</p>
+            <div class="phone">📞 0535 985 95 35</div>
         </div>
-        <div class="result-text" id="resultText"></div>
     </div>
     
     <footer>
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
     </footer>
-
-    <!-- YAPAY ZEKA ASİSTANI -->
-    <div class="ai-container">
-        <div class="ai-button" onclick="toggleAI()">
-            <span>🤖</span>
-        </div>
-        <div class="ai-chat" id="aiChat">
-            <div class="ai-header">
-                <h3>🤖 Güneş Yapı Asistanı</h3>
-                <span class="close-btn" onclick="toggleAI()">✕</span>
-            </div>
-            <div class="ai-messages" id="aiMessages">
-                <div class="message bot">
-                    <div class="message-content">
-                        Merhaba! 👋 Ben Güneş Yapı'nın yapay zeka asistanıyım.<br><br>
-                        Sana nasıl yardımcı olabilirim?<br><br>
-                        💰 Fiyat bilgisi<br>
-                        🎨 Boya & tadilat<br>
-                        📅 Randevu<br>
-                        🎉 İndirimler<br>
-                        📞 İletişim<br><br>
-                        <span style="font-size: 12px; color: #e67e22;">✨ Sohbet etmek, fıkra anlatmak, matematik çözmek için de buradayım!</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ai-input-area">
-                <input type="text" id="aiInput" placeholder="Mesajını yaz..." onkeypress="if(event.keyCode==13) sendAI()">
-                <button onclick="sendAI()">Gönder</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // HOŞ GELDİN MESAJI
-        if (!localStorage.getItem('welcomeShown')) {
-            var welcomeDiv = document.createElement('div');
-            welcomeDiv.id = 'welcomeOverlay';
-            welcomeDiv.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 9999;';
-            welcomeDiv.innerHTML = '<div style="background: #e67e22; color: white; padding: 30px 50px; border-radius: 20px; font-size: 32px; font-weight: bold; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: zoomIn 0.5s ease;">✨ Hoş Geldiniz! ✨</div>';
-            document.body.appendChild(welcomeDiv);
-            setTimeout(function() {
-                if (welcomeDiv) welcomeDiv.remove();
-            }, 3000);
-            localStorage.setItem('welcomeShown', 'true');
-        }
-
-        // İNDİRİM ÇARKI
-        const segments = [
-            { label: "%5", value: "%5 İndirim", color: "#f9a26c" },
-            { label: "%10", value: "%10 İndirim", color: "#f7b05e" },
-            { label: "%15", value: "%15 İndirim", color: "#f5be50" },
-            { label: "%20", value: "%20 İndirim", color: "#f3cc42" },
-            { label: "%25", value: "%25 İndirim", color: "#f1da34" },
-            { label: "%30", value: "%30 İndirim", color: "#efe826" },
-            { label: "Ücretsiz\nKeşif", value: "Ücretsiz Keşif", color: "#f0a34b" },
-            { label: "Tekrar\nDene", value: "Tekrar Dene", color: "#ec8e3a" }
-        ];
-        
-        const segmentCount = segments.length;
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas.getContext('2d');
-        let currentAngle = 0;
-        let spinning = false;
-        
-        function resizeCanvas() {
-            const container = document.querySelector('.wheel-container');
-            const size = container.clientWidth;
-            canvas.width = size;
-            canvas.height = size;
-            drawWheel();
-        }
-        
-        function drawWheel() {
-            const size = canvas.width;
-            const centerX = size / 2;
-            const centerY = size / 2;
-            const radius = size / 2;
-            const angleStep = (Math.PI * 2) / segmentCount;
-            
-            ctx.clearRect(0, 0, size, size);
-            
-            for (let i = 0; i < segmentCount; i++) {
-                const startAngle = currentAngle + i * angleStep;
-                const endAngle = startAngle + angleStep;
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-                ctx.fillStyle = segments[i].color;
-                ctx.fill();
-                ctx.save();
-                ctx.shadowBlur = 0;
-                ctx.fillStyle = "#2c3e50";
-                ctx.font = `bold ${size * 0.045}px Arial`;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                const textAngle = startAngle + angleStep / 2;
-                const textRadius = radius * 0.65;
-                const x = centerX + Math.cos(textAngle) * textRadius;
-                const y = centerY + Math.sin(textAngle) * textRadius;
-                ctx.fillText(segments[i].label, x, y);
-                ctx.restore();
-            }
-            
-            // Merkezde daire
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius * 0.12, 0, Math.PI * 2);
-            ctx.fillStyle = "#2c3e50";
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius * 0.08, 0, Math.PI * 2);
-            ctx.fillStyle = "#e67e22";
-            ctx.fill();
-        }
-        
-        function spinWheel() {
-            if (spinning) return;
-            spinning = true;
-            const spinAngle = Math.random() * Math.PI * 2 + Math.PI * 4;
-            const duration = 2000;
-            const startTime = Date.now();
-            const startAngle = currentAngle;
-            
-            function animate() {
-                const now = Date.now();
-                const elapsed = now - startTime;
-                const progress = Math.min(1, elapsed / duration);
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                currentAngle = startAngle + spinAngle * easeOut;
-                drawWheel();
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    currentAngle = currentAngle % (Math.PI * 2);
-                    drawWheel();
-                    const angleStep = (Math.PI * 2) / segmentCount;
-                    const pointerAngle = Math.PI * 1.5;
-                    let winningIndex = -1;
-                    for (let i = 0; i < segmentCount; i++) {
-                        const start = currentAngle + i * angleStep;
-                        const end = start + angleStep;
-                        if (pointerAngle >= start && pointerAngle < end) {
-                            winningIndex = i;
-                            break;
-                        }
-                    }
-                    if (winningIndex === -1) winningIndex = 0;
-                    const result = segments[winningIndex].value;
-                    const resultText = document.getElementById('resultText');
-                    if (result === "Tekrar Dene") {
-                        resultText.innerHTML = `🎲 ${result}! Bir daha dene, şansın yaver gidebilir! 🍀`;
-                    } else if (result === "Ücretsiz Keşif") {
-                        resultText.innerHTML = `🎉 ${result} KAZANDIN! 🎉 Hemen ara: 0535 985 95 35`;
-                    } else {
-                        resultText.innerHTML = `🎉 Tebrikler! ${result} KAZANDIN! 🎉 Hemen arayıp randevu al: 0535 985 95 35`;
-                    }
-                    spinning = false;
-                }
-            }
-            animate();
-        }
-        
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-        });
-        
-        document.getElementById('spinBtn').addEventListener('click', spinWheel);
-        resizeCanvas();
-        
-        // YAPAY ZEKA KODU
-        let isPatron = false;
-        
-        function toggleAI() {
-            var chat = document.getElementById('aiChat');
-            chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
-        }
-        
-        function addTypingIndicator() {
-            var messagesDiv = document.getElementById('aiMessages');
-            var typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot';
-            typingDiv.id = 'typingIndicator';
-            typingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
-            messagesDiv.appendChild(typingDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-        
-        function removeTypingIndicator() {
-            var typing = document.getElementById('typingIndicator');
-            if (typing) typing.remove();
-        }
-        
-        function sendAI() {
-            var input = document.getElementById('aiInput');
-            var msg = input.value.trim();
-            if (msg === "") return;
-            
-            var messagesDiv = document.getElementById('aiMessages');
-            
-            messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            if (msg === "2698") {
-                isPatron = true;
-                addTypingIndicator();
-                setTimeout(() => {
-                    removeTypingIndicator();
-                    me
+</body>
+</html>
