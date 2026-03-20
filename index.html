@@ -99,30 +99,6 @@
             padding: 20px;
             margin-top: 50px;
         }
-        /* Yapay Zeka Asistanı Butonu */
-        .ai-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #e67e22;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            transition: 0.3s;
-            z-index: 100;
-        }
-        .ai-button:hover {
-            transform: scale(1.05);
-            background: #d35400;
-        }
-        .ai-button span {
-            font-size: 22px;
-        }
         @media (max-width: 768px) {
             nav a {
                 display: block;
@@ -137,15 +113,6 @@
             .site-title h1 {
                 font-size: 22px;
             }
-            .ai-button {
-                width: 38px;
-                height: 38px;
-                top: 15px;
-                right: 15px;
-            }
-            .ai-button span {
-                font-size: 18px;
-            }
         }
     </style>
 </head>
@@ -158,9 +125,28 @@
                 <p>Yapı & İnşaat</p>
             </div>
         </div>
-        <!-- Yapay Zeka Asistanı Butonu - Sağ Üst -->
-        <div class="ai-button" onclick="alert('🤖 Merhaba! Size nasıl yardımcı olabilirim?\n\n📞 Bize 0535 985 95 35 numaralı telefondan ulaşabilirsiniz.\n📧 info@gunesyapi.com\n📍 İstanbul & Kocaeli')">
-            <span>🤖</span>
+        
+        <!-- Yapay Zeka Asistanı - Sohbet Butonu -->
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+            <div id="aiButton" onclick="toggleChat()" style="background: #e67e22; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: 0.3s;">
+                <span style="font-size: 22px;">🤖</span>
+            </div>
+            <div id="aiChat" style="display: none; position: absolute; top: 55px; right: 0; width: 280px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); overflow: hidden;">
+                <div style="background: #e67e22; color: white; padding: 12px; font-weight: bold;">
+                    🤖 Güneş Yapı Asistanı
+                    <span onclick="toggleChat()" style="float: right; cursor: pointer;">✕</span>
+                </div>
+                <div id="chatMessages" style="height: 300px; overflow-y: auto; padding: 12px; background: #f9f9f9;">
+                    <div style="margin-bottom: 10px;">
+                        <strong>🤖:</strong> Merhaba! Ben Güneş Yapı asistanıyım. Size nasıl yardımcı olabilirim?<br>
+                        <span style="font-size: 12px; color: #888;">Fiyat, hizmetler, indirim, iletişim gibi sorular sorabilirsiniz.</span>
+                    </div>
+                </div>
+                <div style="padding: 10px; border-top: 1px solid #eee; display: flex;">
+                    <input type="text" id="userInput" placeholder="Mesajınızı yazın..." style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 8px; margin-right: 8px;">
+                    <button onclick="sendMessage()" style="background: #e67e22; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer;">Gönder</button>
+                </div>
+            </div>
         </div>
     </header>
     
@@ -181,5 +167,66 @@
     <footer>
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
     </footer>
+    
+    <script>
+        function toggleChat() {
+            var chat = document.getElementById('aiChat');
+            chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function sendMessage() {
+            var input = document.getElementById('userInput');
+            var msg = input.value.trim();
+            if (msg === "") return;
+            
+            var chatMessages = document.getElementById('chatMessages');
+            
+            chatMessages.innerHTML += '<div style="margin-bottom: 10px; text-align: right;"><strong>Siz:</strong> ' + msg + '</div>';
+            
+            setTimeout(function() {
+                var cevap = getAIResponse(msg);
+                chatMessages.innerHTML += '<div style="margin-bottom: 10px;"><strong>🤖:</strong> ' + cevap + '</div>';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 300);
+            
+            input.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function getAIResponse(question) {
+            var q = question.toLowerCase();
+            
+            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('tutar')) {
+                return "Fiyatlarımız işin büyüklüğüne ve kullanılan malzemeye göre değişir. Detaylı bilgi için bizi arayabilirsiniz: 📞 0535 985 95 35";
+            }
+            else if (q.includes('boya') || q.includes('badana')) {
+                return "Evet, iç cephe, dış cephe ve dekoratif boya hizmetimiz var. Profesyonel ekibimizle kaliteli işçilik yapıyoruz. Teklif almak için arayın!";
+            }
+            else if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
+                return "Alçı ve alçıpan işlerimiz mevcut. Asma tavan, bölme duvar, ses ve ısı yalıtımı yapıyoruz. Uygun fiyat garantisi!";
+            }
+            else if (q.includes('fayans') || q.includes('seramik')) {
+                return "Banyo, mutfak, zemin ve duvar fayans işçiliği yapıyoruz. Tadilat ve yenileme hizmetlerimiz de mevcut.";
+            }
+            else if (q.includes('indirim') || q.includes('kampanya') || q.includes('fırsat')) {
+                return "🎉 İndirimlerimiz yakında! Kampanyalarımızdan haberdar olmak için bizi Instagram'dan takip edebilir veya arayabilirsiniz.";
+            }
+            else if (q.includes('iletişim') || q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
+                return "📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 Hizmet Bölgesi: İstanbul & Kocaeli";
+            }
+            else if (q.includes('nerede') || q.includes('konum')) {
+                return "İstanbul ve Kocaeli bölgesinde hizmet vermekteyiz. Detaylı adres için bizi arayabilirsiniz.";
+            }
+            else if (q.includes('teşekkür') || q.includes('sağol') || q.includes('eyw')) {
+                return "Rica ederim! Başka sorunuz varsa her zaman buradayım. İyi günler dilerim! 🏠";
+            }
+            else if (q.includes('merhaba') || q.includes('selam') || q.includes('iyi günler')) {
+                return "Merhaba! Hoş geldiniz. Size nasıl yardımcı olabilirim? Fiyat, hizmetler veya indirimler hakkında bilgi alabilirsiniz.";
+            }
+            else {
+                return "Sorunuz için teşekkürler. Detaylı bilgi için bizi 0535 985 95 35 numaralı telefondan arayabilir veya İletişim sayfamızı ziyaret edebilirsiniz. Size yardımcı olmaktan mutluluk duyarız! 🤝";
+            }
+        }
+    </script>
 </body>
 </html>
