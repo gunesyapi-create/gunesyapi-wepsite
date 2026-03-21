@@ -260,10 +260,21 @@
     </style>
 </head>
 <body>
-    <!-- ÇEREZ BİLDİRİMİ -->
-    <div id="cookieConsent" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #2c3e50; color: white; padding: 15px 20px; text-align: center; z-index: 9999; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <span>🍪 Bu site, size daha iyi hizmet verebilmek için çerezler kullanmaktadır. Siteyi kullanarak çerez kullanımını kabul etmiş sayılırsınız.</span>
-        <button onclick="acceptCookies()" style="background: #e67e22; color: white; border: none; padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: bold;">Kabul Et</button>
+    <!-- PROFESYONEL ÇEREZ BİLDİRİMİ -->
+    <div id="cookieConsent" style="position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 420px; background: #1e2a3a; color: #ecf0f1; padding: 18px 22px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999; backdrop-filter: blur(2px); font-family: 'Segoe UI', sans-serif; border-left: 4px solid #e67e22;">
+        <div style="display: flex; align-items: flex-start; gap: 15px; flex-wrap: wrap;">
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-size: 22px;">🍪</span>
+                    <strong style="font-size: 16px; color: #e67e22;">Çerez Politikası</strong>
+                </div>
+                <p style="font-size: 13px; line-height: 1.4; margin-bottom: 12px; opacity: 0.9;">Sizlere daha iyi hizmet verebilmek için web sitemizde çerezler kullanılmaktadır. Siteyi kullanarak çerez kullanımını kabul etmiş sayılırsınız.</p>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                    <button onclick="acceptCookies()" style="background: #e67e22; color: white; border: none; padding: 6px 20px; border-radius: 40px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s;">Kabul Et</button>
+                    <button onclick="location.href='gizlilik.html'" style="background: transparent; color: #e67e22; border: 1px solid #e67e22; padding: 6px 18px; border-radius: 40px; cursor: pointer; font-size: 13px; transition: 0.2s;">Detaylar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <header>
@@ -332,7 +343,6 @@
             localStorage.setItem('cookieAccepted', 'true');
             document.getElementById('cookieConsent').style.display = 'none';
         }
-        
         if (localStorage.getItem('cookieAccepted') === 'true') {
             document.getElementById('cookieConsent').style.display = 'none';
         }
@@ -428,5 +438,3 @@
     </script>
 </body>
 </html>
-
-
