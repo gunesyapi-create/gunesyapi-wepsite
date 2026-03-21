@@ -159,9 +159,6 @@
         .ai-header h3 {
             margin: 0;
             font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         .ai-header .close-btn {
             cursor: pointer;
@@ -169,9 +166,9 @@
             font-weight: bold;
         }
         .ai-messages {
-            height: 400px;
+            height: 350px;
             overflow-y: auto;
-            padding: 20px;
+            padding: 15px;
             background: #fef9f0;
         }
         .message {
@@ -187,10 +184,10 @@
         }
         .message-content {
             max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 20px;
+            padding: 10px 14px;
+            border-radius: 18px;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         .user .message-content {
             background: #e67e22;
@@ -203,40 +200,39 @@
             border-bottom-left-radius: 4px;
             color: #2c3e50;
         }
-        .typing-indicator {
+        .option-buttons {
             display: flex;
-            gap: 4px;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 20px;
-            width: fit-content;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
-        .typing-indicator span {
-            width: 8px;
-            height: 8px;
+        .opt-btn {
             background: #e67e22;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.3s;
         }
-        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
-        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-            30% { transform: translateY(-8px); opacity: 1; }
+        .opt-btn:hover {
+            background: #d35400;
+            transform: scale(1.02);
         }
         .ai-input-area {
             display: flex;
-            padding: 15px;
+            padding: 12px;
             background: white;
             border-top: 1px solid #eee;
-            gap: 10px;
+            gap: 8px;
         }
         .ai-input-area input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border: 1px solid #ddd;
-            border-radius: 30px;
+            border-radius: 25px;
             outline: none;
             font-size: 14px;
         }
@@ -247,8 +243,8 @@
             background: #e67e22;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 8px 16px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
         }
@@ -258,10 +254,9 @@
             .logo { width: 40px; }
             .site-title h1 { font-size: 22px; }
             .ai-chat { width: 320px; right: -10px; }
-            .ai-messages { height: 350px; }
+            .ai-messages { height: 320px; }
             .ai-button { width: 50px; height: 50px; }
             .ai-button span { font-size: 24px; }
-            .clock-box { padding: 6px 12px; font-size: 12px; }
         }
     </style>
 </head>
@@ -275,8 +270,8 @@
             </div>
         </div>
         
-        <!-- SAAT - Sağ Üst -->
-        <div class="clock-box" style="position: absolute; top: 20px; right: 20px; background: #e67e22; color: white; padding: 8px 15px; border-radius: 30px; font-weight: bold; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); text-align: center;">
+        <!-- DİKDÖRTGEN SAAT -->
+        <div style="position: absolute; top: 20px; right: 20px; background: #e67e22; color: white; padding: 8px 18px; border-radius: 8px; font-weight: bold; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); text-align: center;">
             <div id="liveDay" style="font-size: 12px; margin-bottom: 3px;">Cumartesi</div>
             <div id="liveClock">14:25:36</div>
         </div>
@@ -298,7 +293,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35 | E-posta: mehmetgnes456@gmail.com</p>
     </footer>
 
     <!-- YAPAY ZEKA ASİSTANI -->
@@ -314,20 +309,19 @@
             <div class="ai-messages" id="aiMessages">
                 <div class="message bot">
                     <div class="message-content">
-                        Selam canım! 👋 Ben Güneş Yapı'nın asistanıyım.<br><br>
-                        Sana nasıl yardımcı olabilirim?<br><br>
-                        💰 Fiyat bilgisi<br>
-                        🎨 Boya & tadilat<br>
-                        📅 Randevu<br>
-                        🎉 İndirimler<br>
-                        📞 İletişim<br>
-                        🧮 Matematik işlemleri<br><br>
-                        <span style="font-size: 12px; color: #e67e22;">✨ Sorularını bekliyorum canım!</span>
+                        Merhaba! 👋 Size nasıl yardımcı olabilirim?
+                        <div class="option-buttons">
+                            <button class="opt-btn" onclick="sendOption('fiyat')">💰 Fiyat Bilgisi</button>
+                            <button class="opt-btn" onclick="sendOption('boya')">🎨 Boya & Tadilat</button>
+                            <button class="opt-btn" onclick="sendOption('randevu')">📅 Randevu</button>
+                            <button class="opt-btn" onclick="sendOption('indirim')">🎉 İndirimler</button>
+                            <button class="opt-btn" onclick="sendOption('iletisim')">📞 İletişim</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="ai-input-area">
-                <input type="text" id="aiInput" placeholder="Mesajını yaz..." onkeypress="if(event.keyCode==13) sendAI()">
+                <input type="text" id="aiInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.keyCode==13) sendAI()">
                 <button onclick="sendAI()">Gönder</button>
             </div>
         </div>
@@ -343,7 +337,6 @@
             var minutes = now.getMinutes().toString().padStart(2, '0');
             var seconds = now.getSeconds().toString().padStart(2, '0');
             var saat = hours + ':' + minutes + ':' + seconds;
-            
             document.getElementById('liveDay').innerHTML = gun;
             document.getElementById('liveClock').innerHTML = saat;
         }
@@ -358,7 +351,6 @@
         
         function addTypingIndicator() {
             var messagesDiv = document.getElementById('aiMessages');
-            if (!messagesDiv) return;
             var typingDiv = document.createElement('div');
             typingDiv.className = 'message bot';
             typingDiv.id = 'typingIndicator';
@@ -374,112 +366,70 @@
         
         function sendAI() {
             var input = document.getElementById('aiInput');
-            if (!input) return;
             var msg = input.value.trim();
             if (msg === "") return;
-            
-            var messagesDiv = document.getElementById('aiMessages');
-            if (!messagesDiv) return;
-            
-            messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            addMessage('user', msg);
             input.value = "";
             addTypingIndicator();
-            
             setTimeout(() => {
                 removeTypingIndicator();
-                var cevap = getSmartResponse(msg);
-                messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">${cevap}</div></div>`;
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                var cevap = getResponse(msg);
+                addMessage('bot', cevap);
             }, 500);
         }
         
-        function escapeHtml(text) {
-            return text.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            });
+        function sendOption(option) {
+            var cevap = "";
+            switch(option) {
+                case 'fiyat':
+                    cevap = "💰 Fiyatlarımız işin büyüklüğüne ve kullanılan malzemeye göre değişir. En doğru teklif için bizi arayabilirsiniz: 📞 0535 985 95 35";
+                    break;
+                case 'boya':
+                    cevap = "🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi!";
+                    break;
+                case 'randevu':
+                    cevap = "📅 Randevu almak için menüdeki Randevu sayfasını kullanabilir veya bizi arayabilirsiniz: 0535 985 95 35";
+                    break;
+                case 'indirim':
+                    cevap = "🎉 Kampanyalarımız için İndirimler sayfamızı ziyaret edebilirsiniz! İlk keşif ücretsizdir.";
+                    break;
+                case 'iletisim':
+                    cevap = "📞 Telefon: 0535 985 95 35\n📧 E-posta: mehmetgnes456@gmail.com\n📍 İstanbul & Kocaeli";
+                    break;
+            }
+            addMessage('bot', cevap);
         }
         
-        function getSmartResponse(question) {
+        function addMessage(type, content) {
+            var messagesDiv = document.getElementById('aiMessages');
+            var msgDiv = document.createElement('div');
+            msgDiv.className = 'message ' + type;
+            msgDiv.innerHTML = `<div class="message-content">${content}</div>`;
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function getResponse(question) {
             var q = question.toLowerCase();
             
-            // MATEMATİK
             try {
                 if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
                     var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
-                    if (islem.match(/[\d+\-*/.]/) && !islem.includes('--')) {
+                    if (islem.match(/[\d+\-*/.]/)) {
                         var sonuc = eval(islem);
-                        if (!isNaN(sonuc) && isFinite(sonuc)) {
-                            return `🧮 ${islem} = ${sonuc} canım`;
-                        }
-                    }
-                }
-                if (q.includes('karekök') || q.includes('√')) {
-                    var sayi = parseInt(q.match(/\d+/));
-                    if (sayi && sayi > 0) {
-                        var kok = Math.sqrt(sayi);
-                        return `📐 ${sayi} sayısının karekökü = ${kok} canım`;
-                    }
-                }
-                if (q.includes('%') || q.includes('yüzde')) {
-                    var sayilar = q.match(/\d+/g);
-                    if (sayilar && sayilar.length >= 2) {
-                        var yuzde = (sayilar[1] * sayilar[0]) / 100;
-                        return `💰 ${sayilar[1]}'ün %${sayilar[0]}'i = ${yuzde} canım`;
+                        if (!isNaN(sonuc)) return `🧮 ${islem} = ${sonuc}`;
                     }
                 }
             } catch(e) {}
             
-            // FİYAT
-            if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para') || q.includes('tutar')) {
-                return `💰 Fiyatlar işin büyüklüğüne göre değişir canım. En doğru teklif için bizi ara: 📞 0535 985 95 35`;
-            }
-            // BOYA
-            if (q.includes('boya') || q.includes('badana')) {
-                return `🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya. 10 yıllık ekibimizle kaliteli işçilik canım!`;
-            }
-            // ALÇIPAN
-            if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
-                return `🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı yapıyoruz canım. Uygun fiyat garantisi!`;
-            }
-            // TADİLAT
-            if (q.includes('tadilat') || q.includes('yenileme')) {
-                return `🏗️ Ev, iş yeri, mutfak, banyo tadilatı yapıyoruz canım. Anahtar teslim hizmet!`;
-            }
-            // RANDEVU
-            if (q.includes('randevu')) {
-                return `📅 Randevu almak için menüdeki Randevu sayfasına gider misin canım? Ya da bizi ara: 0535 985 95 35`;
-            }
-            // İNDİRİM
-            if (q.includes('indirim') || q.includes('kampanya')) {
-                return `🎉 Kampanyalarımız için İndirimler sayfamıza bakabilirsin canım! İlk keşif ücretsiz!`;
-            }
-            // İLETİŞİM
-            if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
-                return `📞 Telefon: 0535 985 95 35\n📧 E-posta: info@gunesyapi.com\n📍 İstanbul & Kocaeli canım`;
-            }
-            // SOHBET
-            if (q.includes('nasılsın') || q.includes('nasıl')) {
-                return `🤗 Çok iyiyim canım, teşekkür ederim! Sen nasılsın? Sana yardımcı olabilir miyim?`;
-            }
-            if (q.includes('merhaba') || q.includes('selam')) {
-                return `👋 Selam canım! Hoş geldin. Sana nasıl yardımcı olabilirim? Fiyat, hizmet, tadilat, randevu, her şeyi sorabilirsin 😊`;
-            }
-            if (q.includes('teşekkür') || q.includes('sağol')) {
-                return `🙏 Rica ederim canım! Başka ihtiyacın olursa hemen yaz, her zaman buradayım 😊`;
-            }
-            if (q.includes('adın ne') || q.includes('ismin ne')) {
-                return `🤗 Benim adım Asistan canım. Güneş Yapı'da sana yardım etmek için buradayım!`;
-            }
-            if (q.includes('ne yapıyorsun')) {
-                return `🤗 Sana yardım etmek için bekliyorum canım! Fiyat, hizmet, matematik, sohbet... Ne istersen yaparım 😊`;
-            }
+            if (q.includes('fiyat')) return "💰 İşin büyüklüğüne göre değişir. Teklif için arayın: 0535 985 95 35";
+            if (q.includes('boya')) return "🎨 İç-dış cephe, dekoratif boya. Kaliteli işçilik!";
+            if (q.includes('randevu')) return "📅 Randevu sayfasını kullanın veya arayın: 0535 985 95 35";
+            if (q.includes('telefon') || q.includes('numara')) return "📞 Tel: 0535 985 95 35 | 📧 mehmetgnes456@gmail.com";
+            if (q.includes('merhaba')) return "👋 Merhaba! Size nasıl yardımcı olabilirim?";
+            if (q.includes('teşekkür')) return "🙏 Rica ederim! Başka sorunuz olursa yazın.";
             
-            // GENEL
-            return `🤗 Sorun için teşekkürler canım! Fiyat, hizmet, tadilat, randevu veya iletişim hakkında bilgi alabilirsin. Bize 0535 985 95 35'ten de ulaşabilirsin. Sohbet etmek çok güzel, başka sorun var mı? 😊`;
+            return "Size nasıl yardımcı olabilirim? Yukarıdaki butonlardan birini seçebilir veya sorunuzu yazabilirsiniz. 😊";
         }
     </script>
 </body>
