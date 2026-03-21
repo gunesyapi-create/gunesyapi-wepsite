@@ -50,7 +50,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 10px 16px;
             margin: 0 2px;
             display: inline-block;
             font-weight: bold;
@@ -60,6 +60,14 @@
         nav a:hover {
             background: #d35400;
         }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
         .container {
             max-width: 550px;
             margin: 50px auto;
@@ -98,13 +106,8 @@
             outline: none;
             border-color: #e67e22;
         }
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
         .btn-whatsapp {
-            flex: 1;
+            width: 100%;
             background: #25D366;
             color: white;
             border: none;
@@ -118,22 +121,6 @@
         }
         .btn-whatsapp:hover {
             background: #128C7E;
-        }
-        .btn-mail {
-            flex: 1;
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-        }
-        .btn-mail:hover {
-            background: #d35400;
         }
         .info-text {
             text-align: center;
@@ -150,13 +137,6 @@
             margin-top: 15px;
             display: none;
         }
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
         @media (max-width: 768px) {
             nav a {
                 display: block;
@@ -167,9 +147,6 @@
             }
             .site-title h1 {
                 font-size: 22px;
-            }
-            .btn-group {
-                flex-direction: column;
             }
             .form-card {
                 padding: 25px;
@@ -226,8 +203,6 @@
                         <option value="Fayans & Seramik">Fayans & Seramik</option>
                         <option value="Tadilat & Yenileme">Tadilat & Yenileme</option>
                         <option value="Dekorasyon">Dekorasyon</option>
-                        <option value="Su Yalıtımı">Su Yalıtımı</option>
-                        <option value="Isı Yalıtımı">Isı Yalıtımı</option>
                         <option value="Diğer">Diğer</option>
                     </select>
                 </div>
@@ -236,24 +211,21 @@
                     <textarea id="mesaj" rows="3" placeholder="Adres detayı veya notunuz..."></textarea>
                 </div>
                 
-                <div class="btn-group">
-                    <button type="button" class="btn-whatsapp" onclick="sendWhatsApp()">📱 WhatsApp ile Gönder</button>
-                    <button type="button" class="btn-mail" onclick="sendEmail()">📧 E-posta ile Gönder</button>
-                </div>
+                <button type="button" class="btn-whatsapp" onclick="sendWhatsApp()">📱 WhatsApp ile Randevu Gönder</button>
                 <div id="successMessage" class="success-message">
-                    ✅ Randevu talebiniz iletildi! En kısa sürede size dönüş yapacağız.
+                    ✅ Randevu talebiniz WhatsApp'a iletildi! En kısa sürede size dönüş yapacağız.
                 </div>
                 <div class="info-text">
-                    WhatsApp veya E-posta ile randevu talebiniz bize iletilecektir.
+                    WhatsApp ile randevu talebiniz bize iletilecektir.
                 </div>
             </form>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35</p>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35 | E-posta: mehmetgnes456@gmail.com</p>
     </footer>
-    
+
     <script>
         function getFormData() {
             var adsoyad = document.getElementById('adsoyad').value;
@@ -280,7 +252,7 @@
             };
         }
         
-        function formatMessage(data) {
+        function formatWhatsAppMessage(data) {
             return "📅 YENİ RANDEVU TALEBİ 📅%0A%0A" +
                    "👤 Ad Soyad: " + data.adsoyad + "%0A" +
                    "📞 Telefon: " + data.telefon + "%0A" +
@@ -295,32 +267,9 @@
             var data = getFormData();
             if (!data) return;
             
-            var message = formatMessage(data);
+            var message = formatWhatsAppMessage(data);
             var url = "https://wa.me/905359859535?text=" + message;
             window.open(url, "_blank");
-            
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-            document.getElementById('randevuForm').reset();
-        }
-        
-        function sendEmail() {
-            var data = getFormData();
-            if (!data) return;
-            
-            var subject = "Yeni Randevu Talebi - " + data.adsoyad + " (" + data.hizmet + ")";
-            var body = "Ad Soyad: " + data.adsoyad + "\n" +
-                       "Telefon: " + data.telefon + "\n" +
-                       "Konum: " + data.konum + "\n" +
-                       "Tarih: " + data.tarih + "\n" +
-                       "Hizmet: " + data.hizmet + "\n" +
-                       "Ek Not: " + data.mesaj + "\n\n" +
-                       "Güneş Yapı - Randevu Talebi";
-            
-            var url = "mailto:info@gunesyapi.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-            window.location.href = url;
             
             document.getElementById('successMessage').style.display = 'block';
             setTimeout(function() {
