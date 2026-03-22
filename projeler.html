@@ -60,6 +60,52 @@
         nav a:hover {
             background: #d35400;
         }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 36px;
+            color: #e67e22;
+            margin-bottom: 40px;
+        }
+        .projects {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 320px;
+            text-align: center;
+        }
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-card h3 {
+            padding: 20px 20px 5px;
+            font-size: 22px;
+            color: #e67e22;
+        }
+        .project-card .soz {
+            padding: 5px 20px;
+            font-style: italic;
+            color: #e67e22;
+            font-size: 14px;
+        }
+        .project-card p {
+            padding: 10px 20px 20px;
+            color: #555;
+            line-height: 1.5;
+        }
         footer {
             background: #2c3e50;
             color: white;
@@ -67,94 +113,10 @@
             padding: 20px;
             margin-top: 50px;
         }
-
-        .gallery-section {
-            max-width: 1400px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .gallery-title {
-            text-align: center;
-            font-size: 42px;
-            color: #e67e22;
-            margin-bottom: 15px;
-        }
-        .gallery-sub {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 18px;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .gallery-item {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: 0.4s ease;
-        }
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        .gallery-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            transition: 0.4s;
-        }
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.02);
-        }
-        .gallery-info {
-            padding: 20px;
-            text-align: center;
-        }
-        .gallery-info h3 {
-            color: #e67e22;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        .gallery-info p {
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        .gallery-info .quote {
-            font-style: italic;
-            color: #e67e22;
-            font-size: 14px;
-            border-top: 1px solid #eee;
-            padding-top: 12px;
-            margin-top: 10px;
-        }
-        .btn-project {
-            display: inline-block;
-            background: #e67e22;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-        .btn-project:hover {
-            background: #d35400;
-            transform: scale(1.02);
-        }
         @media (max-width: 768px) {
             nav a { display: block; margin: 8px; }
             .logo { width: 40px; }
             .site-title h1 { font-size: 22px; }
-            .gallery-title { font-size: 32px; }
-            .gallery-grid { gap: 20px; }
-            .gallery-img { height: 220px; }
         }
     </style>
 </head>
@@ -177,54 +139,33 @@
         <a href="randevu.html">Randevu</a>
         <a href="iletisim.html">İletişim</a>
     </nav>
-
-    <div class="gallery-section">
-        <h1 class="gallery-title">📸 Projelerimiz</h1>
-        <p class="gallery-sub">Her bir proje, kalitemizin ve güvenimizin bir göstergesidir.</p>
-        
-        <div class="gallery-grid">
-            <!-- Proje 1: Villa -->
-            <div class="gallery-item">
-                <img src="ABC99.jpeg" alt="Villa Projesi" class="gallery-img" onerror="this.src='abc.jpeg'">
-                <div class="gallery-info">
-                    <h3>Modern Villa</h3>
-                    <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p>
-                    <div class="quote">"Her detayda kalite, her köşede estetik"</div>
-                    <a href="tel:05359859535" class="btn-project">Teklif Al</a>
-                </div>
+    
+    <div class="container">
+        <h1 class="page-title">Projelerimiz</h1>
+        <div class="projects">
+            <div class="project-card">
+                <img src="ABC99.jpeg" alt="Villa Projesi">
+                <h3>Modern Villa</h3>
+                <div class="soz">"Her detayda kalite, her köşede estetik"</div>
+                <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p>
             </div>
-            
-            <!-- Proje 2: Ofis -->
-            <div class="gallery-item">
-                <img src="ABC88.jpeg" alt="Ofis Projesi" class="gallery-img" onerror="this.src='abc.jpeg'">
-                <div class="gallery-info">
-                    <h3>Ofis Tadilatı</h3>
-                    <p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya uygulaması.</p>
-                    <div class="quote">"Profesyonel işler, profesyonel ellerde"</div>
-                    <a href="tel:05359859535" class="btn-project">Teklif Al</a>
-                </div>
+            <div class="project-card">
+                <img src="ABC88.jpeg" alt="Ofis Tadilatı">
+                <h3>Ofis Tadilatı</h3>
+                <div class="soz">"Profesyonel işler, profesyonel ellerde"</div>
+                <p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya uygulaması.</p>
             </div>
-            
-            <!-- Proje 3: Daire -->
-            <div class="gallery-item">
-                <img src="ABC77.jpeg" alt="Daire Projesi" class="gallery-img" onerror="this.src='abc.jpeg'">
-                <div class="gallery-info">
-                    <h3>Daire Tadilatı</h3>
-                    <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri.</p>
-                    <div class="quote">"Dayanıklılık ve estetik bir arada"</div>
-                    <a href="tel:05359859535" class="btn-project">Teklif Al</a>
-                </div>
+            <div class="project-card">
+                <img src="ABC77.jpeg" alt="Daire Tadilatı">
+                <h3>Daire Tadilatı</h3>
+                <div class="soz">"Dayanıklılık ve estetik bir arada"</div>
+                <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri.</p>
             </div>
-            
-            <!-- Proje 4: Mutfak (Düzeltildi) -->
-            <div class="gallery-item">
-                <img src="ABC66.jpeg" alt="Mutfak Projesi" class="gallery-img" onerror="this.src='abc.jpeg'">
-                <div class="gallery-info">
-                    <h3>Mutfak Yenileme</h3>
-                    <p>Mutfak dolapları, tezgah ve fayans işçiliği ile komple yenileme.</p>
-                    <div class="quote">"Hayalinizdeki mutfağa kavuşun"</div>
-                    <a href="tel:05359859535" class="btn-project">Teklif Al</a>
-                </div>
+            <div class="project-card">
+                <img src="ABC66.jpeg" alt="Mutfak Yenileme">
+                <h3>Mutfak Yenileme</h3>
+                <div class="soz">"Hayalinizdeki mutfağa kavuşun"</div>
+                <p>Mutfak dolapları, tezgah ve fayans işçiliği ile komple yenileme.</p>
             </div>
         </div>
     </div>
