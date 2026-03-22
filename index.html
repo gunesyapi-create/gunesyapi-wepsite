@@ -168,10 +168,10 @@
         }
         .about-content {
             text-align: left;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .about-content p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .randevu-form {
             text-align: left;
@@ -219,8 +219,8 @@
         }
         .ai-button {
             background: #e67e22;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -229,23 +229,28 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+            position: relative;
+            z-index: 1001;
+        }
+        .ai-button span {
+            font-size: 32px;
+            pointer-events: none;
+            display: block;
+            line-height: 1;
+        }
+        .ai-button:hover {
+            transform: scale(1.08);
+            background: #d35400;
         }
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.7); }
             70% { box-shadow: 0 0 0 15px rgba(230,126,34,0); }
             100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
         }
-        .ai-button:hover {
-            transform: scale(1.1);
-            background: #d35400;
-        }
-        .ai-button span {
-            font-size: 28px;
-        }
         .ai-chat {
             display: none;
             position: absolute;
-            bottom: 75px;
+            bottom: 80px;
             right: 0;
             width: 380px;
             background: white;
@@ -364,8 +369,8 @@
             .site-title h1 { font-size: 22px; }
             .ai-chat { width: 320px; right: -10px; }
             .ai-messages { height: 320px; }
-            .ai-button { width: 50px; height: 50px; }
-            .ai-button span { font-size: 24px; }
+            .ai-button { width: 55px; height: 55px; }
+            .ai-button span { font-size: 28px; }
             .form-row { flex-direction: column; gap: 10px; }
         }
     </style>
@@ -552,9 +557,8 @@
             </div>
         </div>
 
-        <!-- HAKKINDA -->
+        <!-- HAKKINDA (UZATILDI) -->
         <h2 class="section-title">🏢 Hakkımızda</h2>
         <div class="about-card">
             <div class="about-content">
-                <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermekteyiz.</p>
-                <p>Kaliteli işçilik, uygun fiyat ve zamanında teslimat ilkelerimizle müşterilerimize güvenilir hiz
+                <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan
