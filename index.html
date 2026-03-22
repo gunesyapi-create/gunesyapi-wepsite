@@ -173,6 +173,35 @@
         .about-content p {
             margin-bottom: 15px;
         }
+        .randevu-form {
+            text-align: left;
+        }
+        .randevu-form input, .randevu-form select, .randevu-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .randevu-form input:focus, .randevu-form select:focus, .randevu-form textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
         footer {
             background: #2c3e50;
             color: white;
@@ -337,6 +366,7 @@
             .ai-messages { height: 320px; }
             .ai-button { width: 50px; height: 50px; }
             .ai-button span { font-size: 24px; }
+            .form-row { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -355,7 +385,7 @@
     <div class="hero">
         <h2>Hayalinizdeki Yapıya Ulaşın</h2>
         <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Hemen Teklif Al</button>
+        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
     </div>
 
     <div class="container">
@@ -365,22 +395,22 @@
             <div class="service-card">
                 <h3>🏠 Boya & Badana</h3>
                 <p>İç cephe, dış cephe, dekoratif boya uygulamaları.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="service-card">
                 <h3>🛠️ Alçı & Alçıpan</h3>
                 <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="service-card">
                 <h3>🔨 Fayans & Seramik</h3>
                 <p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="service-card">
                 <h3>🏗️ Tadilat & Yenileme</h3>
                 <p>Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim!</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
         </div>
 
@@ -391,25 +421,25 @@
                 <img src="ABC99.jpeg" alt="Villa Projesi" onerror="this.src='abc.jpeg'">
                 <h3>Modern Villa</h3>
                 <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="project-card">
                 <img src="ABC88.jpeg" alt="Ofis Tadilatı" onerror="this.src='abc.jpeg'">
                 <h3>Ofis Tadilatı</h3>
                 <p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="project-card">
                 <img src="ABC77.jpeg" alt="Daire Tadilatı" onerror="this.src='abc.jpeg'">
                 <h3>Daire Tadilatı</h3>
                 <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="project-card">
                 <img src="ABC66.jpeg" alt="Mutfak Yenileme" onerror="this.src='abc.jpeg'">
                 <h3>Mutfak Yenileme</h3>
                 <p>Mutfak dolapları, tezgah ve fayans işçiliği.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
         </div>
 
@@ -420,21 +450,91 @@
                 <h3>🏢 2+1 Daire</h3>
                 <div class="discount">%10 İNDİRİM</div>
                 <p>2+1 dairelerde tüm tadilat ve boya işlerinde %10 indirim!</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
             <div class="campaign-card">
                 <h3>🏠 3+1 Daire</h3>
                 <div class="discount">%15 İNDİRİM</div>
                 <p>3+1 dairelerde tüm tadilat ve boya işlerinde %15 indirim!</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
             </div>
         </div>
 
-        <!-- RANDEVU -->
+        <!-- RANDEVU BÖLÜMÜ (DETAYLI ADRES) -->
         <h2 class="section-title">📅 Randevu</h2>
-        <div class="randevu-card" style="text-align: center;">
-            <p style="font-size: 18px; margin-bottom: 20px;">Randevu almak için bizi arayabilirsiniz.</p>
-            <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Hemen Ara: 0535 985 95 35</button>
+        <div class="randevu-card">
+            <form id="randevuForm" class="randevu-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ad Soyad *</label>
+                        <input type="text" id="adsoyad" required placeholder="Adınız Soyadınız">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon *</label>
+                        <input type="tel" id="telefon" required placeholder="0535 985 95 35">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>İl *</label>
+                        <select id="il" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="İstanbul">İstanbul</option>
+                            <option value="Kocaeli">Kocaeli</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>İlçe *</label>
+                        <input type="text" id="ilce" required placeholder="Gebze, Kartal, Pendik...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Mahalle *</label>
+                        <input type="text" id="mahalle" required placeholder="Mahalle adı">
+                    </div>
+                    <div class="form-group">
+                        <label>Sokak / Cadde *</label>
+                        <input type="text" id="sokak" required placeholder="Sokak adı">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Daire No *</label>
+                        <input type="text" id="daire" required placeholder="12">
+                    </div>
+                    <div class="form-group">
+                        <label>Kat</label>
+                        <input type="text" id="kat" placeholder="3 (isteğe bağlı)">
+                    </div>
+                    <div class="form-group">
+                        <label>Randevu Tarihi *</label>
+                        <input type="date" id="tarih" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Hizmet Seçimi *</label>
+                        <select id="hizmet" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="Boya & Badana">Boya & Badana</option>
+                            <option value="Alçı & Alçıpan">Alçı & Alçıpan</option>
+                            <option value="Fayans & Seramik">Fayans & Seramik</option>
+                            <option value="Tadilat & Yenileme">Tadilat & Yenileme</option>
+                            <option value="Dekorasyon">Dekorasyon</option>
+                            <option value="Diğer">Diğer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Eklemek İstedikleriniz</label>
+                    <textarea id="mesaj" rows="3" placeholder="Adres detayı veya notunuz..."></textarea>
+                </div>
+                <button type="button" class="btn-teklif" onclick="sendRandevuWhatsApp()" style="width: 100%; padding: 12px; margin-top: 10px;">Randevu Gönder</button>
+            </form>
+            <div id="randevuSuccess" style="display: none; margin-top: 15px; padding: 10px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                ✅ Randevu talebiniz iletildi! En kısa sürede size dönüş yapacağız.
+            </div>
         </div>
 
         <!-- İLETİŞİM -->
@@ -452,101 +552,9 @@
             </div>
         </div>
 
-        <!-- HAKKINDA (UZATILDI) -->
+        <!-- HAKKINDA -->
         <h2 class="section-title">🏢 Hakkımızda</h2>
         <div class="about-card">
             <div class="about-content">
                 <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermekteyiz.</p>
-                <p>Kaliteli işçilik, uygun fiyat ve zamanında teslimat ilkelerimizle müşterilerimize güvenilir hizmet sunuyoruz.</p>
-                <p>Ekibimiz, her projede en iyi malzemeleri kullanarak uzun ömürlü ve estetik çözümler üretmektedir. Müşteri memnuniyeti bizim için her zaman önceliklidir.</p>
-                <p>İster bir evin tamamını yenileyin, ister sadece bir odanızı boyatın, farkımızı hissedeceksiniz. Hayalinizdeki yapıya ulaşmak için bize ulaşın!</p>
-                <p>Referanslarımız ve geçmiş projelerimiz hakkında daha fazla bilgi almak için bizi arayabilir veya sosyal medya hesaplarımızdan takip edebilirsiniz.</p>
-                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'" style="margin-top: 15px;">📞 Bize Ulaşın</button>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
-        <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
-    </footer>
-
-    <!-- YAPAY ZEKA ASİSTANI -->
-    <div class="ai-container">
-        <div class="ai-button" onclick="toggleAI()">
-            <span>🤖</span>
-        </div>
-        <div class="ai-chat" id="aiChat">
-            <div class="ai-header">
-                <h3>🤖 Güneş Yapı Asistanı</h3>
-                <span class="close-btn" onclick="toggleAI()">✕</span>
-            </div>
-            <div class="ai-messages" id="aiMessages">
-                <div class="message bot">
-                    <div class="message-content">
-                        Merhaba! 👋 Size nasıl yardımcı olabilirim?
-                        <div class="option-buttons">
-                            <button class="opt-btn" onclick="sendOption('fiyat')">💰 Fiyat Bilgisi</button>
-                            <button class="opt-btn" onclick="sendOption('boya')">🎨 Boya & Tadilat</button>
-                            <button class="opt-btn" onclick="sendOption('randevu')">📅 Randevu</button>
-                            <button class="opt-btn" onclick="sendOption('indirim')">🎉 İndirimler</button>
-                            <button class="opt-btn" onclick="sendOption('iletisim')">📞 İletişim</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ai-input-area">
-                <input type="text" id="aiInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.keyCode==13) sendAI()">
-                <button onclick="sendAI()">Gönder</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function toggleAI() {
-            var chat = document.getElementById('aiChat');
-            if (chat) chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
-        }
-        
-        function addTypingIndicator() {
-            var messagesDiv = document.getElementById('aiMessages');
-            var typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot';
-            typingDiv.id = 'typingIndicator';
-            typingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
-            messagesDiv.appendChild(typingDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-        
-        function removeTypingIndicator() {
-            var typing = document.getElementById('typingIndicator');
-            if (typing) typing.remove();
-        }
-        
-        function sendAI() {
-            var input = document.getElementById('aiInput');
-            var msg = input.value.trim();
-            if (msg === "") return;
-            addMessage('user', msg);
-            input.value = "";
-            addTypingIndicator();
-            setTimeout(() => {
-                removeTypingIndicator();
-                var cevap = getResponse(msg);
-                addMessage('bot', cevap);
-            }, 500);
-        }
-        
-        function sendOption(option) {
-            var cevap = "";
-            switch(option) {
-                case 'fiyat':
-                    cevap = "💰 Fiyatlarımız işin büyüklüğüne ve kullanılan malzemeye göre değişir. En doğru teklif için bizi arayabilirsiniz: 📞 0535 985 95 35";
-                    break;
-                case 'boya':
-                    cevap = "🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi!";
-                    break;
-                case 'randevu':
-                    cevap = "📅 Randevu almak için yukarıdaki Randevu bölümünden bizi arayabilirsiniz: 0535 985 95 35";
-                    break;
-                case 'ind
+                <p>Kaliteli işçilik, uygun fiyat ve zamanında teslimat ilkelerimizle müşterilerimize güvenilir hiz
