@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Güneş Yapı | Ana Sayfa</title>
     <style>
         * {
@@ -14,12 +14,16 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #fff5e8, #ffdec2);
             color: #2c3e50;
+            overflow-x: hidden;
         }
         header {
             background: #2c3e50;
             padding: 20px;
             text-align: center;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         .logo-container {
             display: flex;
@@ -42,53 +46,108 @@
             opacity: 0.8;
             margin-top: 5px;
         }
-        nav {
-            background: #e67e22;
-            padding: 12px;
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        .page {
+            height: 100vh;
+            scroll-snap-align: start;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .page h2 {
+            color: #e67e22;
+            font-size: 28px;
+            margin-bottom: 20px;
             text-align: center;
         }
-        nav a {
+        .page h3 {
+            color: #e67e22;
+            margin: 15px 0 10px;
+        }
+        .service-card, .project-card, .contact-card, .info-card, .campaign-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .btn-teklif {
+            background: #e67e22;
             color: white;
-            text-decoration: none;
-            padding: 10px 16px;
-            margin: 0 2px;
-            display: inline-block;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
             transition: 0.3s;
         }
-        nav a:hover {
+        .btn-teklif:hover {
             background: #d35400;
+            transform: scale(1.02);
         }
-        .hero {
+        .campaign-icon {
+            font-size: 48px;
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            color: white;
-            border-radius: 20px;
-            margin: 40px 20px;
         }
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+        .discount {
+            font-size: 36px;
+            font-weight: bold;
+            color: #e67e22;
+            text-align: center;
+            margin: 10px 0;
         }
-        .hero .slogan {
-            font-size: 20px;
-            font-style: italic;
-            margin-bottom: 30px;
+        .hours-table {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .hours-item {
+            text-align: center;
+            background: #f5f5f5;
+            padding: 12px 20px;
+            border-radius: 12px;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .contact-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
         }
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
         }
         @media (max-width: 768px) {
-            nav a { display: block; margin: 8px; }
-            .hero h2 { font-size: 28px; }
             .logo { width: 40px; }
             .site-title h1 { font-size: 22px; }
+            .page h2 { font-size: 24px; }
         }
     </style>
 </head>
@@ -102,23 +161,398 @@
             </div>
         </div>
     </header>
-    
-    <nav>
-        <a href="index.html">Ana Sayfa</a>
-        <a href="hizmetler.html">Hizmetler</a>
-        <a href="projeler.html">Projeler</a>
-        <a href="indirimler.html">İndirimler</a>
-        <a href="randevu.html">Randevu</a>
-        <a href="iletisim.html">İletişim</a>
-    </nav>
-    
-    <div class="hero">
-        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
+
+    <div class="scroll-container">
+        <!-- SAYFA 1: ANA SAYFA -->
+        <div class="page">
+            <h2>🏠 Hoş Geldiniz</h2>
+            <div class="info-card">
+                <h3>Hayalinizdeki Yapıya Ulaşın</h3>
+                <p style="font-size: 18px; font-style: italic; margin: 15px 0;">"Hayalinizdeki yapıya, profesyonel ellere emanet."</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Hemen Teklif Al</button>
+            </div>
+            <div class="info-card">
+                <h3>🌟 Neden Güneş Yapı?</h3>
+                <p>✓ 10 yıllık tecrübe</p>
+                <p>✓ Kaliteli işçilik garantisi</p>
+                <p>✓ Uygun fiyat politikası</p>
+                <p>✓ Zamanında teslimat</p>
+            </div>
+        </div>
+
+        <!-- SAYFA 2: HİZMETLER -->
+        <div class="page">
+            <h2>🛠️ Hizmetlerimiz</h2>
+            <div class="service-card">
+                <h3>🏠 Boya & Badana</h3>
+                <p>İç cephe, dış cephe, dekoratif boya uygulamaları.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="service-card">
+                <h3>🛠️ Alçı & Alçıpan</h3>
+                <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="service-card">
+                <h3>🔨 Fayans & Seramik</h3>
+                <p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="service-card">
+                <h3>🏗️ Tadilat & Yenileme</h3>
+                <p>Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim!</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+        </div>
+
+        <!-- SAYFA 3: PROJELER -->
+        <div class="page">
+            <h2>📸 Projelerimiz</h2>
+            <div class="project-card">
+                <img src="ABC99.jpeg" alt="Villa Projesi" onerror="this.src='abc.jpeg'">
+                <h3>Modern Villa</h3>
+                <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="project-card">
+                <img src="ABC88.jpeg" alt="Ofis Tadilatı" onerror="this.src='abc.jpeg'">
+                <h3>Ofis Tadilatı</h3>
+                <p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="project-card">
+                <img src="ABC77.jpeg" alt="Daire Tadilatı" onerror="this.src='abc.jpeg'">
+                <h3>Daire Tadilatı</h3>
+                <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="project-card">
+                <img src="ABC66.jpeg" alt="Mutfak Yenileme" onerror="this.src='abc.jpeg'">
+                <h3>Mutfak Yenileme</h3>
+                <p>Mutfak dolapları, tezgah ve fayans işçiliği.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+        </div>
+
+        <!-- SAYFA 4: İNDİRİMLER -->
+        <div class="page">
+            <h2>🎉 İndirimler</h2>
+            <div class="campaign-card">
+                <div class="campaign-icon">🏢</div>
+                <h3>2+1 Daire</h3>
+                <div class="discount">%10 İNDİRİM</div>
+                <p>2+1 dairelerde tüm tadilat ve boya işlerinde %10 indirim!</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+            <div class="campaign-card">
+                <div class="campaign-icon">🏠</div>
+                <h3>3+1 Daire</h3>
+                <div class="discount">%15 İNDİRİM</div>
+                <p>3+1 dairelerde tüm tadilat ve boya işlerinde %15 indirim!</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Teklif Al</button>
+            </div>
+        </div>
+
+        <!-- SAYFA 5: RANDEVU -->
+        <div class="page">
+            <h2>📅 Randevu</h2>
+            <div class="info-card">
+                <p style="text-align: center; font-size: 18px;">Randevu almak için bizi arayın.</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Hemen Ara: 0535 985 95 35</button>
+            </div>
+        </div>
+
+        <!-- SAYFA 6: İLETİŞİM -->
+        <div class="page">
+            <h2>📞 İletişim</h2>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <p><strong>0535 985 95 35</strong></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <p><strong>0535 985 95 35 (WhatsApp)</strong></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <p><strong>mehmetgnes456@gmail.com</strong></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📷</div>
+                    <p><strong>@mehmetgunes954</strong></p>
+                </div>
+                <div class="hours-table">
+                    <div class="hours-item">
+                        <strong>Pzt - Cts</strong><br>08:00 - 17:00
+                    </div>
+                    <div class="hours-item">
+                        <strong>Pazar</strong><br>09:00 - 16:00
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAYFA 7: HAKKINDA -->
+        <div class="page">
+            <h2>🏢 Hakkımızda</h2>
+            <div class="info-card">
+                <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermekteyiz.</p>
+                <p style="margin-top: 15px;">Kaliteli işçilik, uygun fiyat ve zamanında teslimat ilkelerimizle müşterilerimize güvenilir hizmet sunuyoruz.</p>
+                <p style="margin-top: 15px;">Hayalinizdeki yapıya ulaşmak için bize ulaşın!</p>
+                <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">📞 Bize Ulaşın</button>
+            </div>
+        </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35 | E-posta: mehmetgnes456@gmail.com</p>
+        <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat</p>
+        <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
     </footer>
-</body>
-</html>
+
+    <!-- YAPAY ZEKA ASİSTANI -->
+    <div class="ai-container">
+        <div class="ai-button" onclick="toggleAI()">
+            <span>🤖</span>
+        </div>
+        <div class="ai-chat" id="aiChat">
+            <div class="ai-header">
+                <h3>🤖 Güneş Yapı Asistanı</h3>
+                <span class="close-btn" onclick="toggleAI()">✕</span>
+            </div>
+            <div class="ai-messages" id="aiMessages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Merhaba! 👋 Ben Güneş Yapı'nın asistanıyım.<br><br>
+                        Sana nasıl yardımcı olabilirim?<br><br>
+                        💰 Fiyat bilgisi<br>
+                        🎨 Boya & tadilat<br>
+                        📅 Randevu<br>
+                        🎉 İndirimler<br>
+                        📞 İletişim<br>
+                        🧮 Matematik işlemleri<br><br>
+                        <span style="font-size: 12px; color: #e67e22;">✨ Sorularını bekliyorum!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-input-area">
+                <input type="text" id="aiInput" placeholder="Mesajını yaz..." onkeypress="if(event.keyCode==13) sendAI()">
+                <button onclick="sendAI()">Gönder</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .ai-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .ai-button {
+            background: #e67e22;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230,126,34,0); }
+            100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
+        }
+        .ai-button:hover {
+            transform: scale(1.1);
+            background: #d35400;
+        }
+        .ai-button span {
+            font-size: 28px;
+        }
+        .ai-chat {
+            display: none;
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 380px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ai-header {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ai-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .ai-header .close-btn {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .ai-messages {
+            height: 350px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #fef9f0;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .message.user {
+            align-items: flex-end;
+        }
+        .message.bot {
+            align-items: flex-start;
+        }
+        .message-content {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .user .message-content {
+            background: #e67e22;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .bot .message-content {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 4px;
+            color: #2c3e50;
+        }
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 20px;
+            width: fit-content;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #e67e22;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-8px); opacity: 1; }
+        }
+        .ai-input-area {
+            display: flex;
+            padding: 12px;
+            background: white;
+            border-top: 1px solid #eee;
+            gap: 8px;
+        }
+        .ai-input-area input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+        .ai-input-area input:focus {
+            border-color: #e67e22;
+        }
+        .ai-input-area button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .ai-chat { width: 320px; right: -10px; }
+            .ai-messages { height: 320px; }
+            .ai-button { width: 50px; height: 50px; }
+            .ai-button span { font-size: 24px; }
+        }
+    </style>
+
+    <script>
+        function toggleAI() {
+            var chat = document.getElementById('aiChat');
+            if (chat) chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function addTypingIndicator() {
+            var messagesDiv = document.getElementById('aiMessages');
+            var typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function removeTypingIndicator() {
+            var typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+        
+        function sendAI() {
+            var input = document.getElementById('aiInput');
+            var msg = input.value.trim();
+            if (msg === "") return;
+            
+            var messagesDiv = document.getElementById('aiMessages');
+            
+            messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            input.value = "";
+            addTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                var cevap = getSmartResponse(msg);
+                messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">${cevap}</div></div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 500);
+        }
+        
+        function escapeHtml(text) {
+            return text.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+        
+        function getSmartResponse(question) {
+            var q = question.toLowerCase();
+            
+            // MATEMATİK
+            try {
+                if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
+                    var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-
