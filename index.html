@@ -583,7 +583,7 @@
         
         <button class="btn-teklif" onclick="window.location.href='tel:05359859535'" style="margin-top: 15px;">Bize Ulaşın</button>
     </div>
-<!-- YAPAY ZEKA ASİSTANI - EN GELİŞMİŞ -->
+<!-- YAPAY ZEKA ASİSTANI - EN GELİŞMİŞ VERSİYON -->
 <style>
     .ai-container {
         position: fixed;
@@ -593,8 +593,8 @@
     }
     .ai-button {
         background: #e67e22;
-        width: 65px;
-        height: 65px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -605,7 +605,7 @@
         animation: pulse 2s infinite;
     }
     .ai-button span {
-        font-size: 32px;
+        font-size: 34px;
         pointer-events: none;
     }
     .ai-button:hover {
@@ -620,9 +620,9 @@
     .ai-chat {
         display: none;
         position: absolute;
-        bottom: 80px;
+        bottom: 85px;
         right: 0;
-        width: 380px;
+        width: 400px;
         background: white;
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0,0,0,0.2);
@@ -651,7 +651,7 @@
         font-weight: bold;
     }
     .ai-messages {
-        height: 350px;
+        height: 400px;
         overflow-y: auto;
         padding: 15px;
         background: #fef9f0;
@@ -757,7 +757,7 @@
     }
     @media (max-width: 768px) {
         .ai-chat { width: 320px; right: -10px; }
-        .ai-messages { height: 320px; }
+        .ai-messages { height: 350px; }
         .ai-button { width: 55px; height: 55px; }
         .ai-button span { font-size: 28px; }
     }
@@ -776,14 +776,15 @@
             <div class="message bot">
                 <div class="message-content">
                     Merhaba! 👋 Ben Güneş Yapı'nın yapay zeka asistanıyım.<br><br>
-                    Sana nasıl yardımcı olabilirim?<br><br>
+                    Sana her konuda yardımcı olabilirim:<br>
                     💰 Fiyat bilgisi<br>
                     🎨 Boya & tadilat<br>
                     📅 Randevu<br>
                     🎉 İndirimler<br>
                     📞 İletişim<br>
-                    🧮 Matematik işlemleri<br><br>
-                    <span style="font-size: 12px; color: #e67e22;">✨ Sorularını bekliyorum, çekinme!</span>
+                    🧮 Matematik işlemleri<br>
+                    📝 Şiir, fıkra, sohbet, tavsiye, bilgi...<br><br>
+                    <span style="font-size: 12px; color: #e67e22;">✨ Ne sormak istersin? Çekinme, her şeyi sorabilirsin!</span>
                 </div>
             </div>
         </div>
@@ -847,7 +848,7 @@
     function getSmartResponse(question) {
         var q = question.toLowerCase();
         
-        // MATEMATİK
+        // ========== MATEMATİK ==========
         try {
             if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
                 var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
@@ -874,35 +875,57 @@
             }
         } catch(e) {}
         
-        // FİYAT
+        // ========== FIKRA ==========
+        if (q.includes('fıkra') || q.includes('şaka') || q.includes('güldür')) {
+            const fikralar = [
+                "Temel'e sormuşlar: 'Dünyanın en hızlı şeyi nedir?' Temel: 'Ateş böceği.' 'Neden?' 'Çünkü yanıp sönüyor.' 😄",
+                "Nasrettin Hoca'nın eşeği ölmüş. Komşular taziye ziyaretine gelmiş. Hoca ağlayarak: 'Eşeğim öldü, vah vah.' Komşular: 'Hoca, bu kadar üzülme, yenisini alırsın.' Hoca: 'Onu değil, eşeğim ölmeden önce bana 50 altın borç vermişti, şimdi kime gideceğim?' 😂",
+                "Bir müşteri boyacıya sormuş: 'Bu boya ne kadar dayanır?' Boyacı: 'Biraz daha yürürseniz dayanır.' 🤪",
+                "Temel bir gün doktora gitmiş. Doktor: 'Ne şikayetin var?' Temel: 'Uzun süreli hafıza kaybı yaşıyorum.' Doktor: 'Bu ne zamandan beri var?' Temel: 'Ne zamandan beri ne?' 🤣"
+            ];
+            return fikralar[Math.floor(Math.random() * fikralar.length)];
+        }
+        
+        // ========== ŞİİR ==========
+        if (q.includes('şiir') || q.includes('şair')) {
+            return "📝 Güneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!";
+        }
+        
+        // ========== FİYAT ==========
         if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
-            return `💰 Fiyatlar işin büyüklüğüne göre değişir. En doğru teklif için bizi arayın: 📞 0535 985 95 35`;
+            return `💰 Fiyatlar işin büyüklüğüne, kullanılan malzemeye ve işçilik süresine göre değişir. En doğru teklif için bizi arayın: 📞 0535 985 95 35`;
         }
-        // BOYA
+        
+        // ========== HİZMETLER ==========
         if (q.includes('boya') || q.includes('badana')) {
-            return `🎨 İç cephe, dış cephe, dekoratif boya, dokulu boya. 10 yıllık ekibimizle kaliteli işçilik!`;
+            return `🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi!`;
         }
-        // ALÇIPAN
         if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
-            return `🔨 Asma tavan, bölme duvar, ses ve ısı yalıtımı yapıyoruz. Uygun fiyat garantisi!`;
+            return `🔨 Alçıpan hizmetlerimiz: Asma tavan, bölme duvar, ses yalıtımı, ısı yalıtımı. Uygun fiyat, kaliteli işçilik garantisi!`;
         }
-        // TADİLAT
+        if (q.includes('fayans') || q.includes('seramik')) {
+            return `🪨 Fayans hizmetlerimiz: Banyo, mutfak, zemin, duvar, balkon, teras fayans işçiliği. Su yalıtımı ve tadilat hizmetlerimiz de mevcut.`;
+        }
         if (q.includes('tadilat') || q.includes('yenileme')) {
-            return `🏗️ Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim hizmet!`;
+            return `🏗️ Tadilat hizmetlerimiz: Ev tadilatı, iş yeri tadilatı, mutfak tadilatı, banyo tadilatı, anahtar teslim yenileme. Detaylı bilgi için bizi arayın: 0535 985 95 35`;
         }
-        // RANDEVU
+        
+        // ========== RANDEVU ==========
         if (q.includes('randevu')) {
             return `📅 Randevu almak için yukarıdaki Randevu formunu doldurun veya bizi arayın: 0535 985 95 35`;
         }
-        // İNDİRİM
+        
+        // ========== İNDİRİM ==========
         if (q.includes('indirim') || q.includes('kampanya')) {
-            return `🎉 Kampanyalarımız için yukarıdaki İndirimler bölümüne bakabilirsin! İlk keşif ücretsiz.`;
+            return `🎉 Kampanyalarımız için yukarıdaki İndirimler bölümüne bakabilirsin! İlk keşif ücretsizdir.`;
         }
-        // İLETİŞİM
+        
+        // ========== İLETİŞİM ==========
         if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
-            return `📞 Tel: 0535 985 95 35 | 📧 mehmetgnes456@gmail.com | 📷 @mehmetgunes954 | 📍 İstanbul & Kocaeli`;
+            return `📞 Tel: 0535 985 95 35\n📧 E-posta: mehmetgnes456@gmail.com\n📍 Hizmet Bölgesi: İstanbul, Kocaeli ve çevresi\n📷 Instagram: @mehmetgunes954`;
         }
-        // SOHBET
+        
+        // ========== SOHBET ==========
         if (q.includes('nasılsın') || q.includes('nasıl')) {
             return `🤗 Çok iyiyim, teşekkür ederim! Sen nasılsın? Sana nasıl yardımcı olabilirim?`;
         }
@@ -915,9 +938,22 @@
         if (q.includes('adın ne') || q.includes('ismin ne')) {
             return `🤖 Benim adım Asistan. Güneş Yapı'da sana yardım etmek için buradayım!`;
         }
+        if (q.includes('ne yapıyorsun')) {
+            return `🤖 Sana yardım etmek için bekliyorum. Fiyat, hizmet, matematik, sohbet... Ne istersen yaparım 😊`;
+        }
         
-        // GENEL
-        return `🤝 Sorun için teşekkürler! Ben Güneş Yapı'nın asistanıyım. Fiyat, hizmet, tadilat, randevu, indirim veya iletişim hakkında bilgi alabilirsin. Bize 0535 985 95 35'ten ulaşabilirsin. Sohbet etmek güzel, başka sorun var mı? 😊`;
+        // ========== BİLGİ / TAVSİYE ==========
+        if (q.includes('tavsiye') || q.includes('öneri')) {
+            return `💡 Tavsiyem: Boya yaptırmadan önce mutlaka yüzeyin temiz ve kuru olduğundan emin olun. Dış cephe boyası için hava sıcaklığı 15°C üzerinde olmalı. Profesyonel ekibimizle çalışarak uzun ömürlü sonuçlar elde edebilirsiniz!`;
+        }
+        if (q.includes('hava') || q.includes('bugün')) {
+            return `☀️ Hava durumu bilgisi için bir meteoroloji sitesine bakmanı öneririm. Ama dış cephe boyası için güneşli ve kuru hava idealdir!`;
+        }
+        if (q.includes('aşk') || q.includes('sevgi')) {
+            return `💖 Aşk güzel bir şey. Ama en güzel aşk, evini yenileyip içinde huzurla oturmaktır. Güneş Yapı olarak sana bu konuda yardımcı olabiliriz 😊`;
+        }
+        
+        // ========== GENEL ==========
+        return `🤝 Sorun için teşekkürler! Ben Güneş Yapı'nın asistanıyım. Fiyat, hizmet, tadilat, randevu, indirim veya iletişim hakkında bilgi alabilirsin. Ayrıca fıkra, şiir, tavsiye, sohbet de edebiliriz. Bize 0535 985 95 35'ten ulaşabilirsin. Başka sorun var mı? 😊`;
     }
 </script>
-  
