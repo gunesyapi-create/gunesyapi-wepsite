@@ -60,6 +60,34 @@
         nav a:hover {
             background: #d35400;
         }
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .info-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .info-card h2 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        .info-card p {
+            font-size: 18px;
+            color: #555;
+            margin: 15px 0;
+        }
+        .info-card .phone {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-top: 20px;
+        }
         footer {
             background: #2c3e50;
             color: white;
@@ -67,90 +95,11 @@
             padding: 20px;
             margin-top: 50px;
         }
-
-        .container {
-            max-width: 550px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .form-card h2 {
-            text-align: center;
-            color: #e67e22;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 15px;
-            font-family: inherit;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #e67e22;
-        }
-        .btn-whatsapp {
-            width: 100%;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-        }
-        .btn-whatsapp:hover {
-            background: #128C7E;
-        }
-        .info-text {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-        .success-message {
-            text-align: center;
-            background: #d4edda;
-            color: #155724;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 15px;
-            display: none;
-        }
         @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 8px;
-            }
-            .logo {
-                width: 40px;
-            }
-            .site-title h1 {
-                font-size: 22px;
-            }
-            .form-card {
-                padding: 25px;
-            }
+            nav a { display: block; margin: 8px; }
+            .logo { width: 40px; }
+            .site-title h1 { font-size: 22px; }
+            .info-card { padding: 30px; }
         }
     </style>
 </head>
@@ -175,108 +124,15 @@
     </nav>
     
     <div class="container">
-        <div class="form-card">
-            <h2>📅 Randevu Formu</h2>
-            <form id="randevuForm">
-                <div class="form-group">
-                    <label>👤 Ad Soyad *</label>
-                    <input type="text" id="adsoyad" required placeholder="Mehmet Güneş">
-                </div>
-                <div class="form-group">
-                    <label>📞 Telefon *</label>
-                    <input type="tel" id="telefon" required placeholder="0535 985 95 35">
-                </div>
-                <div class="form-group">
-                    <label>📍 Konum / İlçe *</label>
-                    <input type="text" id="konum" required placeholder="Gebze, İstanbul, Kocaeli...">
-                </div>
-                <div class="form-group">
-                    <label>📅 Randevu Tarihi *</label>
-                    <input type="date" id="tarih" required>
-                </div>
-                <div class="form-group">
-                    <label>🔧 Hizmet Seçimi *</label>
-                    <select id="hizmet" required>
-                        <option value="">Seçiniz...</option>
-                        <option value="Boya & Badana">Boya & Badana</option>
-                        <option value="Alçı & Alçıpan">Alçı & Alçıpan</option>
-                        <option value="Fayans & Seramik">Fayans & Seramik</option>
-                        <option value="Tadilat & Yenileme">Tadilat & Yenileme</option>
-                        <option value="Dekorasyon">Dekorasyon</option>
-                        <option value="Diğer">Diğer</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>📝 Eklemek İstedikleriniz</label>
-                    <textarea id="mesaj" rows="3" placeholder="Adres detayı veya notunuz..."></textarea>
-                </div>
-                
-                <button type="button" class="btn-whatsapp" onclick="sendWhatsApp()">📱 WhatsApp ile Randevu Gönder</button>
-                <div id="successMessage" class="success-message">
-                    ✅ Randevu talebiniz WhatsApp'a iletildi! En kısa sürede size dönüş yapacağız.
-                </div>
-                <div class="info-text">
-                    WhatsApp ile randevu talebiniz bize iletilecektir.
-                </div>
-            </form>
+        <div class="info-card">
+            <h2>📅 Randevu</h2>
+            <p>Randevu almak için bizi arayabilirsiniz.</p>
+            <div class="phone">📞 0535 985 95 35</div>
         </div>
     </div>
     
     <footer>
         <p>&copy; 2026 Güneş Yapı | Yapı & İnşaat | Telefon: 0535 985 95 35 | E-posta: mehmetgnes456@gmail.com</p>
     </footer>
-
-    <script>
-        function getFormData() {
-            var adsoyad = document.getElementById('adsoyad').value;
-            var telefon = document.getElementById('telefon').value;
-            var konum = document.getElementById('konum').value;
-            var tarih = document.getElementById('tarih').value;
-            var hizmet = document.getElementById('hizmet').value;
-            var mesaj = document.getElementById('mesaj').value;
-            
-            if (!adsoyad || !telefon || !konum || !tarih || !hizmet) {
-                alert("Lütfen tüm zorunlu alanları doldurun!\n(Ad Soyad, Telefon, Konum, Tarih, Hizmet)");
-                return null;
-            }
-            
-            var mesajText = mesaj ? mesaj : "Belirtilmemiş";
-            
-            return {
-                adsoyad: adsoyad,
-                telefon: telefon,
-                konum: konum,
-                tarih: tarih,
-                hizmet: hizmet,
-                mesaj: mesajText
-            };
-        }
-        
-        function formatWhatsAppMessage(data) {
-            return "📅 YENİ RANDEVU TALEBİ 📅%0A%0A" +
-                   "👤 Ad Soyad: " + data.adsoyad + "%0A" +
-                   "📞 Telefon: " + data.telefon + "%0A" +
-                   "📍 Konum: " + data.konum + "%0A" +
-                   "📅 Tarih: " + data.tarih + "%0A" +
-                   "🔧 Hizmet: " + data.hizmet + "%0A" +
-                   "📝 Ek Not: " + data.mesaj + "%0A%0A" +
-                   "Güneş Yapı - Randevu Talebi";
-        }
-        
-        function sendWhatsApp() {
-            var data = getFormData();
-            if (!data) return;
-            
-            var message = formatWhatsAppMessage(data);
-            var url = "https://wa.me/905359859535?text=" + message;
-            window.open(url, "_blank");
-            
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-            document.getElementById('randevuForm').reset();
-        }
-    </script>
 </body>
 </html>
