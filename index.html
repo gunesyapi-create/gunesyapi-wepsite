@@ -13,7 +13,7 @@
     <!-- ANAHTAR KELİMELER (SEO için) -->
     <meta name="keywords" content="Güneş Yapı, inşaat, tadilat, boya, alçıpan, fayans, İstanbul, Kocaeli">
     
-    <!-- SOSYAL MEDYA PAYLAŞIMLARI İÇİN (WhatsApp, Instagram, Facebook, X) -->
+    <!-- SOSYAL MEDYA PAYLAŞIMLARI İÇİN (WhatsApp, Instagram, Facebook) -->
     <meta property="og:title" content="Güneş Yapı | İstanbul & Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
     <meta property="og:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir. Hemen teklif alın!">
     <meta property="og:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
@@ -25,6 +25,31 @@
     <meta name="twitter:title" content="Güneş Yapı | İstanbul & Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
     <meta name="twitter:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir.">
     <meta name="twitter:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
+    
+    <!-- SCHEMA (ZENGİN GÖRÜNÜM İÇİN - YILDIZ, SAAT, TELEFON) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Güneş Yapı",
+      "image": "https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg",
+      "telephone": "0535 985 95 35",
+      "email": "mehmetgnes456@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul, Kocaeli",
+        "addressCountry": "TR"
+      },
+      "openingHours": "Mo-Sa 08:00-17:00, Su 09:00-16:00",
+      "url": "https://gunesyapi-insaat.com",
+      "priceRange": "₺₺",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "25"
+      }
+    }
+    </script>
     
     <style>
         * {
@@ -547,20 +572,4 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
-                        <label>Daire No *</label>
-                        <input type="text" id="daire" required placeholder="12">
-                    </div>
-                    <div class="form-group">
-                        <label>Kat</label>
-                        <input type="text" id="kat" placeholder="3 (isteğe bağlı)">
-                    </div>
-                    <div class="form-group">
-                        <label>Randevu Tarihi *</label>
-                        <input type="date" id="tarih" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Hizmet Seçimi *</label>
-                        <select id="hizmet" required>
+                    <div class="form-group"
