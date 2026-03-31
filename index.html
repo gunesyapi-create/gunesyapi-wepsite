@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Ana Sayfa</title>
+    
+    <!-- SİTE BAŞLIĞI (Google'da görünen) -->
+    <title>Güneş Yapı | İstanbul & Kocaeli İnşaat, Tadilat, Boya Hizmetleri</title>
+    
+    <!-- AÇIKLAMA (Google'da alt satır) -->
+    <meta name="description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir. Kaliteli işçilik, uygun fiyat, zamanında teslimat.">
+    
+    <!-- ANAHTAR KELİMELER (SEO için) -->
+    <meta name="keywords" content="Güneş Yapı, inşaat, tadilat, boya, alçıpan, fayans, İstanbul, Kocaeli">
+    
+    <!-- SOSYAL MEDYA PAYLAŞIMLARI İÇİN (WhatsApp, Instagram, Facebook, X) -->
+    <meta property="og:title" content="Güneş Yapı | İstanbul & Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
+    <meta property="og:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir. Hemen teklif alın!">
+    <meta property="og:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
+    <meta property="og:url" content="https://gunesyapi-insaat.com">
+    <meta property="og:type" content="website">
+    
+    <!-- X (Twitter) için -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Güneş Yapı | İstanbul & Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
+    <meta name="twitter:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir.">
+    <meta name="twitter:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
+    
     <style>
         * {
             margin: 0;
@@ -222,8 +244,8 @@
         }
         .ai-button {
             background: #e67e22;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -232,14 +254,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
-            position: relative;
-            z-index: 1001;
         }
         .ai-button span {
-            font-size: 32px;
+            font-size: 34px;
             pointer-events: none;
-            display: block;
-            line-height: 1;
         }
         .ai-button:hover {
             transform: scale(1.08);
@@ -253,9 +271,9 @@
         .ai-chat {
             display: none;
             position: absolute;
-            bottom: 80px;
+            bottom: 85px;
             right: 0;
-            width: 380px;
+            width: 400px;
             background: white;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
@@ -284,7 +302,7 @@
             font-weight: bold;
         }
         .ai-messages {
-            height: 350px;
+            height: 400px;
             overflow-y: auto;
             padding: 15px;
             background: #fef9f0;
@@ -339,6 +357,28 @@
             background: #d35400;
             transform: scale(1.02);
         }
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 20px;
+            width: fit-content;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #e67e22;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-8px); opacity: 1; }
+        }
         .ai-input-area {
             display: flex;
             padding: 12px;
@@ -371,7 +411,7 @@
             .logo { width: 40px; }
             .site-title h1 { font-size: 22px; }
             .ai-chat { width: 320px; right: -10px; }
-            .ai-messages { height: 320px; }
+            .ai-messages { height: 350px; }
             .ai-button { width: 55px; height: 55px; }
             .ai-button span { font-size: 28px; }
             .form-row { flex-direction: column; gap: 10px; }
@@ -524,436 +564,3 @@
                     <div class="form-group">
                         <label>Hizmet Seçimi *</label>
                         <select id="hizmet" required>
-                            <option value="">Seçiniz...</option>
-                            <option value="Boya & Badana">Boya & Badana</option>
-                            <option value="Alçı & Alçıpan">Alçı & Alçıpan</option>
-                            <option value="Fayans & Seramik">Fayans & Seramik</option>
-                            <option value="Tadilat & Yenileme">Tadilat & Yenileme</option>
-                            <option value="Dekorasyon">Dekorasyon</option>
-                            <option value="Diğer">Diğer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Eklemek İstedikleriniz</label>
-                    <textarea id="mesaj" rows="3" placeholder="Adres detayı veya notunuz..."></textarea>
-                </div>
-                <button type="button" class="btn-teklif" onclick="sendRandevuWhatsApp()" style="width: 100%; padding: 12px; margin-top: 10px;">Randevu Gönder</button>
-            </form>
-            <div id="randevuSuccess" style="display: none; margin-top: 15px; padding: 10px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
-                ✅ Randevu talebiniz iletildi! En kısa sürede size dönüş yapacağız.
-            </div>
-        </div>
-
-        <!-- İLETİŞİM -->
-        <h2 class="section-title">📞 İletişim</h2>
-        <div class="contact-card">
-            <div class="contact-info">
-                <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
-                <p>💬 <a href="https://wa.me/905359859535">0535 985 95 35 (WhatsApp)</a></p>
-                <p>📧 <a href="mailto:mehmetgnes456@gmail.com">mehmetgnes456@gmail.com</a></p>
-                <p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank">@mehmetgunes954</a></p>
-                <div class="hours">
-                    <div><strong>Pzt - Cts</strong><br>08:00 - 17:00</div>
-                    <div><strong>Pazar</strong><br>09:00 - 16:00</div>
-                </div>
-            </div>
-        </div>
-<!-- HAKKINDA (KURULUŞ YOK) -->
-<h2 class="section-title">🏢 Hakkımızda</h2>
-<div class="about-card">
-    <div class="about-content">
-        <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. Firmamız, sektördeki deneyimi ve uzman kadrosuyla her projede kaliteyi ve müşteri memnuniyetini ön planda tutmaktadır.</p>
-        
-        <p><strong>🏆 Neden Güneş Yapı?</strong><br>
-        ✓ 10+ yıllık sektör deneyimi<br>
-        ✓ 500+ tamamlanmış proje<br>
-        ✓ %100 müşteri memnuniyeti<br>
-        ✓ Uzman ve deneyimli ekip<br>
-        ✓ Kaliteli ve çevre dostu malzemeler<br>
-        ✓ Zamanında teslimat garantisi<br>
-        ✓ Uygun fiyat politikası<br>
-        ✓ 2 yıl işçilik garantisi</p>
-        
-        <p><strong>🎯 Vizyonumuz:</strong> Türkiye'nin en güvenilir ve tercih edilen yapı yenileme markası olmak. Her projede kalite standardımızı yükselterek sektöre yön vermek.</p>
-        
-        <p><strong>🎯 Misyonumuz:</strong> Müşterilerimizin ihtiyaçlarını en iyi şekilde anlayarak, beklentilerinin üzerinde çözümler üretmek. İşçilikten malzemeye her detayda şeffaflık ve güven esaslı hizmet sunmak.</p>
-        
-        <p>İster bir evin tamamını yenileyin, ister sadece bir odanızı boyatın, farkımızı hissedeceksiniz. Hayalinizdeki yapıya ulaşmak için bize ulaşın! Referanslarımız ve geçmiş projelerimiz hakkında daha fazla bilgi almak için bizi arayabilir veya sosyal medya hesaplarımızdan takip edebilirsiniz.</p>
-        
-        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'" style="margin-top: 15px;">Bize Ulaşın</button>
-    </div>
-<!-- YAPAY ZEKA ASİSTANI - EN GELİŞMİŞ VERSİYON -->
-<style>
-    .ai-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-    }
-    .ai-button {
-        background: #e67e22;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-        animation: pulse 2s infinite;
-    }
-    .ai-button span {
-        font-size: 34px;
-        pointer-events: none;
-    }
-    .ai-button:hover {
-        transform: scale(1.08);
-        background: #d35400;
-    }
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(230,126,34,0); }
-        100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
-    }
-    .ai-chat {
-        display: none;
-        position: absolute;
-        bottom: 85px;
-        right: 0;
-        width: 400px;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        overflow: hidden;
-        animation: slideUp 0.3s ease;
-    }
-    @keyframes slideUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .ai-header {
-        background: linear-gradient(135deg, #e67e22, #d35400);
-        color: white;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .ai-header h3 {
-        margin: 0;
-        font-size: 18px;
-    }
-    .ai-header .close-btn {
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .ai-messages {
-        height: 400px;
-        overflow-y: auto;
-        padding: 15px;
-        background: #fef9f0;
-    }
-    .message {
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-    }
-    .message.user {
-        align-items: flex-end;
-    }
-    .message.bot {
-        align-items: flex-start;
-    }
-    .message-content {
-        max-width: 85%;
-        padding: 10px 14px;
-        border-radius: 18px;
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    .user .message-content {
-        background: #e67e22;
-        color: white;
-        border-bottom-right-radius: 4px;
-    }
-    .bot .message-content {
-        background: white;
-        border: 1px solid #e0e0e0;
-        border-bottom-left-radius: 4px;
-        color: #2c3e50;
-    }
-    .option-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .opt-btn {
-        background: #e67e22;
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 12px;
-        transition: 0.3s;
-    }
-    .opt-btn:hover {
-        background: #d35400;
-        transform: scale(1.02);
-    }
-    .typing-indicator {
-        display: flex;
-        gap: 4px;
-        padding: 8px 12px;
-        background: white;
-        border-radius: 20px;
-        width: fit-content;
-    }
-    .typing-indicator span {
-        width: 8px;
-        height: 8px;
-        background: #e67e22;
-        border-radius: 50%;
-        animation: typing 1.4s infinite ease-in-out;
-    }
-    .typing-indicator span:nth-child(1) { animation-delay: 0s; }
-    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typing {
-        0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-        30% { transform: translateY(-8px); opacity: 1; }
-    }
-    .ai-input-area {
-        display: flex;
-        padding: 12px;
-        background: white;
-        border-top: 1px solid #eee;
-        gap: 8px;
-    }
-    .ai-input-area input {
-        flex: 1;
-        padding: 10px 12px;
-        border: 1px solid #ddd;
-        border-radius: 25px;
-        outline: none;
-        font-size: 14px;
-    }
-    .ai-input-area input:focus {
-        border-color: #e67e22;
-    }
-    .ai-input-area button {
-        background: #e67e22;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    @media (max-width: 768px) {
-        .ai-chat { width: 320px; right: -10px; }
-        .ai-messages { height: 350px; }
-        .ai-button { width: 55px; height: 55px; }
-        .ai-button span { font-size: 28px; }
-    }
-</style>
-
-<div class="ai-container">
-    <div class="ai-button" onclick="toggleAI()">
-        <span>🤖</span>
-    </div>
-    <div class="ai-chat" id="aiChat">
-        <div class="ai-header">
-            <h3>🤖 Güneş Yapı Asistanı</h3>
-            <span class="close-btn" onclick="toggleAI()">✕</span>
-        </div>
-        <div class="ai-messages" id="aiMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    Merhaba! 👋 Ben Güneş Yapı'nın yapay zeka asistanıyım.<br><br>
-                    Sana her konuda yardımcı olabilirim:<br>
-                    💰 Fiyat bilgisi<br>
-                    🎨 Boya & tadilat<br>
-                    📅 Randevu<br>
-                    🎉 İndirimler<br>
-                    📞 İletişim<br>
-                    🧮 Matematik işlemleri<br>
-                    📝 Şiir, fıkra, sohbet, tavsiye, bilgi...<br><br>
-                    <span style="font-size: 12px; color: #e67e22;">✨ Ne sormak istersin? Çekinme, her şeyi sorabilirsin!</span>
-                </div>
-            </div>
-        </div>
-        <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="Mesajını yaz..." onkeypress="if(event.keyCode==13) sendAI()">
-            <button onclick="sendAI()">Gönder</button>
-        </div>
-    </div>
-</div>
-
-<script>
-    function toggleAI() {
-        var chat = document.getElementById('aiChat');
-        if (chat) chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
-    }
-    
-    function addTypingIndicator() {
-        var messagesDiv = document.getElementById('aiMessages');
-        var typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot';
-        typingDiv.id = 'typingIndicator';
-        typingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
-        messagesDiv.appendChild(typingDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-    
-    function removeTypingIndicator() {
-        var typing = document.getElementById('typingIndicator');
-        if (typing) typing.remove();
-    }
-    
-    function sendAI() {
-        var input = document.getElementById('aiInput');
-        var msg = input.value.trim();
-        if (msg === "") return;
-        
-        var messagesDiv = document.getElementById('aiMessages');
-        
-        messagesDiv.innerHTML += `<div class="message user"><div class="message-content">${escapeHtml(msg)}</div></div>`;
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        input.value = "";
-        addTypingIndicator();
-        
-        setTimeout(() => {
-            removeTypingIndicator();
-            var cevap = getSmartResponse(msg);
-            messagesDiv.innerHTML += `<div class="message bot"><div class="message-content">${cevap}</div></div>`;
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }, 500);
-    }
-    
-    function escapeHtml(text) {
-        return text.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-    
-    function getSmartResponse(question) {
-        var q = question.toLowerCase();
-        
-        // ========== MATEMATİK ==========
-        try {
-            if (q.includes('+') || q.includes('-') || q.includes('*') || q.includes('x') || q.includes('/') || q.includes('÷')) {
-                var islem = q.replace(/x/g, '*').replace(/÷/g, '/').replace(/[^0-9+\-*/.]/g, '');
-                if (islem.match(/[\d+\-*/.]/) && !islem.includes('--')) {
-                    var sonuc = eval(islem);
-                    if (!isNaN(sonuc) && isFinite(sonuc)) {
-                        return `🧮 ${islem} = ${sonuc}`;
-                    }
-                }
-            }
-            if (q.includes('karekök') || q.includes('√')) {
-                var sayi = parseInt(q.match(/\d+/));
-                if (sayi && sayi > 0) {
-                    var kok = Math.sqrt(sayi);
-                    return `📐 ${sayi} sayısının karekökü = ${kok}`;
-                }
-            }
-            if (q.includes('%') || q.includes('yüzde')) {
-                var sayilar = q.match(/\d+/g);
-                if (sayilar && sayilar.length >= 2) {
-                    var yuzde = (sayilar[1] * sayilar[0]) / 100;
-                    return `💰 ${sayilar[1]}'ün %${sayilar[0]}'i = ${yuzde}`;
-                }
-            }
-        } catch(e) {}
-        
-        // ========== FIKRA ==========
-        if (q.includes('fıkra') || q.includes('şaka') || q.includes('güldür')) {
-            const fikralar = [
-                "Temel'e sormuşlar: 'Dünyanın en hızlı şeyi nedir?' Temel: 'Ateş böceği.' 'Neden?' 'Çünkü yanıp sönüyor.' 😄",
-                "Nasrettin Hoca'nın eşeği ölmüş. Komşular taziye ziyaretine gelmiş. Hoca ağlayarak: 'Eşeğim öldü, vah vah.' Komşular: 'Hoca, bu kadar üzülme, yenisini alırsın.' Hoca: 'Onu değil, eşeğim ölmeden önce bana 50 altın borç vermişti, şimdi kime gideceğim?' 😂",
-                "Bir müşteri boyacıya sormuş: 'Bu boya ne kadar dayanır?' Boyacı: 'Biraz daha yürürseniz dayanır.' 🤪",
-                "Temel bir gün doktora gitmiş. Doktor: 'Ne şikayetin var?' Temel: 'Uzun süreli hafıza kaybı yaşıyorum.' Doktor: 'Bu ne zamandan beri var?' Temel: 'Ne zamandan beri ne?' 🤣"
-            ];
-            return fikralar[Math.floor(Math.random() * fikralar.length)];
-        }
-        
-        // ========== ŞİİR ==========
-        if (q.includes('şiir') || q.includes('şair')) {
-            return "📝 Güneş gibi parlarsın,\nHer işin üstesinden gelirsin.\nGüneş Yapı'nın başında,\nEn güzeli hak edersin.\n\n👑 Sana layık her şeyi yapmaya hazırım!";
-        }
-        
-        // ========== FİYAT ==========
-        if (q.includes('fiyat') || q.includes('ücret') || q.includes('ne kadar') || q.includes('kaç para')) {
-            return `💰 Fiyatlar işin büyüklüğüne, kullanılan malzemeye ve işçilik süresine göre değişir. En doğru teklif için bizi arayın: 📞 0535 985 95 35`;
-        }
-        
-        // ========== HİZMETLER ==========
-        if (q.includes('boya') || q.includes('badana')) {
-            return `🎨 Boya hizmetlerimiz: İç cephe, dış cephe, dekoratif boya, dokulu boya, silikonlu boya. 10 yıllık ekibimizle kaliteli işçilik garantisi!`;
-        }
-        if (q.includes('alçı') || q.includes('alçıpan') || q.includes('asma tavan')) {
-            return `🔨 Alçıpan hizmetlerimiz: Asma tavan, bölme duvar, ses yalıtımı, ısı yalıtımı. Uygun fiyat, kaliteli işçilik garantisi!`;
-        }
-        if (q.includes('fayans') || q.includes('seramik')) {
-            return `🪨 Fayans hizmetlerimiz: Banyo, mutfak, zemin, duvar, balkon, teras fayans işçiliği. Su yalıtımı ve tadilat hizmetlerimiz de mevcut.`;
-        }
-        if (q.includes('tadilat') || q.includes('yenileme')) {
-            return `🏗️ Tadilat hizmetlerimiz: Ev tadilatı, iş yeri tadilatı, mutfak tadilatı, banyo tadilatı, anahtar teslim yenileme. Detaylı bilgi için bizi arayın: 0535 985 95 35`;
-        }
-        
-        // ========== RANDEVU ==========
-        if (q.includes('randevu')) {
-            return `📅 Randevu almak için yukarıdaki Randevu formunu doldurun veya bizi arayın: 0535 985 95 35`;
-        }
-        
-        // ========== İNDİRİM ==========
-        if (q.includes('indirim') || q.includes('kampanya')) {
-            return `🎉 Kampanyalarımız için yukarıdaki İndirimler bölümüne bakabilirsin! İlk keşif ücretsizdir.`;
-        }
-        
-        // ========== İLETİŞİM ==========
-        if (q.includes('telefon') || q.includes('numara') || q.includes('adres')) {
-            return `📞 Tel: 0535 985 95 35\n📧 E-posta: mehmetgnes456@gmail.com\n📍 Hizmet Bölgesi: İstanbul, Kocaeli ve çevresi\n📷 Instagram: @mehmetgunes954`;
-        }
-        
-        // ========== SOHBET ==========
-        if (q.includes('nasılsın') || q.includes('nasıl')) {
-            return `🤗 Çok iyiyim, teşekkür ederim! Sen nasılsın? Sana nasıl yardımcı olabilirim?`;
-        }
-        if (q.includes('merhaba') || q.includes('selam')) {
-            return `👋 Selam! Hoş geldin. Sana nasıl yardımcı olabilirim? Fiyat, hizmet, randevu, indirim... Her şeyi sorabilirsin.`;
-        }
-        if (q.includes('teşekkür') || q.includes('sağol')) {
-            return `🙏 Rica ederim! Başka ihtiyacın olursa yazmaktan çekinme 😊`;
-        }
-        if (q.includes('adın ne') || q.includes('ismin ne')) {
-            return `🤖 Benim adım Asistan. Güneş Yapı'da sana yardım etmek için buradayım!`;
-        }
-        if (q.includes('ne yapıyorsun')) {
-            return `🤖 Sana yardım etmek için bekliyorum. Fiyat, hizmet, matematik, sohbet... Ne istersen yaparım 😊`;
-        }
-        
-        // ========== BİLGİ / TAVSİYE ==========
-        if (q.includes('tavsiye') || q.includes('öneri')) {
-            return `💡 Tavsiyem: Boya yaptırmadan önce mutlaka yüzeyin temiz ve kuru olduğundan emin olun. Dış cephe boyası için hava sıcaklığı 15°C üzerinde olmalı. Profesyonel ekibimizle çalışarak uzun ömürlü sonuçlar elde edebilirsiniz!`;
-        }
-        if (q.includes('hava') || q.includes('bugün')) {
-            return `☀️ Hava durumu bilgisi için bir meteoroloji sitesine bakmanı öneririm. Ama dış cephe boyası için güneşli ve kuru hava idealdir!`;
-        }
-        if (q.includes('aşk') || q.includes('sevgi')) {
-            return `💖 Aşk güzel bir şey. Ama en güzel aşk, evini yenileyip içinde huzurla oturmaktır. Güneş Yapı olarak sana bu konuda yardımcı olabiliriz 😊`;
-        }
-        
-        // ========== GENEL ==========
-        return `🤝 Sorun için teşekkürler! Ben Güneş Yapı'nın asistanıyım. Fiyat, hizmet, tadilat, randevu, indirim veya iletişim hakkında bilgi alabilirsin. Ayrıca fıkra, şiir, tavsiye, sohbet de edebiliriz. Bize 0535 985 95 35'ten ulaşabilirsin. Başka sorun var mı? 😊`;
-    }
-</script>
