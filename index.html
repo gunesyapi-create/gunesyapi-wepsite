@@ -2,638 +2,441 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>GONEC | Geleceği İnşa Eden Vizyon</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Yapı | İstanbul ve Kocaeli İnşaat, Tadilat, Boya Hizmetleri</title>
+    <meta name="description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir. Kaliteli işçilik, uygun fiyat, zamanında teslimat.">
+    <meta name="keywords" content="Güneş Yapı, inşaat, tadilat, boya, alçıpan, fayans, İstanbul, Kocaeli">
+    <meta property="og:title" content="Güneş Yapı | İstanbul ve Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
+    <meta property="og:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir. Hemen teklif alın!">
+    <meta property="og:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
+    <meta property="og:url" content="https://gunesyapi-insaat.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Güneş Yapı | İstanbul ve Kocaeli İnşaat, Tadilat, Boya Hizmetleri">
+    <meta name="twitter:description" content="Güneş Yapı, 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermektedir.">
+    <meta name="twitter:image" content="https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Güneş Yapı",
+      "image": "https://gunesyapi-create.github.io/gunesyapi-website/abc.jpeg",
+      "telephone": "0535 985 95 35",
+      "email": "mehmetgnes456@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul, Kocaeli",
+        "addressCountry": "TR"
+      },
+      "openingHours": "Mo-Sa 08:00-17:00, Su 09:00-16:00",
+      "url": "https://gunesyapi-insaat.com",
+      "priceRange": "₺₺",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "25"
+      }
+    }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            overflow-x: hidden;
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fef5e8 0%, #ffe6cc 100%);
+            background-attachment: fixed;
+            color: #2c3e50;
         }
-
-        .parallax-bg {
-            position: fixed;
+        header {
+            background: #2c3e50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, #1a2a3a, #0a0f14);
+            z-index: 10;
         }
-
-        .pattern-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBmaWxsPSIjZTY3ZTIyIiBmaWxsLW9wYWNpdHk9IjAuMDMiIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMjAgMjBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtMjAgMjAgMjAgMjAgMCAwIDEtMjAtMjAgMjAgMjAgMCAwIDEgMjAtMjB6IiBmaWxsPSIjZTY3ZTIyIiBmaWxsLW9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
-            background-repeat: repeat;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #e67e22;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: 0.1s;
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            background: rgba(230, 126, 34, 0.2);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: 0.2s;
-        }
-
-        .hero {
-            height: 100vh;
+        .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            gap: 15px;
         }
-
-        .hero-3d {
+        .logo {
+            width: 50px;
+            height: auto;
+            border-radius: 12px;
+            background: white;
+            padding: 5px;
+        }
+        .site-title h1 { font-size: 28px; }
+        .site-title p { font-size: 13px; opacity: 0.8; margin-top: 5px; }
+        .hero {
             text-align: center;
-            perspective: 1000px;
-        }
-
-        .hero h1 {
-            font-size: 120px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #e67e22, #f39c12, #e67e22);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: float 3s ease-in-out infinite;
-            text-shadow: 0 0 50px rgba(230,126,34,0.3);
-            letter-spacing: 8px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotateX(0deg); }
-            50% { transform: translateY(-20px) rotateX(5deg); }
-        }
-
-        .hero p {
-            font-size: 28px;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-            letter-spacing: 2px;
-        }
-
-        .hero .btn-glow {
-            margin-top: 40px;
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(45deg, #e67e22, #f39c12);
-            border: none;
-            border-radius: 50px;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e67e22, #f39c12);
             color: white;
+            border-radius: 20px;
+            margin: 40px 20px;
+        }
+        .hero h2 { font-size: 42px; margin-bottom: 20px; }
+        .hero .slogan { font-size: 20px; font-style: italic; margin-bottom: 30px; }
+        .hero button {
+            background: white;
+            color: #e67e22;
+            border: none;
+            padding: 15px 40px;
             font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .hero button:hover { transform: scale(1.05); }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #e67e22;
+            margin: 50px 0 30px;
+        }
+        .services, .projects, .campaigns {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .service-card, .project-card, .campaign-card, .contact-card, .randevu-card, .about-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 250px;
+            transition: 0.3s;
+            margin-bottom: 20px;
+            backdrop-filter: blur(2px);
+        }
+        .service-card:hover, .project-card:hover, .campaign-card:hover, .contact-card:hover {
+            transform: translateY(-5px);
+            background: white;
+        }
+        .service-card h3, .project-card h3, .campaign-card h3 {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .service-card p, .project-card p, .campaign-card p {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .campaign-card .discount {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e67e22;
+            margin: 10px 0;
+        }
+        .btn-teklif {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            text-decoration: none;
-            animation: fadeInUp 1s ease 0.8s forwards;
-            opacity: 0;
-            box-shadow: 0 0 20px rgba(230,126,34,0.5);
+        }
+        .btn-teklif:hover {
+            background: #d35400;
+            transform: scale(1.02);
+        }
+        .contact-info { text-align: center; }
+        .contact-info p { margin: 10px 0; font-size: 18px; }
+        .contact-info a { color: #e67e22; text-decoration: none; }
+        .hours {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .hours div { text-align: center; }
+        .about-content {
+            text-align: left;
+            line-height: 1.7;
+        }
+        .about-content p { margin-bottom: 18px; }
+        .about-content strong { color: #e67e22; }
+        .randevu-form { text-align: left; }
+        .randevu-form input, .randevu-form select, .randevu-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .randevu-form input:focus, .randevu-form select:focus, .randevu-form textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
         }
 
-        .hero .btn-glow:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(230,126,34,0.8);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .navbar {
+        /* YAPAY ZEKA ASİSTANI */
+        .ai-container {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 60px;
-            padding: 15px 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
-            border: 1px solid rgba(230,126,34,0.3);
         }
-
-        .nav-container {
+        .ai-button {
+            background: #e67e22;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .ai-button span { font-size: 34px; pointer-events: none; }
+        .ai-button:hover { transform: scale(1.08); background: #d35400; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230,126,34,0); }
+            100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
+        }
+        .ai-chat {
+            display: none;
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ai-header {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #e67e22;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .section {
-            padding: 80px 5%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 56px;
-            margin-bottom: 50px;
-            background: linear-gradient(135deg, #fff, #e67e22);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .services-3d {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card-3d {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: 0.5s;
-            border: 1px solid rgba(230,126,34,0.2);
-        }
-
-        .card-3d:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            border-color: #e67e22;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .card-3d i {
-            font-size: 60px;
-            color: #e67e22;
-            margin-bottom: 20px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            height: 300px;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 30px;
-            transition: 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            bottom: 0;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 48px;
-            color: #e67e22;
-        }
-
-        .testimonials {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px;
-            text-align: center;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 20px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(230,126,34,0.3);
-            border-radius: 10px;
-            color: white;
-        }
-
-        .footer {
-            background: #050505;
-            padding: 60px 5% 30px;
-            margin-top: 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 24px;
-            margin-right: 20px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #e67e22;
-            transform: translateY(-3px);
-            display: inline-block;
-        }
-
-        .ai-chat {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-button {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(45deg, #e67e22, #f39c12);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 30px rgba(230,126,34,0.6);
-            transition: 0.3s;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-        }
-
-        .chat-window {
-            position: absolute;
-            bottom: 90px;
-            right: 0;
-            width: 350px;
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(230,126,34,0.3);
-            display: none;
-            overflow: hidden;
-        }
-
-        .chat-window.active {
-            display: block;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .chat-header {
-            background: linear-gradient(45deg, #e67e22, #f39c12);
-            padding: 15px;
-            font-weight: bold;
-        }
-
-        .chat-messages {
-            height: 300px;
+        .ai-header h3 { margin: 0; font-size: 18px; }
+        .ai-header .close-btn { cursor: pointer; font-size: 20px; font-weight: bold; }
+        .ai-messages {
+            height: 400px;
             overflow-y: auto;
             padding: 15px;
+            background: #fef9f0;
         }
-
-        .chat-input {
+        .message {
+            margin-bottom: 15px;
             display: flex;
-            padding: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-direction: column;
         }
-
-        .chat-input input {
-            flex: 1;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 10px;
-            color: white;
+        .message.user { align-items: flex-end; }
+        .message.bot { align-items: flex-start; }
+        .message-content {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
         }
-
-        .chat-input button {
+        .user .message-content {
             background: #e67e22;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            margin-left: 10px;
-            cursor: pointer;
+            color: white;
+            border-bottom-right-radius: 4px;
         }
-
+        .bot .message-content {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 4px;
+            color: #2c3e50;
+        }
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .opt-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+        .opt-btn:hover {
+            background: #d35400;
+            transform: scale(1.02);
+        }
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 20px;
+            width: fit-content;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #e67e22;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-8px); opacity: 1; }
+        }
+        .ai-input-area {
+            display: flex;
+            padding: 12px;
+            background: white;
+            border-top: 1px solid #eee;
+            gap: 8px;
+        }
+        .ai-input-area input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+        .ai-input-area input:focus {
+            border-color: #e67e22;
+        }
+        .ai-input-area button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 48px; }
-            .navbar { top: 10px; padding: 10px 20px; }
-            .nav-links { gap: 15px; margin-top: 10px; }
-            .section-title { font-size: 32px; }
+            .hero h2 { font-size: 28px; }
+            .logo { width: 40px; }
+            .site-title h1 { font-size: 22px; }
+            .ai-chat { width: 320px; right: -10px; }
+            .ai-messages { height: 350px; }
+            .ai-button { width: 55px; height: 55px; }
+            .ai-button span { font-size: 28px; }
+            .form-row { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
-
-<div class="parallax-bg"></div>
-<div class="pattern-overlay"></div>
-<canvas id="particleCanvas" class="particles"></canvas>
-<div class="cursor"></div>
-<div class="cursor-follower"></div>
-
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">GONEC</div>
-        <div class="nav-links">
-            <a href="#home">Ana Sayfa</a>
-            <a href="#services">Hizmetler</a>
-            <a href="#projects">Projeler</a>
-            <a href="#announcements">Duyurular</a>
-            <a href="#contact">İletişim</a>
-        </div>
-    </div>
-</nav>
-
-<section id="home" class="hero">
-    <div class="hero-3d">
-        <h1 data-aos="flip-up">GONEC</h1>
-        <p data-aos="fade-up" data-aos-delay="200">Geleceği İnşa Eden Vizyon</p>
-        <a href="#services" class="btn-glow" data-aos="fade-up" data-aos-delay="400">Keşfet <i class="fas fa-arrow-right"></i></a>
-    </div>
-</section>
-
-<section id="services" class="section">
-    <h2 class="section-title" data-aos="fade-up">Hizmetlerimiz</h2>
-    <div class="services-3d">
-        <div class="card-3d" data-aos="flip-left">
-            <i class="fas fa-building"></i>
-            <h3>Anahtar Teslim İnşaat</h3>
-            <p>Sıfırdan anahtar teslimine kadar tüm süreçleri profesyonelce yönetiyoruz. Kalite, zamanında teslim ve uygun fiyat garantisi.</p>
-        </div>
-        <div class="card-3d" data-aos="flip-left" data-aos-delay="100">
-            <i class="fas fa-microchip"></i>
-            <h3>Akıllı Ev Sistemleri</h3>
-            <p>Uzaktan kontrol, enerji yönetimi, güvenlik ve otomasyon sistemleri ile evinizi geleceğe taşıyoruz.</p>
-        </div>
-        <div class="card-3d" data-aos="flip-left" data-aos-delay="200">
-            <i class="fas fa-tools"></i>
-            <h3>Restorasyon & Tadilat</h3>
-            <p>Tarihi dokuyu koruyarak modern konforla buluşturuyoruz. Her türlü tadilat işlerinizde yanınızdayız.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <h2 class="section-title" data-aos="fade-up">Rakamlarla GONEC</h2>
-    <div class="stats">
-        <div class="stat-item" data-aos="zoom-in">
-            <h3><span class="counter" data-target="150">0</span>+</h3>
-            <p>Tamamlanan Proje</p>
-        </div>
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-            <h3><span class="counter" data-target="500">0</span>+</h3>
-            <p>Mutlu Müşteri</p>
-        </div>
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-            <h3><span class="counter" data-target="15">0</span></h3>
-            <p>Yıl Deneyim</p>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="section">
-    <h2 class="section-title" data-aos="fade-up">Öne Çıkan Projeler</h2>
-    <div class="gallery">
-        <div class="gallery-item" data-aos="flip-up">
-            <img id="proje1Img" src="https://placehold.co/600x400/1a2a3a/e67e22?text=ABC66" alt="ABC66">
-            <div class="gallery-overlay">
-                <h3>ABC66</h3>
-                <p>Modern konut projesi, akıllı ev sistemleri ile donatılmış lüks daireler</p>
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <div class="site-title">
+                <h1>GÜNEŞ YAPI</h1>
+                <p>Yapı & İnşaat</p>
             </div>
         </div>
-        <div class="gallery-item" data-aos="flip-up" data-aos-delay="100">
-            <img id="proje2Img" src="https://placehold.co/600x400/1a2a3a/e67e22?text=ABC88" alt="ABC88">
-            <div class="gallery-overlay">
-                <h3>ABC88</h3>
-                <p>Doğayla iç içe, özel bahçeli lüks villalar</p>
-            </div>
-        </div>
-        <div class="gallery-item" data-aos="flip-up" data-aos-delay="200">
-            <img id="proje3Img" src="https://placehold.co/600x400/1a2a3a/e67e22?text=ABC99" alt="ABC99">
-            <div class="gallery-overlay">
-                <h3>ABC99</h3>
-                <p>Kurumsal ofis binası, yüksek teknoloji ve modern mimari</p>
-            </div>
-        </div>
-        <div class="gallery-item" data-aos="flip-up" data-aos-delay="300">
-            <img id="proje4Img" src="https://placehold.co/600x400/1a2a3a/e67e22?text=paca123" alt="paca123">
-            <div class="gallery-overlay">
-                <h3>paca123</h3>
-                <p>Özel proje, anahtar teslim modern yaşam alanları</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </header>
 
-<section id="announcements" class="section">
-    <h2 class="section-title" data-aos="fade-up">Duyurular</h2>
-    <div class="testimonials">
-        <div class="testimonial-card" id="announcement-slider">
-            <i class="fas fa-bullhorn" style="font-size: 40px; color: #e67e22;"></i>
-            <h3 id="announcement-title">Yeni Proje: ABC66</h3>
-            <p id="announcement-text">ABC66 projemizde sona yaklaştık! Teslim tarihi: Haziran 2025. Şimdiden hayırlı olsun.</p>
-            <div style="margin-top: 20px;">
-                <button onclick="prevAnnouncement()" style="background: #e67e22; border: none; padding: 10px 20px; border-radius: 10px; margin: 0 10px; cursor: pointer;"><i class="fas fa-arrow-left"></i></button>
-                <button onclick="nextAnnouncement()" style="background: #e67e22; border: none; padding: 10px 20px; border-radius: 10px; margin: 0 10px; cursor: pointer;"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
+    <div class="hero">
+        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
+        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
+        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
     </div>
-</section>
 
-<section id="contact" class="section">
-    <h2 class="section-title" data-aos="fade-up">Bize Ulaşın</h2>
-    <div class="contact-form" data-aos="flip-up">
-        <form id="contactForm">
-            <div class="form-group">
-                <input type="text" id="contactName" placeholder="Adınız Soyadınız" required>
-            </div>
-            <div class="form-group">
-                <input type="email" id="contactEmail" placeholder="E-posta Adresiniz" required>
-            </div>
-            <div class="form-group">
-                <textarea id="contactMessage" rows="5" placeholder="Mesajınız..." required></textarea>
-            </div>
-            <button type="submit" class="btn-glow" style="width: 100%;">Gönder <i class="fas fa-paper-plane"></i></button>
-        </form>
-        <div id="formStatus" style="margin-top: 20px; text-align: center;"></div>
-    </div>
-</section>
+    <div class="container">
+        <h2 class="section-title">🛠️ Hizmetlerimiz</h2>
+        <div class="services">
+            <div class="service-card"><h3>🏠 Boya & Badana</h3><p>İç cephe, dış cephe, dekoratif boya uygulamaları.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🛠️ Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🏗️ Tadilat & Yenileme</h3><p>Ev, iş yeri, mutfak, banyo tadilatı. Anahtar teslim!</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        </div>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div>
-            <h3 style="color: #e67e22;">GONEC</h3>
-            <p>Kalite ve güvenin adresi</p>
-            <div class="social-links">
-                <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+905359859535"><i class="fas fa-phone"></i></a>
-            </div>
+        <h2 class="section-title">📸 Projelerimiz</h2>
+        <div class="projects">
+            <div class="project-card"><img src="ABC99.jpeg" alt="Villa" onerror="this.src='abc.jpeg'"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" onerror="this.src='abc.jpeg'"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC77.jpeg" alt="Daire" onerror="this.src='abc.jpeg'"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" onerror="this.src='abc.jpeg'"><h3>Mutfak Yenileme</h3><p>Mutfak dolapları, tezgah ve fayans işçiliği.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
         </div>
-        <div>
-            <h3>İletişim</h3>
-            <p><i class="fas fa-phone"></i> 0 535 985 95 35</p>
-            <p><i class="fas fa-envelope"></i> mehmetgnes456@gmail.com</p>
-            <p><i class="fab fa-instagram"></i> @mehmetgunes954</p>
-        </div>
-        <div>
-            <h3>Adres</h3>
-            <p>İstanbul, Türkiye</p>
-            <p>Hafta içi: 09:00 - 18:00</p>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <p>&copy; 2025 GONEC - Tüm Hakları Saklıdır | Geleceği İnşa Eden Vizyon</p>
-    </div>
-</footer>
 
-<div class="ai-chat">
-    <div class="chat-button" onclick="toggleChat()">
-        <i class="fas fa-robot" style="fon
+        <h2 class="section-title">🎉 İndirimler</h2>
+        <div class="campaigns">
+            <div class="campaign-card"><h3>🏢 2+1 Daire</h3><div class="discount">%10 İNDİRİM</div><p>2+1 dairelerde tüm tadilat ve boya işlerinde %10 indirim!</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="campaign-card"><h3>🏠 3+1 Daire</h3><div class="discount">%15 İNDİRİM</div><p>3+1 dairelerde tüm tadilat ve boya işlerinde %15 indirim!</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        </div>
+
+        <h2 class="section-title">📅 Randevu</h2>
+        <div class="randevu-card">
+            <form id="randevuForm" class="randevu-form">
+                <div class="form-row"><div class="form-group"><label>Ad Soyad *</label><input type="text" id="adsoyad" required placeholder="Adınız Soyadınız"></div><div class="form-group"><label>Telefon *</label><input type="tel" id="telefon" required placeholder="0535 985 95 35"></div></div>
+                <div class="form-row"><div class="form-group"><label>İl *</label><select id="il" required><option value="">Seçiniz...</option><option value="İstanbul">İstanbul</option><option value="Kocaeli">Kocaeli</option></select></div><div class="form-group"><label>İlçe *</label><input type="text" id="ilce" required placeholder="Gebze, Kartal, Pendik..."></div></div>
+                <div class="form-row"><div class="form-group"><label>Mahalle *</label><input type="text" id="mahalle" required placeholder="Mahalle adı"></div><div class="form-group"><label>Sokak / Cadde *</label><input type="text" id="sokak" required placeholder="Sokak adı"></div></div>
+                <div class="form-row"><div class="form-group"><label>Daire No *</label><input type="text" id="daire" required placeholder="12"></div><div class="form-group"><label>Kat</label><input type="text" id="kat" placeholder="3 (isteğe bağlı)"></div><div class="form-group"><label>Randevu Tarihi *</label><input type="date" id="tarih" required></div></div>
+                <div class="form-row"><div class="form-group"><label>Hizmet Seçimi *</label><select id="hizmet" required><option value="">Seçiniz...</option><option value="Boya & Badana">Boya & Badana</option><option value="Alçı & Alçıpan">Alçı & Alçıpan</option><option value="Fayans & Seramik">Fayans & Seramik</option><option value="Tadilat & Yenileme">Tadilat & Yenileme</option><option value="Dekorasyon">Dekorasyon</option><option value="Diğer">Diğer</option></select></div></div>
+                <div class="form-group"><label>Eklemek İstedikleriniz</label><textarea id="mesaj" rows="3" placeholder="Adres detayı veya notunuz..."></textarea></div>
+                <button type="button" class="btn-teklif" onclick="sendRandevuWhatsApp()" style="width:100%; padding:12px; margin-top:10px;">Randevu Gönder</button>
+            </form>
+            <div id="randevuSuccess" style="display:none; margin-top:15px; padding:10px; background:#d4edda; color:#155724; border-radius:8px; text-align:center;">✅ Randevu talebiniz iletildi! En kısa sürede size dönüş yapacağız.</div>
+        </div>
+
+        <h2 class="section-title">📞 İletişim</h2>
+        <div class="contact-card"><div class="contact-info"><p>📞 <a href="tel:05359859535">0535 985 95 35</a></p><p>💬 <a href="https://wa.me/905359859535">0535 985 95 35 (WhatsApp)</a></p><p>📧 <a href="mailto:mehmetgnes456@gmail.com">mehmetgnes456@gmail.com</a></p><p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank">@mehmetgunes954</a></p><div class="hours"><div><strong>Pzt - Cts</strong><br>08:00 - 17:00</div><div><strong>Pazar</strong><br>09:00 - 16:00</div></div></div></div>
+
+        <h2 class="section-title">🏢 Hakkımızda</h2>
+        <div class="about-card"><div class="about-content"><p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde tadilat, boya, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. Firmamız, sektördeki deneyimi ve uzman kadrosuyla her projede kaliteyi ve müşteri memnuniyetini ön planda tutmaktadır.</p><p><strong>🏆 Neden Güneş Yapı?</strong><br>✓ 10+
