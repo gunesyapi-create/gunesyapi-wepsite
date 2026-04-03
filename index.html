@@ -264,19 +264,25 @@
         .duyuru-modal {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .duyuru-content {
             background: #1e2a3a;
             border-radius: 32px;
             padding: 24px;
             width: 90%;
             max-width: 500px;
+            border: 1px solid #e67e22;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
-            z-index: 10000;
-            border: 1px solid #e67e22;
         }
 
         .duyuru-header {
@@ -404,11 +410,13 @@
 
     <!-- Duyuru Modal -->
     <div id="duyuruModal" class="duyuru-modal">
-        <div class="duyuru-header">
-            <h2>📢 Duyurular</h2>
-            <button class="kapat-duyuru" id="kapatDuyuruBtn">&times;</button>
+        <div class="duyuru-content">
+            <div class="duyuru-header">
+                <h2>📢 Duyurular</h2>
+                <button class="kapat-duyuru" id="kapatDuyuruBtn">&times;</button>
+            </div>
+            <div id="duyuruListesiModal"></div>
         </div>
-        <div id="duyuruListesiModal"></div>
     </div>
 
     <script>
@@ -433,11 +441,11 @@
                             liste.appendChild(kart);
                         });
                     }
-                    document.getElementById('duyuruModal').style.display = 'block';
+                    document.getElementById('duyuruModal').style.display = 'flex';
                 })
                 .catch(() => {
                     document.getElementById('duyuruListesiModal').innerHTML = '<p style="text-align:center; color:#aaa;">Duyurular yüklenemedi.</p>';
-                    document.getElementById('duyuruModal').style.display = 'block';
+                    document.getElementById('duyuruModal').style.display = 'flex';
                 });
         });
 
@@ -458,56 +466,4 @@
             const mah = document.getElementById('mahalle').value;
             const sok = document.getElementById('sokak').value;
             const daire = document.getElementById('daire').value;
-            const tarih = document.getElementById('tarih').value;
-            if (!ad || !tel || !il || !ilce || !mah || !sok || !daire || !tarih) {
-                alert('Lütfen tüm zorunlu alanları doldurun!');
-<!-- Duyuru Modal -->
-<div id="duyuruModal" class="duyuru-modal" style="display: flex; align-items: center; justify-content: center;">
-    <div style="background: #1e2a3a; border-radius: 32px; padding: 24px; width: 90%; max-width: 500px; border: 1px solid #e67e22;">
-        <div class="duyuru-header">
-            <h2>📢 Duyurular</h2>
-            <button class="kapat-duyuru" id="kapatDuyuruBtn" style="background: none; border: none; font-size: 28px; cursor: pointer; color: white;">&times;</button>
-        </div>
-        <div id="duyuruListesiModal" style="max-height: 60vh; overflow-y: auto;"></div>
-    </div>
-</div>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        fetch('duyurular.json')
-            .then(res => res.json())
-            .then(duyurular => {
-                const liste = document.getElementById('duyuruListesiModal');
-                liste.innerHTML = '';
-                if (!duyurular || duyurular.length === 0) {
-                    liste.innerHTML = '<p style="text-align:center; color:#aaa;">Henüz duyuru yok.</p>';
-                } else {
-                    duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
-                    duyurular.forEach(d => {
-                        const kart = document.createElement('div');
-                        kart.style.background = '#1e2a3a';
-                        kart.style.borderRadius = '20px';
-                        kart.style.padding = '16px';
-                        kart.style.marginBottom = '16px';
-                        kart.style.borderLeft = '4px solid #e67e22';
-                        kart.innerHTML = `<h3 style="color:#e67e22; margin:0 0 6px;">${d.baslik}</h3><div style="font-size:12px; color:#aaa; margin-bottom:8px;">📅 ${d.tarih}</div><div style="color:#ddd;">${d.icerik}</div>`;
-                        liste.appendChild(kart);
-                    });
-                }
-                document.getElementById('duyuruModal').style.display = 'flex';
-            })
-            .catch(() => {
-                document.getElementById('duyuruListesiModal').innerHTML = '<p style="text-align:center; color:#aaa;">Duyurular yüklenemedi.</p>';
-                document.getElementById('duyuruModal').style.display = 'flex';
-            });
-    });
-
-    document.getElementById('kapatDuyuruBtn').onclick = () => {
-        document.getElementById('duyuruModal').style.display = 'none';
-    };
-
-    window.onclick = (e) => {
-        const modal = document.getElementById('duyuruModal');
-        if (e.target === modal) modal.style.display = 'none';
-    };
-</script>
+            const tarih = document.getElementById('t
