@@ -407,99 +407,30 @@
             <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
         </footer>
     </div>
-     <body>
-    <!-- Duyuru Modal (JSON dosyası yok, doğrudan HTML içinde) -->
-    <div id="duyuruModal" class="duyuru-modal">
-        <div class="duyuru-content">
-            <div class="duyuru-header">
-                <h2>📢 Duyurular</h2>
-                <button class="kapat-duyuru" id="kapatDuyuruBtn">&times;</button>
-            </div>
-            <div id="duyuruListesiModal"></div>
-        </div>
-    </div>
-
-    <script>
-        // Duyurular doğrudan burada tanımlı (JSON dosyası yok)
-        const duyurular = [
-            {
-                id: 1,
-                tarih: "2026-04-03",
-                baslik: "Yaz Kampanyası Başladı!",
-                icerik: "Tüm iç cephe boya işlerinde %10 indirim fırsatı."
-            },
-            {
-                id: 2,
-                tarih: "2026-04-01",
-                baslik: "Yeni Proje: ABC66",
-                icerik: "ABC66 projemizde sona yaklaştık!"
-            }
-        ];
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const liste = document.getElementById('duyuruListesiModal');
-            liste.innerHTML = '';
-            if (!duyurular || duyurular.length === 0) {
-                liste.innerHTML = '<p style="text-align:center; color:#aaa;">Henüz duyuru yok.</p>';
-            } else {
-                duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
-                duyurular.forEach(d => {
-                    const kart = document.createElement('div');
-                    kart.style.background = '#1e2a3a';
-                    kart.style.borderRadius = '20px';
-                    kart.style.padding = '16px';
-                    kart.style.marginBottom = '16px';
-                    kart.style.borderLeft = '4px solid #e67e22';
-                    kart.innerHTML = `<h3 style="color:#e67e22; margin:0 0 6px;">${d.baslik}</h3><div style="font-size:12px; color:#aaa; margin-bottom:8px;">📅 ${d.tarih}</div><div style="color:#ddd;">${d.icerik}</div>`;
-                    liste.appendChild(kart);
-                });
-            }
-            document.getElementById('duyuruModal').style.display = 'flex';
-        });
-
-        document.getElementById('kapatDuyuruBtn').onclick = () => {
-            document.getElementById('duyuruModal').style.display = 'none';
-        };
-
-        window.onclick = (e) => {
-            const modal = document.getElementById('duyuruModal');
-            if (e.target === modal) modal.style.display = 'none';
-        };
-
-        function sendRandevuWhatsApp() {
-            const ad = document.getElementById('adsoyad').value;
-            const tel = document.getElementById('telefon').value;
-            const il = document.getElementById('il').value;
-            const ilce = document.getElementById('ilce').value;
-            const mah = document.getElementById('mahalle').value;
-            const sok = document.getElementById('sokak').value;
-            const daire = document.getElementById('daire').value;
-            const tarih = document.getElementById('tarih').v
-<!-- Basit Duyuru Sistemi -->
+</body>
+<!-- Duyuru Sistemi (Butonsuz, sadece girişte) -->
 <div id="duyuru" style="position: fixed; bottom: 20px; right: 20px; background: #1e2a3a; border-left: 5px solid #e67e22; padding: 15px 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 10000; max-width: 300px; color: white; display: none;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
         <strong style="color: #e67e22;">📢 İndirim Duyurusu</strong>
         <button id="kapatDuyuru" style="background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer;">✕</button>
     </div>
-    <div id="duyuruMesaj" style="font-size: 14px; line-height: 1.4;"></div>
+    <div id="duyuruMesaj" style="font-size: 14px; line-height: 1.4;">2+1 dairelerde %10, 3+1 dairelerde %15 indirim fırsatı! Detaylı bilgi için hemen arayın: 0535 985 95 35</div>
 </div>
 
 <script>
-    // Duyuru içeriği
-    const duyuruMetni = "2+1 dairelerde %10, 3+1 dairelerde %15 indirim fırsatı! Detaylı bilgi için hemen arayın: 0535 985 95 35";
-
+    // Duyuruyu sadece sayfa yüklendiğinde göster (sayfa içi gezinmede değil)
     window.addEventListener('load', () => {
         const duyuruDiv = document.getElementById('duyuru');
-        const mesajDiv = document.getElementById('duyuruMesaj');
-        mesajDiv.innerText = duyuruMetni;
         duyuruDiv.style.display = 'block';
 
+        // Kapatma butonu
         document.getElementById('kapatDuyuru').onclick = () => {
             duyuruDiv.style.display = 'none';
         };
 
+        // 10 saniye sonra otomatik kapanır (isteğe bağlı)
         setTimeout(() => {
             duyuruDiv.style.display = 'none';
         }, 10000);
     });
-</script>
+</script>   
