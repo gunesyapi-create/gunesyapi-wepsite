@@ -268,7 +268,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             align-items: center;
             justify-content: center;
             z-index: 10000;
@@ -408,7 +408,7 @@
         </footer>
     </div>
 
-    <!-- Duyuru Modal -->
+    <!-- Duyuru Modal (JSON dosyası yok, doğrudan HTML içinde) -->
     <div id="duyuruModal" class="duyuru-modal">
         <div class="duyuru-content">
             <div class="duyuru-header">
@@ -420,33 +420,41 @@
     </div>
 
     <script>
+        // Duyurular doğrudan burada tanımlı (JSON dosyası yok)
+        const duyurular = [
+            {
+                id: 1,
+                tarih: "2026-04-03",
+                baslik: "Yaz Kampanyası Başladı!",
+                icerik: "Tüm iç cephe boya işlerinde %10 indirim fırsatı."
+            },
+            {
+                id: 2,
+                tarih: "2026-04-01",
+                baslik: "Yeni Proje: ABC66",
+                icerik: "ABC66 projemizde sona yaklaştık!"
+            }
+        ];
+
         window.addEventListener('DOMContentLoaded', () => {
-            fetch('duyurular.json')
-                .then(res => res.json())
-                .then(duyurular => {
-                    const liste = document.getElementById('duyuruListesiModal');
-                    liste.innerHTML = '';
-                    if (!duyurular || duyurular.length === 0) {
-                        liste.innerHTML = '<p style="text-align:center; color:#aaa;">Henüz duyuru yok.</p>';
-                    } else {
-                        duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
-                        duyurular.forEach(d => {
-                            const kart = document.createElement('div');
-                            kart.style.background = '#1e2a3a';
-                            kart.style.borderRadius = '20px';
-                            kart.style.padding = '16px';
-                            kart.style.marginBottom = '16px';
-                            kart.style.borderLeft = '4px solid #e67e22';
-                            kart.innerHTML = `<h3 style="color:#e67e22; margin:0 0 6px;">${d.baslik}</h3><div style="font-size:12px; color:#aaa; margin-bottom:8px;">📅 ${d.tarih}</div><div style="color:#ddd;">${d.icerik}</div>`;
-                            liste.appendChild(kart);
-                        });
-                    }
-                    document.getElementById('duyuruModal').style.display = 'flex';
-                })
-                .catch(() => {
-                    document.getElementById('duyuruListesiModal').innerHTML = '<p style="text-align:center; color:#aaa;">Duyurular yüklenemedi.</p>';
-                    document.getElementById('duyuruModal').style.display = 'flex';
+            const liste = document.getElementById('duyuruListesiModal');
+            liste.innerHTML = '';
+            if (!duyurular || duyurular.length === 0) {
+                liste.innerHTML = '<p style="text-align:center; color:#aaa;">Henüz duyuru yok.</p>';
+            } else {
+                duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+                duyurular.forEach(d => {
+                    const kart = document.createElement('div');
+                    kart.style.background = '#1e2a3a';
+                    kart.style.borderRadius = '20px';
+                    kart.style.padding = '16px';
+                    kart.style.marginBottom = '16px';
+                    kart.style.borderLeft = '4px solid #e67e22';
+                    kart.innerHTML = `<h3 style="color:#e67e22; margin:0 0 6px;">${d.baslik}</h3><div style="font-size:12px; color:#aaa; margin-bottom:8px;">📅 ${d.tarih}</div><div style="color:#ddd;">${d.icerik}</div>`;
+                    liste.appendChild(kart);
                 });
+            }
+            document.getElementById('duyuruModal').style.display = 'flex';
         });
 
         document.getElementById('kapatDuyuruBtn').onclick = () => {
@@ -466,4 +474,4 @@
             const mah = document.getElementById('mahalle').value;
             const sok = document.getElementById('sokak').value;
             const daire = document.getElementById('daire').value;
-            const tarih = document.getElementById('t
+            const tarih = document.getElementById('tarih').v
