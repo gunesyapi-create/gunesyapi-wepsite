@@ -139,4 +139,265 @@
             min-width: 260px;
             transition: all 0.2s;
             border: 1px solid rgba(230,126,34,0.2);
+        }
 
+        .service-card:hover, .project-card:hover {
+            transform: translateY(-4px);
+            background: #1e2a3a;
+            border-color: #e67e22;
+        }
+
+        .service-card h3, .project-card h3 {
+            color: #e67e22;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p, .project-card p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #e67e22;
+        }
+
+        .randevu-form input, .randevu-form select, .randevu-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #3a4a5a;
+            border-radius: 20px;
+            background: #0f1720;
+            color: white;
+            font-family: inherit;
+        }
+
+        .sss-item {
+            text-align: left;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #3a4a5a;
+            padding-bottom: 16px;
+        }
+
+        .sss-item h4 {
+            color: #e67e22;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .contact-info p {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        .hours {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hours div {
+            background: #0f1720;
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
+
+        footer {
+            background: #0f1720;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Duyuru */
+        #duyuru {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f1720;
+            border-left: 4px solid #e67e22;
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10000;
+            max-width: 280px;
+            display: none;
+        }
+
+        @media (max-width: 700px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+            #duyuru {
+                bottom: 10px;
+                right: 10px;
+                max-width: 260px;
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="logo-container">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <div class="site-title">
+                <h1>GÜNEŞ YAPI</h1>
+                <p>Boya • Tadilat • İnşaat</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
+        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
+        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+    </div>
+
+    <div class="container">
+        <div class="section-title">🏗️ Hizmetlerimiz</div>
+        <div class="services">
+            <div class="service-card"><h3>🎨 Boya & Badana</h3><p>İç cephe, dış cephe, dekoratif boya, dokulu boya. 10 yıl garantili işçilik.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🧱 Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayans işçiliği, su yalıtımı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🏗️ Tadilat & Yenileme</h3><p>Anahtar teslim tadilat, mutfak-banyo yenileme.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        </div>
+
+        <div class="section-title">📸 Projelerimiz</div>
+        <div class="projects">
+            <div class="project-card"><img src="ABC99.jpeg" alt="Villa"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC77.jpeg" alt="Daire"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 dairenin komple tadilatı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak"><h3>Mutfak Yenileme</h3><p>Mutfak dolapları, tezgah ve fayans işçiliği.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        </div>
+
+        <div class="section-title">🎉 İndirimler</div>
+        <div class="services">
+            <div class="service-card"><h3>🏢 2+1 Daire</h3><div style="font-size:32px; font-weight:800; color:#e67e22;">%10 İNDİRİM</div><p>Tüm tadilat ve boya işlerinde geçerlidir.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+            <div class="service-card"><h3>🏠 3+1 Daire</h3><div style="font-size:32px; font-weight:800; color:#e67e22;">%15 İNDİRİM</div><p>Sınırlı sayıda, kaçırmayın!</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        </div>
+
+        <div class="section-title">📅 Randevu</div>
+        <div class="randevu-card">
+            <form id="randevuForm" class="randevu-form">
+                <div class="form-row"><div class="form-group"><label>Ad Soyad *</label><input type="text" id="adsoyad" required placeholder="Adınız Soyadınız"></div><div class="form-group"><label>Telefon *</label><input type="tel" id="telefon" required placeholder="0535 985 95 35"></div></div>
+                <div class="form-row"><div class="form-group"><label>İl *</label><select id="il"><option>İstanbul</option><option>Kocaeli</option></select></div><div class="form-group"><label>İlçe *</label><input type="text" id="ilce" required placeholder="İlçe"></div></div>
+                <div class="form-row"><div class="form-group"><label>Mahalle *</label><input type="text" id="mahalle" required placeholder="Mahalle"></div><div class="form-group"><label>Sokak *</label><input type="text" id="sokak" required placeholder="Sokak"></div></div>
+                <div class="form-row"><div class="form-group"><label>Daire No *</label><input type="text" id="daire" required></div><div class="form-group"><label>Kat</label><input type="text" id="kat"></div><div class="form-group"><label>Tarih *</label><input type="date" id="tarih" required></div></div>
+                <div class="form-row"><div class="form-group"><label>Hizmet</label><select id="hizmet"><option>Boya</option><option>Alçıpan</option><option>Fayans</option><option>Tadilat</option></select></div></div>
+                <textarea id="mesaj" rows="2" placeholder="Notunuz"></textarea>
+                <button type="button" class="btn-teklif" onclick="sendRandevuWhatsApp()" style="width:100%; margin-top:16px;">Randevu Gönder</button>
+            </form>
+            <div id="randevuSuccess" style="display:none; margin-top:16px; background:#1e3a2a; padding:10px; border-radius:20px; color:#a5d6a5;">✅ Randevu talebiniz iletildi!</div>
+        </div>
+
+        <div class="section-title">❓ Sık Sorulan Sorular</div>
+        <div class="sss-card">
+            <div class="sss-item"><h4>💰 Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü, malzeme ve işçilik süresine göre değişir. Ücretsiz keşif yapıyoruz.</p></div>
+            <div class="sss-item"><h4>🛡️ Garanti süreniz nedir?</h4><p>2 yıl işçilik garantisi. Malzeme garantisi üretici firmaya aittir.</p></div>
+            <div class="sss-item"><h4>📍 Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli genelinde.</p></div>
+            <div class="sss-item"><h4>📅 Randevu nasıl alabilirim?</h4><p>Formu doldurarak veya bizi arayarak.</p></div>
+            <div class="sss-item"><h4>🔧 Hangi işleri yapıyorsunuz?</h4><p>Boya, alçıpan, fayans, tadilat, dekorasyon, su ve ısı yalıtımı.</p></div>
+            <div class="sss-item"><h4>📸 Projelerinizi görebilir miyim?</h4><p>Evet, yukarıdaki Projelerimiz bölümünden inceleyebilirsiniz.</p></div>
+            <div class="sss-item"><h4>📞 Sizi nasıl arayabilirim?</h4><p>0535 985 95 35 numaralı telefondan bize ulaşabilirsiniz.</p></div>
+        </div>
+
+        <div class="section-title">📞 İletişim</div>
+        <div class="contact-card">
+            <div class="contact-info">
+                <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
+                <p>💬 <a href="https://wa.me/905359859535">WhatsApp</a></p>
+                <p>📧 <a href="mailto:mehmetgnes456@gmail.com">mehmetgnes456@gmail.com</a></p>
+                <p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank">@mehmetgunes954</a></p>
+                <div class="hours"><div><strong>Pzt - Cts</strong><br>08:00-17:00</div><div><strong>Pazar</strong><br>09:00-16:00</div></div>
+            </div>
+        </div>
+
+        <div class="section-title">🏢 Hakkımızda</div>
+        <div class="about-card">
+            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. 100+ mutlu müşteri, 300+ tamamlanan iş, %100 müşteri memnuniyeti ve 2 yıl işçilik garantisi ile çalışıyoruz.</p>
+            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder. Müşteri memnuniyeti bizim önceliğimizdir.</p>
+            <button class="btn-teklif" onclick="window.location.href='tel:05359859535'" style="margin-top:16px;">Bize Ulaşın</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Güneş Yapı | Boya • Tadilat • İnşaat</p>
+        <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
+    </footer>
+</div>
+
+<!-- Duyuru Sistemi -->
+<div id="duyuru">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <strong style="color: #e67e22;">📢 Fırsat</strong>
+        <button id="kapatDuyuru" style="background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer;">✕</button>
+    </div>
+    <div id="duyuruMesaj" style="font-size: 13px;">2+1 dairelerde %10, 3+1 dairelerde %15 indirim! Arayın: 0535 985 95 35</div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        const duyuru = document.getElementById('duyuru');
+        duyuru.style.display = 'block';
+        document.getElementById('kapatDuyuru').onclick = () => duyuru.style.display = 'none';
+        setTimeout(() => duyuru.style.display = 'none', 10000);
+    });
+
+    function sendRandevuWhatsApp() {
+        const ad = document.getElementById('adsoyad').value;
+        const tel = document.getElementById('telefon').value;
+        const il = document.getElementById('il').value;
+        const ilce = document.getElementById('ilce').value;
+        const mah = document.getElementById('mahalle').value;
+        const sok = document.getElementById('sokak').value;
+        const daire = document.getElementById('daire').value;
+        const tarih = document.getElementById('tarih').value;
+        if (!ad || !tel || !il || !ilce || !mah || !sok || !daire || !tarih) {
+            alert('Lütfen tüm zorunlu alanları doldurun!');
+            return;
+        }
+        const msg = `📅 YENİ RANDEVU TALEBİ 📅%0A👤 ${ad}%0A📞 ${tel}%0A📍 ${il} ${ilce} ${mah} ${sok} Daire:${daire}%0A📅 ${tarih}`;
+        window.open(`https://wa.me/905359859535?text=${msg}`, '_blank');
+        document.getElementById('randevuSuccess').style.display = 'block';
+        setTimeout(() => document.getElementById('randevuSuccess').style.display = 'none', 4000);
+    }
+</script>
+</body>
+</html>
