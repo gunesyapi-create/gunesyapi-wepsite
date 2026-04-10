@@ -8,8 +8,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #e8ecf1;
-            background-image: repeating-linear-gradient(45deg, #ddd 0px, #ddd 1px, transparent 1px, transparent 30px);
+            background: #d4d9e2;
+            background-image: repeating-linear-gradient(45deg, #c0c5ce 0px, #c0c5ce 1px, transparent 1px, transparent 40px);
             color: #333;
         }
         header {
@@ -92,7 +92,31 @@
             color: #bbb;
         }
         footer a { color: #e67e22; text-decoration: none; }
-        /* Mobil düzenlemeler */
+        .admin-panel {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .admin-panel h4 { color: #e67e22; margin-bottom: 15px; text-align: center; }
+        .admin-panel input, .admin-panel button { width: 100%; margin-bottom: 10px; }
+        .user-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+        .user-item {
+            background: #1e2a3a;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
         @media (max-width: 768px) {
             .hero h2 { font-size: 28px; }
             .section-title { font-size: 24px; }
@@ -123,7 +147,7 @@
 
     <div class="container">
         <!-- KULLANICI GİRİŞ / KAYIT -->
-        <div id="authSection" class="card" style="max-width: 400px; margin: 0 auto;">
+        <div id="authSection" class="card" style="max-width: 500px; margin: 0 auto;">
             <div id="loginForm">
                 <h3 style="color:#e67e22; margin-bottom: 20px;">👤 Giriş Yap</h3>
                 <div class="form-group"><input type="email" id="loginEmail" placeholder="E-posta"></div>
@@ -167,10 +191,9 @@
         <div class="card">
             <h3>💎 İndirim Bakiyesi</h3>
             <p style="font-size: 32px; font-weight: bold; color: #e67e22;" id="indirimBakiyeGoster">0 TL</p>
-            <p>İndirim kodları ile bakiyenizi artırabilir, bakiyenizi kullanarak indirim kazanabilirsiniz.</p>
             
             <!-- İNDİRİM KODU GİRİŞ ALANI (max 8 karakter) -->
-            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd;">
+            <div style="margin-top: 20px;">
                 <h4>🎟️ İndirim Kodu</h4>
                 <div class="row" style="justify-content: center;">
                     <div class="form-group" style="flex: 2;">
@@ -182,6 +205,8 @@
                 </div>
                 <div id="indirimSonucMesaji" style="margin-top: 10px; font-weight: bold; color: #e67e22;"></div>
             </div>
+            
+            <p style="margin-top: 15px;">İndirim kodları ile bakiyenizi artırabilir, bakiyenizi kullanarak indirim kazanabilirsiniz.</p>
         </div>
 
         <!-- RANDEVU -->
@@ -236,7 +261,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyD5XKUU-dlPoaNEUq2wpz5anOf9TrW31yc",
@@ -293,7 +318,8 @@
                     ad: name,
                     email: email,
                     bakiye: 0,
-                    uid: userCredential.user.uid
+                    uid: userCredential.user.uid,
+                    isAdmin: false
                 });
                 alert("Kayıt başarılı! Bakiyeniz: 0 TL");
             } catch (error) {
@@ -321,85 +347,54 @@
             alert("Çıkış yapıldı.");
         };
 
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'none';
-                userInfo.style.display = 'block';
-                userNameSpan.innerText = user.displayName || "Kullanıcı";
-                await updateBakiyeUI(user.uid);
-            } else {
-                currentUser = null;
-                loginForm.style.display = 'block';
-                registerForm.style.display = 'none';
-                userInfo.style.display = 'none';
-            }
-        });
+        // Admin panelini oluştur
+        function showAdminPanel() {
+            const userInfoDiv = document.getElementById('userInfo');
+            const adminHtml = `
+                <div class="admin-panel">
+                    <h4>👑 Admin Paneli</h4>
+                    <div class="form-group">
+                        <input type="text" id="adminKod" maxlength="8" placeholder="Yeni indirim kodu (max 8 karakter)">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="adminBakiye" placeholder="Eklenecek bakiye (TL)">
+                    </div>
+                    <button class="btn" id="adminKodEkleBtn">Kodu ve Bakiyeyi Ekle</button>
+                    <div id="adminSonuc"></div>
+                </div>
+            `;
+           userInfoDiv.insertAdjacentHTML('beforeend', adminHtml);
 
-        // İNDİRİM KODU (max 8 karakter, sadece harf+rakam, hep geçersiz cevabı)
-        const indirimKoduGir = document.getElementById('indirimKoduGir');
-        const indirimKoduDeneBtn = document.getElementById('indirimKoduDeneBtn');
-        const indirimSonucMesaji = document.getElementById('indirimSonucMesaji');
-
-        if (indirimKoduGir) {
-            indirimKoduGir.addEventListener('input', function() {
-                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-            });
-        }
-
-        if (indirimKoduDeneBtn) {
-            indirimKoduDeneBtn.onclick = function() {
-                const girilenKod = indirimKoduGir.value.trim();
-                if (!girilenKod) {
-                    indirimSonucMesaji.innerHTML = "❌ Lütfen bir kod girin!";
-                } else {
-                    indirimSonucMesaji.innerHTML = "❌ Geçersiz kod!";
-                }
-                setTimeout(() => {
-                    indirimSonucMesaji.innerHTML = "";
-                }, 3000);
-            };
-        }
-
-      // RANDEVU WHATSAPP FONKSİYONU
-window.sendRandevuWhatsApp = function() {
-    const ad = document.getElementById("adsoyad").value;
-    const tel = document.getElementById("telefon").value;
-    const il = document.getElementById("il").value;
-    const ilce = document.getElementById("ilce").value;
-    const mah = document.getElementById("mahalle").value;
-    const sokak = document.getElementById("sokak").value;
-    const daire = document.getElementById("daire").value;
-    const kat = document.getElementById("kat").value;
-    const tarih = document.getElementById("tarih").value;
-    const hizmet = document.getElementById("hizmet").value;
-    const mesaj = document.getElementById("mesaj").value;
-
-    if (!ad || !tel || !ilce || !mah || !sokak || !daire || !tarih) {
-        alert("Lütfen tüm zorunlu alanları doldurun!");
+document.getElementById('adminKodEkleBtn').onclick = async () => {
+    const kod = document.getElementById('adminKod').value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const bakiye = parseInt(document.getElementById('adminBakiye').value);
+    
+    if (!kod || kod.length > 8 || kod.length < 3) {
+        alert("Lütfen geçerli bir kod girin! (3-8 karakter, sadece harf ve rakam)");
         return;
     }
-
-    const randevuMetni = `🏠 YENİ RANDEVU TALEBİ
-━━━━━━━━━━━━━━━━━━━
-👤 Ad Soyad: ${ad}
-📞 Telefon: ${tel}
-📍 Adres: ${mah} Mahallesi, ${sokak} Sokak, ${daire} Daire, ${kat ? kat + ". Kat" : "Kat belirtilmemiş"}
-🏙️ İlçe/İl: ${ilce} / ${il}
-📅 Tarih: ${tarih}
-🛠️ Hizmet: ${hizmet}
-📝 Not: ${mesaj || "Belirtilmemiş"}
-━━━━━━━━━━━━━━━━━━━`;
-
-    const whatsappUrl = `https://wa.me/905359859535?text=${encodeURIComponent(randevuMetni)}`;
-    window.open(whatsappUrl, '_blank');
-
-    const successDiv = document.getElementById('randevuSuccess');
-    if (successDiv) {
-        successDiv.style.display = 'block';
+    
+    if (isNaN(bakiye) || bakiye <= 0) {
+        alert("Lütfen geçerli bir bakiye girin! (0'dan büyük sayı)");
+        return;
+    }
+    
+    try {
+        await setDoc(doc(db, "indirimKodlari", kod), {
+            bakiye: bakiye,
+            olusturulmaTarihi: new Date().toISOString(),
+            kullanildi: false
+        });
+        document.getElementById('adminSonuc').innerHTML = `<p style="color: green; margin-top: 10px;">✅ Kod başarıyla eklendi!<br>🎟️ Kod: ${kod}<br>💰 Bakiye: ${bakiye} TL</p>`;
+        document.getElementById('adminKod').value = '';
+        document.getElementById('adminBakiye').value = '';
+        
+        // 3 saniye sonra mesajı temizle
         setTimeout(() => {
-            successDiv.style.display = 'none';
-        }, 3000);
+            const sonucDiv = document.getElementById('adminSonuc');
+            if (sonucDiv) sonucDiv.innerHTML = '';
+        }, 5000);
+    } catch (error) {
+        document.getElementById('adminSonuc').innerHTML = `<p style="color: red;">❌ Hata: ${error.message}</p>`;
     }
 };
