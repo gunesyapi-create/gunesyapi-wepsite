@@ -92,31 +92,6 @@
             color: #bbb;
         }
         footer a { color: #e67e22; text-decoration: none; }
-        .admin-panel {
-            background: #2c3e50;
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 15px;
-            text-align: left;
-        }
-        .admin-panel h4 { color: #e67e22; margin-bottom: 15px; text-align: center; }
-        .admin-panel input, .admin-panel button { width: 100%; margin-bottom: 10px; }
-        .user-list {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-top: 15px;
-        }
-        .user-item {
-            background: #1e2a3a;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
         @media (max-width: 768px) {
             .hero h2 { font-size: 28px; }
             .section-title { font-size: 24px; }
@@ -192,7 +167,6 @@
             <h3>💎 İndirim Bakiyesi</h3>
             <p style="font-size: 32px; font-weight: bold; color: #e67e22;" id="indirimBakiyeGoster">0 TL</p>
             
-            <!-- İNDİRİM KODU GİRİŞ ALANI (max 8 karakter) -->
             <div style="margin-top: 20px;">
                 <h4>🎟️ İndirim Kodu</h4>
                 <div class="row" style="justify-content: center;">
@@ -257,11 +231,10 @@
         <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
     </footer>
 
-    <!-- Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyD5XKUU-dlPoaNEUq2wpz5anOf9TrW31yc",
@@ -307,10 +280,12 @@
             const name = document.getElementById('registerName').value;
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
+            
             if (!name || !email || password.length < 6) {
                 alert("Lütfen tüm alanları doldurun ve şifre en az 6 karakter olsun!");
                 return;
             }
+            
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 await updateProfile(userCredential.user, { displayName: name });
@@ -318,10 +293,14 @@
                     ad: name,
                     email: email,
                     bakiye: 0,
-                    uid: userCredential.user.uid,
-                    isAdmin: false
+                    uid: userCredential.user.uid
                 });
                 alert("Kayıt başarılı! Bakiyeniz: 0 TL");
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'block';
+                document.getElementById('registerName').value = '';
+                document.getElementById('registerEmail').value = '';
+                document.getElementById('registerPassword').value = '';
             } catch (error) {
                 alert("Hata: " + error.message);
             }
@@ -337,6 +316,8 @@
             try {
                 await signInWithEmailAndPassword(auth, email, password);
                 alert("Giriş başarılı!");
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginPassword').value = '';
             } catch (error) {
                 alert("Hata: " + error.message);
             }
@@ -347,54 +328,71 @@
             alert("Çıkış yapıldı.");
         };
 
-        // Admin panelini oluştur
-        function showAdminPanel() {
-            const userInfoDiv = document.getElementById('userInfo');
-            const adminHtml = `
-                <div class="admin-panel">
-                    <h4>👑 Admin Paneli</h4>
-                    <div class="form-group">
-                        <input type="text" id="adminKod" maxlength="8" placeholder="Yeni indirim kodu (max 8 karakter)">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" id="adminBakiye" placeholder="Eklenecek bakiye (TL)">
-                    </div>
-                    <button class="btn" id="adminKodEkleBtn">Kodu ve Bakiyeyi Ekle</button>
-                    <div id="adminSonuc"></div>
-                </div>
-            `;
-           userInfoDiv.insertAdjacentHTML('beforeend', adminHtml);
-
-document.getElementById('adminKodEkleBtn').onclick = async () => {
-    const kod = document.getElementById('adminKod').value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    const bakiye = parseInt(document.getElementById('adminBakiye').value);
-    
-    if (!kod || kod.length > 8 || kod.length < 3) {
-        alert("Lütfen geçerli bir kod girin! (3-8 karakter, sadece harf ve rakam)");
-        return;
-    }
-    
-    if (isNaN(bakiye) || bakiye <= 0) {
-        alert("Lütfen geçerli bir bakiye girin! (0'dan büyük sayı)");
-        return;
-    }
-    
-    try {
-        await setDoc(doc(db, "indirimKodlari", kod), {
-            bakiye: bakiye,
-            olusturulmaTarihi: new Date().toISOString(),
-            kullanildi: false
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'block';
+                userNameSpan.innerText = user.displayName || "Kullanıcı";
+                await updateBakiyeUI(user.uid);
+            } else {
+                currentUser = null;
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'none';
+            }
         });
-        document.getElementById('adminSonuc').innerHTML = `<p style="color: green; margin-top: 10px;">✅ Kod başarıyla eklendi!<br>🎟️ Kod: ${kod}<br>💰 Bakiye: ${bakiye} TL</p>`;
-        document.getElementById('adminKod').value = '';
-        document.getElementById('adminBakiye').value = '';
+
+        // İNDİRİM KODU
+        const indirimKoduGir = document.getElementById('indirimKoduGir');
+        const indirimKoduDeneBtn = document.getElementById('indirimKoduDeneBtn');
+        const indirimSonucMesaji = document.getElementById('indirimSonucMesaji');
+
+        if (indirimKoduGir) {
+            indirimKoduGir.addEventListener('input', function() {
+                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            });
+        }
+
+       if (indirimKoduGir) {
+    indirimKoduGir.addEventListener('input', function() {
+        this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    });
+}
+
+if (indirimKoduDeneBtn) {
+    indirimKoduDeneBtn.onclick = async function() {
+        if (!currentUser) {
+            indirimSonucMesaji.innerHTML = "❌ Lütfen önce giriş yapın!";
+            setTimeout(() => indirimSonucMesaji.innerHTML = "", 3000);
+            return;
+        }
         
-        // 3 saniye sonra mesajı temizle
+        const girilenKod = indirimKoduGir.value.trim();
+        if (!girilenKod) {
+            indirimSonucMesaji.innerHTML = "❌ Lütfen bir kod girin!";
+            setTimeout(() => indirimSonucMesaji.innerHTML = "", 3000);
+            return;
+        }
+        
+        // Kod kontrolü
+        const kodDoc = await getDoc(doc(db, "indirimKodlari", girilenKod));
+        if (kodDoc.exists()) {
+            const eklenecekBakiye = kodDoc.data().bakiye;
+            const userRef = doc(db, "kullanicilar", currentUser.uid);
+            const userDoc = await getDoc(userRef);
+            const yeniBakiye = (userDoc.data().bakiye || 0) + eklenecekBakiye;
+            await updateDoc(userRef, { bakiye: yeniBakiye });
+            await updateBakiyeUI(currentUser.uid);
+            indirimSonucMesaji.innerHTML = `✅ Kod geçerli! ${eklenecekBakiye} TL bakiyenize eklendi.`;
+            indirimKoduGir.value = '';
+        } else {
+            indirimSonucMesaji.innerHTML = "❌ Geçersiz kod!";
+        }
+        
         setTimeout(() => {
-            const sonucDiv = document.getElementById('adminSonuc');
-            if (sonucDiv) sonucDiv.innerHTML = '';
-        }, 5000);
-    } catch (error) {
-        document.getElementById('adminSonuc').innerHTML = `<p style="color: red;">❌ Hata: ${error.message}</p>`;
-    }
-};
+            indirimSonucMesaji.innerHTML = "";
+        }, 3000);
+    };
+}
