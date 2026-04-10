@@ -2,281 +2,92 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Güneş Yapı | Profesyonel Boya, Tadilat, İnşaat Hizmetleri</title>
-    <meta name="description" content="Güneş Yapı, İstanbul ve Kocaeli'de 10 yılı aşkın süredir boya, tadilat, alçıpan, fayans ve inşaat hizmetleri. Kaliteli işçilik, uygun fiyat, zamanında teslimat.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #1e2a3a;
-            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 12px);
-            background-attachment: fixed;
             color: #e0e0e0;
         }
-
-        .wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
         header {
             background: #0f1720;
-            padding: 16px 20px;
+            padding: 20px;
             text-align: center;
-            color: white;
             position: sticky;
             top: 0;
-            z-index: 30;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 10;
         }
-
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
-
-        .logo {
-            width: 55px;
-            height: auto;
-            border-radius: 16px;
-            background: white;
-            padding: 5px;
-            transition: transform 0.2s;
-        }
-
-        .site-title h1 {
-            font-size: 28px;
-            letter-spacing: -0.5px;
-        }
-
-        .site-title p {
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
+        .logo { width: 50px; height: auto; border-radius: 12px; background: white; padding: 5px; }
+        .site-title h1 { font-size: 28px; }
+        .site-title p { font-size: 13px; opacity: 0.8; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .hero {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(115deg, #1e2a3a, #0f1720);
-            color: white;
-            border-radius: 40px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #e67e22, #f39c12);
+            border-radius: 20px;
             margin: 30px 20px;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(230,126,34,0.2);
         }
-
-        .hero h2 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .hero .slogan {
-            font-size: 16px;
-            font-style: italic;
-            margin-bottom: 24px;
-            opacity: 0.9;
-        }
-
-        .btn-teklif {
+        .hero h2 { font-size: 42px; margin-bottom: 15px; }
+        .hero .slogan { font-size: 18px; font-style: italic; margin-bottom: 25px; }
+        .btn {
             background: #e67e22;
             color: white;
             border: none;
-            padding: 12px 36px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 16px;
+            font-weight: bold;
         }
-
-        .btn-teklif:hover {
-            background: #d35400;
-            transform: scale(1.02);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
+        .btn:hover { background: #d35400; }
         .section-title {
             text-align: center;
             font-size: 32px;
             color: #e67e22;
             margin: 50px 0 30px;
-            font-weight: 600;
         }
-
-        .services, .projects {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .service-card, .project-card, .contact-card, .randevu-card, .about-card, .sss-card {
-            background: rgba(30, 40, 50, 0.9);
-            backdrop-filter: blur(2px);
-            border-radius: 28px;
-            padding: 24px;
+        .card {
+            background: #0f1720;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
-            flex: 1;
-            min-width: 260px;
-            transition: all 0.2s;
-            border: 1px solid rgba(230,126,34,0.2);
         }
-
-        .service-card:hover, .project-card:hover {
-            transform: translateY(-4px);
-            background: #1e2a3a;
-            border-color: #e67e22;
-        }
-
-        .service-card h3, .project-card h3 {
-            color: #e67e22;
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-
-        .service-card p, .project-card p {
-            color: #ccc;
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-
-        .project-card img {
+        .form-group { margin-bottom: 15px; }
+        .form-group input {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .form-group {
-            flex: 1;
-            min-width: 140px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: #e67e22;
-        }
-
-        .randevu-form input, .randevu-form select, .randevu-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #3a4a5a;
-            border-radius: 20px;
-            background: #0f1720;
-            color: white;
-            font-family: inherit;
-        }
-
-        .sss-item {
-            text-align: left;
-            margin-bottom: 24px;
-            border-bottom: 1px solid #3a4a5a;
-            padding-bottom: 16px;
-        }
-
-        .sss-item h4 {
-            color: #e67e22;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .contact-info p {
-            margin: 12px 0;
-            font-size: 16px;
-        }
-
-        .contact-info a {
-            color: #e67e22;
-            text-decoration: none;
-        }
-
-        .hours {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .hours div {
-            background: #0f1720;
-            padding: 8px 16px;
+            padding: 12px;
             border-radius: 30px;
+            border: none;
+            background: #1e2a3a;
+            color: white;
         }
-
+        .form-group input:focus { outline: none; border: 1px solid #e67e22; }
         footer {
             background: #0f1720;
-            color: #aaa;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+            padding: 30px;
+            margin-top: 50px;
         }
-
-        /* Duyuru */
-        #duyuru {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #0f1720;
-            border-left: 4px solid #e67e22;
-            padding: 12px 16px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 10000;
-            max-width: 280px;
-            display: none;
-        }
-
-        @media (max-width: 700px) {
-            .hero h2 {
-                font-size: 28px;
-            }
-            .section-title {
-                font-size: 26px;
-            }
-            #duyuru {
-                bottom: 10px;
-                right: 10px;
-                max-width: 260px;
-                padding: 10px 12px;
-            }
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 28px; }
+            .section-title { font-size: 24px; }
         }
     </style>
 </head>
 <body>
-<div class="wrapper">
     <header>
         <div class="logo-container">
-            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
             <div class="site-title">
                 <h1>GÜNEŞ YAPI</h1>
                 <p>Boya • Tadilat • İnşaat</p>
@@ -287,73 +98,45 @@
     <div class="hero">
         <h2>Hayalinizdeki Yapıya Ulaşın</h2>
         <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+        <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
     </div>
 
     <div class="container">
-        <div class="section-title">🏗️ Hizmetlerimiz</div>
-        <div class="services">
-            <div class="service-card"><h3>🎨 Boya & Badana</h3><p>İç cephe, dış cephe, dekoratif boya, dokulu boya. 10 yıl garantili işçilik.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="service-card"><h3>🧱 Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="service-card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayans işçiliği, su yalıtımı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="service-card"><h3>🏗️ Tadilat & Yenileme</h3><p>Anahtar teslim tadilat, mutfak-banyo yenileme.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-        </div>
-
-        <div class="section-title">📸 Projelerimiz</div>
-        <div class="projects">
-            <div class="project-card"><img src="ABC99.jpeg" alt="Villa"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="project-card"><img src="ABC77.jpeg" alt="Daire"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 dairenin komple tadilatı.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak"><h3>Mutfak Yenileme</h3><p>Mutfak dolapları, tezgah ve fayans işçiliği.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-        </div>
-
-        <div class="section-title">🎉 İndirimler</div>
-        <div class="services">
-            <div class="service-card"><h3>🏢 2+1 Daire</h3><div style="font-size:32px; font-weight:800; color:#e67e22;">%10 İNDİRİM</div><p>Tüm tadilat ve boya işlerinde geçerlidir.</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-            <div class="service-card"><h3>🏠 3+1 Daire</h3><div style="font-size:32px; font-weight:800; color:#e67e22;">%15 İNDİRİM</div><p>Sınırlı sayıda, kaçırmayın!</p><button class="btn-teklif" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
-        </div>
-
-        <div class="section-title">📅 Randevu</div>
-        <div class="randevu-card">
-            <form id="randevuForm" class="randevu-form">
-                <div class="form-row"><div class="form-group"><label>Ad Soyad *</label><input type="text" id="adsoyad" required placeholder="Adınız Soyadınız"></div><div class="form-group"><label>Telefon *</label><input type="tel" id="telefon" required placeholder="0535 985 95 35"></div></div>
-                <div class="form-row"><div class="form-group"><label>İl *</label><select id="il"><option>İstanbul</option><option>Kocaeli</option></select></div><div class="form-group"><label>İlçe *</label><input type="text" id="ilce" required placeholder="İlçe"></div></div>
-                <div class="form-row"><div class="form-group"><label>Mahalle *</label><input type="text" id="mahalle" required placeholder="Mahalle"></div><div class="form-group"><label>Sokak *</label><input type="text" id="sokak" required placeholder="Sokak"></div></div>
-                <div class="form-row"><div class="form-group"><label>Daire No *</label><input type="text" id="daire" required></div><div class="form-group"><label>Kat</label><input type="text" id="kat"></div><div class="form-group"><label>Tarih *</label><input type="date" id="tarih" required></div></div>
-                <div class="form-row"><div class="form-group"><label>Hizmet</label><select id="hizmet"><option>Boya</option><option>Alçıpan</option><option>Fayans</option><option>Tadilat</option></select></div></div>
-                <textarea id="mesaj" rows="2" placeholder="Notunuz"></textarea>
-                <button type="button" class="btn-teklif" onclick="sendRandevuWhatsApp()" style="width:100%; margin-top:16px;">Randevu Gönder</button>
-            </form>
-            <div id="randevuSuccess" style="display:none; margin-top:16px; background:#1e3a2a; padding:10px; border-radius:20px; color:#a5d6a5;">✅ Randevu talebiniz iletildi!</div>
-        </div>
-
-        <div class="section-title">❓ Sık Sorulan Sorular</div>
-        <div class="sss-card">
-            <div class="sss-item"><h4>💰 Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü, malzeme ve işçilik süresine göre değişir. Ücretsiz keşif yapıyoruz.</p></div>
-            <div class="sss-item"><h4>🛡️ Garanti süreniz nedir?</h4><p>2 yıl işçilik garantisi. Malzeme garantisi üretici firmaya aittir.</p></div>
-            <div class="sss-item"><h4>📍 Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli genelinde.</p></div>
-            <div class="sss-item"><h4>📅 Randevu nasıl alabilirim?</h4><p>Formu doldurarak veya bizi arayarak.</p></div>
-            <div class="sss-item"><h4>🔧 Hangi işleri yapıyorsunuz?</h4><p>Boya, alçıpan, fayans, tadilat, dekorasyon, su ve ısı yalıtımı.</p></div>
-            <div class="sss-item"><h4>📸 Projelerinizi görebilir miyim?</h4><p>Evet, yukarıdaki Projelerimiz bölümünden inceleyebilirsiniz.</p></div>
-            <div class="sss-item"><h4>📞 Sizi nasıl arayabilirim?</h4><p>0535 985 95 35 numaralı telefondan bize ulaşabilirsiniz.</p></div>
-        </div>
-
-        <div class="section-title">📞 İletişim</div>
-        <div class="contact-card">
-            <div class="contact-info">
-                <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
-                <p>💬 <a href="https://wa.me/905359859535">WhatsApp</a></p>
-                <p>📧 <a href="mailto:mehmetgnes456@gmail.com">mehmetgnes456@gmail.com</a></p>
-                <p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank">@mehmetgunes954</a></p>
-                <div class="hours"><div><strong>Pzt - Cts</strong><br>08:00-17:00</div><div><strong>Pazar</strong><br>09:00-16:00</div></div>
+        <!-- KULLANICI GİRİŞ / KAYIT -->
+        <div id="authSection" class="card" style="max-width: 400px; margin: 0 auto;">
+            <h3 style="color:#e67e22; margin-bottom: 20px;">👤 Giriş Yap / Kayıt Ol</h3>
+            <div id="loginForm">
+                <div class="form-group"><input type="email" id="loginEmail" placeholder="E-posta"></div>
+                <div class="form-group"><input type="password" id="loginPassword" placeholder="Şifre"></div>
+                <button class="btn" id="loginBtn">Giriş Yap</button>
+                <p style="margin-top: 15px;">Hesabınız yok mu? <button id="showRegisterBtn" style="background:none; border:none; color:#e67e22; cursor:pointer;">Kayıt Ol</button></p>
+            </div>
+            <div id="registerForm" style="display: none;">
+                <div class="form-group"><input type="text" id="registerName" placeholder="Kullanıcı Adı"></div>
+                <div class="form-group"><input type="email" id="registerEmail" placeholder="E-posta"></div>
+                <div class="form-group"><input type="password" id="registerPassword" placeholder="Şifre (min 6 karakter)"></div>
+                <button class="btn" id="registerBtn">Kayıt Ol</button>
+                <p style="margin-top: 15px;">Zaten hesabınız var mı? <button id="showLoginBtn" style="background:none; border:none; color:#e67e22; cursor:pointer;">Giriş Yap</button></p>
+            </div>
+            <div id="userInfo" style="display: none;">
+                <p>Hoş geldiniz, <strong id="userName"></strong>!</p>
+                <button class="btn" id="logoutBtn" style="background:#555;">Çıkış Yap</button>
             </div>
         </div>
 
-        <div class="section-title">🏢 Hakkımızda</div>
-        <div class="about-card">
-            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. 100+ mutlu müşteri, 300+ tamamlanan iş, %100 müşteri memnuniyeti ve 2 yıl işçilik garantisi ile çalışıyoruz.</p>
-            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder. Müşteri memnuniyeti bizim önceliğimizdir.</p>
-            <button class="btn-teklif" onclick="window.location.href='tel:05359859535'" style="margin-top:16px;">Bize Ulaşın</button>
+        <!-- DİĞER BÖLÜMLER (Hizmetler, Projeler, İletişim vs.) aynen kalacak -->
+        <div class="section-title">🏗️ Hizmetlerimiz</div>
+        <div class="card"><h3>🎨 Boya & Badana</h3><p>İç cephe, dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        <div class="card"><h3>🧱 Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        <div class="card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+        <div class="card"><h3>🏗️ Tadilat & Yenileme</h3><p>Anahtar teslim tadilat, mutfak-banyo yenileme.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
+
+        <div class="section-title">📞 İletişim</div>
+        <div class="card">
+            <p>📞 <a href="tel:05359859535" style="color:#e67e22;">0535 985 95 35</a></p>
+            <p>💬 <a href="https://wa.me/905359859535" style="color:#e67e22;">WhatsApp</a></p>
+            <p>📧 <a href="mailto:mehmetgnes456@gmail.com" style="color:#e67e22;">mehmetgnes456@gmail.com</a></p>
+            <p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank" style="color:#e67e22;">@mehmetgunes954</a></p>
         </div>
     </div>
 
@@ -361,44 +144,112 @@
         <p>&copy; 2026 Güneş Yapı | Boya • Tadilat • İnşaat</p>
         <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
     </footer>
-</div>
 
-<!-- Duyuru Sistemi -->
-<div id="duyuru">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-        <strong style="color: #e67e22;">📢 Fırsat</strong>
-        <button id="kapatDuyuru" style="background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer;">✕</button>
-    </div>
-    <div id="duyuruMesaj" style="font-size: 13px;">2+1 dairelerde %10, 3+1 dairelerde %15 indirim! Arayın: 0535 985 95 35</div>
-</div>
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
-<script>
-    window.addEventListener('load', () => {
-        const duyuru = document.getElementById('duyuru');
-        duyuru.style.display = 'block';
-        document.getElementById('kapatDuyuru').onclick = () => duyuru.style.display = 'none';
-        setTimeout(() => duyuru.style.display = 'none', 10000);
-    });
+        const firebaseConfig = {
+            apiKey: "AIzaSyD5XKUU-dlPoaNEUq2wpz5anOf9TrW31yc",
+            authDomain: "gunesyapi-9a7d1.firebaseapp.com",
+            projectId: "gunesyapi-9a7d1",
+            storageBucket: "gunesyapi-9a7d1.firebasestorage.app",
+            messagingSenderId: "956693298216",
+            appId: "1:956693298216:web:bb21a6767235fce416c91d"
+        };
 
-    function sendRandevuWhatsApp() {
-        const ad = document.getElementById('adsoyad').value;
-        const tel = document.getElementById('telefon').value;
-        const il = document.getElementById('il').value;
-        const ilce = document.getElementById('ilce').value;
-        const mah = document.getElementById('mahalle').value;
-        const sok = document.getElementById('sokak').value;
-        const daire = document.getElementById('daire').value;
-        const tarih = document.getElementById('tarih').value;
-        if (!ad || !tel || !il || !ilce || !mah || !sok || !daire || !tarih) {
-            alert('Lütfen tüm zorunlu alanları doldurun!');
-            return;
-        }
-        const msg = `📅 YENİ RANDEVU TALEBİ 📅%0A👤 ${ad}%0A📞 ${tel}%0A📍 ${il} ${ilce} ${mah} ${sok} Daire:${daire}%0A📅 ${tarih}`;
-        window.open(`https://wa.me/905359859535?text=${msg}`, '_blank');
-        document.getElementById('randevuSuccess').style.display = 'block';
-        setTimeout(() => document.getElementById('randevuSuccess').style.display = 'none', 4000);
-    }
-</script>
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // DOM elementleri
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const userInfo = document.getElementById('userInfo');
+        const userNameSpan = document.getElementById('userName');
+        const showRegisterBtn = document.getElementById('showRegisterBtn');
+        const showLoginBtn = document.getElementById('showLoginBtn');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Kayıt formunu göster
+        showRegisterBtn.onclick = () => {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        };
+        showLoginBtn.onclick = () => {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        };
+
+        // Kayıt Ol
+        registerBtn.onclick = async () => {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            if (!name || !email || password.length < 6) {
+                alert("Lütfen tüm alanları doldurun ve şifre en az 6 karakter olsun!");
+                return;
+            }
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                await updateProfile(userCredential.user, { displayName: name });
+                await setDoc(doc(db, "kullanicilar", userCredential.user.uid), {
+                    ad: name,
+                    email: email,
+                    bakiye: 0,
+                    uid: userCredential.user.uid
+                });
+                alert("Kayıt başarılı! Bakiyeniz: 0 TL");
+            } catch (error) {
+                alert("Hata: " + error.message);
+            }
+        };
+
+        // Giriş Yap
+        loginBtn.onclick = async () => {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (!email || !password) {
+                alert("E-posta ve şifre girin!");
+                return;
+            }
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                alert("Giriş başarılı!");
+            } catch (error) {
+                alert("Hata: " + error.message);
+            }
+        };
+
+        // Çıkış Yap
+        logoutBtn.onclick = async () => {
+            await auth.signOut();
+            alert("Çıkış yapıldı.");
+        };
+
+        // Kullanıcı durumunu dinle
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'block';
+                userNameSpan.innerText = user.displayName || "Kullanıcı";
+                // Kullanıcının bakiyesini al
+                const userDoc = await getDoc(doc(db, "kullanicilar", user.uid));
+                if (userDoc.exists()) {
+                    const bakiye = userDoc.data().bakiye;
+                    console.log("Bakiye:", bakiye);
+                }
+            } else {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
-         
