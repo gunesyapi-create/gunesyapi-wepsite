@@ -8,13 +8,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1e2a3a;
-            color: #e0e0e0;
+            background: #ffffff;
+            background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 20px);
+            color: #1e2a3a;
         }
         header {
-            background: #0f1720;
+            background: #1e2a3a;
             padding: 20px;
             text-align: center;
+            color: white;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -35,6 +37,7 @@
             background: linear-gradient(135deg, #e67e22, #f39c12);
             border-radius: 20px;
             margin: 30px 20px;
+            color: white;
         }
         .hero h2 { font-size: 42px; margin-bottom: 15px; }
         .hero .slogan { font-size: 18px; font-style: italic; margin-bottom: 25px; }
@@ -56,26 +59,29 @@
             margin: 50px 0 30px;
         }
         .card {
-            background: #0f1720;
+            background: rgba(255,255,255,0.95);
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 20px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
         .form-group { margin-bottom: 15px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
             border-radius: 30px;
-            border: none;
-            background: #1e2a3a;
-            color: white;
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
         }
-        .form-group input:focus { outline: none; border: 1px solid #e67e22; }
+        .form-group input:focus { outline: none; border-color: #e67e22; }
         .row { display: flex; gap: 15px; flex-wrap: wrap; }
         .row .form-group { flex: 1; min-width: 150px; }
         footer {
-            background: #0f1720;
+            background: #1e2a3a;
+            color: #aaa;
             text-align: center;
             padding: 30px;
             margin-top: 50px;
@@ -123,9 +129,6 @@
             </div>
             <div id="userInfo" style="display: none;">
                 <h3 style="color:#e67e22;">👋 Hoş geldin, <span id="userName"></span>!</h3>
-                <div style="background: #1e2a3a; padding: 15px; border-radius: 15px; margin: 15px 0;">
-                    <p style="font-size: 18px;">💰 Bakiyeniz: <strong id="userBakiye">0</strong> TL</p>
-                </div>
                 <button class="btn" id="logoutBtn" style="background:#555; margin-top: 10px;">Çıkış Yap</button>
             </div>
         </div>
@@ -136,7 +139,7 @@
             <h3>🎟️ İndirim Kodu Gir</h3>
             <p style="margin-bottom: 15px;">Geçerli bir indirim kodu girerek bakiyene hemen indirim ekleyebilirsin!</p>
             <div class="row">
-                <div class="form-group" style="flex:2"><input type="text" id="indirimKodu" placeholder="İndirim kodunu gir"></div>
+                <div class="form-group" style="flex:2"><input type="text" id="indirimKodu" placeholder="İndirim kodunu gir (max 8 karakter)"></div>
                 <div class="form-group" style="flex:1"><button class="btn" id="kodKullanBtn" style="width:100%">Kodu Kullan</button></div>
             </div>
             <div id="kodSonuc" style="margin-top: 15px;"></div>
@@ -176,7 +179,7 @@
                 <textarea id="mesaj" rows="2" placeholder="Notunuz"></textarea>
                 <button type="button" class="btn" onclick="sendRandevuWhatsApp()" style="width:100%; margin-top:16px;">Randevu Gönder</button>
             </form>
-            <div id="randevuSuccess" style="display:none; margin-top:16px; background:#1e3a2a; padding:10px; border-radius:20px;">✅ Randevu talebiniz iletildi!</div>
+            <div id="randevuSuccess" style="display:none; margin-top:16px; background:#d4edda; padding:10px; border-radius:20px; color:#155724;">✅ Randevu talebiniz iletildi!</div>
         </div>
 
         <!-- SSS -->
@@ -282,7 +285,8 @@
                     ad: name,
                     email: email,
                     bakiye: 0,
-                    uid: userCredential.user.uid
+                    uid: userCredential.user.uid,
+                    kullanilanKodlar: []
                 });
                 alert("Kayıt başarılı! Bakiyeniz: 0 TL");
             } catch (error) {
@@ -320,14 +324,29 @@
                 kodSonuc.innerHTML = '<span style="color:#e67e22;">❌ Lütfen bir kod girin!</span>';
                 return;
             }
+            if (kod.length > 8) {
+                kodSonuc.innerHTML = '<span style="color:#e67e22;">❌ Kod en fazla 8 karakter olabilir!</span>';
+                return;
+            }
+            
+            const userRef = doc(db, "kullanicilar", currentUser.uid);
+            const userDoc = await getDoc(userRef);
+            const kullanilanKodlar = userDoc.data().kullanilanKodlar || [];
+            
+            if (kullanilanKodlar.includes(kod)) {
+                kodSonuc.innerHTML = '<span style="color:#e67e22;">❌ Bu kodu zaten kullandınız! Her kod bir kez kullanılabilir.</span>';
+                return;
+            }
+            
             if (gecerliKodlar[kod]) {
                 const eklenecek = gecerliKodlar[kod];
-                const userRef = doc(db, "kullanicilar", currentUser.uid);
-                const userDoc = await getDoc(userRef);
                 const yeniBakiye = (userDoc.data().bakiye || 0) + eklenecek;
-                await updateDoc(userRef, { bakiye: yeniBakiye });
+                await updateDoc(userRef, { 
+                    bakiye: yeniBakiye,
+                    kullanilanKodlar: [...kullanilanKodlar, kod]
+                });
                 await updateBakiyeUI(currentUser.uid);
-                kodSonuc.innerHTML = `<span style="color:#a5d6a5;">✅ ${eklenecek} TL bakiye eklendi! Yeni bakiyeniz: ${yeniBakiye} TL</span>`;
+                kodSonuc.innerHTML = `<span style="color:#28a745;">✅ ${eklenecek} TL bakiye eklendi! Yeni bakiyeniz: ${yeniBakiye} TL</span>`;
                 indirimKoduInput.value = '';
             } else {
                 kodSonuc.innerHTML = '<span style="color:#e67e22;">❌ Geçersiz kod!</span>';
@@ -364,8 +383,8 @@
                 loginForm.style.display = 'block';
                 registerForm.style.display = 'none';
                 userInfo.style.display = 'none';
-                userBakiyeSpan.innerText = '0';
-                indirimBakiyeGoster.innerText = '0 TL';
+                if (userBakiyeSpan) userBakiyeSpan.innerText = '0';
+                if (indirimBakiyeGoster) indirimBakiyeGoster.innerText = '0 TL';
             }
         });
 
