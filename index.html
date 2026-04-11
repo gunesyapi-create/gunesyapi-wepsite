@@ -157,7 +157,7 @@
         <div class="card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
         <div class="card"><h3>🏗️ Tadilat & Yenileme</h3><p>Anahtar teslim tadilat, mutfak-banyo yenileme.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
 
-        <!-- PROJELER -->
+        <!-- PROJE İÇİN 4 FOTOĞRAF (ABC99, ABC88, ABC77, ABC66) -->
         <div class="section-title">📸 Projelerimiz</div>
         <div class="card"><img src="ABC99.jpeg" alt="Villa" style="width:100%; border-radius:15px; margin-bottom:15px;"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
         <div class="card"><img src="ABC88.jpeg" alt="Ofis" style="width:100%; border-radius:15px; margin-bottom:15px;"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
@@ -354,10 +354,44 @@
             await updateBakiyeUI(currentUser.uid);
         };
 
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'none';
-                userInfo.style.display = 'block';
-                userNameSpa
+           onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        currentUser = user;
+        // Giriş formunu gizle, kullanıcı panelini göster
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'none';
+        userInfo.style.display = 'block';
+        
+        // Kullanıcı adını göster
+        const displayName = user.displayName || user.email.split('@')[0];
+        userNameSpan.innerText = displayName;
+        
+        // Bakiyeyi al ve göster
+        const userDoc = await getDoc(doc(db, "kullanicilar", user.uid));
+        if (userDoc.exists()) {
+            const bakiye = userDoc.data().bakiye || 0;
+            userBakiyeSpan.innerText = bakiye;
+            indirimBakiyeGoster.innerText = bakiye + " TL";
+        } else {
+            // Kullanıcı dokümanı yoksa oluştur
+            await setDoc(doc(db, "kullanicilar", user.uid), {
+                ad: displayName,
+                email: user.email,
+                bakiye: 0,
+                uid: user.uid
+            });
+            userBakiyeSpan.innerText = "0";
+            indirimBakiyeGoster.innerText = "0 TL";
+        }
+    } else {
+        currentUser = null;
+        // Çıkış yapınca giriş formunu göster, kullanıcı panelini gizle
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        userInfo.style.display = 'none';
+        
+        // Bakiyeyi sıfırla (giriş yapmayan için)
+        userBakiyeSpan.innerText = "0";
+        indirimBakiyeGoster.innerText = "0 TL";
+    }
+});
