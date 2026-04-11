@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Boya, Tadilat, İnşaat Hizmetleri</title>
-    <!-- Favicon - Sekmede çıkacak net logo -->
+    <title>Güneş Yapı | Boya • Tadilat • İnşaat</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Font Awesome 6 (Tüm orijinal logolar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,14 +15,14 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
             background: linear-gradient(145deg, #fff8f0 0%, #ffe8d4 100%);
             background-attachment: fixed;
             color: #1e2a3a;
             position: relative;
         }
 
-        /* Boya sıçrama efekti */
+        /* Boya deseni efekti */
         body::before {
             content: "";
             position: fixed;
@@ -29,8 +30,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(circle at 20% 40%, rgba(230, 126, 34, 0.05) 1.5px, transparent 1.5px);
-            background-size: 35px 35px;
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(230, 126, 34, 0.04) 2px, transparent 2px),
+                radial-gradient(circle at 75% 65%, rgba(243, 156, 18, 0.04) 1.5px, transparent 1.5px);
+            background-size: 50px 50px, 35px 35px;
             pointer-events: none;
             z-index: 0;
         }
@@ -38,294 +41,880 @@
         .wrapper {
             position: relative;
             z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
+        /* HEADER */
         header {
-            background: #1e2a3a;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .logo-container {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            padding: 20px 30px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #e67e22;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
             gap: 15px;
         }
 
         .logo {
-            width: 55px;
-            height: auto;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
             background: white;
-            padding: 5px;
+            padding: 6px;
+            box-shadow: 0 5px 15px rgba(230,126,34,0.3);
+            transition: transform 0.3s;
         }
 
-        .site-title h1 {
-            font-size: 28px;
+        .logo:hover {
+            transform: rotate(-3deg) scale(1.05);
         }
 
-        .site-title p {
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
+        .brand h1 {
             color: white;
-            border-radius: 30px;
-            margin: 40px 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .brand p {
+            color: #e67e22;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header-btn {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .header-btn i {
+            font-size: 18px;
+            color: #e67e22;
+        }
+
+        .header-btn:hover {
+            background: #e67e22;
+            color: white;
+            border-color: #e67e22;
+            transform: translateY(-3px);
+        }
+
+        .header-btn:hover i {
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            margin: 30px 20px;
+            padding: 70px 40px;
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 50%, #e67e22 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            border-radius: 40px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 25px 40px rgba(230,126,34,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero::before {
+            content: "🎨";
+            font-size: 200px;
+            position: absolute;
+            left: -40px;
+            bottom: -60px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        .hero::after {
+            content: "🏗️";
+            font-size: 200px;
+            position: absolute;
+            right: -30px;
+            top: -50px;
+            opacity: 0.1;
+            transform: rotate(15deg);
         }
 
         .hero h2 {
-            font-size: 42px;
+            font-size: 52px;
+            font-weight: 800;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .hero .slogan {
-            font-size: 18px;
+            font-size: 22px;
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            font-weight: 400;
         }
 
-        .btn {
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
             background: white;
             color: #e67e22;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
+            padding: 16px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            border: 2px solid white;
         }
 
-        .btn:hover {
-            transform: scale(1.02);
-            background: #fff8f0;
+        .btn-primary i {
+            font-size: 22px;
+        }
+
+        .btn-primary:hover {
+            background: #1e2a3a;
+            color: white;
+            border-color: #1e2a3a;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 2px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .btn-outline i {
+            font-size: 22px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #e67e22;
+            border-color: white;
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 25px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 38px;
+            font-weight: 700;
+            color: #1e2a3a;
+            margin: 60px 0 35px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-bottom: 15px;
+        }
+
+        .section-title::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e67e22, #f39c12, #e67e22, transparent);
+            border-radius: 4px;
+        }
+
+        .section-title i {
             color: #e67e22;
-            margin: 50px 0 30px;
-            font-weight: 600;
+            margin-right: 10px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(2px);
-            border-radius: 20px;
-            padding: 25px;
+        /* HİZMETLER GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
             margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(230,126,34,0.2);
-            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-3px);
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 25px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(230,126,34,0.15);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #e67e22, #f39c12);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(230,126,34,0.15);
             background: white;
         }
 
-        .card h3 {
-            color: #e67e22;
-            margin-bottom: 12px;
-            font-size: 24px;
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .card p {
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 16px;
+        .service-icon {
+            font-size: 50px;
+            color: #e67e22;
+            margin-bottom: 20px;
+            background: #fff5eb;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: #e67e22;
+            color: white;
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: #1e2a3a;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .service-btn {
+            background: #fef3e9;
+            color: #e67e22;
+            padding: 10px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            border: 1px solid #e67e2230;
+        }
+
+        .service-btn:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* PROJELER */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 1px solid #eee;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(230,126,34,0.2);
         }
 
         .project-img {
             width: 100%;
-            border-radius: 15px;
-            margin-bottom: 15px;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
 
-        .sss-item {
-            text-align: left;
-            margin-bottom: 24px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 16px;
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
 
-        .sss-item h4 {
+        .project-content {
+            padding: 25px 20px;
+        }
+
+        .project-content h3 {
+            font-size: 22px;
+            color: #1e2a3a;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-btn {
+            background: transparent;
             color: #e67e22;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .contact-info p {
-            margin: 12px 0;
-            font-size: 16px;
-        }
-
-        .contact-info a {
-            color: #e67e22;
+            padding: 8px 20px;
+            border-radius: 30px;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1.5px solid #e67e22;
+            transition: all 0.3s;
         }
 
-        .hours {
+        .project-btn:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* İLETİŞİM BÖLÜMÜ - ORİJİNAL LOGOLAR */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid #f0e6dc;
+            text-decoration: none;
+            display: block;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(230,126,34,0.15);
+            border-color: #e67e22;
+        }
+
+        .contact-icon {
+            font-size: 55px;
+            margin-bottom: 18px;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-card h4 {
+            font-size: 20px;
+            color: #1e2a3a;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #e67e22;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .contact-btn {
+            background: #fef3e9;
+            color: #e67e22;
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-card:hover .contact-btn {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* İKON RENKLERİ - ORİJİNAL MARKA RENKLERİ */
+        .fa-phone { color: #25D366; }  /* Telefon yeşil */
+        .fa-whatsapp { color: #25D366; } /* WhatsApp yeşil */
+        .fa-instagram { 
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .fa-envelope { color: #EA4335; } /* Gmail kırmızı */
+
+        .contact-card:hover .fa-phone,
+        .contact-card:hover .fa-whatsapp,
+        .contact-card:hover .fa-envelope { color: white; }
+        
+        .contact-card:hover .fa-instagram { 
+            background: white;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* SSS */
+        .faq-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 22px 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-left: 5px solid #e67e22;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            background: #fffbf5;
+            box-shadow: 0 10px 25px rgba(230,126,34,0.1);
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            color: #e67e22;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item p {
+            color: #555;
+            padding-left: 30px;
+        }
+
+        /* HAKKIMIZDA */
+        .about-card {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            border-radius: 35px;
+            padding: 45px 40px;
+            color: white;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-card p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .about-card strong {
+            color: #f39c12;
+        }
+
+        .about-btn {
+            background: #e67e22;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: 2px solid #e67e22;
+        }
+
+        .about-btn:hover {
+            background: transparent;
+            color: #f39c12;
+            border-color: #f39c12;
+            transform: translateX(5px);
+        }
+
+        /* ÇALIŞMA SAATLERİ */
+        .hours-wrapper {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .hours-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 17px;
+        }
+
+        .hours-item i {
+            color: #e67e22;
+            font-size: 24px;
+        }
+
+        .hours-item strong {
+            color: #1e2a3a;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e2a3a;
+            color: #ccc;
+            padding: 40px 30px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-top: 20px;
             flex-wrap: wrap;
+            margin: 25px 0;
         }
 
-        .hours div {
-            background: #f8f9fa;
-            padding: 8px 16px;
-            border-radius: 30px;
+        .footer-links a {
+            color: #f39c12;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
         }
 
-        footer {
-            background: #1e2a3a;
-            color: #aaa;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
+        .footer-links a:hover {
+            color: white;
         }
 
+        .copyright {
+            margin-top: 30px;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* MOBİL */
         @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
             .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero .slogan {
+                font-size: 18px;
+            }
+            
+            .section-title {
                 font-size: 28px;
             }
-            .section-title {
+            
+            .brand h1 {
                 font-size: 24px;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 14px 25px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
 <div class="wrapper">
+    <!-- HEADER -->
     <header>
-        <div class="logo-container">
-            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <div class="site-title">
+        <div class="logo-area">
+            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
+            <div class="brand">
                 <h1>GÜNEŞ YAPI</h1>
-                <p>Boya • Tadilat • İnşaat</p>
+                <p>BOYA • TADİLAT • İNŞAAT</p>
             </div>
+        </div>
+        <div class="header-contact">
+            <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone"></i> 0535 985 95 35</a>
+            <a href="https://wa.me/905359859535" class="header-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </header>
 
+    <!-- HERO -->
     <div class="hero">
         <h2>Hayalinizdeki Yapıya Ulaşın</h2>
         <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+        <div class="hero-buttons">
+            <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
+            <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
+        </div>
     </div>
 
     <div class="container">
-        <!-- HİZMETLER (KISA, SÜRELİ) -->
-        <div class="section-title">🏗️ Hizmetlerimiz</div>
-        <div class="card">
-            <h3>🎨 Boya & Badana</h3>
-            <p>İç cephe, dış cephe, dekoratif boya, dokulu boya. Tek odalı boya 1 günde tamamlanır. 10 yıl garantili işçilik.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <h3>🧱 Alçı & Alçıpan</h3>
-            <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Hızlı ve temiz işçilik.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <h3>🔨 Fayans & Seramik</h3>
-            <p>Banyo, mutfak, zemin ve duvar fayans işçiliği, su yalıtımı, tadilat. Uzman ekip.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <h3>🏗️ Tadilat & Yenileme</h3>
-            <p>3+1 daire tadilatı 2-3 günde, villa tadilatı 5-7 günde tamamlanır. Anahtar teslim hizmet.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
+        <!-- HİZMETLER -->
+        <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                <h3>Boya & Badana</h3>
+                <p>İç cephe, dış cephe, dekoratif boya, dokulu boya. Tek odalı boya 1 günde tamamlanır. 10 yıl garantili işçilik.</p>
+                <a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-border-all"></i></div>
+                <h3>Alçı & Alçıpan</h3>
+                <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Hızlı ve temiz işçilik.</p>
+                <a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-border-style"></i></div>
+                <h3>Fayans & Seramik</h3>
+                <p>Banyo, mutfak, zemin ve duvar fayans işçiliği, su yalıtımı, tadilat. Uzman ekip.</p>
+                <a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-house-chimney"></i></div>
+                <h3>Tadilat & Yenileme</h3>
+                <p>3+1 daire tadilatı 2-3 günde, villa tadilatı 5-7 günde tamamlanır. Anahtar teslim hizmet.</p>
+                <a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+            </div>
         </div>
 
         <!-- PROJELER -->
-        <div class="section-title">📸 Projelerimiz</div>
-        <div class="card">
-            <img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'">
-            <h3>Modern Villa</h3>
-            <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri. 7 günde tamamlandı.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'">
-            <h3>Ofis Tadilatı</h3>
-            <p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya. 3 günde tamamlandı.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'">
-            <h3>Daire Tadilatı</h3>
-            <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri. 3 günde tamamlandı.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-        <div class="card">
-            <img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'">
-            <h3>Mutfak Yenileme</h3>
-            <p>Mutfak dolapları, tezgah ve fayans işçiliği. 2 günde tamamlandı.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button>
-        </div>
-
-        <!-- SSS -->
-        <div class="section-title">❓ Sık Sorulan Sorular</div>
-        <div class="card">
-            <div class="sss-item"><h4>💰 Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü, kullanılan malzeme ve işçilik süresine göre değişir. Ücretsiz keşif yapıyoruz.</p></div>
-            <div class="sss-item"><h4>🛡️ Garanti süreniz nedir?</h4><p>2 yıl işçilik garantisi veriyoruz. Malzeme garantisi üretici firmaya aittir.</p></div>
-            <div class="sss-item"><h4>📍 Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli genelinde hizmet vermekteyiz.</p></div>
-            <div class="sss-item"><h4>📅 Randevu nasıl alabilirim?</h4><p>Bizi arayarak veya WhatsApp'tan yazarak randevu oluşturabilirsiniz.</p></div>
-            <div class="sss-item"><h4>🔧 Hangi işleri yapıyorsunuz?</h4><p>Boya, alçıpan, fayans, tadilat, dekorasyon, su ve ısı yalıtımı.</p></div>
-            <div class="sss-item"><h4>📸 Projelerinizi görebilir miyim?</h4><p>Evet, yukarıdaki Projelerimiz bölümünden inceleyebilirsiniz.</p></div>
-            <div class="sss-item"><h4>📞 Sizi nasıl arayabilirim?</h4><p>0535 985 95 35 numaralı telefondan bize ulaşabilirsiniz.</p></div>
-        </div>
-
-        <!-- İLETİŞİM -->
-        <div class="section-title">📞 İletişim</div>
-        <div class="card">
-            <div class="contact-info">
-                <p>📞 <a href="tel:05359859535">0535 985 95 35</a></p>
-                <p>💬 <a href="https://wa.me/905359859535" target="_blank">WhatsApp</a></p>
-                <p>📧 <a href="mailto:mehmetgnes456@gmail.com">mehmetgnes456@gmail.com</a></p>
-                <p>📷 <a href="https://instagram.com/mehmetgunes954" target="_blank">@mehmetgunes954</a></p>
-                <div class="hours">
-                    <div><strong>Pazartesi - Cumartesi</strong><br>08:00 - 17:00</div>
-                    <div><strong>Pazar</strong><br>09:00 - 16:00</div>
+        <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'">
+                <div class="project-content">
+                    <h3>Modern Villa</h3>
+                    <p>Kocaeli'de 350 m² lüks villa tadilat ve boya işleri. 7 günde tamamlandı.</p>
+                    <a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'">
+                <div class="project-content">
+                    <h3>Ofis Tadilatı</h3>
+                    <p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya. 3 günde tamamlandı.</p>
+                    <a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'">
+                <div class="project-content">
+                    <h3>Daire Tadilatı</h3>
+                    <p>Gebze'de 3+1 dairenin komple tadilat ve boya işleri. 3 günde tamamlandı.</p>
+                    <a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'">
+                <div class="project-content">
+                    <h3>Mutfak Yenileme</h3>
+                    <p>Mutfak dolapları, tezgah ve fayans işçiliği. 2 günde tamamlandı.</p>
+                    <a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a>
                 </div>
             </div>
         </div>
 
+        <!-- İLETİŞİM - ORİJİNAL LOGOLAR -->
+        <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
+        <div class="contact-grid">
+            <a href="tel:05359859535" class="contact-card">
+                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <h4>Beni Ara</h4>
+                <p>0535 985 95 35</p>
+                <span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span>
+            </a>
+            <a href="https://wa.me/905359859535" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h4>WhatsApp</h4>
+                <p>+90 535 985 95 35</p>
+                <span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span>
+            </a>
+            <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                <h4>Instagram</h4>
+                <p>@mehmetgunes954</p>
+                <span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span>
+            </a>
+            <a href="mailto:mehmetgnes456@gmail.com" class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h4>E-Posta</h4>
+                <p>mehmetgnes456@gmail.com</p>
+                <span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span>
+            </a>
+        </div>
+
+        <!-- ÇALIŞMA SAATLERİ -->
+        <div class="hours-wrapper">
+            <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pazartesi - Cumartesi:</strong> 08:00 - 17:00</div>
+            <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
+        </div>
+
+        <!-- SSS -->
+        <div class="section-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4><i class="fas fa-lira-sign"></i> Fiyatlarınız nasıl belirleniyor?</h4>
+                <p>İşin büyüklüğü, kullanılan malzeme ve işçilik süresine göre değişir. Ücretsiz keşif yapıyoruz.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-shield-alt"></i> Garanti süreniz nedir?</h4>
+                <p>2 yıl işçilik garantisi veriyoruz. Malzeme garantisi üretici firmaya aittir.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-map-pin"></i> Hangi bölgelere hizmet veriyorsunuz?</h4>
+                <p>İstanbul ve Kocaeli genelinde hizmet vermekteyiz.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-calendar-plus"></i> Randevu nasıl alabilirim?</h4>
+                <p>Bizi arayarak veya WhatsApp'tan yazarak randevu oluşturabilirsiniz.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-wrench"></i> Hangi işleri yapıyorsunuz?</h4>
+                <p>Boya, alçıpan, fayans, tadilat, dekorasyon, su ve ısı yalıtımı.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-camera"></i> Projelerinizi görebilir miyim?</h4>
+                <p>Evet, yukarıdaki Projelerimiz bölümünden ve Instagram hesabımızdan inceleyebilirsiniz.</p>
+            </div>
+        </div>
+
         <!-- HAKKIMIZDA -->
-        <div class="section-title">🏢 Hakkımızda</div>
-        <div class="card">
-            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. 100+ mutlu müşteri, 300+ tamamlanan iş, %100 müşteri memnuniyeti ve 2 yıl işçilik garantisi ile çalışıyoruz. Kalite, uygun fiyat ve zamanında teslimat ilkelerimizdir.</p>
-            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder. Müşteri memnuniyeti bizim önceliğimizdir.</p>
-            <button class="btn" onclick="window.location.href='tel:05359859535'" style="margin-top:15px;">Bize Ulaşın</button>
+        <div class="section-title"><i class="fas fa-building"></i> Hakkımızda</div>
+        <div class="about-card">
+            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli bölgesinde boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz.</p>
+            <p>✅ 100+ mutlu müşteri<br>✅ 300+ tamamlanan iş<br>✅ %100 müşteri memnuniyeti<br>✅ 2 yıl işçilik garantisi</p>
+            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder. Müşteri memnuniyeti bizim önceliğimizdir. Kalite, uygun fiyat ve zamanında teslimat ilkelerimizle çalışıyoruz.</p>
+            <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Güneş Yapı | Boya • Tadilat • İnşaat</p>
-        <p>📞 0535 985 95 35 | 📧 mehmetgnes456@gmail.com</p>
+        <div class="footer-content">
+            <h2 style="color: white; margin-bottom: 10px;">GÜNEŞ YAPI</h2>
+            <p style="color: #e67e22; font-weight: 500;">Boya • Tadilat • İnşaat</p>
+            <div class="footer-links">
+                <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
+                <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> E-Posta</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Güneş Yapı | Tüm hakları saklıdır.<br>
+                "Hayalinizdeki yapıya, profesyonel ellere emanet."
+            </div>
+        </div>
     </footer>
 </div>
+
+<!-- Resim yüklenmezse yedekleme -->
+<script>
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            if(this.src.includes('ABC')) {
+                this.src = 'abc.jpeg';
+            }
+        };
+    });
+</script>
 </body>
 </html>
