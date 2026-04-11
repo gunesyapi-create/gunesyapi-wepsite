@@ -130,7 +130,7 @@
             </div>
         </div>
 
-        <!-- İNDİRİM KODU BÖLÜMÜ (HERKES GÖREBİLİR) -->
+        <!-- İNDİRİM KODU BÖLÜMÜ -->
         <div class="section-title">🎁 İndirim Kodu</div>
         <div class="card">
             <h3>🎟️ İndirim Kodu Gir</h3>
@@ -142,7 +142,7 @@
             <div id="kodSonuc" style="margin-top: 15px;"></div>
         </div>
 
-        <!-- İNDİRİMLER (BAKİYE GÖSTERİMİ) -->
+        <!-- İNDİRİM BAKİYESİ -->
         <div class="section-title">🎉 İndirim Bakiyen</div>
         <div class="card">
             <h3>💎 Mevcut Bakiyen</h3>
@@ -157,7 +157,7 @@
         <div class="card"><h3>🔨 Fayans & Seramik</h3><p>Banyo, mutfak, zemin ve duvar fayans işçiliği.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
         <div class="card"><h3>🏗️ Tadilat & Yenileme</h3><p>Anahtar teslim tadilat, mutfak-banyo yenileme.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
 
-        <!-- PROJE İÇİN 4 FOTOĞRAF (ABC99, ABC88, ABC77, ABC66) -->
+        <!-- PROJELER -->
         <div class="section-title">📸 Projelerimiz</div>
         <div class="card"><img src="ABC99.jpeg" alt="Villa" style="width:100%; border-radius:15px; margin-bottom:15px;"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve boya.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
         <div class="card"><img src="ABC88.jpeg" alt="Ofis" style="width:100%; border-radius:15px; margin-bottom:15px;"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + dekoratif boya.</p><button class="btn" onclick="window.location.href='tel:05359859535'">Teklif Al</button></div>
@@ -233,7 +233,6 @@
 
         let currentUser = null;
 
-        // DOM
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
         const userInfo = document.getElementById('userInfo');
@@ -244,14 +243,12 @@
         const bakiyemiKullanBtn = document.getElementById('bakiyemiKullanBtn');
         const indirimKoduInput = document.getElementById('indirimKodu');
         const kodSonuc = document.getElementById('kodSonuc');
-
         const showRegisterBtn = document.getElementById('showRegisterBtn');
         const showLoginBtn = document.getElementById('showLoginBtn');
         const loginBtn = document.getElementById('loginBtn');
         const registerBtn = document.getElementById('registerBtn');
         const logoutBtn = document.getElementById('logoutBtn');
 
-        // Geçerli indirim kodları
         const gecerliKodlar = {
             "GUNES10": 10,
             "INSAAT20": 20,
@@ -354,44 +351,42 @@
             await updateBakiyeUI(currentUser.uid);
         };
 
-           onAuthStateChanged(auth, async (user) => {
-    if (user) {
-        currentUser = user;
-        // Giriş formunu gizle, kullanıcı panelini göster
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'none';
-        userInfo.style.display = 'block';
-        
-        // Kullanıcı adını göster
-        const displayName = user.displayName || user.email.split('@')[0];
-        userNameSpan.innerText = displayName;
-        
-        // Bakiyeyi al ve göster
-        const userDoc = await getDoc(doc(db, "kullanicilar", user.uid));
-        if (userDoc.exists()) {
-            const bakiye = userDoc.data().bakiye || 0;
-            userBakiyeSpan.innerText = bakiye;
-            indirimBakiyeGoster.innerText = bakiye + " TL";
-        } else {
-            // Kullanıcı dokümanı yoksa oluştur
-            await setDoc(doc(db, "kullanicilar", user.uid), {
-                ad: displayName,
-                email: user.email,
-                bakiye: 0,
-                uid: user.uid
-            });
-            userBakiyeSpan.innerText = "0";
-            indirimBakiyeGoster.innerText = "0 TL";
-        }
-    } else {
-        currentUser = null;
-        // Çıkış yapınca giriş formunu göster, kullanıcı panelini gizle
-        loginForm.style.display = 'block';
-        registerForm.style.display = 'none';
-        userInfo.style.display = 'none';
-        
-        // Bakiyeyi sıfırla (giriş yapmayan için)
-        userBakiyeSpan.innerText = "0";
-        indirimBakiyeGoster.innerText = "0 TL";
-    }
-});
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'block';
+                userNameSpan.innerText = user.displayName || user.email.split('@')[0];
+                await updateBakiyeUI(user.uid);
+            } else {
+                currentUser = null;
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                userInfo.style.display = 'none';
+                userBakiyeSpan.innerText = '0';
+                indirimBakiyeGoster.innerText = '0 TL';
+            }
+        });
+
+        window.sendRandevuWhatsApp = function() {
+            const ad = document.getElementById('adsoyad').value;
+            const tel = document.getElementById('telefon').value;
+            const il = document.getElementById('il').value;
+            const ilce = document.getElementById('ilce').value;
+            const mah = document.getElementById('mahalle').value;
+            const sok = document.getElementById('sokak').value;
+            const daire = document.getElementById('daire').value;
+            const tarih = document.getElementById('tarih').value;
+            if (!ad || !tel || !il || !ilce || !mah || !sok || !daire || !tarih) {
+                alert('Lütfen tüm zorunlu alanları doldurun!');
+                return;
+            }
+            const msg = `📅 YENİ RANDEVU TALEBİ 📅%0A👤 ${ad}%0A📞 ${tel}%0A📍 ${il} ${ilce} ${mah} ${sok} Daire:${daire}%0A📅 ${tarih}`;
+            window.open(`https://wa.me/905359859535?text=${msg}`, '_blank');
+            document.getElementById('randevuSuccess').style.display = 'block';
+            setTimeout(() => document.getElementById('randevuSuccess').style.display = 'none', 4000);
+        };
+    </script>
+</body>
+</html>
