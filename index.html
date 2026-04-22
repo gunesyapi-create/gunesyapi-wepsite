@@ -5,126 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Güneş Yapı | Boya • Tadilat • İnşaat</title>
     <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de profesyonel boya, tadilat, inşaat hizmetleri. Ücretsiz keşif, 2 yıl garanti.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/jpeg" href="abc.jpeg">
+    <link rel="apple-touch-icon" href="abc.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;position:relative;line-height:1.5}
-        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 15% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:50px 50px,35px 35px;pointer-events:none;z-index:0}
+        body{font-family:'Inter',sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;line-height:1.5}
+        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 15% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:50px 50px,35px 35px;pointer-events:none;z-index:0}
         .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
-        header{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);padding:15px 25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.15);border-bottom:3px solid #e67e22}
-        .logo-area{display:flex;align-items:center;gap:12px}
-        .logo{width:55px;height:55px;border-radius:12px;background:white;padding:5px;box-shadow:0 5px 15px rgba(230,126,34,0.3);transition:all 0.3s}
+        header{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.15);border-bottom:3px solid #e67e22}
+        .logo-area{display:flex;align-items:center;gap:10px}
+        .logo{width:50px;height:50px;border-radius:12px;background:white;padding:4px;box-shadow:0 5px 15px rgba(230,126,34,0.3);transition:all 0.3s}
         .logo:hover{transform:rotate(-3deg)scale(1.05)}
-        .brand h1{color:white;font-size:28px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:12px;font-weight:600;letter-spacing:2px}
-        .header-contact{display:flex;gap:8px;flex-wrap:nowrap}
-        .header-btn{background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);color:white;padding:8px 16px;border-radius:40px;text-decoration:none;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;white-space:nowrap}
-        .header-btn i{font-size:16px;color:#e67e22}
+        .brand h1{color:white;font-size:24px;font-weight:800;letter-spacing:1px}
+        .brand p{color:#e67e22;font-size:11px;font-weight:600;letter-spacing:2px}
+        .header-contact{display:flex;gap:8px}
+        .header-btn{background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);color:white;padding:8px 14px;border-radius:40px;text-decoration:none;font-weight:500;font-size:13px;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;white-space:nowrap}
+        .header-btn i{font-size:14px;color:#e67e22}
         .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px)}
         .header-btn:hover i{color:white}
-        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22 0%,#f39c12 50%,#e67e22 100%);background-size:200% 200%;animation:gradientShift 8s ease infinite;border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
+        .hero{margin:20px 15px;padding:50px 25px;background:linear-gradient(135deg,#e67e22 0%,#f39c12 50%,#e67e22 100%);background-size:200% 200%;animation:gradientShift 8s ease infinite;border-radius:30px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
         @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-        .hero::before{content:"🎨";font-size:180px;position:absolute;left:-30px;bottom:-50px;opacity:0.1;transform:rotate(-15deg)}
-        .hero::after{content:"🏗️";font-size:180px;position:absolute;right:-20px;top:-40px;opacity:0.1;transform:rotate(15deg)}
-        .hero h2{font-size:48px;font-weight:800;margin-bottom:12px;position:relative;z-index:2;text-shadow:0 5px 20px rgba(0,0,0,0.2)}
-        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px;position:relative;z-index:2;font-weight:400}
-        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:2}
-        .btn-primary{background:white;color:#e67e22;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 25px rgba(0,0,0,0.15);transition:all 0.3s;border:2px solid white}
-        .btn-primary i{font-size:20px}
+        .hero::before{content:"🎨";font-size:150px;position:absolute;left:-30px;bottom:-50px;opacity:0.08;transform:rotate(-15deg)}
+        .hero::after{content:"🏗️";font-size:150px;position:absolute;right:-20px;top:-40px;opacity:0.08;transform:rotate(15deg)}
+        .hero h2{font-size:38px;font-weight:800;margin-bottom:12px;position:relative;z-index:2;text-shadow:0 5px 20px rgba(0,0,0,0.2)}
+        .hero .slogan{font-size:18px;font-style:italic;margin-bottom:25px;position:relative;z-index:2}
+        .hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+        .btn-primary,.btn-outline{padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s}
+        .btn-primary{background:white;color:#e67e22;box-shadow:0 10px 25px rgba(0,0,0,0.15);border:2px solid white}
         .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
-        .btn-outline{background:transparent;color:white;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,0.5);backdrop-filter:blur(5px);transition:all 0.3s}
+        .btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.5);backdrop-filter:blur(5px)}
         .btn-outline:hover{background:white;color:#e67e22;border-color:white;transform:scale(1.05)translateY(-3px)}
-        .container{max-width:1200px;margin:0 auto;padding:20px 25px}
-        .section-title{text-align:center;font-size:36px;font-weight:700;color:#1e2a3a;margin:50px 0 30px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);padding-bottom:12px}
-        .section-title::before{content:"";position:absolute;bottom:0;left:20%;width:60%;height:4px;background:linear-gradient(90deg,transparent,#e67e22,#f39c12,#e67e22,transparent);border-radius:4px}
-        .section-title i{color:#e67e22;margin-right:10px}
-        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
-        .service-card{background:rgba(255,255,255,0.95);backdrop-filter:blur(5px);border-radius:25px;padding:30px 20px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid rgba(230,126,34,0.15);transition:all 0.4s;position:relative;overflow:hidden}
-        .service-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,#e67e22,#f39c12);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
-        .service-card:hover{transform:translateY(-8px);box-shadow:0 25px 40px rgba(230,126,34,0.15);background:white}
+        .container{max-width:1200px;margin:0 auto;padding:15px 20px}
+        .section-title{text-align:center;font-size:32px;font-weight:700;color:#1e2a3a;margin:45px 0 25px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);padding-bottom:10px}
+        .section-title::before{content:"";position:absolute;bottom:0;left:20%;width:60%;height:3px;background:linear-gradient(90deg,transparent,#e67e22,#f39c12,#e67e22,transparent);border-radius:3px}
+        .section-title i{color:#e67e22;margin-right:8px}
+        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+        .service-card{background:rgba(255,255,255,0.95);backdrop-filter:blur(5px);border-radius:25px;padding:28px 18px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid rgba(230,126,34,0.15);transition:all 0.4s;position:relative;overflow:hidden}
+        .service-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#e67e22,#f39c12);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+        .service-card:hover{transform:translateY(-6px);box-shadow:0 25px 40px rgba(230,126,34,0.15);background:white}
         .service-card:hover::before{transform:scaleX(1)}
-        .service-icon{font-size:45px;color:#e67e22;margin-bottom:18px;background:#fff5eb;width:80px;height:80px;line-height:80px;border-radius:25px;margin-left:auto;margin-right:auto;transition:all 0.3s}
+        .service-icon{font-size:40px;color:#e67e22;margin-bottom:15px;background:#fff5eb;width:70px;height:70px;line-height:70px;border-radius:20px;margin-left:auto;margin-right:auto;transition:all 0.3s}
         .service-card:hover .service-icon{background:#e67e22;color:white;transform:rotate(5deg)scale(1.05)}
-        .service-card h3{font-size:22px;color:#1e2a3a;margin-bottom:10px}
-        .service-card p{color:#666;margin-bottom:20px;font-size:14px}
-        .service-btn{background:#fef3e9;color:#e67e22;padding:8px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.2)}
+        .service-card h3{font-size:20px;color:#1e2a3a;margin-bottom:8px}
+        .service-card p{color:#666;margin-bottom:18px;font-size:13px}
+        .service-btn{background:#fef3e9;color:#e67e22;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:600;font-size:12px;display:inline-flex;align-items:center;gap:5px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.2)}
         .service-btn:hover{background:#e67e22;color:white}
-        .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
         .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.08);transition:all 0.4s;border:1px solid #eee}
-        .project-card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(230,126,34,0.2)}
-        .project-img{width:100%;height:200px;object-fit:cover;transition:transform 0.5s}
+        .project-card:hover{transform:translateY(-6px);box-shadow:0 25px 45px rgba(230,126,34,0.2)}
+        .project-img{width:100%;height:180px;object-fit:cover;transition:transform 0.5s}
         .project-card:hover .project-img{transform:scale(1.05)}
-        .project-content{padding:20px}
-        .project-content h3{font-size:20px;color:#1e2a3a;margin-bottom:6px}
-        .project-content p{color:#777;font-size:13px;margin-bottom:18px}
-        .project-btn{background:transparent;color:#e67e22;padding:7px 18px;border-radius:25px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #e67e22;transition:all 0.3s}
+        .project-content{padding:18px}
+        .project-content h3{font-size:18px;color:#1e2a3a;margin-bottom:5px}
+        .project-content p{color:#777;font-size:12px;margin-bottom:15px}
+        .project-btn{background:transparent;color:#e67e22;padding:6px 15px;border-radius:25px;text-decoration:none;font-weight:600;font-size:12px;display:inline-flex;align-items:center;gap:5px;border:1.5px solid #e67e22;transition:all 0.3s}
         .project-btn:hover{background:#e67e22;color:white}
-        .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
-        .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #f0e6dc;text-decoration:none;display:block}
-        .contact-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(230,126,34,0.15);border-color:#e67e22}
-        .contact-icon{font-size:45px;margin-bottom:15px;transition:transform 0.3s}
+        .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:15px}
+        .contact-card{background:white;border-radius:20px;padding:22px 12px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #f0e6dc;text-decoration:none;display:block}
+        .contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15);border-color:#e67e22}
+        .contact-icon{font-size:40px;margin-bottom:12px;transition:transform 0.3s}
         .contact-card:hover .contact-icon{transform:scale(1.1)}
-        .contact-card h4{font-size:18px;color:#1e2a3a;margin-bottom:6px}
-        .contact-card p{color:#e67e22;font-weight:600;font-size:14px;margin-bottom:15px}
-        .contact-btn{background:#fef3e9;color:#e67e22;padding:8px 18px;border-radius:30px;font-weight:600;font-size:13px;display:inline-block;transition:all 0.3s}
+        .contact-card h4{font-size:16px;color:#1e2a3a;margin-bottom:5px}
+        .contact-card p{color:#e67e22;font-weight:600;font-size:13px;margin-bottom:12px}
+        .contact-btn{background:#fef3e9;color:#e67e22;padding:7px 15px;border-radius:30px;font-weight:600;font-size:12px;display:inline-block;transition:all 0.3s}
         .contact-card:hover .contact-btn{background:#e67e22;color:white}
-        .fa-phone{color:#25D366}.fa-whatsapp{color:#25D366}
-        .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fa-envelope{color:#EA4335}
-        .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .fa-phone,.fa-whatsapp{color:#25D366}.fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .fa-envelope{color:#EA4335}.fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
         .contact-card:hover .fa-phone,.contact-card:hover .fa-whatsapp,.contact-card:hover .fa-envelope,.contact-card:hover .fa-google{color:white;background:white;-webkit-background-clip:text;background-clip:text}
         .contact-card:hover .fa-instagram{background:white;-webkit-background-clip:text;background-clip:text;color:transparent}
-        .faq-grid{display:grid;gap:12px;max-width:1000px;margin:0 auto}
-        .faq-item{background:white;border-radius:18px;padding:20px 22px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;transition:all 0.3s}
+        .faq-grid{display:grid;gap:10px;max-width:1000px;margin:0 auto}
+        .faq-item{background:white;border-radius:15px;padding:18px 20px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:4px solid #e67e22;transition:all 0.3s}
         .faq-item:hover{background:#fffbf5;box-shadow:0 10px 25px rgba(230,126,34,0.1)}
-        .faq-item h4{font-size:17px;color:#e67e22;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-        .faq-item p{color:#555;padding-left:28px;font-size:14px}
+        .faq-item h4{font-size:16px;color:#e67e22;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+        .faq-item p{color:#555;padding-left:24px;font-size:13px}
         .about-card{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);border-radius:30px;padding:40px 35px;color:white;box-shadow:0 25px 40px rgba(0,0,0,0.15)}
-        .about-card p{font-size:17px;line-height:1.7;margin-bottom:18px;opacity:0.95}
+        .about-card p{font-size:16px;line-height:1.7;margin-bottom:20px;opacity:0.95}
         .about-card strong{color:#f39c12}
         .about-stats{display:flex;justify-content:space-around;margin:30px 0;flex-wrap:wrap;gap:20px}
-        .stat-number{font-size:40px;font-weight:900;color:#f39c12}
+        .stat-number{font-size:38px;font-weight:900;color:#f39c12}
+        .stat-label{font-size:14px;opacity:0.8}
         .about-btn{background:#e67e22;color:white;padding:12px 30px;border-radius:40px;text-decoration:none;font-weight:700;display:inline-block;margin-top:15px;transition:all 0.3s;border:2px solid #e67e22}
         .about-btn:hover{background:transparent;color:#f39c12;border-color:#f39c12}
-        .hours-wrapper{background:white;border-radius:25px;padding:22px;margin-top:25px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.05)}
-        .hours-item{display:flex;align-items:center;gap:12px;font-size:16px}
-        .hours-item i{color:#e67e22;font-size:22px}
-        footer{background:#1e2a3a;color:#bbb;padding:35px 25px;margin-top:50px;text-align:center}
-        .footer-content h2{color:white;font-size:24px;font-weight:500;letter-spacing:2px;margin-bottom:5px}
-        .footer-content p{color:#e67e22;font-size:13px;margin-bottom:18px}
-        .footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:20px 0}
-        .footer-links a{color:#ddd;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:14px;transition:color 0.3s}
+        .hours-wrapper{background:white;border-radius:25px;padding:20px;margin-top:25px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.05)}
+        .hours-item{display:flex;align-items:center;gap:10px;font-size:15px}
+        .hours-item i{color:#e67e22;font-size:20px}
+        footer{background:#1e2a3a;color:#bbb;padding:30px 20px;margin-top:50px;text-align:center}
+        .footer-content h2{color:white;font-size:22px;font-weight:500;letter-spacing:2px;margin-bottom:5px}
+        .footer-content p{color:#e67e22;font-size:12px;margin-bottom:15px}
+        .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:15px 0}
+        .footer-links a{color:#ddd;text-decoration:none;display:flex;align-items:center;gap:5px;font-size:13px;transition:color 0.3s}
         .footer-links a i{color:#e67e22}
         .footer-links a:hover{color:#e67e22}
-        .copyright{margin-top:20px;opacity:0.6;font-size:12px}
+        .copyright{margin-top:20px;opacity:0.6;font-size:11px}
         #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
-        .popup-content{background:white;max-width:380px;width:90%;border-radius:20px;padding:40px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.2);border:2px solid #e67e22}
-        .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:24px;color:#999;cursor:pointer}
+        .popup-content{background:white;max-width:350px;width:90%;border-radius:20px;padding:35px 20px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.2);border:2px solid #e67e22}
+        .popup-close{position:absolute;top:10px;right:10px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
         .popup-close:hover{color:#e67e22}
         @media(max-width:992px){.services-grid,.projects-grid,.contact-grid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:768px){
             .services-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
-            .hero h2{font-size:32px}.hero .slogan{font-size:16px}
-            .section-title{font-size:28px}.brand h1{font-size:22px}
-            .hours-wrapper{flex-direction:column;align-items:center;gap:12px}
+            header{justify-content:center;text-align:center}
+            .hero h2{font-size:28px}.hero .slogan{font-size:15px}
+            .section-title{font-size:26px}
+            .hours-wrapper{flex-direction:column;align-items:center;gap:10px}
             .about-stats{flex-direction:column;text-align:center}
+            .brand h1{font-size:20px}
+            .btn-primary,.btn-outline{padding:12px 20px;font-size:14px}
+        }
+        @media(max-width:480px){
+            .header-btn{padding:6px 10px;font-size:11px}
+            .hero h2{font-size:24px}
+            .section-title{font-size:22px}
+            .contact-card h4{font-size:14px}
+            .contact-card p{font-size:11px}
+            .contact-btn{padding:6px 12px;font-size:11px}
         }
     </style>
 </head>
 <body>
 
-<!-- POPUP DUYURU (BOŞ) -->
 <div id="popupDuyuru">
     <div class="popup-content">
         <button class="popup-close" onclick="popupKapat()">✕</button>
-        <div style="font-size:45px;margin-bottom:15px;">📢</div>
-        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:700;">Duyuru Paneli</h3>
-        <p style="color:#888;font-size:15px;margin-bottom:25px;">Şu an aktif duyuru bulunmamaktadır.</p>
-        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;">Tamam</button>
+        <div style="font-size:40px;margin-bottom:15px;">📢</div>
+        <h3 style="color:#1e2a3a;font-size:18px;margin-bottom:10px;font-weight:700;">Duyuru Paneli</h3>
+        <p style="color:#888;font-size:14px;margin-bottom:20px;">Şu an aktif duyuru bulunmamaktadır.</p>
+        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:10px 30px;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;">Tamam</button>
     </div>
 </div>
 
@@ -176,383 +184,7 @@
 
         <div class="contact-grid" style="margin-top:15px;">
             <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 4.9</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
-            <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
-            <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
-        </div>
-
-        <div class="hours-wrapper">
-            <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
-            <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-question-circle"></i><!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Güneş Yapı | Boya • Tadilat • İnşaat</title>
-    <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de profesyonel boya, tadilat, inşaat hizmetleri. Ücretsiz keşif, 2 yıl garanti.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;position:relative;line-height:1.5}
-        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 15% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:50px 50px,35px 35px;pointer-events:none;z-index:0}
-        .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
-        header{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);padding:15px 25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.15);border-bottom:3px solid #e67e22}
-        .logo-area{display:flex;align-items:center;gap:12px}
-        .logo{width:55px;height:55px;border-radius:12px;background:white;padding:5px;box-shadow:0 5px 15px rgba(230,126,34,0.3);transition:all 0.3s}
-        .logo:hover{transform:rotate(-3deg)scale(1.05)}
-        .brand h1{color:white;font-size:28px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:12px;font-weight:600;letter-spacing:2px}
-        .header-contact{display:flex;gap:8px;flex-wrap:nowrap}
-        .header-btn{background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);color:white;padding:8px 16px;border-radius:40px;text-decoration:none;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;white-space:nowrap}
-        .header-btn i{font-size:16px;color:#e67e22}
-        .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px)}
-        .header-btn:hover i{color:white}
-        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22 0%,#f39c12 50%,#e67e22 100%);background-size:200% 200%;animation:gradientShift 8s ease infinite;border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
-        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-        .hero::before{content:"🎨";font-size:180px;position:absolute;left:-30px;bottom:-50px;opacity:0.1;transform:rotate(-15deg)}
-        .hero::after{content:"🏗️";font-size:180px;position:absolute;right:-20px;top:-40px;opacity:0.1;transform:rotate(15deg)}
-        .hero h2{font-size:48px;font-weight:800;margin-bottom:12px;position:relative;z-index:2;text-shadow:0 5px 20px rgba(0,0,0,0.2)}
-        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px;position:relative;z-index:2;font-weight:400}
-        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:2}
-        .btn-primary{background:white;color:#e67e22;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 25px rgba(0,0,0,0.15);transition:all 0.3s;border:2px solid white}
-        .btn-primary i{font-size:20px}
-        .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
-        .btn-outline{background:transparent;color:white;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,0.5);backdrop-filter:blur(5px);transition:all 0.3s}
-        .btn-outline:hover{background:white;color:#e67e22;border-color:white;transform:scale(1.05)translateY(-3px)}
-        .container{max-width:1200px;margin:0 auto;padding:20px 25px}
-        .section-title{text-align:center;font-size:36px;font-weight:700;color:#1e2a3a;margin:50px 0 30px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);padding-bottom:12px}
-        .section-title::before{content:"";position:absolute;bottom:0;left:20%;width:60%;height:4px;background:linear-gradient(90deg,transparent,#e67e22,#f39c12,#e67e22,transparent);border-radius:4px}
-        .section-title i{color:#e67e22;margin-right:10px}
-        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
-        .service-card{background:rgba(255,255,255,0.95);backdrop-filter:blur(5px);border-radius:25px;padding:30px 20px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid rgba(230,126,34,0.15);transition:all 0.4s;position:relative;overflow:hidden}
-        .service-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,#e67e22,#f39c12);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
-        .service-card:hover{transform:translateY(-8px);box-shadow:0 25px 40px rgba(230,126,34,0.15);background:white}
-        .service-card:hover::before{transform:scaleX(1)}
-        .service-icon{font-size:45px;color:#e67e22;margin-bottom:18px;background:#fff5eb;width:80px;height:80px;line-height:80px;border-radius:25px;margin-left:auto;margin-right:auto;transition:all 0.3s}
-        .service-card:hover .service-icon{background:#e67e22;color:white;transform:rotate(5deg)scale(1.05)}
-        .service-card h3{font-size:22px;color:#1e2a3a;margin-bottom:10px}
-        .service-card p{color:#666;margin-bottom:20px;font-size:14px}
-        .service-btn{background:#fef3e9;color:#e67e22;padding:8px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.2)}
-        .service-btn:hover{background:#e67e22;color:white}
-        .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.08);transition:all 0.4s;border:1px solid #eee}
-        .project-card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(230,126,34,0.2)}
-        .project-img{width:100%;height:200px;object-fit:cover;transition:transform 0.5s}
-        .project-card:hover .project-img{transform:scale(1.05)}
-        .project-content{padding:20px}
-        .project-content h3{font-size:20px;color:#1e2a3a;margin-bottom:6px}
-        .project-content p{color:#777;font-size:13px;margin-bottom:18px}
-        .project-btn{background:transparent;color:#e67e22;padding:7px 18px;border-radius:25px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #e67e22;transition:all 0.3s}
-        .project-btn:hover{background:#e67e22;color:white}
-        .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
-        .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #f0e6dc;text-decoration:none;display:block}
-        .contact-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(230,126,34,0.15);border-color:#e67e22}
-        .contact-icon{font-size:45px;margin-bottom:15px;transition:transform 0.3s}
-        .contact-card:hover .contact-icon{transform:scale(1.1)}
-        .contact-card h4{font-size:18px;color:#1e2a3a;margin-bottom:6px}
-        .contact-card p{color:#e67e22;font-weight:600;font-size:14px;margin-bottom:15px}
-        .contact-btn{background:#fef3e9;color:#e67e22;padding:8px 18px;border-radius:30px;font-weight:600;font-size:13px;display:inline-block;transition:all 0.3s}
-        .contact-card:hover .contact-btn{background:#e67e22;color:white}
-        .fa-phone{color:#25D366}.fa-whatsapp{color:#25D366}
-        .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fa-envelope{color:#EA4335}
-        .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .contact-card:hover .fa-phone,.contact-card:hover .fa-whatsapp,.contact-card:hover .fa-envelope,.contact-card:hover .fa-google{color:white;background:white;-webkit-background-clip:text;background-clip:text}
-        .contact-card:hover .fa-instagram{background:white;-webkit-background-clip:text;background-clip:text;color:transparent}
-        .faq-grid{display:grid;gap:12px;max-width:1000px;margin:0 auto}
-        .faq-item{background:white;border-radius:18px;padding:20px 22px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;transition:all 0.3s}
-        .faq-item:hover{background:#fffbf5;box-shadow:0 10px 25px rgba(230,126,34,0.1)}
-        .faq-item h4{font-size:17px;color:#e67e22;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-        .faq-item p{color:#555;padding-left:28px;font-size:14px}
-        .about-card{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);border-radius:30px;padding:40px 35px;color:white;box-shadow:0 25px 40px rgba(0,0,0,0.15)}
-        .about-card p{font-size:17px;line-height:1.7;margin-bottom:18px;opacity:0.95}
-        .about-card strong{color:#f39c12}
-        .about-stats{display:flex;justify-content:space-around;margin:30px 0;flex-wrap:wrap;gap:20px}
-        .stat-number{font-size:40px;font-weight:900;color:#f39c12}
-        .about-btn{background:#e67e22;color:white;padding:12px 30px;border-radius:40px;text-decoration:none;font-weight:700;display:inline-block;margin-top:15px;transition:all 0.3s;border:2px solid #e67e22}
-        .about-btn:hover{background:transparent;color:#f39c12;border-color:#f39c12}
-        .hours-wrapper{background:white;border-radius:25px;padding:22px;margin-top:25px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.05)}
-        .hours-item{display:flex;align-items:center;gap:12px;font-size:16px}
-        .hours-item i{color:#e67e22;font-size:22px}
-        footer{background:#1e2a3a;color:#bbb;padding:35px 25px;margin-top:50px;text-align:center}
-        .footer-content h2{color:white;font-size:24px;font-weight:500;letter-spacing:2px;margin-bottom:5px}
-        .footer-content p{color:#e67e22;font-size:13px;margin-bottom:18px}
-        .footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:20px 0}
-        .footer-links a{color:#ddd;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:14px;transition:color 0.3s}
-        .footer-links a i{color:#e67e22}
-        .footer-links a:hover{color:#e67e22}
-        .copyright{margin-top:20px;opacity:0.6;font-size:12px}
-        #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
-        .popup-content{background:white;max-width:380px;width:90%;border-radius:20px;padding:40px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.2);border:2px solid #e67e22}
-        .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:24px;color:#999;cursor:pointer}
-        .popup-close:hover{color:#e67e22}
-        @media(max-width:992px){.services-grid,.projects-grid,.contact-grid{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:768px){
-            .services-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
-            .hero h2{font-size:32px}.hero .slogan{font-size:16px}
-            .section-title{font-size:28px}.brand h1{font-size:22px}
-            .hours-wrapper{flex-direction:column;align-items:center;gap:12px}
-            .about-stats{flex-direction:column;text-align:center}
-        }
-    </style>
-</head>
-<body>
-
-<!-- POPUP DUYURU (BOŞ) -->
-<div id="popupDuyuru">
-    <div class="popup-content">
-        <button class="popup-close" onclick="popupKapat()">✕</button>
-        <div style="font-size:45px;margin-bottom:15px;">📢</div>
-        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:700;">Duyuru Paneli</h3>
-        <p style="color:#888;font-size:15px;margin-bottom:25px;">Şu an aktif duyuru bulunmamaktadır.</p>
-        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;">Tamam</button>
-    </div>
-</div>
-
-<div class="wrapper">
-    <header>
-        <div class="logo-area">
-            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <div class="brand"><h1>GÜNEŞ YAPI</h1><p>BOYA • TADİLAT • İNŞAAT</p></div>
-        </div>
-        <div class="header-contact">
-            <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </header>
-
-    <div class="hero">
-        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <div class="hero-buttons">
-            <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-            <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya. 1 günde teslim, 10 yıl garantili.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayansı. Su yalıtımı, uzman ekip.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Yenileme</h3><p>3+1 daire 2-3 gün, villa 5-7 gün. Anahtar teslim.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
-        <div class="projects-grid">
-            <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat. 7 günde tamamlandı.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + boya. 3 günde bitti.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat. 3 günde teslim.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak Yenileme</h3><p>Dolap, tezgah ve fayans işçiliği. 2 günde tamamlandı.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        </div>
-
-        <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
-        <div class="contact-grid">
-            <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
-            <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
-            <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
-            <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
-        </div>
-
-        <div class="contact-grid" style="margin-top:15px;">
-            <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 4.9</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
-            <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
-            <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
-        </div>
-
-        <div class="hours-wrapper">
-            <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
-            <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-question-circle"></i><!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Güneş Yapı | Boya • Tadilat • İnşaat</title>
-    <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de profesyonel boya, tadilat, inşaat hizmetleri. Ücretsiz keşif, 2 yıl garanti.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;position:relative;line-height:1.5}
-        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 15% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:50px 50px,35px 35px;pointer-events:none;z-index:0}
-        .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
-        header{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);padding:15px 25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.15);border-bottom:3px solid #e67e22}
-        .logo-area{display:flex;align-items:center;gap:12px}
-        .logo{width:55px;height:55px;border-radius:12px;background:white;padding:5px;box-shadow:0 5px 15px rgba(230,126,34,0.3);transition:all 0.3s}
-        .logo:hover{transform:rotate(-3deg)scale(1.05)}
-        .brand h1{color:white;font-size:28px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:12px;font-weight:600;letter-spacing:2px}
-        .header-contact{display:flex;gap:8px;flex-wrap:nowrap}
-        .header-btn{background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);color:white;padding:8px 16px;border-radius:40px;text-decoration:none;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;white-space:nowrap}
-        .header-btn i{font-size:16px;color:#e67e22}
-        .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px)}
-        .header-btn:hover i{color:white}
-        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22 0%,#f39c12 50%,#e67e22 100%);background-size:200% 200%;animation:gradientShift 8s ease infinite;border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
-        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-        .hero::before{content:"🎨";font-size:180px;position:absolute;left:-30px;bottom:-50px;opacity:0.1;transform:rotate(-15deg)}
-        .hero::after{content:"🏗️";font-size:180px;position:absolute;right:-20px;top:-40px;opacity:0.1;transform:rotate(15deg)}
-        .hero h2{font-size:48px;font-weight:800;margin-bottom:12px;position:relative;z-index:2;text-shadow:0 5px 20px rgba(0,0,0,0.2)}
-        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px;position:relative;z-index:2;font-weight:400}
-        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:2}
-        .btn-primary{background:white;color:#e67e22;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 25px rgba(0,0,0,0.15);transition:all 0.3s;border:2px solid white}
-        .btn-primary i{font-size:20px}
-        .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
-        .btn-outline{background:transparent;color:white;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,0.5);backdrop-filter:blur(5px);transition:all 0.3s}
-        .btn-outline:hover{background:white;color:#e67e22;border-color:white;transform:scale(1.05)translateY(-3px)}
-        .container{max-width:1200px;margin:0 auto;padding:20px 25px}
-        .section-title{text-align:center;font-size:36px;font-weight:700;color:#1e2a3a;margin:50px 0 30px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);padding-bottom:12px}
-        .section-title::before{content:"";position:absolute;bottom:0;left:20%;width:60%;height:4px;background:linear-gradient(90deg,transparent,#e67e22,#f39c12,#e67e22,transparent);border-radius:4px}
-        .section-title i{color:#e67e22;margin-right:10px}
-        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
-        .service-card{background:rgba(255,255,255,0.95);backdrop-filter:blur(5px);border-radius:25px;padding:30px 20px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid rgba(230,126,34,0.15);transition:all 0.4s;position:relative;overflow:hidden}
-        .service-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,#e67e22,#f39c12);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
-        .service-card:hover{transform:translateY(-8px);box-shadow:0 25px 40px rgba(230,126,34,0.15);background:white}
-        .service-card:hover::before{transform:scaleX(1)}
-        .service-icon{font-size:45px;color:#e67e22;margin-bottom:18px;background:#fff5eb;width:80px;height:80px;line-height:80px;border-radius:25px;margin-left:auto;margin-right:auto;transition:all 0.3s}
-        .service-card:hover .service-icon{background:#e67e22;color:white;transform:rotate(5deg)scale(1.05)}
-        .service-card h3{font-size:22px;color:#1e2a3a;margin-bottom:10px}
-        .service-card p{color:#666;margin-bottom:20px;font-size:14px}
-        .service-btn{background:#fef3e9;color:#e67e22;padding:8px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.2)}
-        .service-btn:hover{background:#e67e22;color:white}
-        .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.08);transition:all 0.4s;border:1px solid #eee}
-        .project-card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(230,126,34,0.2)}
-        .project-img{width:100%;height:200px;object-fit:cover;transition:transform 0.5s}
-        .project-card:hover .project-img{transform:scale(1.05)}
-        .project-content{padding:20px}
-        .project-content h3{font-size:20px;color:#1e2a3a;margin-bottom:6px}
-        .project-content p{color:#777;font-size:13px;margin-bottom:18px}
-        .project-btn{background:transparent;color:#e67e22;padding:7px 18px;border-radius:25px;text-decoration:none;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #e67e22;transition:all 0.3s}
-        .project-btn:hover{background:#e67e22;color:white}
-        .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
-        .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #f0e6dc;text-decoration:none;display:block}
-        .contact-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(230,126,34,0.15);border-color:#e67e22}
-        .contact-icon{font-size:45px;margin-bottom:15px;transition:transform 0.3s}
-        .contact-card:hover .contact-icon{transform:scale(1.1)}
-        .contact-card h4{font-size:18px;color:#1e2a3a;margin-bottom:6px}
-        .contact-card p{color:#e67e22;font-weight:600;font-size:14px;margin-bottom:15px}
-        .contact-btn{background:#fef3e9;color:#e67e22;padding:8px 18px;border-radius:30px;font-weight:600;font-size:13px;display:inline-block;transition:all 0.3s}
-        .contact-card:hover .contact-btn{background:#e67e22;color:white}
-        .fa-phone{color:#25D366}.fa-whatsapp{color:#25D366}
-        .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fa-envelope{color:#EA4335}
-        .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .contact-card:hover .fa-phone,.contact-card:hover .fa-whatsapp,.contact-card:hover .fa-envelope,.contact-card:hover .fa-google{color:white;background:white;-webkit-background-clip:text;background-clip:text}
-        .contact-card:hover .fa-instagram{background:white;-webkit-background-clip:text;background-clip:text;color:transparent}
-        .faq-grid{display:grid;gap:12px;max-width:1000px;margin:0 auto}
-        .faq-item{background:white;border-radius:18px;padding:20px 22px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;transition:all 0.3s}
-        .faq-item:hover{background:#fffbf5;box-shadow:0 10px 25px rgba(230,126,34,0.1)}
-        .faq-item h4{font-size:17px;color:#e67e22;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-        .faq-item p{color:#555;padding-left:28px;font-size:14px}
-        .about-card{background:linear-gradient(135deg,#1e2a3a 0%,#2c3e50 100%);border-radius:30px;padding:40px 35px;color:white;box-shadow:0 25px 40px rgba(0,0,0,0.15)}
-        .about-card p{font-size:17px;line-height:1.7;margin-bottom:18px;opacity:0.95}
-        .about-card strong{color:#f39c12}
-        .about-stats{display:flex;justify-content:space-around;margin:30px 0;flex-wrap:wrap;gap:20px}
-        .stat-number{font-size:40px;font-weight:900;color:#f39c12}
-        .about-btn{background:#e67e22;color:white;padding:12px 30px;border-radius:40px;text-decoration:none;font-weight:700;display:inline-block;margin-top:15px;transition:all 0.3s;border:2px solid #e67e22}
-        .about-btn:hover{background:transparent;color:#f39c12;border-color:#f39c12}
-        .hours-wrapper{background:white;border-radius:25px;padding:22px;margin-top:25px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.05)}
-        .hours-item{display:flex;align-items:center;gap:12px;font-size:16px}
-        .hours-item i{color:#e67e22;font-size:22px}
-        footer{background:#1e2a3a;color:#bbb;padding:35px 25px;margin-top:50px;text-align:center}
-        .footer-content h2{color:white;font-size:24px;font-weight:500;letter-spacing:2px;margin-bottom:5px}
-        .footer-content p{color:#e67e22;font-size:13px;margin-bottom:18px}
-        .footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:20px 0}
-        .footer-links a{color:#ddd;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:14px;transition:color 0.3s}
-        .footer-links a i{color:#e67e22}
-        .footer-links a:hover{color:#e67e22}
-        .copyright{margin-top:20px;opacity:0.6;font-size:12px}
-        #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
-        .popup-content{background:white;max-width:380px;width:90%;border-radius:20px;padding:40px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.2);border:2px solid #e67e22}
-        .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:24px;color:#999;cursor:pointer}
-        .popup-close:hover{color:#e67e22}
-        @media(max-width:992px){.services-grid,.projects-grid,.contact-grid{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:768px){
-            .services-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
-            .hero h2{font-size:32px}.hero .slogan{font-size:16px}
-            .section-title{font-size:28px}.brand h1{font-size:22px}
-            .hours-wrapper{flex-direction:column;align-items:center;gap:12px}
-            .about-stats{flex-direction:column;text-align:center}
-        }
-    </style>
-</head>
-<body>
-
-<!-- POPUP DUYURU (BOŞ) -->
-<div id="popupDuyuru">
-    <div class="popup-content">
-        <button class="popup-close" onclick="popupKapat()">✕</button>
-        <div style="font-size:45px;margin-bottom:15px;">📢</div>
-        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:700;">Duyuru Paneli</h3>
-        <p style="color:#888;font-size:15px;margin-bottom:25px;">Şu an aktif duyuru bulunmamaktadır.</p>
-        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;">Tamam</button>
-    </div>
-</div>
-
-<div class="wrapper">
-    <header>
-        <div class="logo-area">
-            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <div class="brand"><h1>GÜNEŞ YAPI</h1><p>BOYA • TADİLAT • İNŞAAT</p></div>
-        </div>
-        <div class="header-contact">
-            <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </header>
-
-    <div class="hero">
-        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <div class="hero-buttons">
-            <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-            <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya. 1 günde teslim, 10 yıl garantili.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayansı. Su yalıtımı, uzman ekip.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Yenileme</h3><p>3+1 daire 2-3 gün, villa 5-7 gün. Anahtar teslim.</p><a href="tel:05359859535" class="service-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
-        <div class="projects-grid">
-            <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat. 7 günde tamamlandı.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan + boya. 3 günde bitti.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat. 3 günde teslim.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak Yenileme</h3><p>Dolap, tezgah ve fayans işçiliği. 2 günde tamamlandı.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        </div>
-
-        <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
-        <div class="contact-grid">
-            <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
-            <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
-            <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
-            <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
-        </div>
-
-        <div class="contact-grid" style="margin-top:15px;">
-            <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 4.9</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
+            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 5.0</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
             <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
             <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
         </div>
@@ -574,14 +206,15 @@
 
         <div class="section-title"><i class="fas fa-building"></i> Hakkımızda</div>
         <div class="about-card">
-            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli'de boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz.</p>
+            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli'de boya, tadilat, alçıpan, fayans ve inşaat hizmetleri vermekteyiz. Kalite, uygun fiyat ve zamanında teslimat ilkelerimizle müşteri memnuniyetini en üst seviyede tutuyoruz.</p>
+            <p>Kurulduğumuz günden bu yana 300'den fazla projeyi başarıyla tamamladık. 100'den fazla mutlu müşteriye ulaştık. Tüm işlerimiz 2 yıl garantilidir.</p>
             <div class="about-stats">
-                <div><div class="stat-number">100+</div><div>Mutlu Müşteri</div></div>
-                <div><div class="stat-number">300+</div><div>Tamamlanan İş</div></div>
-                <div><div class="stat-number">10+</div><div>Yıllık Tecrübe</div></div>
-                <div><div class="stat-number">2 Yıl</div><div>İşçilik Garantisi</div></div>
+                <div><div class="stat-number">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
+                <div><div class="stat-number">300+</div><div class="stat-label">Tamamlanan İş</div></div>
+                <div><div class="stat-number">10+</div><div class="stat-label">Yıllık Tecrübe</div></div>
+                <div><div class="stat-number">2 Yıl</div><div class="stat-label">İşçilik Garantisi</div></div>
             </div>
-            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder.</p>
+            <p>Ekibimiz her projede en kaliteli malzemeleri kullanır, işleri zamanında ve eksiksiz teslim eder. Müşteri memnuniyeti bizim önceliğimizdir. Siz de hayalinizdeki yapıya kavuşmak için hemen bize ulaşın!</p>
             <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
         </div>
     </div>
@@ -608,16 +241,13 @@ window.onload = function() {
         document.getElementById('popupDuyuru').style.visibility = 'visible';
     }, 500);
 };
-
 function popupKapat() {
     document.getElementById('popupDuyuru').style.opacity = '0';
     document.getElementById('popupDuyuru').style.visibility = 'hidden';
 }
-
 document.getElementById('popupDuyuru').addEventListener('click', function(e) {
     if(e.target === this) popupKapat();
 });
-
 document.querySelectorAll('img').forEach(img => {
     img.onerror = function() {
         if(this.src.includes('ABC')) this.src = 'abc.jpeg';
@@ -626,3 +256,4 @@ document.querySelectorAll('img').forEach(img => {
 </script>
 </body>
 </html>
+
