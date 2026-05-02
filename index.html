@@ -1,3 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Güneş Yapı | Premium Site</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {--ana:#e67e22;--koyu:#1e2a3e;--acik:#fff6ed;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:var(--acik)}
+
+header{background:var(--koyu);color:#fff;padding:15px;display:flex;justify-content:space-between;position:sticky;top:0}
+nav a{color:#fff;margin-left:15px;text-decoration:none}
+
+.hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');background-size:cover}
+.hero h2{font-size:42px}
+.btn{background:var(--ana);color:#fff;padding:12px 25px;border:none;border-radius:30px;margin-top:15px;cursor:pointer}
+
+.container{padding:40px 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#fff;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.1);text-align:center;transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;border-radius:10px}
+
+footer{background:var(--koyu);color:#fff;text-align:center;padding:20px}
+
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;font-size:20px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>GÜNEŞ YAPI</h2>
+<nav>
+<a href="#">Ana Sayfa</a>
+<a href="#hizmet">Hizmetler</a>
+<a href="#projeler">Projeler</a>
+<a href="#iletisim">İletişim</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Hayalinizdeki Evi Yapıyoruz</h2>
+<p>Profesyonel boya, tadilat ve inşaat hizmeti</p>
+<button class="btn" onclick="window.location.href='tel:05359859535'">Hemen Ara</button>
+</section>
+
+<div class="container" id="hizmet">
+<h2>Hizmetlerimiz</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952"><h3>Boya</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"><h3>Tadilat</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"><h3>Fayans</h3></div>
+</div>
+</div>
+
+<div class="container" id="projeler">
+<h2>Projeler</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><p>Villa</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"><p>Ofis</p></div>
+</div>
+</div>
+
+<div class="container" id="iletisim">
+<h2>İletişim</h2>
+<p>📞 0535 985 95 35</p>
+<p>📧 mehmetgnes456@gmail.com</p>
+</div>
+
+<footer>
+<p>© 2026 Güneş Yapı</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905359859535" target="_blank">💬</a>
+
+</body>
 </html>
-Devre Dışı site Bundan sonra açılmayacak
+
