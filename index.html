@@ -9,26 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',sans-serif;background:#faf7f2;color:#1e2a3a;line-height:1.5}
-        header{background:#1e2a3a;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.3);border-bottom:3px solid #e67e22}
+        body{font-family:'Inter',sans-serif;background:#faf7f2;color:#1e2a3a;line-height:1.5;margin:0;padding:0}
+        header{background:#faf7f2;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:1000;margin:0}
         .logo-area{display:flex;align-items:center;gap:10px}
         .logo{width:50px;height:50px;border-radius:12px;background:white;padding:4px}
-        .brand h1{color:white;font-size:24px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:11px;font-weight:600;letter-spacing:2px}
+        .brand h1{color:#1e2a3a;font-size:28px;font-weight:800;letter-spacing:2px}
         .header-contact{display:flex;gap:8px}
-        .header-btn{background:rgba(255,255,255,0.1);color:white;padding:8px 15px;border-radius:40px;text-decoration:none;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,0.2);white-space:nowrap}
-        .header-btn i{color:#e67e22;font-size:14px}
-        .hero{margin:15px;padding:50px 25px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:30px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25)}
-        .hero h2{font-size:38px;font-weight:900;margin-bottom:10px}
-        .hero .slogan{font-size:18px;font-style:italic;margin-bottom:25px}
+        .header-btn{background:#e67e22;color:white;padding:8px 15px;border-radius:40px;text-decoration:none;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+        .header-btn i{color:white;font-size:14px}
+        .hero{margin:0 0 15px;padding:40px 25px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:0;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25)}
+        .hero h2{font-size:36px;font-weight:900;margin-bottom:10px}
+        .hero .slogan{font-size:17px;font-style:italic;margin-bottom:25px}
         .hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
         .btn-primary,.btn-outline{padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px}
         .btn-primary{background:white;color:#e67e22;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
         .btn-primary:hover{background:#1e2a3a;color:white}
         .btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.5)}
         .btn-outline:hover{background:white;color:#e67e22}
-        .container{max-width:1200px;margin:0 auto;padding:15px 20px}
-        .section-title{text-align:center;font-size:32px;font-weight:800;color:#1e2a3a;margin:40px 0 25px;position:relative;padding-bottom:12px}
+        .container{max-width:1200px;margin:0 auto;padding:10px 20px}
+        .section-title{text-align:center;font-size:32px;font-weight:800;color:#1e2a3a;margin:35px 0 25px;position:relative;padding-bottom:12px}
         .section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:3px;background:linear-gradient(90deg,transparent,#e67e22,transparent);border-radius:3px}
         .section-title i{color:#e67e22;margin-right:8px}
         .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
@@ -72,7 +71,7 @@
         .hours{background:white;border-radius:25px;padding:18px;margin-top:25px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;box-shadow:0 10px 20px rgba(0,0,0,0.04)}
         .hours-item{display:flex;align-items:center;gap:10px;font-size:15px}
         .hours-item i{color:#e67e22;font-size:20px}
-        footer{background:#1e2a3a;color:#bbb;padding:30px 20px;margin-top:50px;text-align:center}
+        footer{background:#1e2a3a;color:#bbb;padding:30px 20px;margin-top:30px;text-align:center}
         footer h2{color:white;font-size:22px;margin-bottom:5px}
         footer p{color:#e67e22;font-size:12px;margin-bottom:15px}
         .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:15px 0}
@@ -80,122 +79,120 @@
         .footer-links a i{color:#e67e22}
         .copyright{margin-top:20px;opacity:0.5;font-size:11px}
         #popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden}
-        .popup-box{background:white;max-width:380px;width:90%;border-radius:25px;padding:35px 20px;text-align:center;border:3px solid #e67e22}
+        .popup-box{background:white;max-width:380px;width:90%;border-radius:25px;padding:35px 20px;text-align:center;border:3px solid #e67e22;position:relative}
         .popup-close{position:absolute;top:10px;right:10px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){
             .grid4{grid-template-columns:1fr}
             header{justify-content:center}
-            .hero h2{font-size:28px}.hero .slogan{font-size:15px}
+            .hero h2{font-size:26px}.hero .slogan{font-size:14px}
             .section-title{font-size:26px}
             .hours{flex-direction:column;align-items:center;gap:12px}
             .stats{flex-direction:column;text-align:center}
-            .brand h1{font-size:20px}
+            .brand h1{font-size:22px}
             .btn-primary,.btn-outline{padding:12px 20px;font-size:14px}
         }
     </style>
 </head>
 <body>
 
-<div id="popup" style="position:relative">
-    <div class="popup-box" style="position:relative">
+<div id="popup">
+    <div class="popup-box">
         <button class="popup-close" onclick="popupKapat()">✕</button>
         <div style="font-size:45px;margin-bottom:10px;">📢</div>
         <h3 style="font-size:20px;font-weight:800;margin-bottom:8px;">Duyuru Paneli</h3>
-        <p style="color:#888;font-size:14px;margin-bottom:20px;">Şu an aktif duyuru bulunmamaktadır.</p>
+        <p style="color:#e67e22;font-size:13px;font-weight:600;margin-bottom:20px;">⚠️ 16 Mayıs 2026 Cumartesi 22:00'da sunucu güncellemesi olacaktır.</p>
         <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:10px 30px;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;">Tamam</button>
     </div>
 </div>
 
-<div class="wrapper">
-    <header>
-        <div class="logo-area">
-            <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <div class="brand"><h1>GÜNEŞ YAPI</h1><p>BOYA • TADİLAT • DEKORASYON</p></div>
-        </div>
-        <div class="header-contact">
-            <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </header>
-
-    <div class="hero">
-        <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-        <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-        <div class="hero-buttons">
-            <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-            <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
-        </div>
+<header>
+    <div class="logo-area">
+        <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
+        <div class="brand"><h1>GÜNEŞ YAPI</h1></div>
     </div>
-
-    <div class="container">
-        <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
-        <div class="grid4">
-            <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya ve badana işleri. Profesyonel işçilik.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="card"><div class="card-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="card"><div class="card-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayansı ve su yalıtımı. Uzman ekip.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-            <div class="card"><div class="card-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat, iç mekan düzenleme ve dekorasyon hizmetleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
-        <div class="grid4">
-            <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve dekorasyon.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat ve boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-            <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak</h3><p>Dolap, tezgah ve fayans işçiliği. Özel tasarım.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        </div>
-
-        <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
-        <div class="grid4">
-            <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
-            <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
-            <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
-            <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
-        </div>
-
-        <div class="grid4" style="margin-top:15px;">
-            <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 5.0</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
-            <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
-            <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
-        </div>
-
-        <div class="hours">
-            <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
-            <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
-        </div>
-
-        <div class="section-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</div>
-        <div class="faq-item"><h4><i class="fas fa-lira-sign"></i> Fiyatlar nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre değişir. Ücretsiz keşif yapıyoruz.</p></div>
-        <div class="faq-item"><h4><i class="fas fa-shield-alt"></i> Garanti süreniz nedir?</h4><p>2 yıl işçilik garantisi veriyoruz.</p></div>
-        <div class="faq-item"><h4><i class="fas fa-map-pin"></i> Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli genelinde hizmetteyiz.</p></div>
-
-        <div class="section-title"><i class="fas fa-building"></i> Hakkımızda</div>
-        <div class="about-card">
-            <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli'de boya, tadilat, alçıpan, fayans ve dekorasyon hizmetleri vermekteyiz.</p>
-            <div class="stats">
-                <div><div class="stat-num">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
-                <div><div class="stat-num">300+</div><div class="stat-label">Tamamlanan İş</div></div>
-                <div><div class="stat-num">10+</div><div class="stat-label">Yıllık Tecrübe</div></div>
-                <div><div class="stat-num">2 Yıl</div><div class="stat-label">İşçilik Garantisi</div></div>
-            </div>
-            <p>Müşteri memnuniyeti bizim önceliğimizdir. Hayalinizdeki yapıya kavuşmak için hemen bize ulaşın!</p>
-            <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
-        </div>
+    <div class="header-contact">
+        <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
+        <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
+</header>
 
-    <footer>
-        <h2>GÜNEŞ YAPI</h2>
-        <p>Boya • Tadilat • Dekorasyon</p>
-        <div class="footer-links">
-            <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> E-Posta</a>
-        </div>
-        <div class="copyright">&copy; 2025 Güneş Yapı | Tüm hakları saklıdır.<br>"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-    </footer>
+<div class="hero">
+    <h2>Hayalinizdeki Yapıya Ulaşın</h2>
+    <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
+    <div class="hero-buttons">
+        <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
+        <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
+    </div>
 </div>
+
+<div class="container">
+    <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
+    <div class="grid4">
+        <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya ve badana işleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayansı ve su yalıtımı.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat ve iç mekan dekorasyon.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
+    <div class="grid4">
+        <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve dekorasyon.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat ve boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak</h3><p>Dolap, tezgah ve fayans işçiliği. Özel tasarım.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+    </div>
+
+    <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
+    <div class="grid4">
+        <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
+        <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
+        <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
+        <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
+    </div>
+
+    <div class="grid4" style="margin-top:15px;">
+        <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
+        <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 5.0</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
+        <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
+        <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
+    </div>
+
+    <div class="hours">
+        <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
+        <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</div>
+    <div class="faq-item"><h4><i class="fas fa-lira-sign"></i> Fiyatlar nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre değişir. Ücretsiz keşif yapıyoruz.</p></div>
+    <div class="faq-item"><h4><i class="fas fa-shield-alt"></i> Garanti süreniz nedir?</h4><p>2 yıl işçilik garantisi veriyoruz.</p></div>
+    <div class="faq-item"><h4><i class="fas fa-map-pin"></i> Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli genelinde hizmetteyiz.</p></div>
+
+    <div class="section-title"><i class="fas fa-building"></i> Hakkımızda</div>
+    <div class="about-card">
+        <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli'de boya, tadilat, alçıpan, fayans ve dekorasyon hizmetleri vermekteyiz.</p>
+        <div class="stats">
+            <div><div class="stat-num">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
+            <div><div class="stat-num">300+</div><div class="stat-label">Tamamlanan İş</div></div>
+            <div><div class="stat-num">10+</div><div class="stat-label">Yıllık Tecrübe</div></div>
+            <div><div class="stat-num">2 Yıl</div><div class="stat-label">İşçilik Garantisi</div></div>
+        </div>
+        <p>Müşteri memnuniyeti bizim önceliğimizdir. Hayalinizdeki yapıya kavuşmak için hemen bize ulaşın!</p>
+        <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
+    </div>
+</div>
+
+<footer>
+    <h2>GÜNEŞ YAPI</h2>
+    <p>Boya • Tadilat • Dekorasyon</p>
+    <div class="footer-links">
+        <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
+        <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> E-Posta</a>
+    </div>
+    <div class="copyright">&copy; 2026 Güneş Yapı | Tüm hakları saklıdır.<br>"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
+</footer>
 
 <script>
 window.onload=function(){setTimeout(function(){document.getElementById('popup').style.opacity='1';document.getElementById('popup').style.visibility='visible'},500)};
