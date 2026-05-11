@@ -9,23 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',sans-serif;background:#faf7f2;color:#1e2a3a;line-height:1.5;margin:0;padding:0}
-        header{background:#faf7f2;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:1000;margin:0}
+        body{font-family:'Inter',sans-serif;background:linear-gradient(145deg,#fff8f0,#ffe8d4);background-attachment:fixed;color:#1e2a3a;line-height:1.5;margin:0;padding:0}
+        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 80% 70%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:60px 60px,40px 40px;pointer-events:none;z-index:0}
+        .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
+        header{background:linear-gradient(135deg,#1e2a3a,#2c3e50);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.3);border-bottom:3px solid #e67e22}
         .logo-area{display:flex;align-items:center;gap:10px}
         .logo{width:50px;height:50px;border-radius:12px;background:white;padding:4px}
-        .brand h1{color:#1e2a3a;font-size:28px;font-weight:800;letter-spacing:2px}
+        .brand h1{color:white;font-size:26px;font-weight:800;letter-spacing:1px}
+        .brand p{color:#e67e22;font-size:11px;font-weight:600;letter-spacing:2px;margin-top:2px}
         .header-contact{display:flex;gap:8px}
-        .header-btn{background:#e67e22;color:white;padding:8px 15px;border-radius:40px;text-decoration:none;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;white-space:nowrap}
-        .header-btn i{color:white;font-size:14px}
-        .hero{margin:0 0 15px;padding:40px 25px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:0;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25)}
+        .header-btn{background:rgba(255,255,255,0.1);color:white;padding:8px 15px;border-radius:40px;text-decoration:none;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,0.2);white-space:nowrap}
+        .header-btn i{color:#e67e22;font-size:14px}
+        .hero{margin:0 0 15px;padding:40px 25px;background:linear-gradient(135deg,#e67e22,#f39c12);color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25)}
         .hero h2{font-size:36px;font-weight:900;margin-bottom:10px}
         .hero .slogan{font-size:17px;font-style:italic;margin-bottom:25px}
         .hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
         .btn-primary,.btn-outline{padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px}
         .btn-primary{background:white;color:#e67e22;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
-        .btn-primary:hover{background:#1e2a3a;color:white}
         .btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.5)}
-        .btn-outline:hover{background:white;color:#e67e22}
         .container{max-width:1200px;margin:0 auto;padding:10px 20px}
         .section-title{text-align:center;font-size:32px;font-weight:800;color:#1e2a3a;margin:35px 0 25px;position:relative;padding-bottom:12px}
         .section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:3px;background:linear-gradient(90deg,transparent,#e67e22,transparent);border-radius:3px}
@@ -33,7 +34,7 @@
         .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
         .card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid #eee;transition:all 0.3s}
         .card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15)}
-        .card-icon{font-size:42px;color:#e67e22;margin-bottom:15px;background:#fff5eb;width:75px;height:75px;line-height:75px;border-radius:20px;margin-left:auto;margin-right:auto;transition:all 0.3s}
+        .card-icon{font-size:42px;color:#e67e22;margin-bottom:15px;background:#fff5eb;width:75px;height:75px;line-height:75px;border-radius:20px;margin:0 auto 15px;transition:all 0.3s}
         .card:hover .card-icon{background:#e67e22;color:white}
         .card h3{font-size:20px;margin-bottom:8px}
         .card p{color:#666;font-size:13px;margin-bottom:18px}
@@ -82,16 +83,7 @@
         .popup-box{background:white;max-width:380px;width:90%;border-radius:25px;padding:35px 20px;text-align:center;border:3px solid #e67e22;position:relative}
         .popup-close{position:absolute;top:10px;right:10px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:600px){
-            .grid4{grid-template-columns:1fr}
-            header{justify-content:center}
-            .hero h2{font-size:26px}.hero .slogan{font-size:14px}
-            .section-title{font-size:26px}
-            .hours{flex-direction:column;align-items:center;gap:12px}
-            .stats{flex-direction:column;text-align:center}
-            .brand h1{font-size:22px}
-            .btn-primary,.btn-outline{padding:12px 20px;font-size:14px}
-        }
+        @media(max-width:600px){.grid4{grid-template-columns:1fr}header{justify-content:center}.hero h2{font-size:26px}.hero .slogan{font-size:14px}.section-title{font-size:26px}.hours{flex-direction:column;align-items:center;gap:12px}.stats{flex-direction:column;text-align:center}.brand h1{font-size:20px}.btn-primary,.btn-outline{padding:12px 20px;font-size:14px}}
     </style>
 </head>
 <body>
@@ -106,10 +98,14 @@
     </div>
 </div>
 
+<div class="wrapper">
 <header>
     <div class="logo-area">
         <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
-        <div class="brand"><h1>GÜNEŞ YAPI</h1></div>
+        <div class="brand">
+            <h1>GÜNEŞ YAPI</h1>
+            <p>BOYA • TADİLAT • DEKORASYON</p>
+        </div>
     </div>
     <div class="header-contact">
         <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
@@ -129,18 +125,18 @@
 <div class="container">
     <div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div>
     <div class="grid4">
-        <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya ve badana işleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin fayansı ve su yalıtımı.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat ve iç mekan dekorasyon.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif boya.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, su yalıtımı.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat hizmetleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
     </div>
 
     <div class="section-title"><i class="fas fa-image"></i> Projelerimiz</div>
     <div class="grid4">
-        <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa tadilat ve dekorasyon.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² ofis alçıpan ve dekoratif boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat ve boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak</h3><p>Dolap, tezgah ve fayans işçiliği. Özel tasarım.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC99.jpeg" alt="Villa" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Modern Villa</h3><p>Kocaeli'de 350 m² lüks villa.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC88.jpeg" alt="Ofis" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Ofis Tadilatı</h3><p>İstanbul'da 120 m² modern ofis.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak</h3><p>Dolap, tezgah ve fayans.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
     </div>
 
     <div id="iletisim" class="section-title"><i class="fas fa-address-card"></i> İletişim Kanalları</div>
@@ -193,6 +189,7 @@
     </div>
     <div class="copyright">&copy; 2026 Güneş Yapı | Tüm hakları saklıdır.<br>"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
 </footer>
+</div>
 
 <script>
 window.onload=function(){setTimeout(function(){document.getElementById('popup').style.opacity='1';document.getElementById('popup').style.visibility='visible'},500)};
