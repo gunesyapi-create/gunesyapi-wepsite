@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Güneş Yapı | Profesyonel Boya, Tadilat ve Dekorasyon</title>
     <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de 10 yıllık tecrübeyle profesyonel boya, tadilat, dekorasyon hizmetleri. 2 yıl garanti.">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/jpeg" href="abc.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
@@ -43,15 +41,14 @@
         .card p{color:#666;font-size:14px;margin-bottom:20px}
         .card-btn{background:#fef3e9;color:#e67e22;padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s}
         .card-btn:hover{background:#e67e22;color:white}
-        /* AKAN SLIDER */
-        .slider-container{width:100%;overflow:hidden;position:relative;margin:20px 0 40px;border-radius:15px;padding:10px 0}
-        .slider-track{display:flex;width:max-content;animation:kaydir 30s linear infinite}
-        .slider-track:hover{animation-play-state:paused}
-        .slide{flex-shrink:0;width:280px;margin-right:20px;border-radius:15px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,0.08);transition:all 0.3s}
-        .slide:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(230,126,34,0.2)}
-        .slide img{width:100%;height:200px;object-fit:cover}
-        .slide span{display:block;background:white;padding:12px;text-align:center;font-weight:600;font-size:14px;color:#1e2a3a}
-        @keyframes kaydir{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #eee}
+        .project-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.2)}
+        .project-img{width:100%;height:200px;object-fit:cover}
+        .project-content{padding:22px}
+        .project-content h3{font-size:20px;font-weight:700;margin-bottom:6px}
+        .project-content p{color:#777;font-size:14px;margin-bottom:18px}
+        .project-btn{background:transparent;color:#e67e22;padding:8px 20px;border-radius:25px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:2px solid #e67e22;transition:all 0.3s}
+        .project-btn:hover{background:#e67e22;color:white}
         .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.04);border:1px solid #f0e6dc;text-decoration:none;display:block;transition:all 0.3s}
         .contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15)}
         .contact-icon{font-size:42px;margin-bottom:14px;transition:all 0.3s}
@@ -89,11 +86,25 @@
         .footer-links a i{color:#e67e22}
         .footer-links a:hover{color:#e67e22}
         .copyright{margin-top:25px;opacity:0.5;font-size:12px}
+        #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
+        .popup-content{background:white;max-width:400px;width:90%;border-radius:25px;padding:35px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
+        .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
+        .popup-close:hover{color:#e67e22}
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){.grid4{grid-template-columns:1fr}header{justify-content:center}.hero h2{font-size:28px}.section-title{font-size:26px}.hours{flex-direction:column;align-items:center;gap:15px}.stats{flex-direction:column;text-align:center}}
     </style>
 </head>
 <body>
+
+<div id="popupDuyuru">
+    <div class="popup-content">
+        <button class="popup-close" onclick="popupKapat()">✕</button>
+        <div style="font-size:45px;margin-bottom:15px;">⚠️</div>
+        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:800;">Sunucu Güncellemesi</h3>
+        <p style="color:#e67e22;font-size:14px;font-weight:600;margin-bottom:20px;">16 Mayıs 2026 Cumartesi 22:00'da sunucu güncellemesi olacaktır. Kısa süreli erişim kesintisi yaşanabilir.</p>
+        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;">Tamam</button>
+    </div>
+</div>
 
 <div class="wrapper">
 <header>
@@ -126,25 +137,11 @@
     </div>
 
     <div class="section-title">Projelerimiz</div>
-    <div class="slider-container">
-        <div class="slider-track">
-            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Alçıpan" onerror="this.src='abc.jpeg'"><span>Alçıpan Bölme Duvar</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Dekoratif Asma Tavan</span></div>
-            <div class="slide"><img src="ABC55.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Ev Tadilatı</span></div>
-            <div class="slide"><img src="ABC44.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan Uygulama</span></div>
-            <div class="slide"><img src="ABC33.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Ev Tadilatı</span></div>
-            <div class="slide"><img src="ABC22.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Tadilat</span></div>
-            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Alçıpan" onerror="this.src='abc.jpeg'"><span>Alçıpan Bölme Duvar</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Dekoratif Asma Tavan</span></div>
-            <div class="slide"><img src="ABC55.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Ev Tadilatı</span></div>
-            <div class="slide"><img src="ABC44.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan Uygulama</span></div>
-            <div class="slide"><img src="ABC33.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Ev Tadilatı</span></div>
-            <div class="slide"><img src="ABC22.jpeg" alt="Tadilat" onerror="this.src='abc.jpeg'"><span>Tadilat</span></div>
-        </div>
+    <div class="grid4">
+        <div class="project-card"><img src="ABC99.jpeg" alt="Asma Tavan" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Asma Tavan & Işıklandırma</h3><p>Kocaeli'de modern asma tavan uygulaması.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC88.jpeg" alt="İş Yeri" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>İş Yeri Tadilatı</h3><p>İstanbul'da 120 m² ofis tadilatı ve boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+        <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak Yenileme</h3><p>Dolap, tezgah ve fayans işçiliği.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
     </div>
 
     <div id="iletisim" class="section-title">İletişim Kanalları</div>
@@ -199,6 +196,9 @@
 </div>
 
 <script>
+window.onload=function(){setTimeout(function(){document.getElementById('popupDuyuru').style.opacity='1';document.getElementById('popupDuyuru').style.visibility='visible'},500)};
+function popupKapat(){document.getElementById('popupDuyuru').style.opacity='0';document.getElementById('popupDuyuru').style.visibility='hidden'}
+document.getElementById('popupDuyuru').addEventListener('click',function(e){if(e.target===this)popupKapat()});
 function sayacBaslat(el,hedef,ek='+'){const s=el.querySelector('.stat-num');if(s.dataset.sayiliyor==='true')return;s.dataset.sayiliyor='true';let b=0;const sure=1500,adim=hedef/(sure/20);const i=setInterval(()=>{b+=adim;if(b>=hedef){b=hedef;clearInterval(i);s.dataset.sayiliyor='false'}s.textContent=Math.floor(b)+ek},20)}
 document.querySelectorAll('img').forEach(img=>{img.onerror=function(){if(this.src.includes('ABC'))this.src='abc.jpeg'}});
 </script>
