@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Güneş Yapı | Profesyonel Boya, Tadilat ve Dekorasyon</title>
     <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de 10 yıllık tecrübeyle profesyonel boya, tadilat, dekorasyon hizmetleri. 2 yıl garanti.">
-    <link rel="icon" type="image/jpeg" href="abc.jpeg">
+    <link rel="icon" href="abc.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;line-height:1.5}
@@ -20,15 +22,22 @@
         .header-contact{display:flex;gap:10px}
         .header-btn{background:rgba(255,255,255,0.08);color:white;padding:10px 20px;border-radius:40px;text-decoration:none;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.15);white-space:nowrap;transition:all 0.3s}
         .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px)}
-        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25)}
-        .hero h2{font-size:42px;font-weight:900;margin-bottom:15px;text-shadow:0 5px 20px rgba(0,0,0,0.2)}
-        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px}
-        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
-        .btn-primary,.btn-outline{padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s}
-        .btn-primary{background:white;color:#e67e22;box-shadow:0 10px 25px rgba(0,0,0,0.15)}
-        .btn-primary:hover{background:#1e2a3a;color:white;transform:scale(1.05)translateY(-3px)}
+        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
+        .hero h2{font-size:42px;font-weight:900;margin-bottom:15px;text-shadow:0 5px 20px rgba(0,0,0,0.2);position:relative;z-index:1}
+        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px;position:relative;z-index:1}
+        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:1}
+        .btn-primary,.btn-outline{padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s;cursor:pointer}
+        .btn-primary{background:white;color:#e67e22;border:2px solid white;box-shadow:0 10px 25px rgba(0,0,0,0.15)}
+        .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
         .btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.5)}
         .btn-outline:hover{background:white;color:#e67e22;transform:scale(1.05)translateY(-3px)}
+        .live-stats{text-align:center;margin:20px auto;max-width:400px}
+        .stats-card{background:white;border-radius:20px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,0.06);border:2px solid #e67e22}
+        .stats-row{display:flex;justify-content:center;align-items:center;gap:30px}
+        .stat-block{text-align:center}
+        .stat-number{font-size:36px;font-weight:900;color:#f39c12}
+        .stat-label{font-size:12px;color:#888;margin-top:5px}
+        .stat-divider{width:1px;height:40px;background:#eee}
         .container{max-width:1200px;margin:0 auto;padding:15px 25px}
         .section-title{text-align:center;font-size:32px;font-weight:800;color:#1e2a3a;margin:45px 0 30px;position:relative;padding-bottom:12px}
         .section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:4px;background:linear-gradient(90deg,#e67e22,#f39c12);border-radius:2px}
@@ -41,14 +50,16 @@
         .card p{color:#666;font-size:14px;margin-bottom:20px}
         .card-btn{background:#fef3e9;color:#e67e22;padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s}
         .card-btn:hover{background:#e67e22;color:white}
-        .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.05);transition:all 0.3s;border:1px solid #eee}
-        .project-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.2)}
-        .project-img{width:100%;height:200px;object-fit:cover}
-        .project-content{padding:22px}
-        .project-content h3{font-size:20px;font-weight:700;margin-bottom:6px}
-        .project-content p{color:#777;font-size:14px;margin-bottom:18px}
-        .project-btn{background:transparent;color:#e67e22;padding:8px 20px;border-radius:25px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:2px solid #e67e22;transition:all 0.3s}
-        .project-btn:hover{background:#e67e22;color:white}
+        .badge{display:inline-block;background:#f39c12;color:white;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-top:10px;animation:badgePulse 2s infinite}
+        @keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        .slider-container{width:100%;overflow:hidden;position:relative;margin:20px 0 40px;border-radius:15px;padding:10px 0}
+        .slider-track{display:flex;width:max-content;animation:kaydir 30s linear infinite}
+        .slider-track:hover{animation-play-state:paused}
+        .slide{flex-shrink:0;width:280px;margin-right:20px;border-radius:15px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,0.08);background:white;transition:all 0.3s}
+        .slide:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(230,126,34,0.2)}
+        .slide img{width:100%;height:200px;object-fit:cover}
+        .slide span{display:block;padding:12px;text-align:center;font-weight:600;font-size:14px;color:#1e2a3a}
+        @keyframes kaydir{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
         .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.04);border:1px solid #f0e6dc;text-decoration:none;display:block;transition:all 0.3s}
         .contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15)}
         .contact-icon{font-size:42px;margin-bottom:14px;transition:all 0.3s}
@@ -61,10 +72,7 @@
         .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
         .fa-envelope{color:#EA4335}
         .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .contact-card:hover .fa-phone,.contact-card:hover .fa-whatsapp,.contact-card:hover .fa-envelope,.contact-card:hover .fa-google{color:white;background:white;-webkit-background-clip:text;background-clip:text}
-        .contact-card:hover .fa-instagram{background:white;-webkit-background-clip:text;background-clip:text;color:transparent}
-        .faq-item{background:white;padding:20px 25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;margin-bottom:14px;transition:all 0.3s}
-        .faq-item:hover{background:#fffbf5;transform:translateX(3px)}
+        .faq-item{background:white;padding:20px 25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;margin-bottom:14px}
         .faq-item h4{font-size:18px;color:#e67e22;margin-bottom:6px;font-weight:700}
         .faq-item p{color:#555;font-size:14px}
         .about-card{background:linear-gradient(135deg,#1e2a3a,#2c3e50);border-radius:30px;padding:45px 40px;color:white;box-shadow:0 25px 40px rgba(0,0,0,0.15)}
@@ -82,16 +90,22 @@
         footer h2{color:white;font-size:24px;margin-bottom:5px;font-weight:700;letter-spacing:2px}
         footer p{color:#e67e22;font-size:13px;margin-bottom:18px;letter-spacing:3px}
         .footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:15px 0}
-        .footer-links a{color:#ddd;text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px;transition:all 0.3s}
+        .footer-links a{color:#ddd;text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px}
         .footer-links a i{color:#e67e22}
-        .footer-links a:hover{color:#e67e22}
         .copyright{margin-top:25px;opacity:0.5;font-size:12px}
+        .visitor-bar{background:#1e2a3a;color:#ddd;text-align:center;padding:10px;font-size:13px;position:sticky;bottom:0;z-index:999;border-top:2px solid #e67e22}
         #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
         .popup-content{background:white;max-width:400px;width:90%;border-radius:25px;padding:35px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
         .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
         .popup-close:hover{color:#e67e22}
+        .yorum-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:10000;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
+        .yorum-box{background:white;max-width:450px;width:90%;border-radius:20px;padding:30px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
+        .yildizlar{font-size:35px;color:#ddd;cursor:pointer;margin:10px 0 20px}
+        .yildizlar span{transition:all 0.2s}
+        #exitPopup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:10001;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
+        .exit-content{background:white;max-width:400px;width:90%;border-radius:25px;padding:35px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:600px){.grid4{grid-template-columns:1fr}header{justify-content:center}.hero h2{font-size:28px}.section-title{font-size:26px}.hours{flex-direction:column;align-items:center;gap:15px}.stats{flex-direction:column;text-align:center}}
+        @media(max-width:600px){.grid4{grid-template-columns:1fr}header{justify-content:center}.hero h2{font-size:28px}.section-title{font-size:26px}.hours{flex-direction:column;align-items:center;gap:15px}.stats{flex-direction:column;text-align:center}.stats-row{flex-direction:column;gap:15px}.stat-divider{width:40px;height:1px}}
     </style>
 </head>
 <body>
@@ -103,6 +117,36 @@
         <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:800;">Sunucu Güncellemesi</h3>
         <p style="color:#e67e22;font-size:14px;font-weight:600;margin-bottom:20px;">16 Mayıs 2026 Cumartesi 22:00'da sunucu güncellemesi olacaktır. Kısa süreli erişim kesintisi yaşanabilir.</p>
         <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;">Tamam</button>
+    </div>
+</div>
+
+<div class="yorum-popup" id="yorumPopup">
+    <div class="yorum-box">
+        <button class="popup-close" onclick="yorumKapat()">✕</button>
+        <div style="font-size:40px;margin-bottom:10px;">⭐</div>
+        <h3 style="color:#1e2a3a;margin-bottom:5px;">Bizi Puanlayın</h3>
+        <p style="color:#888;font-size:14px;margin-bottom:15px;">Yorumunuz Google profiline de yansıyacak</p>
+        <div class="yildizlar" id="yildizlar">
+            <span onclick="yildizSec(1)">☆</span>
+            <span onclick="yildizSec(2)">☆</span>
+            <span onclick="yildizSec(3)">☆</span>
+            <span onclick="yildizSec(4)">☆</span>
+            <span onclick="yildizSec(5)">☆</span>
+        </div>
+        <input type="text" id="yorumAd" placeholder="Adınız" style="width:100%;padding:12px;margin:10px 0;border:2px solid #eee;border-radius:10px;font-size:14px;">
+        <textarea id="yorumMesaj" placeholder="Yorumunuz..." rows="3" style="width:100%;padding:12px;margin:10px 0;border:2px solid #eee;border-radius:10px;font-size:14px;resize:none;"></textarea>
+        <p id="uyari" style="color:red;font-size:13px;display:none;">Uygunsuz içerik tespit edildi!</p>
+        <button onclick="yorumGonder()" style="background:#e67e22;color:white;border:none;padding:14px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px;">Gönder</button>
+    </div>
+</div>
+
+<div id="exitPopup">
+    <div class="exit-content">
+        <button class="popup-close" onclick="exitKapat()">✕</button>
+        <div style="font-size:45px;margin-bottom:15px;">🚀</div>
+        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:800;">Ayrılmadan Önce!</h3>
+        <p style="color:#555;font-size:15px;margin-bottom:20px;">Ücretsiz keşif randevusu almak ister misiniz? Size hemen dönüş yapalım!</p>
+        <a href="https://wa.me/905359859535?text=Merhaba%20G%C3%BCne%C5%9F%20Yap%C4%B1%2C%20ke%C5%9Fif%20randevusu%20almak%20istiyorum." target="_blank" style="display:inline-block;background:#25D366;color:white;padding:14px 35px;border-radius:40px;text-decoration:none;font-weight:700;font-size:15px;"><i class="fab fa-whatsapp"></i> WhatsApp'tan Keşif Talep Et</a>
     </div>
 </div>
 
@@ -123,25 +167,77 @@
     <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
     <div class="hero-buttons">
         <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-        <a href="#iletisim" class="btn-outline"><i class="fas fa-paint-brush"></i> Teklif Al</a>
+        <a href="#" class="btn-outline" onclick="yorumAc()"><i class="fas fa-star"></i> Bizi Puanlayın</a>
+    </div>
+</div>
+
+<div class="live-stats">
+    <div class="stats-card">
+        <div class="stats-row">
+            <div class="stat-block">
+                <div class="stat-number" id="ortalamaPuan">5.0</div>
+                <div class="stat-label">⭐ Ortalama Puan</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block">
+                <div class="stat-number" id="toplamYorum">0</div>
+                <div class="stat-label">📝 Toplam Yorum</div>
+            </div>
+        </div>
+        <a href="#" onclick="yorumAc()" style="display:inline-block;margin-top:15px;color:#e67e22;font-weight:700;font-size:14px;text-decoration:none;">✨ Sen de yorum yap!</a>
     </div>
 </div>
 
 <div class="container">
     <div class="section-title">Hizmetlerimiz</div>
     <div class="grid4">
-        <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>İç-dış cephe, dekoratif ve saten boya. 10 yıl garantili işçilik.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-border-all"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı sistemleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-border-style"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin kaplama. Su yalıtımı ve derz dolgu.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-house-chimney"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat, iç mekan düzenleme ve yenileme hizmetleri.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-paint-roller"></i></div>
+            <h3>Boya & Badana</h3>
+            <p>İç-dış cephe, dekoratif ve saten boya. 10 yıl garantili işçilik.</p>
+            <span class="badge" id="badge1" style="display:none;">🔥 Bu Ayın Yıldızı</span>
+            <a href="tel:05359859535" class="card-btn" style="margin-top:10px;"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+            <h3>Alçı & Alçıpan</h3>
+            <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı sistemleri.</p>
+            <span class="badge" id="badge2" style="display:none;">🔥 Bu Ayın Yıldızı</span>
+            <a href="tel:05359859535" class="card-btn" style="margin-top:10px;"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-vector-square"></i></div>
+            <h3>Fayans & Seramik</h3>
+            <p>Banyo, mutfak, zemin kaplama. Su yalıtımı ve derz dolgu.</p>
+            <span class="badge" id="badge3" style="display:none;">🔥 Bu Ayın Yıldızı</span>
+            <a href="tel:05359859535" class="card-btn" style="margin-top:10px;"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-building"></i></div>
+            <h3>Tadilat & Dekorasyon</h3>
+            <p>Komple tadilat, iç mekan düzenleme ve yenileme hizmetleri.</p>
+            <span class="badge" id="badge4" style="display:none;">🔥 Bu Ayın Yıldızı</span>
+            <a href="tel:05359859535" class="card-btn" style="margin-top:10px;"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
     </div>
 
     <div class="section-title">Projelerimiz</div>
-    <div class="grid4">
-        <div class="project-card"><img src="ABC99.jpeg" alt="Asma Tavan" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Asma Tavan & Işıklandırma</h3><p>Kocaeli'de modern asma tavan uygulaması.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC88.jpeg" alt="İş Yeri" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>İş Yeri Tadilatı</h3><p>İstanbul'da 120 m² ofis tadilatı ve boya.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC77.jpeg" alt="Daire" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Daire Tadilatı</h3><p>Gebze'de 3+1 daire komple tadilat.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
-        <div class="project-card"><img src="ABC66.jpeg" alt="Mutfak" class="project-img" onerror="this.src='abc.jpeg'"><div class="project-content"><h3>Mutfak Yenileme</h3><p>Dolap, tezgah ve fayans işçiliği.</p><a href="tel:05359859535" class="project-btn"><i class="fas fa-phone"></i> İncele</a></div></div>
+    <div class="slider-container">
+        <div class="slider-track">
+            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
+            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
+            <div class="slide"><img src="ABC77.jpeg" alt="Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
+            <div class="slide"><img src="ABC66.jpeg" alt="Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
+            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
+            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
+            <div class="slide"><img src="ABC77.jpeg" alt="Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
+            <div class="slide"><img src="ABC66.jpeg" alt="Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
+        </div>
+    </div>
+
+    <div class="section-title">Müşteri Yorumları</div>
+    <div class="slider-container">
+        <div class="slider-track" id="yorumSlider"></div>
     </div>
 
     <div id="iletisim" class="section-title">İletişim Kanalları</div>
@@ -164,9 +260,16 @@
     </div>
 
     <div class="section-title">Sık Sorulan Sorular</div>
-    <div class="faq-item"><h4>Fiyatlar nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre belirlenir. Ücretsiz keşif yapıyoruz.</p></div>
+    <div class="faq-item"><h4>Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre belirlenir. Ücretsiz keşif yapıyoruz.</p></div>
+    <div class="faq-item"><h4>Keşif için ücret alıyor musunuz?</h4><p>Hayır, keşif hizmetimiz tamamen ücretsizdir.</p></div>
     <div class="faq-item"><h4>Garanti süreniz nedir?</h4><p>Tüm işlerimiz 2 yıl işçilik garantisi kapsamındadır.</p></div>
     <div class="faq-item"><h4>Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli başta olmak üzere Marmara bölgesinde hizmetteyiz.</p></div>
+    <div class="faq-item"><h4>Ödeme nasıl yapılıyor?</h4><p>İş bitiminde nakit veya banka havalesi ile ödeme alıyoruz.</p></div>
+    <div class="faq-item"><h4>Malzemeyi siz mi alıyorsunuz?</h4><p>Malzemeyi biz tedarik ediyoruz, faturaya yansıtıyoruz. Dilerseniz siz de alabilirsiniz.</p></div>
+    <div class="faq-item"><h4>İş bitince temizlik yapıyor musunuz?</h4><p>Evet, tadilat sonrası kaba temizlik ekibimiz tarafından yapılır.</p></div>
+    <div class="faq-item"><h4>Kaç günde teslim ediyorsunuz?</h4><p>Boyada 1-2 gün, komple tadilatta 3-7 gün arası sürede teslim ediyoruz.</p></div>
+    <div class="faq-item"><h4>Referans gösterebilir misiniz?</h4><p>Google profilmizde 52 adet 5 yıldızlı yorumumuzu inceleyebilirsiniz.</p></div>
+    <div class="faq-item"><h4>Sigortalı mısınız?</h4><p>Tüm işlerimiz sigortalıdır, olası hasarlara karşı güvence altındasınız.</p></div>
 
     <div class="section-title">Hakkımızda</div>
     <div class="about-card">
@@ -195,12 +298,145 @@
 </footer>
 </div>
 
+<div class="visitor-bar" id="visitorBar">👥 Bugün <span id="gunlukZiyaretci">...</span> kişi tarafından ziyaret edildi.</div>
+
 <script>
-window.onload=function(){setTimeout(function(){document.getElementById('popupDuyuru').style.opacity='1';document.getElementById('popupDuyuru').style.visibility='visible'},500)};
-function popupKapat(){document.getElementById('popupDuyuru').style.opacity='0';document.getElementById('popupDuyuru').style.visibility='hidden'}
-document.getElementById('popupDuyuru').addEventListener('click',function(e){if(e.target===this)popupKapat()});
-function sayacBaslat(el,hedef,ek='+'){const s=el.querySelector('.stat-num');if(s.dataset.sayiliyor==='true')return;s.dataset.sayiliyor='true';let b=0;const sure=1500,adim=hedef/(sure/20);const i=setInterval(()=>{b+=adim;if(b>=hedef){b=hedef;clearInterval(i);s.dataset.sayiliyor='false'}s.textContent=Math.floor(b)+ek},20)}
-document.querySelectorAll('img').forEach(img=>{img.onerror=function(){if(this.src.includes('ABC'))this.src='abc.jpeg'}});
+const firebaseConfig = {
+  apiKey: "AIzaSyDZeGGxM9ZOtU_31P2f_YBPJSyomNlPIb8",
+  authDomain: "gunesyapi-13e9e.firebaseapp.com",
+  projectId: "gunesyapi-13e9e",
+  storageBucket: "gunesyapi-13e9e.firebasestorage.app",
+  messagingSenderId: "218886292813",
+  appId: "1:218886292813:web:c5ed0765b1d83352ca6304"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+let secilenYildiz = 0;
+
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('popupDuyuru').style.opacity = '1';
+        document.getElementById('popupDuyuru').style.visibility = 'visible';
+    }, 500);
+    yorumlariYukle();
+    gunlukZiyaretciSay();
+};
+
+function popupKapat() { document.getElementById('popupDuyuru').style.opacity = '0'; document.getElementById('popupDuyuru').style.visibility = 'hidden'; }
+document.getElementById('popupDuyuru').addEventListener('click', function(e) { if(e.target === this) popupKapat(); });
+
+function yorumAc() { document.getElementById('yorumPopup').style.opacity = '1'; document.getElementById('yorumPopup').style.visibility = 'visible'; }
+function yorumKapat() { document.getElementById('yorumPopup').style.opacity = '0'; document.getElementById('yorumPopup').style.visibility = 'hidden'; }
+
+function yildizSec(puan) {
+    secilenYildiz = puan;
+    const yildizlar = document.getElementById('yildizlar').children;
+    for(let i = 0; i < 5; i++) {
+        yildizlar[i].textContent = i < puan ? '★' : '☆';
+        yildizlar[i].style.color = i < puan ? '#f39c12' : '#ddd';
+    }
+}
+
+const kufurler = ['amk', 'mk', 'aq', 'siktir', 'yavşak', 'mal', 'salak', 'gerizekalı', 'aptal', 'oç', 'orospu', 'piç'];
+function kufurKontrol(metin) {
+    const kucukMetin = metin.toLowerCase().replace(/ı/g,'i').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ç/g,'c');
+    return kufurler.some(k => kucukMetin.includes(k));
+}
+
+function yorumGonder() {
+    const ad = document.getElementById('yorumAd').value.trim();
+    const mesaj = document.getElementById('yorumMesaj').value.trim();
+    if(!ad || !mesaj || secilenYildiz === 0) { alert('Lütfen tüm alanları doldurun ve yıldız seçin!'); return; }
+    if(kufurKontrol(ad) || kufurKontrol(mesaj)) { document.getElementById('uyari').style.display = 'block'; return; }
+    document.getElementById('uyari').style.display = 'none';
+    
+    db.ref('yorumlar').push({
+        ad: ad, mesaj: mesaj, yildiz: secilenYildiz,
+        tarih: new Date().toLocaleDateString('tr-TR'),
+        ay: new Date().getMonth() + 1
+    });
+    
+    document.getElementById('yorumAd').value = '';
+    document.getElementById('yorumMesaj').value = '';
+    secilenYildiz = 0;
+    document.getElementById('yildizlar').querySelectorAll('span').forEach(s => { s.textContent = '☆'; s.style.color = '#ddd'; });
+    yorumKapat();
+    setTimeout(() => { window.location.href = 'https://g.page/r/CTrDuH9tvHM5EBM/review'; }, 500);
+}
+
+function yorumlariYukle() {
+    db.ref('yorumlar').on('value', snapshot => {
+        const slider = document.getElementById('yorumSlider');
+        slider.innerHTML = '';
+        const yorumlar = [];
+        snapshot.forEach(child => yorumlar.push(child.val()));
+        
+        yorumlar.forEach(y => {
+            const yildizHTML = '★'.repeat(y.yildiz) + '☆'.repeat(5 - y.yildiz);
+            slider.innerHTML += `
+                <div class="slide" style="padding:20px; display:flex; flex-direction:column; justify-content:center; min-height:150px;">
+                    <div style="color:#f39c12; margin-bottom:8px;">${yildizHTML}</div>
+                    <p style="font-size:13px; color:#555; margin-bottom:8px;">"${y.mesaj}"</p>
+                    <strong style="font-size:12px; color:#1e2a3a;">- ${y.ad}</strong>
+                </div>`;
+        });
+        
+        if(yorumlar.length > 0) {
+            slider.innerHTML += slider.innerHTML;
+            let toplamPuan = 0;
+            yorumlar.forEach(y => toplamPuan += y.yildiz);
+            document.getElementById('ortalamaPuan').textContent = (toplamPuan / yorumlar.length).toFixed(1);
+            document.getElementById('toplamYorum').textContent = yorumlar.length;
+            
+            const buAy = new Date().getMonth() + 1;
+            const buAyYorumlar = yorumlar.filter(y => y.ay === buAy);
+            if(buAyYorumlar.length >= 1) {
+                document.getElementById('badge1').style.display = 'inline-block';
+                document.getElementById('badge2').style.display = 'inline-block';
+            }
+        } else {
+            slider.innerHTML = '<div class="slide" style="padding:20px;"><p style="color:#888;">Henüz yorum yapılmamış. İlk yorumu siz yapın!</p></div>';
+            document.getElementById('ortalamaPuan').textContent = '5.0';
+            document.getElementById('toplamYorum').textContent = '0';
+        }
+    });
+}
+
+function gunlukZiyaretciSay() {
+    const bugun = new Date().toLocaleDateString('tr-TR');
+    const ref = db.ref('ziyaretciler/' + bugun.replace(/\./g, '-'));
+    ref.transaction(function(suanki) { return (suanki || 0) + 1; });
+    ref.on('value', snapshot => {
+        document.getElementById('gunlukZiyaretci').textContent = snapshot.val() || 1;
+    });
+}
+
+let exitShown = false;
+document.addEventListener('mouseout', function(e) {
+    if(!exitShown && e.clientY < 10) {
+        exitShown = true;
+        document.getElementById('exitPopup').style.opacity = '1';
+        document.getElementById('exitPopup').style.visibility = 'visible';
+    }
+});
+
+function exitKapat() { document.getElementById('exitPopup').style.opacity = '0'; document.getElementById('exitPopup').style.visibility = 'hidden'; }
+document.getElementById('exitPopup').addEventListener('click', function(e) { if(e.target === this) exitKapat(); });
+
+function sayacBaslat(el, hedef, ek = '+') {
+    const s = el.querySelector('.stat-num');
+    if(s.dataset.sayiliyor === 'true') return;
+    s.dataset.sayiliyor = 'true';
+    let b = 0;
+    const sure = 1500, adim = hedef / (sure / 20);
+    const i = setInterval(() => {
+        b += adim;
+        if(b >= hedef) { b = hedef; clearInterval(i); s.dataset.sayiliyor = 'false'; }
+        s.textContent = Math.floor(b) + ek;
+    }, 20);
+}
+
+document.querySelectorAll('img').forEach(img => { img.onerror = function() { if(this.src.includes('ABC')) this.src = 'abc.jpeg'; } });
 </script>
 </body>
 </html>
