@@ -94,35 +94,19 @@
         .footer-links a i{color:#e67e22}
         .copyright{margin-top:25px;opacity:0.5;font-size:12px}
         .visitor-bar{background:#1e2a3a;color:#ddd;text-align:center;padding:10px;font-size:13px;position:sticky;bottom:0;z-index:999;border-top:2px solid #e67e22}
-        #popupDuyuru{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:9999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
-        .popup-content{background:white;max-width:400px;width:90%;border-radius:25px;padding:35px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
-        .popup-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:22px;color:#999;cursor:pointer}
-        .popup-close:hover{color:#e67e22}
         .yorum-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:10000;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
         .yorum-box{background:white;max-width:450px;width:90%;border-radius:20px;padding:30px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
         .yildizlar{font-size:35px;color:#ddd;cursor:pointer;margin:10px 0 20px}
         .yildizlar span{transition:all 0.2s}
-        #exitPopup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:10001;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.3s}
-        .exit-content{background:white;max-width:400px;width:90%;border-radius:25px;padding:35px 25px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.3);border:3px solid #e67e22}
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){.grid4{grid-template-columns:1fr}header{justify-content:center}.hero h2{font-size:28px}.section-title{font-size:26px}.hours{flex-direction:column;align-items:center;gap:15px}.stats{flex-direction:column;text-align:center}.stats-row{flex-direction:column;gap:15px}.stat-divider{width:40px;height:1px}}
     </style>
 </head>
 <body>
 
-<div id="popupDuyuru">
-    <div class="popup-content">
-        <button class="popup-close" onclick="popupKapat()">✕</button>
-        <div style="font-size:45px;margin-bottom:15px;">⚠️</div>
-        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:800;">Sunucu Güncellemesi</h3>
-        <p style="color:#e67e22;font-size:14px;font-weight:600;margin-bottom:20px;">16 Mayıs 2026 Cumartesi 22:00'da sunucu güncellemesi olacaktır. Kısa süreli erişim kesintisi yaşanabilir.</p>
-        <button onclick="popupKapat()" style="background:#e67e22;color:white;border:none;padding:12px 35px;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;">Tamam</button>
-    </div>
-</div>
-
 <div class="yorum-popup" id="yorumPopup">
     <div class="yorum-box">
-        <button class="popup-close" onclick="yorumKapat()">✕</button>
+        <button class="popup-close" onclick="yorumKapat()" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:22px;color:#999;cursor:pointer;">✕</button>
         <div style="font-size:40px;margin-bottom:10px;">⭐</div>
         <h3 style="color:#1e2a3a;margin-bottom:5px;">Bizi Puanlayın</h3>
         <p style="color:#888;font-size:14px;margin-bottom:15px;">Yorumunuz Google profiline de yansıyacak</p>
@@ -137,16 +121,6 @@
         <textarea id="yorumMesaj" placeholder="Yorumunuz..." rows="3" style="width:100%;padding:12px;margin:10px 0;border:2px solid #eee;border-radius:10px;font-size:14px;resize:none;"></textarea>
         <p id="uyari" style="color:red;font-size:13px;display:none;">Uygunsuz içerik tespit edildi!</p>
         <button onclick="yorumGonder()" style="background:#e67e22;color:white;border:none;padding:14px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px;">Gönder</button>
-    </div>
-</div>
-
-<div id="exitPopup">
-    <div class="exit-content">
-        <button class="popup-close" onclick="exitKapat()">✕</button>
-        <div style="font-size:45px;margin-bottom:15px;">🚀</div>
-        <h3 style="color:#1e2a3a;font-size:20px;margin-bottom:10px;font-weight:800;">Ayrılmadan Önce!</h3>
-        <p style="color:#555;font-size:15px;margin-bottom:20px;">Ücretsiz keşif randevusu almak ister misiniz? Size hemen dönüş yapalım!</p>
-        <a href="https://wa.me/905359859535?text=Merhaba%20G%C3%BCne%C5%9F%20Yap%C4%B1%2C%20ke%C5%9Fif%20randevusu%20almak%20istiyorum." target="_blank" style="display:inline-block;background:#25D366;color:white;padding:14px 35px;border-radius:40px;text-decoration:none;font-weight:700;font-size:15px;"><i class="fab fa-whatsapp"></i> WhatsApp'tan Keşif Talep Et</a>
     </div>
 </div>
 
@@ -309,24 +283,25 @@ const firebaseConfig = {
   messagingSenderId: "218886292813",
   appId: "1:218886292813:web:c5ed0765b1d83352ca6304"
 };
+
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 let secilenYildiz = 0;
 
 window.onload = function() {
-    setTimeout(function() {
-        document.getElementById('popupDuyuru').style.opacity = '1';
-        document.getElementById('popupDuyuru').style.visibility = 'visible';
-    }, 500);
     yorumlariYukle();
     gunlukZiyaretciSay();
 };
 
-function popupKapat() { document.getElementById('popupDuyuru').style.opacity = '0'; document.getElementById('popupDuyuru').style.visibility = 'hidden'; }
-document.getElementById('popupDuyuru').addEventListener('click', function(e) { if(e.target === this) popupKapat(); });
+function yorumAc() {
+    document.getElementById('yorumPopup').style.opacity = '1';
+    document.getElementById('yorumPopup').style.visibility = 'visible';
+}
 
-function yorumAc() { document.getElementById('yorumPopup').style.opacity = '1'; document.getElementById('yorumPopup').style.visibility = 'visible'; }
-function yorumKapat() { document.getElementById('yorumPopup').style.opacity = '0'; document.getElementById('yorumPopup').style.visibility = 'hidden'; }
+function yorumKapat() {
+    document.getElementById('yorumPopup').style.opacity = '0';
+    document.getElementById('yorumPopup').style.visibility = 'hidden';
+}
 
 function yildizSec(puan) {
     secilenYildiz = puan;
@@ -346,12 +321,23 @@ function kufurKontrol(metin) {
 function yorumGonder() {
     const ad = document.getElementById('yorumAd').value.trim();
     const mesaj = document.getElementById('yorumMesaj').value.trim();
-    if(!ad || !mesaj || secilenYildiz === 0) { alert('Lütfen tüm alanları doldurun ve yıldız seçin!'); return; }
-    if(kufurKontrol(ad) || kufurKontrol(mesaj)) { document.getElementById('uyari').style.display = 'block'; return; }
+    
+    if(!ad || !mesaj || secilenYildiz === 0) {
+        alert('Lütfen tüm alanları doldurun ve yıldız seçin!');
+        return;
+    }
+    
+    if(kufurKontrol(ad) || kufurKontrol(mesaj)) {
+        document.getElementById('uyari').style.display = 'block';
+        return;
+    }
+    
     document.getElementById('uyari').style.display = 'none';
     
     db.ref('yorumlar').push({
-        ad: ad, mesaj: mesaj, yildiz: secilenYildiz,
+        ad: ad,
+        mesaj: mesaj,
+        yildiz: secilenYildiz,
         tarih: new Date().toLocaleDateString('tr-TR'),
         ay: new Date().getMonth() + 1
     });
@@ -359,9 +345,16 @@ function yorumGonder() {
     document.getElementById('yorumAd').value = '';
     document.getElementById('yorumMesaj').value = '';
     secilenYildiz = 0;
-    document.getElementById('yildizlar').querySelectorAll('span').forEach(s => { s.textContent = '☆'; s.style.color = '#ddd'; });
+    document.getElementById('yildizlar').querySelectorAll('span').forEach(s => { 
+        s.textContent = '☆'; 
+        s.style.color = '#ddd'; 
+    });
+    
     yorumKapat();
-    setTimeout(() => { window.location.href = 'https://g.page/r/CTrDuH9tvHM5EBM/review'; }, 500);
+    
+    setTimeout(() => {
+        window.location.href = 'https://g.page/r/CTrDuH9tvHM5EBM/review';
+    }, 500);
 }
 
 function yorumlariYukle() {
@@ -383,6 +376,7 @@ function yorumlariYukle() {
         
         if(yorumlar.length > 0) {
             slider.innerHTML += slider.innerHTML;
+            
             let toplamPuan = 0;
             yorumlar.forEach(y => toplamPuan += y.yildiz);
             document.getElementById('ortalamaPuan').textContent = (toplamPuan / yorumlar.length).toFixed(1);
@@ -405,23 +399,13 @@ function yorumlariYukle() {
 function gunlukZiyaretciSay() {
     const bugun = new Date().toLocaleDateString('tr-TR');
     const ref = db.ref('ziyaretciler/' + bugun.replace(/\./g, '-'));
-    ref.transaction(function(suanki) { return (suanki || 0) + 1; });
+    ref.transaction(function(suanki) {
+        return (suanki || 0) + 1;
+    });
     ref.on('value', snapshot => {
         document.getElementById('gunlukZiyaretci').textContent = snapshot.val() || 1;
     });
 }
-
-let exitShown = false;
-document.addEventListener('mouseout', function(e) {
-    if(!exitShown && e.clientY < 10) {
-        exitShown = true;
-        document.getElementById('exitPopup').style.opacity = '1';
-        document.getElementById('exitPopup').style.visibility = 'visible';
-    }
-});
-
-function exitKapat() { document.getElementById('exitPopup').style.opacity = '0'; document.getElementById('exitPopup').style.visibility = 'hidden'; }
-document.getElementById('exitPopup').addEventListener('click', function(e) { if(e.target === this) exitKapat(); });
 
 function sayacBaslat(el, hedef, ek = '+') {
     const s = el.querySelector('.stat-num');
@@ -431,12 +415,20 @@ function sayacBaslat(el, hedef, ek = '+') {
     const sure = 1500, adim = hedef / (sure / 20);
     const i = setInterval(() => {
         b += adim;
-        if(b >= hedef) { b = hedef; clearInterval(i); s.dataset.sayiliyor = 'false'; }
+        if(b >= hedef) {
+            b = hedef;
+            clearInterval(i);
+            s.dataset.sayiliyor = 'false';
+        }
         s.textContent = Math.floor(b) + ek;
     }, 20);
 }
 
-document.querySelectorAll('img').forEach(img => { img.onerror = function() { if(this.src.includes('ABC')) this.src = 'abc.jpeg'; } });
+document.querySelectorAll('img').forEach(img => {
+    img.onerror = function() {
+        if(this.src.includes('ABC')) this.src = 'abc.jpeg';
+    };
+});
 </script>
 </body>
 </html>
