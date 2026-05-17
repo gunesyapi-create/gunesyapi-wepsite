@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1116PK4TG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -252,7 +251,7 @@
         <p>Numaranızı bırakın, size geri dönüş yapalım</p>
         <form id="aramaForm">
             <input type="text" id="formAd" placeholder="Adınız" required>
-            <input type="tel" id="formTel" placeholder="Telefon Numaranız" required>
+            <input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required>
             <textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea>
             <button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button>
         </form>
@@ -319,7 +318,6 @@
 <a href="tel:05359859535" class="mobile-call"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
 
 <script>
-// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDZeGGxM9ZOtU_31P2f_YBPJSyomNlPIb8",
   authDomain: "gunesyapi-13e9e.firebaseapp.com",
@@ -357,6 +355,31 @@ document.getElementById('aramaForm').addEventListener('submit', function(e) {
         return; 
     }
     
+    // Telefon numarası kontrolü (05XX XXX XX XX formatı)
+    const telTemiz = tel.replace(/\s/g, '').replace(/-/g, '');
+    if(!/^05\d{9}$/.test(telTemiz)) {
+        alert('Lütfen geçerli bir telefon numarası yazın!\nÖrnek: 0535 985 95 35');
+        return;
+    }
+    
+    // Küfür ve argo filtresi
+    const kufurler = [
+        'amk', 'mk', 'aq', 'siktir', 'yavşak', 'mal', 'salak', 'gerizekalı', 'aptal', 'oç', 'orospu', 'piç', 'sg',
+        'amcık', 'sik', 'göt', 'ibne', 'pezevenk', 'kahpe', 'şerefsiz', 'haysiyetsiz', 'düdük', 'öküz',
+        'eşşek', 'it', 'köpek', 'domuz', 'çakal', 'hıyar', 'keriz', 'gavat', 'tırrek', 'dingil', 'zibidi',
+        'lavuk', 'kro', 'puşt', 'dallama', 'çük', 'taşak', 'fuck', 'shit', 'bitch', 'ass', 'damn'
+    ];
+    
+    const metin = (ad + ' ' + mesaj).toLowerCase()
+        .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u')
+        .replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c')
+        .replace(/[^a-z0-9]/g, '');
+    
+    if(kufurler.some(k => metin.includes(k))) {
+        alert('⚠️ Uygunsuz içerik tespit edildi! Lütfen düzgün bir mesaj yazın.');
+        return;
+    }
+    
     // Firebase'e kaydet
     db.ref('aramaTalepleri').push({
         ad: ad,
@@ -371,7 +394,7 @@ document.getElementById('aramaForm').addEventListener('submit', function(e) {
     formDiv.innerHTML = `<div style="text-align:center;padding:20px"><div style="font-size:50px;margin-bottom:15px">✅</div><h3 style="color:#1e2a3a;margin-bottom:10px">Teşekkürler!</h3><p style="color:#888;font-size:14px">Talebiniz alındı. En kısa sürede size dönüş yapacağız.</p></div>`;
     
     setTimeout(() => {
-        formDiv.innerHTML = `<h3>📞 Sizi Arayalım</h3><p>Numaranızı bırakın, size geri dönüş yapalım</p><form id="aramaForm"><input type="text" id="formAd" placeholder="Adınız" required><input type="tel" id="formTel" placeholder="Telefon Numaranız" required><textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea><button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button></form>`;
+        formDiv.innerHTML = `<h3>📞 Sizi Arayalım</h3><p>Numaranızı bırakın, size geri dönüş yapalım</p><form id="aramaForm"><input type="text" id="formAd" placeholder="Adınız" required><input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required><textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea><button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button></form>`;
         document.getElementById('aramaForm').addEventListener('submit', arguments.callee);
     }, 5000);
 });
