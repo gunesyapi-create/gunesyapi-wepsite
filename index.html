@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Boya • Tadilat • Dekorasyon</title>
-    <meta name="description" content="Güneş Yapı - İstanbul ve Kocaeli'de 10 yıllık tecrübeyle profesyonel boya, tadilat, dekorasyon hizmetleri. 2 yıl garanti.">
+    <title>Güneş Yapı | Darıca, Gebze, Çayırova Anahtar Teslim Tadilat & Boya Ustası</title>
+    <meta name="description" content="Güneş Yapı - Darıca, Gebze, Çayırova ve İstanbul'da anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans hizmetleri. 10+ yıl tecrübe, 2 yıl garanti. Hemen ara: 0535 985 95 35">
     <link rel="icon" href="abc.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -35,6 +35,12 @@
         .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:1}
         .btn-primary{padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s;cursor:pointer;background:white;color:#e67e22;border:2px solid white;box-shadow:0 10px 25px rgba(0,0,0,0.15)}
         .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
+        .live-badge{background:#25D366;color:white;padding:10px 20px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:20px;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.4)}50%{box-shadow:0 0 0 15px rgba(37,211,102,0)}}
+        .intro-text{background:white;border-radius:20px;padding:30px;margin:25px auto;max-width:800px;box-shadow:0 15px 30px rgba(0,0,0,0.08);border:2px solid #e67e22;text-align:center}
+        .intro-text h2{color:#1e2a3a;font-size:22px;margin-bottom:15px;font-weight:800}
+        .intro-text p{color:#555;font-size:15px;line-height:1.7;margin-bottom:12px}
+        .intro-text .highlight{color:#e67e22;font-weight:700}
         .google-badge{display:flex;align-items:center;justify-content:center;gap:10px;background:white;border-radius:15px;padding:12px 20px;margin:20px auto;max-width:380px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.08);border:2px solid #4285F4;transition:all 0.3s}
         .google-badge:hover{transform:scale(1.03);box-shadow:0 12px 25px rgba(66,133,244,0.2)}
         .google-badge .fa-google{font-size:24px;background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -84,8 +90,6 @@
         .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
         .fa-envelope{color:#EA4335}
         .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .contact-card:hover .fa-phone,.contact-card:hover .fa-whatsapp,.contact-card:hover .fa-envelope,.contact-card:hover .fa-google{color:white;background:white;-webkit-background-clip:text;background-clip:text}
-        .contact-card:hover .fa-instagram{background:white;-webkit-background-clip:text;background-clip:text;color:transparent}
         .faq-item{background:white;padding:20px 25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;margin-bottom:14px}
         .faq-item h4{font-size:18px;color:#e67e22;margin-bottom:6px;font-weight:700}
         .faq-item p{color:#555;font-size:14px}
@@ -109,7 +113,6 @@
         .copyright{margin-top:25px;opacity:0.5;font-size:12px}
         .mobile-call{display:none;position:fixed;bottom:0;left:0;width:100%;background:#e67e22;color:white;text-align:center;padding:12px;z-index:999;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 -5px 20px rgba(0,0,0,0.2)}
         .mobile-call i{margin-right:8px}
-
         @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){
             .grid4{grid-template-columns:1fr}
@@ -123,6 +126,9 @@
             .hero .slogan{font-size:16px}
             .hero-buttons{flex-direction:column;align-items:center}
             .btn-primary{width:100%;justify-content:center;padding:12px 25px;font-size:14px}
+            .intro-text{padding:20px 15px}
+            .intro-text h2{font-size:18px}
+            .intro-text p{font-size:13px}
             .google-badge{flex-direction:column;text-align:center;gap:5px}
             .why-us{flex-direction:column;align-items:center}
             .why-item{width:100%}
@@ -160,7 +166,7 @@
 <div class="wrapper">
 <header>
     <div class="logo-area">
-        <img src="abc.jpeg" alt="Logo" class="logo" onerror="this.style.display='none'">
+        <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
         <div class="brand"><h1>GÜNEŞ YAPI</h1><p>BOYA • TADİLAT • DEKORASYON</p></div>
     </div>
     <div class="header-contact">
@@ -170,6 +176,7 @@
 </header>
 
 <div class="hero">
+    <div class="live-badge"><i class="fas fa-circle" style="font-size:8px;"></i> Şu an aktif olarak hizmet veriyoruz</div>
     <h2>Hayalinizdeki Yapıya Ulaşın</h2>
     <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
     <div class="hero-buttons">
@@ -177,11 +184,17 @@
     </div>
 </div>
 
+<div class="intro-text">
+    <h2>Güneş Yapı | Darıca, Gebze, Çayırova Boya ve Tadilat Ustası</h2>
+    <p>Evinizi veya iş yerinizi yenilemek mi istiyorsunuz? <span class="highlight">Güneş Yapı</span> olarak <span class="highlight">Darıca, Gebze, Çayırova</span> başta olmak üzere Kocaeli ve İstanbul genelinde <span class="highlight">anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans</span> hizmeti sunuyoruz.</p>
+    <p>10+ yıllık tecrübe ve 2 yıl işçilik garantisiyle hayalinizdeki yaşam alanını inşa etmek için <span class="highlight">hemen arayın: 0535 985 95 35</span>.</p>
+</div>
+
 <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="google-badge">
     <i class="fab fa-google"></i>
     <div class="badge-text">
         <strong>Google'da 5.0 ⭐</strong><br>
-        <span>Yorumları inceleyin →</span>
+        <span>58 yorumu inceleyin →</span>
     </div>
 </a>
 
@@ -189,7 +202,7 @@
     <div class="why-item">
         <i class="fas fa-search-location"></i>
         <h4>Ücretsiz Keşif</h4>
-        <p>Evinize gelip ücretsiz keşif yapıyoruz</p>
+        <p>Darıca, Gebze ve çevresine ücretsiz keşif</p>
     </div>
     <div class="why-item">
         <i class="fas fa-shield-alt"></i>
@@ -209,25 +222,25 @@
         <div class="card">
             <div class="card-icon"><i class="fas fa-paint-roller"></i></div>
             <h3>Boya & Badana</h3>
-            <p>İç-dış cephe, dekoratif boya. 10 yıl garantili.</p>
+            <p>Darıca ve Gebze'de iç-dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p>
             <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-layer-group"></i></div>
             <h3>Alçı & Alçıpan</h3>
-            <p>Asma tavan, bölme duvar, ısı yalıtımı.</p>
+            <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p>
             <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-vector-square"></i></div>
             <h3>Fayans & Seramik</h3>
-            <p>Banyo, mutfak, zemin kaplama.</p>
+            <p>Banyo, mutfak, zemin ve duvar kaplama. Su yalıtımı garantili.</p>
             <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-building"></i></div>
             <h3>Tadilat & Dekorasyon</h3>
-            <p>Komple tadilat, iç mekan yenileme.</p>
+            <p>Komple tadilat, mutfak ve banyo yenileme. Anahtar teslim.</p>
             <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
         </div>
     </div>
@@ -235,14 +248,14 @@
     <div class="section-title">Projelerimiz</div>
     <div class="slider-container">
         <div class="slider-track">
-            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
-            <div class="slide"><img src="ABC99.jpeg" alt="Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
+            <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
+            <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
+            <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
+            <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
+            <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
+            <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
+            <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
+            <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
         </div>
     </div>
 
@@ -280,17 +293,17 @@
     <div class="faq-item"><h4>Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre belirlenir. Ücretsiz keşif yapıyoruz.</p></div>
     <div class="faq-item"><h4>Keşif için ücret alıyor musunuz?</h4><p>Hayır, keşif hizmetimiz tamamen ücretsizdir.</p></div>
     <div class="faq-item"><h4>Garanti süreniz nedir?</h4><p>Tüm işlerimiz 2 yıl işçilik garantisi kapsamındadır.</p></div>
-    <div class="faq-item"><h4>Hangi bölgelere hizmet veriyorsunuz?</h4><p>İstanbul ve Kocaeli başta olmak üzere Marmara bölgesinde hizmetteyiz.</p></div>
+    <div class="faq-item"><h4>Hangi bölgelere hizmet veriyorsunuz?</h4><p>Darıca, Gebze, Çayırova başta olmak üzere Kocaeli ve İstanbul genelinde.</p></div>
     <div class="faq-item"><h4>Ödeme nasıl yapılıyor?</h4><p>İş bitiminde nakit veya banka havalesi ile ödeme alıyoruz.</p></div>
     <div class="faq-item"><h4>Malzemeyi siz mi alıyorsunuz?</h4><p>Malzemeyi biz tedarik ediyoruz, faturaya yansıtıyoruz. Dilerseniz siz de alabilirsiniz.</p></div>
     <div class="faq-item"><h4>İş bitince temizlik yapıyor musunuz?</h4><p>Evet, tadilat sonrası kaba temizlik ekibimiz tarafından yapılır.</p></div>
     <div class="faq-item"><h4>Kaç günde teslim ediyorsunuz?</h4><p>Boyada 1-2 gün, komple tadilatta 3-7 gün arası sürede teslim ediyoruz.</p></div>
-    <div class="faq-item"><h4>Referans gösterebilir misiniz?</h4><p>Google profilmizde 52 adet 5 yıldızlı yorumumuzu inceleyebilirsiniz.</p></div>
+    <div class="faq-item"><h4>Referans gösterebilir misiniz?</h4><p>Google profilmizde 58 adet 5 yıldızlı yorumumuzu inceleyebilirsiniz.</p></div>
     <div class="faq-item"><h4>Sigortalı mısınız?</h4><p>Tüm işlerimiz sigortalıdır, olası hasarlara karşı güvence altındasınız.</p></div>
 
     <div class="section-title">Hakkımızda</div>
     <div class="about-card">
-        <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir İstanbul ve Kocaeli'de boya, tadilat, alçıpan, fayans ve dekorasyon hizmetleri sunmaktayız.</p>
+        <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir Darıca, Gebze, Çayırova ve İstanbul'da boya, tadilat, alçıpan, fayans ve dekorasyon hizmetleri sunmaktayız.</p>
         <div class="stats">
             <div class="stat-item" onmouseenter="sayacBaslat(this,100)" ontouchstart="sayacBaslat(this,100)"><div class="stat-num">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
             <div class="stat-item" onmouseenter="sayacBaslat(this,300)" ontouchstart="sayacBaslat(this,300)"><div class="stat-num">300+</div><div class="stat-label">Tamamlanan Proje</div></div>
@@ -327,7 +340,6 @@ const firebaseConfig = {
   messagingSenderId: "218886292813",
   appId: "1:218886292813:web:c5ed0765b1d83352ca6304"
 };
-
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
@@ -349,50 +361,19 @@ document.getElementById('aramaForm').addEventListener('submit', function(e) {
     const ad = document.getElementById('formAd').value.trim();
     const tel = document.getElementById('formTel').value.trim();
     const mesaj = document.getElementById('formMesaj').value.trim();
+    if(!ad || !tel) { alert('Lütfen adınızı ve telefonunuzu yazın!'); return; }
     
-    if(!ad || !tel) { 
-        alert('Lütfen adınızı ve telefonunuzu yazın!'); 
-        return; 
-    }
-    
-    // Telefon numarası kontrolü (05XX XXX XX XX formatı)
     const telTemiz = tel.replace(/\s/g, '').replace(/-/g, '');
-    if(!/^05\d{9}$/.test(telTemiz)) {
-        alert('Lütfen geçerli bir telefon numarası yazın!\nÖrnek: 0535 985 95 35');
-        return;
-    }
+    if(!/^05\d{9}$/.test(telTemiz)) { alert('Lütfen geçerli bir telefon numarası yazın!\nÖrnek: 0535 985 95 35'); return; }
     
-    // Küfür ve argo filtresi
-    const kufurler = [
-        'amk', 'mk', 'aq', 'siktir', 'yavşak', 'mal', 'salak', 'gerizekalı', 'aptal', 'oç', 'orospu', 'piç', 'sg',
-        'amcık', 'sik', 'göt', 'ibne', 'pezevenk', 'kahpe', 'şerefsiz', 'haysiyetsiz', 'düdük', 'öküz',
-        'eşşek', 'it', 'köpek', 'domuz', 'çakal', 'hıyar', 'keriz', 'gavat', 'tırrek', 'dingil', 'zibidi',
-        'lavuk', 'kro', 'puşt', 'dallama', 'çük', 'taşak', 'fuck', 'shit', 'bitch', 'ass', 'damn'
-    ];
+    const kufurler = ['amk', 'mk', 'aq', 'siktir', 'yavşak', 'mal', 'salak', 'gerizekalı', 'aptal', 'oç', 'orospu', 'piç', 'sg', 'amcık', 'sik', 'göt', 'ibne', 'pezevenk', 'kahpe', 'şerefsiz', 'düdük', 'öküz', 'eşşek', 'it', 'köpek', 'domuz', 'çakal', 'hıyar', 'keriz', 'gavat', 'tırrek', 'dingil', 'zibidi', 'lavuk', 'kro', 'puşt', 'dallama', 'çük', 'taşak', 'fuck', 'shit', 'bitch', 'ass', 'damn'];
+    const metin = (ad + ' ' + mesaj).toLowerCase().replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '');
+    if(kufurler.some(k => metin.includes(k))) { alert('⚠️ Uygunsuz içerik tespit edildi! Lütfen düzgün bir mesaj yazın.'); return; }
     
-    const metin = (ad + ' ' + mesaj).toLowerCase()
-        .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u')
-        .replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c')
-        .replace(/[^a-z0-9]/g, '');
-    
-    if(kufurler.some(k => metin.includes(k))) {
-        alert('⚠️ Uygunsuz içerik tespit edildi! Lütfen düzgün bir mesaj yazın.');
-        return;
-    }
-    
-    // Firebase'e kaydet
-    db.ref('aramaTalepleri').push({
-        ad: ad,
-        tel: tel,
-        mesaj: mesaj || 'Mesaj bırakılmadı',
-        tarih: new Date().toLocaleString('tr-TR')
-    });
-    
+    db.ref('aramaTalepleri').push({ ad: ad, tel: tel, mesaj: mesaj || 'Mesaj bırakılmadı', tarih: new Date().toLocaleString('tr-TR') });
     document.getElementById('aramaForm').reset();
-    
     const formDiv = document.getElementById('geriDonusForm');
     formDiv.innerHTML = `<div style="text-align:center;padding:20px"><div style="font-size:50px;margin-bottom:15px">✅</div><h3 style="color:#1e2a3a;margin-bottom:10px">Teşekkürler!</h3><p style="color:#888;font-size:14px">Talebiniz alındı. En kısa sürede size dönüş yapacağız.</p></div>`;
-    
     setTimeout(() => {
         formDiv.innerHTML = `<h3>📞 Sizi Arayalım</h3><p>Numaranızı bırakın, size geri dönüş yapalım</p><form id="aramaForm"><input type="text" id="formAd" placeholder="Adınız" required><input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required><textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea><button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button></form>`;
         document.getElementById('aramaForm').addEventListener('submit', arguments.callee);
