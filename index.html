@@ -1,386 +1,406 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Darıca, Gebze, Çayırova Anahtar Teslim Tadilat & Boya Ustası</title>
-    <meta name="description" content="Güneş Yapı - Darıca, Gebze, Çayırova ve İstanbul'da anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans hizmetleri. 10+ yıl tecrübe, 2 yıl garanti. Hemen ara: 0535 985 95 35">
-    <link rel="icon" href="abc.jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1116PK4TG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q1116PK4TG');
-    </script>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(145deg,#fff8f0 0%,#ffe8d4 100%);background-attachment:fixed;color:#1e2a3a;line-height:1.5}
-        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 15% 30%,rgba(230,126,34,0.04) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.04) 1.5px,transparent 1.5px);background-size:50px 50px,35px 35px;pointer-events:none;z-index:0}
-        .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
-        header{background:linear-gradient(135deg,#1e2a3a,#2c3e50);padding:14px 25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.2);border-bottom:3px solid #e67e22}
-        .logo-area{display:flex;align-items:center;gap:12px}
-        .logo{width:48px;height:48px;border-radius:10px;background:white;padding:4px}
-        .brand h1{color:white;font-size:24px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:11px;font-weight:600;letter-spacing:2px}
-        .header-contact{display:flex;gap:10px}
-        .header-btn{background:rgba(255,255,255,0.08);color:white;padding:10px 20px;border-radius:40px;text-decoration:none;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.15);white-space:nowrap;transition:all 0.3s}
-        .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px)}
-        .hero{margin:25px 20px;padding:60px 30px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:35px;color:white;text-align:center;box-shadow:0 25px 40px rgba(230,126,34,0.25);position:relative;overflow:hidden}
-        .hero h2{font-size:42px;font-weight:900;margin-bottom:15px;text-shadow:0 5px 20px rgba(0,0,0,0.2);position:relative;z-index:1}
-        .hero .slogan{font-size:20px;font-style:italic;margin-bottom:30px;position:relative;z-index:1}
-        .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;position:relative;z-index:1}
-        .btn-primary{padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s;cursor:pointer;background:white;color:#e67e22;border:2px solid white;box-shadow:0 10px 25px rgba(0,0,0,0.15)}
-        .btn-primary:hover{background:#1e2a3a;color:white;border-color:#1e2a3a;transform:scale(1.05)translateY(-3px)}
-        .live-badge{background:#25D366;color:white;padding:10px 20px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:20px;animation:pulse 2s infinite}
-        @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.4)}50%{box-shadow:0 0 0 15px rgba(37,211,102,0)}}
-        .intro-text{background:white;border-radius:20px;padding:30px;margin:25px auto;max-width:800px;box-shadow:0 15px 30px rgba(0,0,0,0.08);border:2px solid #e67e22;text-align:center}
-        .intro-text h2{color:#1e2a3a;font-size:22px;margin-bottom:15px;font-weight:800}
-        .intro-text p{color:#555;font-size:15px;line-height:1.7;margin-bottom:12px}
-        .intro-text .highlight{color:#e67e22;font-weight:700}
-        .google-badge{display:flex;align-items:center;justify-content:center;gap:10px;background:white;border-radius:15px;padding:12px 20px;margin:20px auto;max-width:380px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.08);border:2px solid #4285F4;transition:all 0.3s}
-        .google-badge:hover{transform:scale(1.03);box-shadow:0 12px 25px rgba(66,133,244,0.2)}
-        .google-badge .fa-google{font-size:24px;background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .google-badge .badge-text{text-align:left;line-height:1.3}
-        .google-badge .badge-text strong{color:#1e2a3a;font-size:16px}
-        .google-badge .badge-text span{color:#666;font-size:12px}
-        .why-us{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:30px auto;max-width:800px}
-        .why-item{background:white;border-radius:15px;padding:20px 25px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.05);border:1px solid #f0e6dc;flex:1;min-width:180px;transition:all 0.3s}
-        .why-item:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(230,126,34,0.15)}
-        .why-item i{font-size:30px;color:#e67e22;margin-bottom:10px}
-        .why-item h4{font-size:15px;color:#1e2a3a;font-weight:700;margin-bottom:5px}
-        .why-item p{font-size:12px;color:#888}
-        .contact-form{background:white;border-radius:20px;padding:30px;margin:30px auto;max-width:500px;box-shadow:0 15px 30px rgba(0,0,0,0.08);border:2px solid #e67e22;text-align:center}
-        .contact-form h3{margin-bottom:5px;color:#1e2a3a}
-        .contact-form p{color:#888;font-size:14px;margin-bottom:20px}
-        .contact-form input,.contact-form textarea{width:100%;padding:12px;margin:10px 0;border:2px solid #eee;border-radius:10px;font-size:14px}
-        .contact-form button{background:#e67e22;color:white;border:none;padding:14px 35px;border-radius:40px;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px;width:100%}
-        .container{max-width:1200px;margin:0 auto;padding:15px 25px}
-        .section-title{text-align:center;font-size:32px;font-weight:800;color:#1e2a3a;margin:45px 0 30px;position:relative;padding-bottom:12px}
-        .section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:4px;background:linear-gradient(90deg,#e67e22,#f39c12);border-radius:2px}
-        .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .card{background:white;border-radius:20px;padding:30px 20px;text-align:center;box-shadow:0 15px 30px rgba(0,0,0,0.05);border:1px solid rgba(230,126,34,0.1);transition:all 0.3s}
-        .card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15)}
-        .card-icon{font-size:42px;color:#e67e22;margin-bottom:18px;background:#fff5eb;width:80px;height:80px;line-height:80px;border-radius:20px;margin-left:auto;margin-right:auto;transition:all 0.3s}
-        .card:hover .card-icon{background:#e67e22;color:white;transform:rotate(5deg)scale(1.05)}
-        .card h3{font-size:20px;font-weight:700;margin-bottom:10px}
-        .card p{color:#666;font-size:14px;margin-bottom:20px}
-        .card-btn{background:#fef3e9;color:#e67e22;padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s}
-        .card-btn:hover{background:#e67e22;color:white}
-        .slider-container{width:100%;overflow:hidden;position:relative;margin:20px 0 40px;border-radius:15px;padding:10px 0}
-        .slider-track{display:flex;width:max-content;animation:kaydir 30s linear infinite}
-        .slider-track:hover{animation-play-state:paused}
-        .slide{flex-shrink:0;width:280px;margin-right:20px;border-radius:15px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,0.08);background:white;transition:all 0.3s}
-        .slide:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(230,126,34,0.2)}
-        .slide img{width:100%;height:200px;object-fit:cover}
-        .slide span{display:block;padding:12px;text-align:center;font-weight:600;font-size:14px;color:#1e2a3a}
-        @keyframes kaydir{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        .contact-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.04);border:1px solid #f0e6dc;text-decoration:none;display:block;transition:all 0.3s}
-        .contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.15)}
-        .contact-icon{font-size:42px;margin-bottom:14px;transition:all 0.3s}
-        .contact-card:hover .contact-icon{transform:scale(1.1)}
-        .contact-card h4{font-size:17px;color:#1e2a3a;margin-bottom:5px;font-weight:700}
-        .contact-card p{color:#e67e22;font-weight:600;font-size:14px;margin-bottom:14px}
-        .contact-btn{background:#fef3e9;color:#e67e22;padding:8px 18px;border-radius:30px;font-weight:700;font-size:12px;display:inline-block;transition:all 0.3s}
-        .contact-card:hover .contact-btn{background:#e67e22;color:white}
-        .fa-phone,.fa-whatsapp{color:#25D366}
-        .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fa-envelope{color:#EA4335}
-        .fa-google{background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .faq-item{background:white;padding:20px 25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #e67e22;margin-bottom:14px}
-        .faq-item h4{font-size:18px;color:#e67e22;margin-bottom:6px;font-weight:700}
-        .faq-item p{color:#555;font-size:14px}
-        .about-card{background:linear-gradient(135deg,#1e2a3a,#2c3e50);border-radius:30px;padding:45px 40px;color:white;box-shadow:0 25px 40px rgba(0,0,0,0.15)}
-        .about-card p{font-size:17px;line-height:1.8;margin-bottom:20px;opacity:0.95}
-        .about-card strong{color:#f39c12}
-        .stats{display:flex;justify-content:space-around;margin:30px 0;flex-wrap:wrap;gap:25px}
-        .stat-num{font-size:42px;font-weight:900;color:#f39c12;cursor:default}
-        .stat-label{font-size:14px;opacity:0.7;text-transform:uppercase;letter-spacing:1px}
-        .about-btn{background:#e67e22;color:white;padding:14px 35px;border-radius:40px;text-decoration:none;font-weight:700;display:inline-block;margin-top:15px;transition:all 0.3s;border:2px solid #e67e22}
-        .about-btn:hover{background:transparent;color:#f39c12;border-color:#f39c12}
-        .hours{background:white;border-radius:25px;padding:22px;margin-top:30px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.04)}
-        .hours-item{display:flex;align-items:center;gap:12px;font-size:16px}
-        .hours-item i{color:#e67e22;font-size:22px}
-        footer{background:#1e2a3a;color:#bbb;padding:35px 25px;margin-top:50px;text-align:center}
-        footer h2{color:white;font-size:24px;margin-bottom:5px;font-weight:700;letter-spacing:2px}
-        footer p{color:#e67e22;font-size:13px;margin-bottom:18px;letter-spacing:3px}
-        .footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:15px 0}
-        .footer-links a{color:#ddd;text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px}
-        .footer-links a i{color:#e67e22}
-        .copyright{margin-top:25px;opacity:0.5;font-size:12px}
-        .mobile-call{display:none;position:fixed;bottom:0;left:0;width:100%;background:#e67e22;color:white;text-align:center;padding:12px;z-index:999;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 -5px 20px rgba(0,0,0,0.2)}
-        .mobile-call i{margin-right:8px}
-        @media(max-width:992px){.grid4{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:600px){
-            .grid4{grid-template-columns:1fr}
-            .mobile-call{display:block}
-            header{justify-content:center;padding:10px 15px}
-            .brand h1{font-size:20px}
-            .brand p{font-size:10px}
-            .header-btn{padding:8px 12px;font-size:12px}
-            .hero{margin:15px 10px;padding:40px 20px}
-            .hero h2{font-size:24px}
-            .hero .slogan{font-size:16px}
-            .hero-buttons{flex-direction:column;align-items:center}
-            .btn-primary{width:100%;justify-content:center;padding:12px 25px;font-size:14px}
-            .intro-text{padding:20px 15px}
-            .intro-text h2{font-size:18px}
-            .intro-text p{font-size:13px}
-            .google-badge{flex-direction:column;text-align:center;gap:5px}
-            .why-us{flex-direction:column;align-items:center}
-            .why-item{width:100%}
-            .section-title{font-size:24px}
-            .container{padding:10px 15px}
-            .card{padding:18px 12px}
-            .card-icon{width:50px;height:50px;line-height:50px;font-size:25px;margin-bottom:12px}
-            .card h3{font-size:17px;margin-bottom:6px}
-            .card p{font-size:12px;line-height:1.4;margin-bottom:15px}
-            .card-btn{padding:8px 15px;font-size:12px}
-            .slide{width:250px}
-            .slide img{height:160px}
-            .contact-card{padding:20px 10px}
-            .contact-icon{font-size:35px}
-            .contact-card h4{font-size:15px}
-            .contact-card p{font-size:12px}
-            .faq-item{padding:15px 18px}
-            .faq-item h4{font-size:16px}
-            .faq-item p{font-size:13px}
-            .about-card{padding:25px 20px}
-            .about-card p{font-size:14px;line-height:1.6;margin-bottom:15px}
-            .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;text-align:center}
-            .stat-num{font-size:30px}
-            .stat-label{font-size:11px}
-            .about-btn{padding:12px 25px;font-size:14px}
-            .hours{flex-direction:column;align-items:center;gap:15px}
-            .contact-form{padding:20px 15px}
-            footer{padding:25px 15px 70px}
-            footer h2{font-size:20px}
+"""
+JARVIS Windows - Gerçek Zamanlı Sesli Asistan
+Basit ve çalışan versiyon
+"""
+
+import asyncio
+import json
+import datetime
+import traceback
+import os
+import signal
+import sys
+from pathlib import Path
+from typing import Optional
+
+# Ses kütüphanesi
+import pyaudio
+import wave
+
+# Google Gemini
+from google import genai
+from google.genai import types
+
+# ------------------------------------------------------------
+# KONFİGÜRASYON
+# ------------------------------------------------------------
+
+CONFIG_FILE = Path("config.json")
+MEMORY_FILE = Path("memory.json")
+
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+SEND_SAMPLE_RATE = 16000      # Mikrofon
+RECV_SAMPLE_RATE = 24000      # Hoparlör
+CHUNK_SIZE = 1024
+
+def load_config():
+    if CONFIG_FILE.exists():
+        return json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+    return {"gemini_api_key": "", "voice": "Charon"}
+
+def save_config(config):
+    CONFIG_FILE.write_text(json.dumps(config, indent=2), encoding="utf-8")
+
+def load_memory():
+    if MEMORY_FILE.exists():
+        return json.loads(MEMORY_FILE.read_text(encoding="utf-8"))
+    return {}
+
+def save_memory(memory):
+    MEMORY_FILE.write_text(json.dumps(memory, indent=2), encoding="utf-8")
+
+def update_memory(key: str, value: str, category: str = "notes"):
+    mem = load_memory()
+    if category not in mem:
+        mem[category] = {}
+    mem[category][key] = {"value": value, "updated": datetime.datetime.now().isoformat()}
+    save_memory(mem)
+    return f"'{key}' kaydedildi."
+
+def delete_memory(key: str = None, match_text: str = None):
+    mem = load_memory()
+    deleted = False
+    for cat in list(mem.keys()):
+        for k in list(mem[cat].keys()):
+            if key and k == key:
+                del mem[cat][k]
+                deleted = True
+            elif match_text and match_text.lower() in k.lower():
+                del mem[cat][k]
+                deleted = True
+    if deleted:
+        save_memory(mem)
+        return "Hafızadan silindi."
+    return "Kayıt bulunamadı."
+
+def format_memory_for_prompt():
+    mem = load_memory()
+    if not mem:
+        return ""
+    lines = ["[KALICI HAFIZA]"]
+    for cat, items in mem.items():
+        lines.append(f"\n{cat.upper()}:")
+        for key, data in items.items():
+            lines.append(f"  - {key}: {data.get('value', '')}")
+    return "\n".join(lines)
+
+# ------------------------------------------------------------
+# SİSTEM PROMPT'U
+# ------------------------------------------------------------
+
+SYSTEM_PROMPT = """Sen JARVIS'sin — Windows'ta çalışan kişisel AI asistanı.
+Türkçe konuş. Kısa ve net yanıtlar ver.
+Kibar, yardımsever ve profesyonel ol.
+
+Kullanabileceğin araçlar (function calling):
+- get_time: Şu anki saati söyler
+- get_date: Bugünün tarihini söyler  
+- save_memory: Kullanıcı hakkında bilgi kaydeder (kategori, anahtar, değer)
+- delete_memory: Kayıtlı bilgiyi siler
+
+Araçları gerektiğinde çağır, asla taklit etme.
+Kullanıcıya doğrudan yardımcı ol."""
+
+# ------------------------------------------------------------
+# ARAÇ TANIMLARI
+# ------------------------------------------------------------
+
+TOOLS = [
+    {
+        "name": "get_time",
+        "description": "Şu anki saati döndürür",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {}
         }
-    </style>
-</head>
-<body>
+    },
+    {
+        "name": "get_date", 
+        "description": "Bugünün tarihini döndürür",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {}
+        }
+    },
+    {
+        "name": "save_memory",
+        "description": "Kullanıcı hakkında önemli bilgiyi kalıcı belleğe kaydeder",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {
+                "key": {"type": "STRING", "description": "Bilginin anahtarı (örn: 'name')"},
+                "value": {"type": "STRING", "description": "Kaydedilecek değer"},
+                "category": {"type": "STRING", "description": "Kategori (identity/preferences/projects/notes)"}
+            },
+            "required": ["key", "value"]
+        }
+    },
+    {
+        "name": "delete_memory",
+        "description": "Kalıcı hafızadan bilgi siler",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {
+                "key": {"type": "STRING", "description": "Silinecek anahtar"},
+                "match_text": {"type": "STRING", "description": "Alternatif: eşleşen metin"}
+            }
+        }
+    }
+]
 
-<div class="wrapper">
-<header>
-    <div class="logo-area">
-        <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
-        <div class="brand"><h1>GÜNEŞ YAPI</h1><p>BOYA • TADİLAT • DEKORASYON</p></div>
-    </div>
-    <div class="header-contact">
-        <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-        <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-</header>
+# ------------------------------------------------------------
+# JARVIS ANA SINIFI
+# ------------------------------------------------------------
 
-<div class="hero">
-    <div class="live-badge"><i class="fas fa-circle" style="font-size:8px;"></i> Şu an aktif olarak hizmet veriyoruz</div>
-    <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-    <div class="slogan">"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-    <div class="hero-buttons">
-        <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-    </div>
-</div>
-
-<div class="intro-text">
-    <h2>Güneş Yapı | Darıca, Gebze, Çayırova Boya ve Tadilat Ustası</h2>
-    <p>Evinizi veya iş yerinizi yenilemek mi istiyorsunuz? <span class="highlight">Güneş Yapı</span> olarak <span class="highlight">Darıca, Gebze, Çayırova</span> başta olmak üzere Kocaeli ve İstanbul genelinde <span class="highlight">anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans</span> hizmeti sunuyoruz.</p>
-    <p>10+ yıllık tecrübe ve 2 yıl işçilik garantisiyle hayalinizdeki yaşam alanını inşa etmek için <span class="highlight">hemen arayın: 0535 985 95 35</span>.</p>
-</div>
-
-<a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="google-badge">
-    <i class="fab fa-google"></i>
-    <div class="badge-text">
-        <strong>Google'da 5.0 ⭐</strong><br>
-        <span>58 yorumu inceleyin →</span>
-    </div>
-</a>
-
-<div class="why-us">
-    <div class="why-item">
-        <i class="fas fa-search-location"></i>
-        <h4>Ücretsiz Keşif</h4>
-        <p>Darıca, Gebze ve çevresine ücretsiz keşif</p>
-    </div>
-    <div class="why-item">
-        <i class="fas fa-shield-alt"></i>
-        <h4>2 Yıl Garanti</h4>
-        <p>Tüm işlerimiz 2 yıl işçilik garantili</p>
-    </div>
-    <div class="why-item">
-        <i class="fas fa-medal"></i>
-        <h4>10 Yıl Tecrübe</h4>
-        <p>100+ mutlu müşteri, 300+ proje</p>
-    </div>
-</div>
-
-<div class="container">
-    <div class="section-title">Hizmetlerimiz</div>
-    <div class="grid4">
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-paint-roller"></i></div>
-            <h3>Boya & Badana</h3>
-            <p>Darıca ve Gebze'de iç-dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
-            <h3>Alçı & Alçıpan</h3>
-            <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-vector-square"></i></div>
-            <h3>Fayans & Seramik</h3>
-            <p>Banyo, mutfak, zemin ve duvar kaplama. Su yalıtımı garantili.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-building"></i></div>
-            <h3>Tadilat & Dekorasyon</h3>
-            <p>Komple tadilat, mutfak ve banyo yenileme. Anahtar teslim.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-        </div>
-    </div>
-
-    <div class="section-title">Projelerimiz</div>
-    <div class="slider-container">
-        <div class="slider-track">
-            <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
-            <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-            <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-            <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-            <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
-        </div>
-    </div>
-
-    <div class="contact-form" id="geriDonusForm">
-        <h3>📞 Sizi Arayalım</h3>
-        <p>Numaranızı bırakın, size geri dönüş yapalım</p>
-        <form id="aramaForm">
-            <input type="text" id="formAd" placeholder="Adınız" required>
-            <input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required>
-            <textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea>
-            <button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button>
-        </form>
-    </div>
-
-    <div id="iletisim" class="section-title">İletişim Kanalları</div>
-    <div class="grid4">
-        <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
-        <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
-        <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
-        <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
-    </div>
-    <div class="grid4" style="margin-top:15px;">
-        <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-        <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 5.0</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
-        <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
-        <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
-    </div>
-
-    <div class="hours">
-        <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
-        <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
-    </div>
-
-    <div class="section-title">Sık Sorulan Sorular</div>
-    <div class="faq-item"><h4>Fiyatlarınız nasıl belirleniyor?</h4><p>İşin büyüklüğü ve malzemeye göre belirlenir. Ücretsiz keşif yapıyoruz.</p></div>
-    <div class="faq-item"><h4>Keşif için ücret alıyor musunuz?</h4><p>Hayır, keşif hizmetimiz tamamen ücretsizdir.</p></div>
-    <div class="faq-item"><h4>Garanti süreniz nedir?</h4><p>Tüm işlerimiz 2 yıl işçilik garantisi kapsamındadır.</p></div>
-    <div class="faq-item"><h4>Hangi bölgelere hizmet veriyorsunuz?</h4><p>Darıca, Gebze, Çayırova başta olmak üzere Kocaeli ve İstanbul genelinde.</p></div>
-    <div class="faq-item"><h4>Ödeme nasıl yapılıyor?</h4><p>İş bitiminde nakit veya banka havalesi ile ödeme alıyoruz.</p></div>
-    <div class="faq-item"><h4>Malzemeyi siz mi alıyorsunuz?</h4><p>Malzemeyi biz tedarik ediyoruz, faturaya yansıtıyoruz. Dilerseniz siz de alabilirsiniz.</p></div>
-    <div class="faq-item"><h4>İş bitince temizlik yapıyor musunuz?</h4><p>Evet, tadilat sonrası kaba temizlik ekibimiz tarafından yapılır.</p></div>
-    <div class="faq-item"><h4>Kaç günde teslim ediyorsunuz?</h4><p>Boyada 1-2 gün, komple tadilatta 3-7 gün arası sürede teslim ediyoruz.</p></div>
-    <div class="faq-item"><h4>Referans gösterebilir misiniz?</h4><p>Google profilmizde 58 adet 5 yıldızlı yorumumuzu inceleyebilirsiniz.</p></div>
-    <div class="faq-item"><h4>Sigortalı mısınız?</h4><p>Tüm işlerimiz sigortalıdır, olası hasarlara karşı güvence altındasınız.</p></div>
-
-    <div class="section-title">Hakkımızda</div>
-    <div class="about-card">
-        <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir Darıca, Gebze, Çayırova ve İstanbul'da boya, tadilat, alçıpan, fayans ve dekorasyon hizmetleri sunmaktayız.</p>
-        <div class="stats">
-            <div class="stat-item" onmouseenter="sayacBaslat(this,100)" ontouchstart="sayacBaslat(this,100)"><div class="stat-num">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
-            <div class="stat-item" onmouseenter="sayacBaslat(this,300)" ontouchstart="sayacBaslat(this,300)"><div class="stat-num">300+</div><div class="stat-label">Tamamlanan Proje</div></div>
-            <div class="stat-item" onmouseenter="sayacBaslat(this,10)" ontouchstart="sayacBaslat(this,10)"><div class="stat-num">10+</div><div class="stat-label">Yıl Tecrübe</div></div>
-            <div class="stat-item" onmouseenter="sayacBaslat(this,2,' Yıl')" ontouchstart="sayacBaslat(this,2,' Yıl')"><div class="stat-num">2 Yıl</div><div class="stat-label">Garanti</div></div>
-        </div>
-        <p>Müşteri memnuniyeti odaklı çalışıyor, her projede kaliteli malzeme ve profesyonel işçilik sunuyoruz.</p>
-        <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
-    </div>
-</div>
-
-<footer>
-    <h2>GÜNEŞ YAPI</h2>
-    <p>BOYA • TADİLAT • DEKORASYON</p>
-    <div class="footer-links">
-        <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-        <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> E-Posta</a>
-    </div>
-    <div class="copyright">&copy; 2026 Güneş Yapı | Tüm hakları saklıdır.<br>"Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
-</footer>
-</div>
-
-<a href="tel:05359859535" class="mobile-call"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDZeGGxM9ZOtU_31P2f_YBPJSyomNlPIb8",
-  authDomain: "gunesyapi-13e9e.firebaseapp.com",
-  databaseURL: "https://gunesyapi-13e9e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "gunesyapi-13e9e",
-  storageBucket: "gunesyapi-13e9e.firebasestorage.app",
-  messagingSenderId: "218886292813",
-  appId: "1:218886292813:web:c5ed0765b1d83352ca6304"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-function sayacBaslat(el, hedef, ek = '+') {
-    const s = el.querySelector('.stat-num');
-    if(s.dataset.sayiliyor === 'true') return;
-    s.dataset.sayiliyor = 'true';
-    let b = 0;
-    const sure = 1500, adim = hedef / (sure / 20);
-    const i = setInterval(() => {
-        b += adim;
-        if(b >= hedef) { b = hedef; clearInterval(i); s.dataset.sayiliyor = 'false'; }
-        s.textContent = Math.floor(b) + ek;
-    }, 20);
-}
-
-document.getElementById('aramaForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const ad = document.getElementById('formAd').value.trim();
-    const tel = document.getElementById('formTel').value.trim();
-    const mesaj = document.getElementById('formMesaj').value.trim();
-    if(!ad || !tel) { alert('Lütfen adınızı ve telefonunuzu yazın!'); return; }
+class JarvisAsistan:
+    def __init__(self):
+        self.config = load_config()
+        self.client = None
+        self.session = None
+        self.audio_in_queue = None
+        self.out_queue = None
+        self.is_speaking = False
+        self.running = True
+        self.pya = pyaudio.PyAudio()
+        
+        # API anahtarı kontrolü
+        if not self.config.get("gemini_api_key"):
+            print("❌ Lütfen config.json dosyasına gemini_api_key ekleyin!")
+            sys.exit(1)
+        
+        self.client = genai.Client(
+            api_key=self.config["gemini_api_key"],
+            http_options={"api_version": "v1alpha"}
+        )
     
-    const telTemiz = tel.replace(/\s/g, '').replace(/-/g, '');
-    if(!/^05\d{9}$/.test(telTemiz)) { alert('Lütfen geçerli bir telefon numarası yazın!\nÖrnek: 0535 985 95 35'); return; }
-    
-    const kufurler = ['amk', 'mk', 'aq', 'siktir', 'yavşak', 'mal', 'salak', 'gerizekalı', 'aptal', 'oç', 'orospu', 'piç', 'sg', 'amcık', 'sik', 'göt', 'ibne', 'pezevenk', 'kahpe', 'şerefsiz', 'düdük', 'öküz', 'eşşek', 'it', 'köpek', 'domuz', 'çakal', 'hıyar', 'keriz', 'gavat', 'tırrek', 'dingil', 'zibidi', 'lavuk', 'kro', 'puşt', 'dallama', 'çük', 'taşak', 'fuck', 'shit', 'bitch', 'ass', 'damn'];
-    const metin = (ad + ' ' + mesaj).toLowerCase().replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '');
-    if(kufurler.some(k => metin.includes(k))) { alert('⚠️ Uygunsuz içerik tespit edildi! Lütfen düzgün bir mesaj yazın.'); return; }
-    
-    db.ref('aramaTalepleri').push({ ad: ad, tel: tel, mesaj: mesaj || 'Mesaj bırakılmadı', tarih: new Date().toLocaleString('tr-TR') });
-    document.getElementById('aramaForm').reset();
-    const formDiv = document.getElementById('geriDonusForm');
-    formDiv.innerHTML = `<div style="text-align:center;padding:20px"><div style="font-size:50px;margin-bottom:15px">✅</div><h3 style="color:#1e2a3a;margin-bottom:10px">Teşekkürler!</h3><p style="color:#888;font-size:14px">Talebiniz alındı. En kısa sürede size dönüş yapacağız.</p></div>`;
-    setTimeout(() => {
-        formDiv.innerHTML = `<h3>📞 Sizi Arayalım</h3><p>Numaranızı bırakın, size geri dönüş yapalım</p><form id="aramaForm"><input type="text" id="formAd" placeholder="Adınız" required><input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required><textarea id="formMesaj" rows="2" placeholder="Mesajınız (isteğe bağlı)"></textarea><button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button></form>`;
-        document.getElementById('aramaForm').addEventListener('submit', arguments.callee);
-    }, 5000);
-});
+    def _build_config(self):
+        now = datetime.datetime.now()
+        memory_text = format_memory_for_prompt()
+        
+        system_text = f"""[ŞU ANKİ ZAMAN]
+{now.strftime('%A, %d %B %Y — %H:%M')}
 
-document.querySelectorAll('img').forEach(img => { img.onerror = function() { if(this.src.includes('ABC')) this.src = 'abc.jpeg'; } });
-</script>
-</body>
-</html>
+{memory_text}
+
+{SYSTEM_PROMPT}"""
+        
+        return types.LiveConnectConfig(
+            response_modalities=["AUDIO"],
+            output_audio_transcription={},
+            input_audio_transcription={},
+            system_instruction=system_text,
+            tools=[{"function_declarations": TOOLS}],
+            speech_config=types.SpeechConfig(
+                voice_config=types.VoiceConfig(
+                    prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                        voice_name=self.config.get("voice", "Charon")
+                    )
+                )
+            ),
+        )
+    
+    async def _execute_tool(self, fc):
+        name = fc.name
+        args = dict(fc.args or {})
+        print(f"\n🔧 {name}({args})")
+        
+        try:
+            if name == "get_time":
+                now = datetime.datetime.now()
+                result = f"Saat {now.strftime('%H:%M')}"
+            
+            elif name == "get_date":
+                now = datetime.datetime.now()
+                result = f"Bugün {now.strftime('%d %B %Y')}"
+            
+            elif name == "save_memory":
+                key = args.get("key", "")
+                value = args.get("value", "")
+                category = args.get("category", "notes")
+                if key and value:
+                    result = update_memory(key, value, category)
+                else:
+                    result = "Hata: key ve value gerekli"
+            
+            elif name == "delete_memory":
+                result = delete_memory(
+                    args.get("key", ""),
+                    args.get("match_text", "")
+                )
+            
+            else:
+                result = f"Bilinmeyen araç: {name}"
+        
+        except Exception as e:
+            result = f"Hata: {e}"
+            traceback.print_exc()
+        
+        print(f"📤 Sonuç: {result[:100]}")
+        
+        return types.FunctionResponse(
+            id=fc.id,
+            name=name,
+            response={"result": result}
+        )
+    
+    async def _send_realtime(self):
+        """Mikrofondan gelen sesi gönder"""
+        while self.running:
+            try:
+                msg = await self.out_queue.get()
+                await self.session.send_realtime_input(media=msg)
+            except Exception as e:
+                print(f"Mikrofon gönderme hatası: {e}")
+                break
+    
+    async def _listen_audio(self):
+        """Mikrofonu dinle"""
+        print("🎤 Mikrofon aktif...")
+        
+        stream = await asyncio.to_thread(
+            self.pya.open,
+            format=FORMAT, channels=CHANNELS,
+            rate=SEND_SAMPLE_RATE, input=True,
+            frames_per_buffer=CHUNK_SIZE
+        )
+        
+        try:
+            while self.running:
+                data = await asyncio.to_thread(
+                    stream.read, CHUNK_SIZE, exception_on_overflow=False
+                )
+                if not self.is_speaking:
+                    await self.out_queue.put({"data": data, "mime_type": "audio/pcm"})
+        except Exception as e:
+            print(f"Mikrofon hatası: {e}")
+        finally:
+            stream.close()
+    
+    async def _receive_audio(self):
+        """Gemini'den gelen yanıtları işle"""
+        print("👂 Alım başladı...")
+        
+        try:
+            async for response in self.session.receive():
+                # Ses verisi geldiğinde
+                if response.data:
+                    self.audio_in_queue.put_nowait(response.data)
+                
+                if response.server_content:
+                    sc = response.server_content
+                    
+                    # JARVIS'in konuşması
+                    if sc.output_transcription and sc.output_transcription.text:
+                        self.is_speaking = True
+                        text = sc.output_transcription.text.strip()
+                        if text:
+                            print(f"\n🗣️ JARVIS: {text}")
+                    
+                    # Kullanıcının konuşması (transkript)
+                    if sc.input_transcription and sc.input_transcription.text:
+                        text = sc.input_transcription.text.strip()
+                        if text:
+                            print(f"\n👤 Siz: {text}")
+                    
+                    # Konuşma bitti
+                    if sc.turn_complete:
+                        self.audio_in_queue.put_nowait(None)  # Ses çalmayı bitir
+                        self.is_speaking = False
+                        print("\n🎧 Dinliyorum...")
+                
+                # Araç çağrıları
+                if response.tool_call:
+                    fn_responses = []
+                    for fc in response.tool_call.function_calls:
+                        fr = await self._execute_tool(fc)
+                        fn_responses.append(fr)
+                    await self.session.send_tool_response(function_responses=fn_responses)
+        
+        except Exception as e:
+            print(f"Alım hatası: {e}")
+            raise
+    
+    async def _play_audio(self):
+        """Sesi çal"""
+        print("🔊 Ses çalma başladı...")
+        
+        stream = await asyncio.to_thread(
+            self.pya.open,
+            format=FORMAT, channels=CHANNELS,
+            rate=RECV_SAMPLE_RATE, output=True
+        )
+        
+        try:
+            while self.running:
+                chunk = await self.audio_in_queue.get()
+                if chunk is None:
+                    # Turn complete - ses bitti
+                    continue
+                await asyncio.to_thread(stream.write, chunk)
+        except Exception as e:
+            print(f"Ses çalma hatası: {e}")
+        finally:
+            stream.close()
+    
+    async def run(self):
+        """Ana döngü"""
+        print("\n" + "="*50)
+        print("🤖 JARVIS Asistan Başlatılıyor...")
+        print("="*50 + "\n")
+        
+        while self.running:
+            try:
+                config = self._build_config()
+                
+                async with self.client.aio.live.connect(
+                    model="models/gemini-2.0-flash-exp",  # Ses destekli model
+                    config=config
+                ) as session:
+                    self.session = session
+                    self.audio_in_queue = asyncio.Queue()
+                    self.out_queue = asyncio.Queue(maxsize=10)
+                    
+                    print("✅ Bağlantı kuruldu!")
+                    print("🎙️ Konuşmaya başlayabilirsiniz...\n")
+                    
+                    async with asyncio.TaskGroup() as tg:
+                        tg.create_task(self._send_realtime())
+                        tg.create_task(self._listen_audio())
+                        tg.create_task(self._receive_audio())
+                        tg.create_task(self._play_audio())
+            
+            except Exception as e:
+                print(f"\n⚠️ Bağlantı hatası: {e}")
+                print("🔄 5 saniye sonra yeniden bağlanılıyor...")
+                await asyncio.sleep(5)
+    
+    def stop(self):
+        self.running = False
+
+# ------------------------------------------------------------
+# MAIN
+# ------------------------------------------------------------
+
+def main():
+    # Windows'ta asyncio sorunları için
+    if sys.platform == "win32":
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    
+    asistan = JarvisAsistan()
+    
+    # Ctrl+C için sinyal işleyici
+    def signal_handler(sig, frame):
+        print("\n\n🛑 Kapatılıyor...")
+        asistan.stop()
+        sys.exit(0)
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    try:
+        asyncio.run(asistan.run())
+    except KeyboardInterrupt:
+        print("\n👋 Görüşmek üzere!")
+
+if __name__ == "__main__":
+    main()
