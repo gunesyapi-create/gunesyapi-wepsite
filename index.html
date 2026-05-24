@@ -3,634 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Darıca, Gebze, Çayırova Anahtar Teslim Tadilat & Boya Ustası</title>
-    <meta name="description" content="Güneş Yapı - Darıca, Gebze, Çayırova ve İstanbul'da anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans hizmetleri. 10+ yıl tecrübe, 2 yıl garanti.">
-    <link rel="icon" href="abc.jpeg">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1116PK4TG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q1116PK4TG');
-    </script>
-
+    <title>FRIDAY | Ana Sistem Karargahı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- CSS DEĞİŞKENLERİ (Tasarımı buradan kolayca yönetebilirsin) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap');
+
         :root {
-            --primary: #e67e22;
-            --primary-dark: #f39c12;
-            --primary-light: #fff5eb;
-            --secondary: #25D366; /* WhatsApp yeşili */
-            --dark-blue: #1e2a3a;
-            --dark-blue-light: #2c3e50;
-            --text-main: #1e2a3a;
-            --text-muted: #555;
-            --bg-body: #fff8f0;
-            --bg-gradient: linear-gradient(145deg, #fff8f0 0%, #ffe8d4 100%);
-            --header-gradient: linear-gradient(135deg, #1e2a3a, #2c3e50);
-            --hero-gradient: linear-gradient(135deg, #e67e22, #f39c12);
-            --transition: all 0.3s ease;
-            --shadow-sm: 0 5px 15px rgba(0,0,0,0.03);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
-            --shadow-lg: 0 15px 30px rgba(0,0,0,0.08);
-            --shadow-colored: 0 20px 40px rgba(230,126,34,0.15);
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --bg-dark: #050914;
+            --glass-bg: rgba(10, 20, 40, 0.4);
+            --glass-border: rgba(0, 243, 255, 0.2);
         }
 
-        /* --- GENEL SIFIRLAMALAR VE TİPOGRAFİ --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            background: var(--bg-gradient); 
-            background-attachment: fixed; 
-            color: var(--text-main); 
-            line-height: 1.6; 
-            position: relative;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+
+        /* Arka Plan */
+        .orb { position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.4; z-index: -1; animation: float 12s infinite alternate ease-in-out; }
+        .orb-1 { width: 500px; height: 500px; background: var(--neon-blue); top: -150px; left: -150px; }
+        .orb-2 { width: 400px; height: 400px; background: var(--neon-purple); bottom: -100px; right: -100px; animation-delay: -6s; }
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(60px, 60px) scale(1.2); } }
+
+        /* Nav */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 9, 20, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); z-index: 100; }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--neon-blue); }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; text-transform: uppercase; }
+
+        section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: column; align-items: center; }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-purple); margin-bottom: 40px; }
+
+        /* Kart ve Formlar */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; }
+        .card { background: var(--glass-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--glass-border); text-align: center; }
         
-        /* Arka plan deseni */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(circle at 15% 30%, rgba(230,126,34,0.04) 2px, transparent 2px),
-                              radial-gradient(circle at 75% 65%, rgba(243,156,18,0.04) 1.5px, transparent 1.5px);
-            background-size: 50px 50px, 35px 35px; pointer-events: none; z-index: -1;
-        }
-
-        .wrapper { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px 25px; }
-
-        /* --- HEADER & LOGO --- */
-        header { 
-            background: var(--header-gradient); padding: 15px 25px; display: flex; 
-            align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; 
-            position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-lg); 
-            border-bottom: 3px solid var(--primary); 
-        }
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 4px; object-fit: cover; }
-        .brand h1 { color: white; font-size: 26px; font-weight: 800; letter-spacing: 1px; line-height: 1.1; }
-        .brand p { color: var(--primary); font-size: 11px; font-weight: 700; letter-spacing: 2px; }
-        
-        .header-contact { display: flex; gap: 10px; }
-        .header-btn { 
-            background: rgba(255,255,255,0.08); color: white; padding: 10px 20px; 
-            border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 14px; 
-            display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); 
-            transition: var(--transition); white-space: nowrap; 
-        }
-        .header-btn:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
-
-        /* --- HERO BÖLÜMÜ --- */
-        .hero { 
-            margin: 30px 20px; padding: 70px 30px; background: var(--hero-gradient); 
-            border-radius: 35px; color: white; text-align: center; box-shadow: var(--shadow-colored); 
-            position: relative; overflow: hidden; 
-        }
-        .hero h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin-bottom: 15px; text-shadow: 0 5px 20px rgba(0,0,0,0.2); }
-        .hero .slogan { font-size: clamp(18px, 3vw, 22px); font-style: italic; margin-bottom: 35px; opacity: 0.9; }
-        
-        .live-badge { 
-            background: var(--secondary); color: white; padding: 10px 20px; border-radius: 30px; 
-            display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; 
-            margin-bottom: 25px; animation: pulse 2s infinite; 
-        }
-        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
-
-        .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn-primary, .btn-outline { 
-            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; 
-            font-size: 16px; display: inline-flex; align-items: center; gap: 10px; transition: var(--transition); 
-        }
-        .btn-primary { background: white; color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .btn-primary:hover { background: var(--dark-blue); color: white; transform: scale(1.05) translateY(-3px); }
-        .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
-        .btn-outline:hover { background: white; color: var(--primary); transform: scale(1.05) translateY(-3px); }
-
-        /* --- ORTAK BAŞLIKLAR VE BİLEŞENLER --- */
-        .section-title { 
-            text-align: center; font-size: 32px; font-weight: 800; color: var(--dark-blue); 
-            margin: 50px 0 35px; position: relative; padding-bottom: 15px; 
-        }
-        .section-title::after { 
-            content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
-            width: 70px; height: 4px; background: var(--hero-gradient); border-radius: 2px; 
-        }
-
-        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-
-        /* --- GİRİŞ METNİ & NEDEN BİZ --- */
-        .intro-text { 
-            background: white; border-radius: 20px; padding: 40px; margin: 30px auto; 
-            max-width: 800px; box-shadow: var(--shadow-lg); border: 2px solid var(--primary); text-align: center; 
-        }
-        .intro-text h2 { color: var(--dark-blue); font-size: 24px; margin-bottom: 20px; font-weight: 800; }
-        .intro-text p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 15px; }
-        .intro-text .highlight { color: var(--primary); font-weight: 700; }
-
-        .google-badge { 
-            display: flex; align-items: center; justify-content: center; gap: 15px; background: white; 
-            border-radius: 15px; padding: 15px 25px; margin: 25px auto; max-width: 400px; text-decoration: none; 
-            box-shadow: var(--shadow-md); border: 2px solid #4285F4; transition: var(--transition); 
-        }
-        .google-badge:hover { transform: scale(1.03); box-shadow: 0 12px 25px rgba(66,133,244,0.2); }
-        .google-badge .fa-google { font-size: 28px; background: linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .google-badge .badge-text { text-align: left; line-height: 1.4; }
-        .google-badge .badge-text strong { color: var(--text-main); font-size: 18px; }
-        .google-badge .badge-text span { color: #666; font-size: 13px; font-weight: 500; }
-
-        .why-us { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin: 40px auto; max-width: 900px; }
-        .why-item { 
-            background: white; border-radius: 15px; padding: 25px; text-align: center; 
-            box-shadow: var(--shadow-sm); border: 1px solid #f0e6dc; flex: 1; min-width: 200px; transition: var(--transition); 
-        }
-        .why-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-colored); }
-        .why-item i { font-size: 36px; color: var(--primary); margin-bottom: 15px; }
-        .why-item h4 { font-size: 18px; color: var(--text-main); font-weight: 700; margin-bottom: 8px; }
-        .why-item p { font-size: 14px; color: #777; }
-
-        /* --- KARTLAR (Hizmetler) --- */
-        .card { 
-            background: white; border-radius: 20px; padding: 35px 25px; text-align: center; 
-            box-shadow: var(--shadow-md); border: 1px solid rgba(230,126,34,0.1); transition: var(--transition); display: flex; flex-direction: column;
-        }
-        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-colored); }
-        .card-icon { 
-            font-size: 40px; color: var(--primary); margin: 0 auto 20px; background: var(--primary-light); 
-            width: 80px; height: 80px; line-height: 80px; border-radius: 20px; transition: var(--transition); 
-        }
-        .card:hover .card-icon { background: var(--primary); color: white; transform: rotate(5deg) scale(1.1); }
-        .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--dark-blue); }
-        .card p { color: var(--text-muted); font-size: 15px; margin-bottom: 25px; flex-grow: 1; }
-        .card-btn { 
-            background: var(--primary-light); color: var(--primary); padding: 12px 25px; 
-            border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 14px; 
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: var(--transition); 
-        }
-        .card-btn:hover { background: var(--primary); color: white; }
-
-        /* --- SLIDER (Projeler) --- */
-        .slider-container { width: 100%; overflow: hidden; position: relative; margin: 30px 0 50px; border-radius: 20px; padding: 15px 0; }
-        .slider-track { display: flex; width: max-content; animation: kaydir 40s linear infinite; }
-        .slider-track:hover { animation-play-state: paused; }
-        .slide { 
-            flex-shrink: 0; width: 300px; margin-right: 25px; border-radius: 15px; overflow: hidden; 
-            box-shadow: var(--shadow-md); background: white; transition: var(--transition); 
-        }
-        .slide:hover { transform: translateY(-8px); box-shadow: var(--shadow-colored); }
-        .slide img { width: 100%; height: 220px; object-fit: cover; }
-        .slide span { display: block; padding: 15px; text-align: center; font-weight: 700; font-size: 15px; color: var(--text-main); }
-        @keyframes kaydir { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* --- İLETİŞİM FORMU --- */
-        .contact-form { 
-            background: white; border-radius: 20px; padding: 40px; margin: 40px auto; 
-            max-width: 550px; box-shadow: var(--shadow-lg); border: 2px solid var(--primary); text-align: center; 
-        }
-        .contact-form h3 { margin-bottom: 10px; color: var(--dark-blue); font-size: 24px; }
-        .contact-form p { color: #777; font-size: 15px; margin-bottom: 25px; }
-        .contact-form input, .contact-form textarea { 
-            width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #eee; 
-            border-radius: 12px; font-size: 15px; font-family: inherit; transition: var(--transition);
-        }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); outline: none; }
-        .contact-form button { 
-            background: var(--primary); color: white; border: none; padding: 16px 35px; 
-            border-radius: 40px; font-weight: 700; font-size: 16px; cursor: pointer; 
-            margin-top: 15px; width: 100%; transition: var(--transition);
-        }
-        .contact-form button:hover { background: var(--dark-blue); transform: translateY(-2px); }
-
-        /* --- İLETİŞİM KANALLARI KARTLARI --- */
-        .contact-card { 
-            background: white; border-radius: 20px; padding: 30px 20px; text-align: center; 
-            box-shadow: var(--shadow-sm); border: 1px solid #f0e6dc; text-decoration: none; 
-            display: flex; flex-direction: column; align-items: center; transition: var(--transition); 
-        }
-        .contact-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-colored); }
-        .contact-icon { font-size: 45px; margin-bottom: 18px; transition: var(--transition); }
-        .contact-card:hover .contact-icon { transform: scale(1.15); }
-        .contact-card h4 { font-size: 18px; color: var(--text-main); margin-bottom: 8px; font-weight: 800; }
-        .contact-card p { color: var(--primary); font-weight: 600; font-size: 15px; margin-bottom: 20px; }
-        .contact-btn { 
-            background: var(--primary-light); color: var(--primary); padding: 10px 20px; 
-            border-radius: 30px; font-weight: 700; font-size: 13px; transition: var(--transition); margin-top: auto;
-        }
-        .contact-card:hover .contact-btn { background: var(--primary); color: white; }
-
-        /* İkon Renkleri */
-        .fa-phone, .fa-whatsapp { color: var(--secondary); }
-        .fa-instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .fa-envelope { color: #EA4335; }
-        .fa-google { background: linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-        /* --- FAQ / SSS --- */
-        .faq-item { 
-            background: white; padding: 20px 30px; border-radius: 15px; box-shadow: var(--shadow-sm); 
-            border-left: 5px solid var(--primary); margin-bottom: 15px; cursor: pointer; transition: var(--transition); 
-        }
-        .faq-item:hover { background: var(--primary-light); transform: translateX(5px); }
-        .faq-item h4 { font-size: 18px; color: var(--dark-blue); margin-bottom: 0; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        .faq-item h4 i { transition: var(--transition); font-size: 16px; color: var(--primary); }
-        .faq-item p { color: var(--text-muted); font-size: 15px; display: none; padding-top: 15px; margin-top: 10px; border-top: 1px solid #eee; }
-        .faq-item.active p { display: block; }
-        .faq-item.active h4 i { transform: rotate(180deg); }
-
-        /* --- HAKKIMIZDA & İSTATİSTİKLER --- */
-        .about-card { background: var(--header-gradient); border-radius: 30px; padding: 50px; color: white; box-shadow: var(--shadow-lg); text-align: center; }
-        .about-card p { font-size: 18px; line-height: 1.8; margin-bottom: 25px; opacity: 0.95; }
-        .about-card strong { color: var(--primary-dark); }
-        .stats { display: flex; justify-content: space-around; margin: 40px 0; flex-wrap: wrap; gap: 30px; }
-        .stat-item { padding: 15px; }
-        .stat-num { font-size: 48px; font-weight: 900; color: var(--primary-dark); margin-bottom: 5px; }
-        .stat-label { font-size: 15px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
-        .about-btn { 
-            background: var(--primary); color: white; padding: 16px 40px; border-radius: 40px; 
-            text-decoration: none; font-weight: 700; display: inline-block; transition: var(--transition); border: 2px solid var(--primary); 
-        }
-        .about-btn:hover { background: transparent; color: var(--primary-dark); border-color: var(--primary-dark); }
-
-        .hours { 
-            background: white; border-radius: 25px; padding: 25px; margin-top: 40px; display: flex; 
-            justify-content: center; gap: 60px; flex-wrap: wrap; box-shadow: var(--shadow-md); 
-        }
-        .hours-item { display: flex; align-items: center; gap: 15px; font-size: 18px; font-weight: 500; }
-        .hours-item i { color: var(--primary); font-size: 26px; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--dark-blue); color: #bbb; padding: 50px 25px 30px; margin-top: 60px; text-align: center; }
-        footer h2 { color: white; font-size: 28px; margin-bottom: 10px; font-weight: 800; letter-spacing: 2px; }
-        footer p { color: var(--primary); font-size: 14px; margin-bottom: 25px; letter-spacing: 3px; font-weight: 600; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 25px 0; }
-        .footer-links a { color: #ddd; text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
-        .footer-links a:hover { color: var(--primary); }
-        .footer-areas { color: #888; font-size: 14px; margin: 20px 0; line-height: 1.8; }
-        .footer-areas span { color: var(--primary); font-weight: 700; }
-        .visitor-bar { background: rgba(0,0,0,0.2); display: inline-block; padding: 10px 25px; border-radius: 30px; font-size: 14px; margin: 20px 0; border: 1px solid rgba(230,126,34,0.3); }
-        .copyright { margin-top: 30px; opacity: 0.5; font-size: 13px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- SABİT BUTONLAR & CHATBOT --- */
-        .mobile-call { 
-            display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--primary); 
-            color: white; text-align: center; padding: 15px; z-index: 999; font-weight: 800; font-size: 18px; 
-            text-decoration: none; box-shadow: 0 -5px 20px rgba(0,0,0,0.2); 
-        }
-        
-        .chatbot-widget { position: fixed; bottom: 30px; right: 30px; z-index: 10000; }
-        .chatbot-toggle { 
-            background: var(--dark-blue); color: white; border: none; padding: 15px 25px; border-radius: 50px; 
-            font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 5px 25px rgba(0,0,0,0.3); 
-            display: flex; align-items: center; gap: 10px; transition: var(--transition); border: 2px solid transparent;
-        }
-        .chatbot-toggle:hover { background: var(--primary); transform: scale(1.05); }
-        
-        .chatbot-panel { 
-            position: absolute; bottom: 70px; right: 0; width: 360px; max-width: 90vw; background: white; 
-            border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.25); border: 2px solid var(--primary); 
-            display: none; flex-direction: column; height: 500px; max-height: 75vh; 
-        }
-        .chatbot-header { background: var(--header-gradient); color: white; padding: 18px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        .chatbot-mesajlar { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: #fafafa; }
-        .bot-mesaj { background: white; padding: 12px 18px; border-radius: 15px 15px 15px 0; font-size: 14px; max-width: 85%; align-self: flex-start; box-shadow: var(--shadow-sm); border: 1px solid #eee; }
-        .kullanici-mesaj { background: var(--primary); color: white; padding: 12px 18px; border-radius: 15px 15px 0 15px; font-size: 14px; max-width: 85%; align-self: flex-end; box-shadow: var(--shadow-sm); }
-        .chatbot-input { display: flex; padding: 15px; border-top: 1px solid #eee; background: white; }
-        .chatbot-input input { flex: 1; padding: 12px 18px; border: 2px solid #eee; border-radius: 25px; font-size: 14px; outline: none; transition: var(--transition); }
-        .chatbot-input input:focus { border-color: var(--primary); }
-        .chatbot-input button { background: var(--primary); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; margin-left: 10px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
-        .chatbot-input button:hover { background: var(--dark-blue); }
-        .chatbot-input button.mikrofon { background: var(--dark-blue); }
-
-        /* --- RESPONSIVE TASARIM (Mobil Uyum) --- */
-        @media(max-width: 992px) { .grid4 { grid-template-columns: repeat(2, 1fr); } }
-        @media(max-width: 768px) {
-            .grid4 { grid-template-columns: 1fr; }
-            .mobile-call { display: block; }
-            header { justify-content: center; padding: 15px; }
-            .brand h1 { font-size: 22px; }
-            .hero { margin: 15px; padding: 40px 20px; }
-            .chatbot-widget { bottom: 80px; right: 15px; } /* Mobil ara butonu üzerine çıkmasın */
-            .chatbot-panel { position: fixed; width: 100%; height: calc(100% - 60px); max-height: none; bottom: 60px; right: 0; border-radius: 20px 20px 0 0; }
-            footer { padding-bottom: 80px; } /* Mobil buton boşluğu */
-            .stats { grid-template-columns: repeat(2, 1fr); display: grid; }
-        }
+        .contact-container { width: 100%; max-width: 600px; background: var(--glass-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); }
+        input, textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; padding: 15px; margin-bottom: 15px; outline: none; }
+        .cyber-btn { background: transparent; color: var(--neon-blue); padding: 15px 30px; border: 2px solid var(--neon-blue); border-radius: 50px; cursor: pointer; text-transform: uppercase; }
+        .cyber-btn:hover { background: var(--neon-blue); color: #000; }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <header>
-        <div class="logo-area">
-            <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
-            <div class="brand">
-                <h1>GÜNEŞ YAPI</h1>
-                <p>BOYA • TADİLAT • DEKORASYON</p>
-            </div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav>
+        <div class="logo">FRIDAY <i class="fa-solid fa-microchip"></i></div>
+        <ul class="nav-links">
+            <li><a href="#home">Ana Panel</a></li>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px;">OPERASYONEL MERKEZ</h1>
+        <p>Sistem çevrimiçi. Tüm veriler senkronize edildi.</p>
+    </section>
+
+    <section id="hizmetler">
+        <h2 class="section-title">Hizmetler</h2>
+        <div class="grid">
+            <div class="card"><i class="fa-solid fa-code" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Web Tasarım</h3></div>
+            <div class="card"><i class="fa-solid fa-server" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Sistem Mimari</h3></div>
+            <div class="card"><i class="fa-solid fa-shield-halved" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Güvenlik</h3></div>
         </div>
-        <div class="header-contact">
-            <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </section>
+
+    <section id="galeri">
+        <h2 class="section-title">Eski Çalışmalar</h2>
+        <div class="grid">
+            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası A</div>
+            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası B</div>
+            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası C</div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="live-badge"><i class="fas fa-circle" style="font-size:10px;"></i> Şu an aktif olarak hizmet veriyoruz</div>
-            <h2>Hayalinizdeki Yapıya Ulaşın</h2>
-            <div class="slogan">"Hayalinizdeki yapı, profesyonel ellere emanet."</div>
-            <div class="hero-buttons">
-                <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-                <button class="btn-outline" onclick="chatbotAc()"><i class="fas fa-robot"></i> Yapay Zeka Asistanı</button>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="intro-text">
-                <h2>Güneş Yapı | Darıca, Gebze, Çayırova Boya ve Tadilat Ustası</h2>
-                <p>Evinizi veya iş yerinizi yenilemek mi istiyorsunuz? <span class="highlight">Güneş Yapı</span> olarak <span class="highlight">Darıca, Gebze, Çayırova</span> başta olmak üzere Kocaeli ve İstanbul genelinde <span class="highlight">anahtar teslim tadilat, boya badana, alçıpan, asma tavan ve fayans</span> hizmeti sunuyoruz.</p>
-                <p>10+ yıllık tecrübe ve 2 yıl işçilik garantisiyle hayalinizdeki yaşam alanını inşa etmek için <span class="highlight">hemen arayın: 0535 985 95 35</span>.</p>
-            </div>
-
-            <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="google-badge">
-                <i class="fab fa-google"></i>
-                <div class="badge-text">
-                    <strong>Google'da 5.0 ⭐</strong><br>
-                    <span>60 yorumu inceleyin →</span>
-                </div>
-            </a>
-
-            <div class="why-us">
-                <div class="why-item"><i class="fas fa-search-location"></i><h4>Ücretsiz Keşif</h4><p>Darıca, Gebze ve çevresine ücretsiz keşif</p></div>
-                <div class="why-item"><i class="fas fa-shield-alt"></i><h4>2 Yıl Garanti</h4><p>Tüm işlerimiz 2 yıl işçilik garantili</p></div>
-                <div class="why-item"><i class="fas fa-medal"></i><h4>10 Yıl Tecrübe</h4><p>100+ mutlu müşteri, 300+ proje</p></div>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Hizmetlerimiz</h2>
-            <div class="grid4">
-                <article class="card">
-                    <div class="card-icon"><i class="fas fa-paint-roller"></i></div>
-                    <h3>Boya & Badana</h3>
-                    <p>Darıca ve Gebze'de iç-dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p>
-                    <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-                </article>
-                <article class="card">
-                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Alçı & Alçıpan</h3>
-                    <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p>
-                    <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-                </article>
-                <article class="card">
-                    <div class="card-icon"><i class="fas fa-vector-square"></i></div>
-                    <h3>Fayans & Seramik</h3>
-                    <p>Banyo, mutfak, zemin ve duvar kaplama. Su yalıtımı garantili.</p>
-                    <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-                </article>
-                <article class="card">
-                    <div class="card-icon"><i class="fas fa-building"></i></div>
-                    <h3>Tadilat & Dekorasyon</h3>
-                    <p>Komple tadilat, mutfak ve banyo yenileme. Anahtar teslim.</p>
-                    <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Projelerimiz</h2>
-            <div class="slider-container">
-                <div class="slider-track">
-                    <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-                    <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-                    <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-                    <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
-                    <div class="slide"><img src="ABC99.jpeg" alt="Darıca Asma Tavan" onerror="this.src='abc.jpeg'"><span>Asma Tavan & Işıklandırma</span></div>
-                    <div class="slide"><img src="ABC88.jpeg" alt="Gebze İş Yeri" onerror="this.src='abc.jpeg'"><span>İş Yeri Tadilatı</span></div>
-                    <div class="slide"><img src="ABC77.jpeg" alt="Çayırova Daire" onerror="this.src='abc.jpeg'"><span>Daire Tadilatı</span></div>
-                    <div class="slide"><img src="ABC66.jpeg" alt="Darıca Mutfak" onerror="this.src='abc.jpeg'"><span>Mutfak Yenileme</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="contact-form" id="geriDonusForm">
-                <h3>📞 Sizi Arayalım</h3>
-                <p>Numaranızı bırakın, ücretsiz keşif için size geri dönüş yapalım.</p>
-                <form id="aramaForm">
-                    <input type="text" id="formAd" placeholder="Adınız Soyadınız" required>
-                    <input type="tel" id="formTel" placeholder="Telefon Numaranız (05XX XXX XX XX)" required>
-                    <textarea id="formMesaj" rows="3" placeholder="Yaptırmak istediğiniz işlem nedir? (İsteğe bağlı)"></textarea>
-                    <button type="submit"><i class="fas fa-paper-plane"></i> Gönder</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 id="iletisim" class="section-title">İletişim Kanalları</h2>
-            <div class="grid4">
-                <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Beni Ara</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-phone"></i> Hemen Ara</span></a>
-                <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp</h4><p>+90 535 985 95 35</p><span class="contact-btn"><i class="fab fa-whatsapp"></i> Mesaj Gönder</span></a>
-                <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn"><i class="fab fa-instagram"></i> Takip Et</span></a>
-                <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn"><i class="fas fa-envelope"></i> Mail At</span></a>
-            </div>
-            <div class="grid4" style="margin-top:25px;">
-                <a href="https://maps.google.com/?q=Güneş+Yapı+Kocaeli" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h4>Google Haritalar</h4><p>Konum & Yol Tarifi</p><span class="contact-btn"><i class="fab fa-google"></i> Haritada Gör</span></a>
-                <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-google"></i></div><h4>Google Yorumu</h4><p>Bizi Değerlendir ⭐ 5.0</p><span class="contact-btn"><i class="fas fa-star"></i> Yorum Yaz</span></a>
-                <a href="https://gunesyapi-insaat.com" target="_blank" class="contact-card"><div class="contact-icon"><i class="fas fa-globe"></i></div><h4>Web Sitemiz</h4><p>gunesyapi-insaat.com</p><span class="contact-btn"><i class="fas fa-external-link-alt"></i> Ziyaret Et</span></a>
-                <a href="sms:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-comment-dots"></i></div><h4>SMS Gönder</h4><p>0535 985 95 35</p><span class="contact-btn"><i class="fas fa-paper-plane"></i> Mesaj At</span></a>
-            </div>
-
-            <div class="hours">
-                <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pzt - Cmt:</strong> 08:00 - 17:00</div>
-                <div class="hours-item"><i class="far fa-calendar-alt"></i> <strong>Pazar:</strong> 09:00 - 16:00</div>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Sık Sorulan Sorular</h2>
-            <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Fiyatlarınız nasıl belirleniyor? <i class="fas fa-chevron-down"></i></h4><p>İşin büyüklüğü ve kullanılacak malzemeye göre belirlenir. Yerinize gelip ücretsiz keşif yapıyoruz.</p></div>
-            <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Keşif için ücret alıyor musunuz? <i class="fas fa-chevron-down"></i></h4><p>Hayır, keşif hizmetimiz tamamen ücretsizdir.</p></div>
-            <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Garanti süreniz nedir? <i class="fas fa-chevron-down"></i></h4><p>Tüm işlerimiz 2 yıl işçilik garantisi kapsamındadır.</p></div>
-            <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Hangi bölgelere hizmet veriyorsunuz? <i class="fas fa-chevron-down"></i></h4><p>Darıca, Gebze, Çayırova başta olmak üzere Kocaeli ve İstanbul genelinde hizmet vermekteyiz.</p></div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Hakkımızda</h2>
-            <div class="about-card">
-                <p><strong>Güneş Yapı</strong> olarak 10 yılı aşkın süredir Darıca, Gebze, Çayırova ve İstanbul bölgesinde boya, tadilat, alçıpan, fayans ve anahtar teslim dekorasyon hizmetleri sunmaktayız.</p>
-                <div class="stats">
-                    <div class="stat-item" onmouseenter="sayacBaslat(this,100)" ontouchstart="sayacBaslat(this,100)"><div class="stat-num">100+</div><div class="stat-label">Mutlu Müşteri</div></div>
-                    <div class="stat-item" onmouseenter="sayacBaslat(this,300)" ontouchstart="sayacBaslat(this,300)"><div class="stat-num">300+</div><div class="stat-label">Tamamlanan Proje</div></div>
-                    <div class="stat-item" onmouseenter="sayacBaslat(this,10)" ontouchstart="sayacBaslat(this,10)"><div class="stat-num">10+</div><div class="stat-label">Yıl Tecrübe</div></div>
-                    <div class="stat-item" onmouseenter="sayacBaslat(this,2,' Yıl')" ontouchstart="sayacBaslat(this,2,' Yıl')"><div class="stat-num">2 Yıl</div><div class="stat-label">Garanti</div></div>
-                </div>
-                <p>Müşteri memnuniyeti odaklı çalışıyor, her projede kaliteli malzeme ve profesyonel işçilik sunuyoruz.</p>
-                <a href="tel:05359859535" class="about-btn"><i class="fas fa-phone-alt"></i> Bize Ulaşın</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <h2>GÜNEŞ YAPI</h2>
-        <p>BOYA • TADİLAT • DEKORASYON</p>
-        <div class="footer-areas"><span>Hizmet Bölgeleri:</span> Darıca • Gebze • Çayırova • Tuzla • İstanbul • Kocaeli</div>
-        <div class="footer-links">
-            <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-            <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://instagram.com/mehmetgunes954" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> E-Posta</a>
+    <section id="iletisim">
+        <h2 class="section-title">İletişim & Sizi Arayalım</h2>
+        <div class="contact-container">
+            <input type="text" placeholder="İsim Soyisim">
+            <input type="tel" placeholder="Telefon Numarası (Sizi Arayalım)">
+            <textarea placeholder="Mesajınız veya Talep Detayı"></textarea>
+            <button class="cyber-btn" onclick="alert('Talep alındı! En kısa sürede geri dönüş yapılacak.')">Sinyali Gönder</button>
         </div>
-        <div class="visitor-bar" id="visitorBar">👥 Bugün sitemizi <span id="gunlukZiyaretci" style="font-weight:bold; color:var(--primary);">12</span> kişi ziyaret etti.</div>
-        <div class="copyright">© 2026 Güneş Yapı | Tüm hakları saklıdır.<br>"Hayalinizdeki yapı, profesyonel ellere emanet."</div>
-    </footer>
-</div>
-
-<a href="tel:05359859535" class="mobile-call"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-
-<div class="chatbot-widget" id="chatbotWidget">
-    <button class="chatbot-toggle" onclick="chatbotAc()"><i class="fas fa-robot"></i> 💬 Soru Sor</button>
-    <div class="chatbot-panel" id="chatbotPanel">
-        <div class="chatbot-header">
-            <span>🤖 Güneş Yapı Asistanı</span>
-            <button onclick="chatbotKapat()" style="background:none;border:none;color:white;font-size:24px;cursor:pointer;">✕</button>
-        </div>
-        <div class="chatbot-mesajlar" id="chatbotMesajlar">
-            <div class="bot-mesaj">Merhaba! Ben Güneş Yapı'nın sanal asistanıyım. Boya, tadilat, fiyat veya keşif hakkında sorularınızı yanıtlayabilirim. Size nasıl yardımcı olabilirim? 🎤</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbotSoru" placeholder="Sorunuzu buraya yazın..." onkeypress="if(event.key==='Enter')chatbotSor()">
-            <button onclick="chatbotSor()"><i class="fas fa-paper-plane"></i></button>
-            <button class="mikrofon" onclick="sesliDinle()" id="mikrofonBtn"><i class="fas fa-microphone"></i></button>
-        </div>
-    </div>
-</div>
-
-<script>
-// --- FİREBASE BAĞLANTISI ---
-const firebaseConfig = {
-  apiKey: "AIzaSyDZeGGxM9ZOtU_31P2f_YBPJSyomNlPIb8",
-  authDomain: "gunesyapi-13e9e.firebaseapp.com",
-  databaseURL: "https://gunesyapi-13e9e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "gunesyapi-13e9e",
-  storageBucket: "gunesyapi-13e9e.firebasestorage.app",
-  messagingSenderId: "218886292813",
-  appId: "1:218886292813:web:c5ed0765b1d83352ca6304"
-};
-// Firebase'i başlat
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-// --- İSTATİSTİK SAYACI ANİMASYONU ---
-function sayacBaslat(el, hedef, ek = '+') {
-    const s = el.querySelector('.stat-num');
-    if(s.dataset.sayiliyor === 'true') return;
-    s.dataset.sayiliyor = 'true';
-    let b = 0;
-    const sure = 1500, adim = hedef / (sure / 20);
-    const i = setInterval(() => { 
-        b += adim; 
-        if(b >= hedef) { 
-            b = hedef; 
-            clearInterval(i); 
-            s.dataset.sayiliyor = 'false'; 
-        } 
-        s.textContent = Math.floor(b) + ek; 
-    }, 20);
-}
-
-// --- YARIM KALAN İLETİŞİM FORMU (TAMAMLANDI) ---
-document.getElementById('aramaForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Değerleri al ve boşlukları temizle (Yarım kalan .t -> .trim() tamamlandı)
-    const ad = document.getElementById('formAd').value.trim();
-    const tel = document.getElementById('formTel').value.trim();
-    const mesaj = document.getElementById('formMesaj').value.trim();
-
-    // Butonu pasif yap ki çift tıklamasınlar
-    const submitBtn = this.querySelector('button');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
-    submitBtn.disabled = true;
-
-    // Firebase'e kaydet (Talepler tablosu)
-    db.ref('iletisim_talepleri').push({
-        ad: ad,
-        telefon: tel,
-        mesaj: mesaj,
-        tarih: new Date().toLocaleString('tr-TR')
-    }).then(() => {
-        alert("Talebiniz başarıyla alındı! En kısa sürede size dönüş yapacağız.");
-        document.getElementById('aramaForm').reset();
-    }).catch((error) => {
-        console.error("Firebase Hatası: ", error);
-        alert("Bir hata oluştu. Lütfen doğrudan WhatsApp üzerinden veya arayarak ulaşın.");
-    }).finally(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    });
-});
-
-// --- CHATBOT FONKSİYONLARI (EKSİKLER GİDERİLDİ) ---
-const chatPanel = document.getElementById('chatbotPanel');
-const chatMesajlar = document.getElementById('chatbotMesajlar');
-const chatInput = document.getElementById('chatbotSoru');
-
-function chatbotAc() {
-    chatPanel.style.display = 'flex';
-}
-
-function chatbotKapat() {
-    chatPanel.style.display = 'none';
-}
-
-function chatbotSor() {
-    const soru = chatInput.value.trim();
-    if(!soru) return;
-
-    // Kullanıcının mesajını ekrana bas
-    chatMesajlar.innerHTML += `<div class="kullanici-mesaj">${soru}</div>`;
-    chatInput.value = '';
-    
-    // Mesajlar kutusunu en alta kaydır
-    chatMesajlar.scrollTop = chatMesajlar.scrollHeight;
-
-    // Botun cevap verme simülasyonu
-    setTimeout(() => {
-        let cevap = "Sorunuz için teşekkürler. Detaylı bilgi ve ücretsiz keşif için bizi 0535 985 95 35 numarasından hemen arayabilirsiniz.";
-        
-        if(soru.toLowerCase().includes('fiyat')) {
-            cevap = "Fiyatlarımız işin büyüklüğüne ve malzemeye göre değişiyor. Net bir fiyat için ücretsiz keşif yapmamız en sağlıklısı. İsterseniz bizi arayabilirsiniz.";
-        } else if(soru.toLowerCase().includes('bölge') || soru.toLowerCase().includes('nerede')) {
-            cevap = "Darıca, Gebze, Çayırova başta olmak üzere Kocaeli ve İstanbul çevresine hizmet veriyoruz.";
-        }
-        
-        chatMesajlar.innerHTML += `<div class="bot-mesaj">${cevap}</div>`;
-        chatMesajlar.scrollTop = chatMesajlar.scrollHeight;
-    }, 1000);
-}
-
-function sesliDinle() {
-    alert("Sesli arama özelliği tarayıcınızda şu an aktif değil. Lütfen sorunuzu yazarak iletin.");
-}
-
-// Basit ziyaretçi sayacı simülasyonu (Gerçek Firebase sayacı eklenebilir)
-document.addEventListener('DOMContentLoaded', () => {
-    let ziyaretci = localStorage.getItem('gunesyapi_ziyaretci');
-    if(!ziyaretci) {
-        ziyaretci = Math.floor(Math.random() * 15) + 5; // İlk girişte rastgele sayı ata
-        localStorage.setItem('gunesyapi_ziyaretci', ziyaretci);
-    } else {
-        ziyaretci = parseInt(ziyaretci) + 1;
-        localStorage.setItem('gunesyapi_ziyaretci', ziyaretci);
-    }
-    document.getElementById('gunlukZiyaretci').innerText = ziyaretci;
-});
-</script>
+    </section>
 
 </body>
 </html>
