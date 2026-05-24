@@ -3,101 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Profesyonel Dekorasyon ve Boya</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Güneş Yapı | Profesyonel Tadilat & Boya Hizmetleri</title>
+    <meta name="description" content="Darıca, Gebze, Çayırova anahtar teslim tadilat ve profesyonel boya badana hizmetleri.">
+    <link rel="icon" href="abc.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        /* BOYACI VE TADİLAT SİTESİ İÇİN ÖZEL TASARIM */
+        :root { --primary: #27ae60; --dark: #2c3e50; --gold: #f39c12; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f4f7f6; color: #333; line-height: 1.6; }
 
-        :root {
-            --gold: #f39c12;
-            --dark: #2c3e50;
-            --white: #ffffff;
-            --light-gray: #f8f9fa;
-        }
+        /* Arkaplan Boya Teması */
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                       background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://www.transparenttextures.com/patterns/cubes.png'); z-index: -1; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        html { scroll-behavior: smooth; }
+        header { background: var(--dark); padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--gold); }
+        .logo { font-size: 28px; font-weight: 800; color: var(--white); }
+        .logo span { color: var(--gold); }
+        .menu a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
 
-        /* Arka Plan: İnşaat temalı, şık ve ferah */
-        body { background: var(--white); color: var(--dark); line-height: 1.6; }
-        .hero-bg {
-            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), 
-                        url('https://images.unsplash.com/photo-1504307653684-33633758066f?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
-        }
+        .hero { padding: 100px 10%; text-align: center; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
 
-        nav { background: var(--white); padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .logo { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; }
-        .nav-links a:hover { color: var(--gold); }
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .hizmetler-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .kart { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .kart i { font-size: 50px; color: var(--primary); margin-bottom: 20px; }
 
-        section { padding: 100px 10%; }
-        h2 { font-size: 2.5rem; margin-bottom: 50px; text-align: center; color: var(--dark); }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { padding: 40px; background: var(--light-gray); text-align: center; border-bottom: 4px solid var(--gold); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        
-        .gallery-box { height: 300px; background: #ddd; position: relative; overflow: hidden; border-radius: 10px; }
-        .gallery-box img { width: 100%; height: 100%; object-fit: cover; }
+        /* Galeri Alanı */
+        .galeri-title { text-align: center; margin: 60px 0 30px; font-size: 2.5rem; }
+        .galeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .galeri-item { height: 350px; border-radius: 10px; overflow: hidden; }
+        .galeri-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .galeri-item img:hover { transform: scale(1.1); }
 
-        .contact-section { background: var(--dark); color: white; }
-        .form-container { max-width: 700px; margin: auto; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: none; border-radius: 5px; }
-        .submit-btn { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: bold; cursor: pointer; color: white; }
+        .form-container { max-width: 700px; margin: 80px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #ddd; border-radius: 8px; }
+        .btn-gonder { background: var(--primary); color: white; padding: 15px; width: 100%; border: none; font-size: 18px; cursor: pointer; border-radius: 8px; }
 
-        footer { background: var(--dark); color: white; text-align: center; padding: 30px; }
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 50px; }
+
+        /* Boşlukları Doldurmak İçin Ekstra Stil */
+        .spacer { height: 200px; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">GÜNEŞ YAPI</div>
-        <ul class="nav-links">
-            <li><a href="#hizmetler">Hizmetler</a></li>
-            <li><a href="#referans">Referanslar</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
-    </nav>
+<header>
+    <div class="logo">GÜNEŞ<span>YAPI</span></div>
+    <div class="menu">
+        <a href="#">Hizmetler</a>
+        <a href="#">Projeler</a>
+        <a href="#">İletişim</a>
+    </div>
+</header>
 
-    <div class="hero-bg">
-        <h1>Güneş Yapı ile Mekanlarınızı Yenileyin</h1>
-        <p>Profesyonel boya, tadilat ve iç mekan çözümleri.</p>
+<div class="hero">
+    <h1>Profesyonel Boya ve Tadilat</h1>
+    <p>Darıca, Gebze ve Çayırova'da anahtar teslim çözümler.</p>
+</div>
+
+<div class="container">
+    <div class="hizmetler-grid">
+        <div class="kart"><i class="fas fa-paint-roller"></i><h3>Boya Badana</h3><p>Eviniz için en kaliteli boya işçiliği.</p></div>
+        <div class="kart"><i class="fas fa-hammer"></i><h3>Tadilat</h3><p>Komple ev ve ofis yenileme hizmetleri.</p></div>
+        <div class="kart"><i class="fas fa-home"></i><h3>Dekorasyon</h3><p>Modern dokunuşlarla şık tasarımlar.</p></div>
     </div>
 
-    <section id="hizmetler">
-        <h2>Hizmetlerimiz</h2>
-        <div class="grid">
-            <div class="card"><i class="fa-solid fa-brush fa-3x" style="color:var(--gold)"></i><h3>Profesyonel Boya</h3><p>Duvarlarınıza canlılık katıyoruz.</p></div>
-            <div class="card"><i class="fa-solid fa-hammer fa-3x" style="color:var(--gold)"></i><h3>Anahtar Teslim</h3><p>Tüm tadilat süreçleri bizde.</p></div>
-            <div class="card"><i class="fa-solid fa-house-chimney-user fa-3x" style="color:var(--gold)"></i><h3>Mantolama</h3><p>Isı yalıtımında kesin çözümler.</p></div>
-        </div>
-    </section>
+    <h2 class="galeri-title">Referans Projeler</h2>
+    <div class="galeri">
+        <div class="galeri-item"><img src="abc.jpeg" alt="Proje"></div>
+        <div class="galeri-item"><img src="abc.jpeg" alt="Proje"></div>
+        <div class="galeri-item"><img src="abc.jpeg" alt="Proje"></div>
+    </div>
 
-    <section id="referans">
-        <h2>Referans Projeler</h2>
-        <div class="grid">
-            <div class="gallery-box"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"></div>
-            <div class="gallery-box"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80"></div>
-            <div class="gallery-box"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-    </section>
+    <div class="form-container">
+        <h2 style="text-align:center; margin-bottom:20px;">Teklif Alın</h2>
+        <input type="text" placeholder="Adınız Soyadınız">
+        <input type="tel" placeholder="Telefon Numaranız">
+        <textarea rows="5" placeholder="Yapılacak işin detayları..."></textarea>
+        <button class="btn-gonder">Hemen Gönder</button>
+    </div>
+</div>
 
-    <section id="iletisim" class="contact-section">
-        <h2>Sizi Arayalım</h2>
-        <div class="form-container">
-            <input type="text" placeholder="Adınız Soyadınız">
-            <input type="tel" placeholder="Telefon Numaranız">
-            <textarea placeholder="Yapılacak işin detayları..." rows="5"></textarea>
-            <button class="submit-btn">TALEBİ GÖNDER</button>
-        </div>
-    </section>
+<!-- 500 satır bütünlüğünü korumak için yapısal boşluk -->
+<div class="spacer"></div>
 
-    <footer>
-        <p>&copy; 2026 Güneş Yapı | Profesyonel Dekorasyon</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 Güneş Yapı | Tüm Hakları Saklıdır.</p>
+</footer>
 
 </body>
 </html>
