@@ -3,92 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIDAY | Ana Sistem Karargahı</title>
+    <title>Güneş Yapı | Profesyonel Dekorasyon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
 
         :root {
-            --neon-blue: #00f3ff;
-            --neon-purple: #bc13fe;
-            --bg-dark: #050914;
-            --glass-bg: rgba(10, 20, 40, 0.4);
-            --glass-border: rgba(0, 243, 255, 0.2);
+            --gold: #d4af37; /* Asil altın tonu */
+            --dark-gray: #1a1a1a;
+            --off-white: #fdfdfd;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--off-white); color: var(--dark-gray); line-height: 1.8; }
 
-        /* Arka Plan */
-        .orb { position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.4; z-index: -1; animation: float 12s infinite alternate ease-in-out; }
-        .orb-1 { width: 500px; height: 500px; background: var(--neon-blue); top: -150px; left: -150px; }
-        .orb-2 { width: 400px; height: 400px; background: var(--neon-purple); bottom: -100px; right: -100px; animation-delay: -6s; }
-        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(60px, 60px) scale(1.2); } }
+        /* Arka Plan: Görenin şaşıracağı o modern, ferah katman */
+        .hero-bg {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-        /* Nav */
-        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 9, 20, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); z-index: 100; }
-        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--neon-blue); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; text-transform: uppercase; }
-
-        section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: column; align-items: center; }
-        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-purple); margin-bottom: 40px; }
-
-        /* Kart ve Formlar */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; }
-        .card { background: var(--glass-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--glass-border); text-align: center; }
+        nav { padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; top: 0; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--dark-gray); }
+        .logo span { color: var(--gold); }
         
-        .contact-container { width: 100%; max-width: 600px; background: var(--glass-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); }
-        input, textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; padding: 15px; margin-bottom: 15px; outline: none; }
-        .cyber-btn { background: transparent; color: var(--neon-blue); padding: 15px 30px; border: 2px solid var(--neon-blue); border-radius: 50px; cursor: pointer; text-transform: uppercase; }
-        .cyber-btn:hover { background: var(--neon-blue); color: #000; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 20px; }
+        .btn-gold { background: var(--gold); color: white; padding: 15px 40px; text-decoration: none; font-weight: 600; border-radius: 2px; transition: 0.3s; }
+        
+        section { padding: 100px 10%; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .card { padding: 40px; background: white; border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+        .contact-box { max-width: 800px; margin: auto; background: var(--dark-gray); color: white; padding: 60px; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: none; background: #333; color: white; }
+        .submit-btn { width: 100%; padding: 15px; background: var(--gold); border: none; color: white; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-
     <nav>
-        <div class="logo">FRIDAY <i class="fa-solid fa-microchip"></i></div>
-        <ul class="nav-links">
-            <li><a href="#home">Ana Panel</a></li>
-            <li><a href="#hizmetler">Hizmetler</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
+        <div class="logo">GÜNEŞ<span>YAPI</span></div>
+        <div style="font-weight: 600;">PROFESYONEL DEKORASYON</div>
     </nav>
 
-    <section id="home">
-        <h1 style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px;">OPERASYONEL MERKEZ</h1>
-        <p>Sistem çevrimiçi. Tüm veriler senkronize edildi.</p>
-    </section>
+    <div class="hero-bg">
+        <h1>Mekanlarınıza Değer Katıyoruz</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Modern, estetik ve güvenilir tadilat çözümleri.</p>
+        <a href="#iletisim" class="btn-gold">Teklif Al</a>
+    </div>
 
     <section id="hizmetler">
-        <h2 class="section-title">Hizmetler</h2>
-        <div class="grid">
-            <div class="card"><i class="fa-solid fa-code" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Web Tasarım</h3></div>
-            <div class="card"><i class="fa-solid fa-server" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Sistem Mimari</h3></div>
-            <div class="card"><i class="fa-solid fa-shield-halved" style="font-size: 3rem; color: var(--neon-blue);"></i><h3>Güvenlik</h3></div>
+        <h2>Hizmetlerimiz</h2>
+        <div class="service-grid">
+            <div class="card"><h3>İç Mekan Tasarımı</h3><p>Yaşam alanlarınızı hayalinizdeki konfora kavuşturuyoruz.</p></div>
+            <div class="card"><h3>Anahtar Teslim Tadilat</h3><p>Tüm süreçleri profesyonelce yönetiyoruz.</p></div>
+            <div class="card"><h3>Boya ve Dekorasyon</h3><p>Birinci sınıf işçilik ve kaliteli malzemeler.</p>
         </div>
     </section>
 
-    <section id="galeri">
-        <h2 class="section-title">Eski Çalışmalar</h2>
-        <div class="grid">
-            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası A</div>
-            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası B</div>
-            <div class="card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05);">Proje Dosyası C</div>
-        </div>
-    </section>
-
-    <section id="iletisim">
-        <h2 class="section-title">İletişim & Sizi Arayalım</h2>
-        <div class="contact-container">
+    <section id="iletisim" style="background: #f4f4f4;">
+        <h2>Sizi Arayalım</h2>
+        <div class="contact-box">
             <input type="text" placeholder="İsim Soyisim">
-            <input type="tel" placeholder="Telefon Numarası (Sizi Arayalım)">
-            <textarea placeholder="Mesajınız veya Talep Detayı"></textarea>
-            <button class="cyber-btn" onclick="alert('Talep alındı! En kısa sürede geri dönüş yapılacak.')">Sinyali Gönder</button>
+            <input type="tel" placeholder="Telefon">
+            <textarea placeholder="Mesajınız..." rows="4"></textarea>
+            <button class="submit-btn">GÖNDER</button>
         </div>
     </section>
 
