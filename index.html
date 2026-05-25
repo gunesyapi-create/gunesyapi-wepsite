@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Güneş Yapı | Darıca, Gebze, Çayırova Komple Tadilat & Boya Badana Ustası</title>
-    <meta name="description" content="Güneş Yapı - Darıca, Gebze, Çayırova ve İstanbul'da anahtar teslim tadilat, komple ev yenileme, boya badana, alçıpan ve fayans işleri. 10+ yıl tecrübe, 2 yıl garanti.">
+    <title>Güneş Yapı | Premium Anahtar Teslim Tadilat & İç Mimari</title>
+    <meta name="description" content="Güneş Yapı ile yaşam alanlarınızı baştan tasarlayın. Darıca, Gebze ve Çayırova'da lüks boya, alçıpan, komple banyo ve anahtar teslim tadilat çözümleri.">
     <link rel="icon" href="abc.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -24,377 +24,384 @@
       "image": "abc.jpeg",
       "telephone": "05359859535",
       "email": "mehmetgnes456@gmail.com",
+      "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Darıca",
         "addressRegion": "Kocaeli",
         "addressCountry": "TR"
       },
-      "url": "https://gunesyapi-insaat.com",
-      "priceRange": "$$"
+      "url": "https://gunesyapi-insaat.com"
     }
     </script>
 
     <style>
-        /* KURUMSAL TASARIM VE RENK PALETİ */
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);background-attachment:fixed;color:#f1f5f9;line-height:1.6}
-        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 15% 25%,rgba(230,126,34,0.1) 2px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(243,156,18,0.07) 1.5px,transparent 1.5px);background-size:50px 50px,40px 40px;pointer-events:none;z-index:0}
-        .wrapper{position:relative;z-index:1;max-width:1400px;margin:0 auto}
-        
-        /* HEADER */
-        header{background:rgba(15,23,42,0.9);backdrop-filter:blur(12px);padding:15px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,0.4);border-bottom:2px solid #e67e22}
-        .logo-area{display:flex;align-items:center;gap:12px}
-        .logo{width:50px;height:50px;border-radius:12px;background:white;padding:3px;box-shadow:0 4px 10px rgba(0,0,0,0.3)}
-        .brand .logo-text{color:white;font-size:26px;font-weight:800;letter-spacing:1px}
-        .brand p{color:#e67e22;font-size:11px;font-weight:700;letter-spacing:2px}
-        .header-contact{display:flex;gap:12px}
-        .header-btn{background:rgba(230,126,34,0.15);color:white;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(230,126,34,0.3);white-space:nowrap;transition:all 0.3s}
-        .header-btn:hover{background:#e67e22;color:white;border-color:#e67e22;transform:translateY(-2px);box-shadow:0 5px 15px rgba(230,126,34,0.4)}
-        
-        /* HERO SECTION */
-        .hero{margin:30px 20px;padding:80px 40px;background:linear-gradient(135deg,#e67e22 0%,#d35400 100%);border-radius:40px;color:white;text-align:center;box-shadow:0 25px 60px rgba(230,126,34,0.25);position:relative;overflow:hidden}
-        .hero h1{font-size:44px;font-weight:900;margin-bottom:18px;text-shadow:0 4px 15px rgba(0,0,0,0.3);line-height:1.2;letter-spacing:-0.5px}
-        .hero .slogan{font-size:24px;font-style:italic;margin-bottom:35px;color:#fef08a}
-        .hero-buttons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-        .btn-primary,.btn-outline{padding:16px 38px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s;cursor:pointer}
-        .btn-primary{background:white;color:#d35400;border:2px solid white;box-shadow:0 10px 25px rgba(0,0,0,0.15)}
-        .btn-primary:hover{background:#0f172a;color:white;border-color:#0f172a;transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,0.4)}
-        .btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.7)}
-        .btn-outline:hover{background:white;color:#d35400;transform:translateY(-3px)}
-        
-        .live-badge{background:#25D366;color:white;padding:10px 22px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;margin-bottom:25px;animation:pulse 2s infinite}
-        @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.5)}50%{box-shadow:0 0 0 15px rgba(37,211,102,0)}}
-        
-        /* INTRO TEXT */
-        .intro-text{background:rgba(30,41,59,0.7);backdrop-filter:blur(10px);border-radius:24px;padding:40px;margin:30px 20px;box-shadow:0 20px 40px rgba(0,0,0,0.3);border:1px solid rgba(230,126,34,0.2);text-align:center}
-        .intro-text h2{color:#f39c12;font-size:26px;margin-bottom:20px;font-weight:800}
-        .intro-text p{color:#cbd5e1;font-size:16px;line-height:1.8;margin-bottom:15px}
-        .intro-text .highlight{color:#e67e22;font-weight:700;border-bottom:1px dashed #e67e22}
-        
-        /* GOOGLE BADGE */
-        .google-badge{display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border-radius:20px;padding:15px 25px;margin:25px auto;max-width:400px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.2);border:1px solid rgba(66,133,244,0.3);transition:all 0.3s}
-        .google-badge:hover{transform:scale(1.03);border-color:#e67e22;box-shadow:0 15px 30px rgba(230,126,34,0.2)}
-        .google-badge .fa-google{font-size:26px;background:linear-gradient(45deg,#4285F4,#34A853,#FBBC05,#EA4335);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .google-badge .badge-text{text-align:left;line-height:1.4}
-        .google-badge .badge-text strong{color:#f39c12;font-size:18px}
-        .google-badge .badge-text span{color:#94a3b8;font-size:13px}
-        
-        /* WHY US */
-        .why-us{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:30px 20px}
-        .why-item{background:rgba(30,41,59,0.5);backdrop-filter:blur(10px);border-radius:20px;padding:25px 30px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.15);border:1px solid rgba(255,255,255,0.05);flex:1;min-width:240px;transition:all 0.3s}
-        .why-item:hover{transform:translateY(-5px);border-color:#e67e22;box-shadow:0 15px 30px rgba(230,126,34,0.2)}
-        .why-item i{font-size:36px;color:#e67e22;margin-bottom:15px}
-        .why-item h4{font-size:18px;color:#f39c12;font-weight:700;margin-bottom:8px}
-        .why-item p{font-size:14px;color:#94a3b8}
-        
-        /* SECTIONS GENERAL */
-        .container{padding:20px}
-        .section-title{text-align:center;font-size:36px;font-weight:800;color:#f39c12;margin:60px 0 35px;position:relative;padding-bottom:15px}
-        .section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:4px;background:linear-gradient(90deg,transparent,#e67e22,transparent);border-radius:2px}
-        
-        /* GRID & CARDS */
-        .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
-        .card{background:rgba(30,41,59,0.6);backdrop-filter:blur(10px);border-radius:24px;padding:35px 25px;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;display:flex;flex-direction:column;justify-content:between}
-        .card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(230,126,34,0.25);border-color:#e67e22}
-        .card-img{width:90px;height:90px;border-radius:22px;margin:0 auto 20px;object-fit:cover;background:rgba(230,126,34,0.1);padding:8px;transition:all 0.3s}
-        .card:hover .card-img{background:#e67e22;padding:4px}
-        .card-icon{font-size:44px;color:#e67e22;margin-bottom:20px;background:rgba(230,126,34,0.1);width:90px;height:90px;line-height:90px;border-radius:22px;margin-left:auto;margin-right:auto;transition:all 0.3s}
-        .card:hover .card-icon{background:#e67e22;color:white;transform:scale(1.05) rotate(5deg)}
-        .card h3{font-size:22px;font-weight:700;color:#f39c12;margin-bottom:12px}
-        .card p{color:#94a3b8;font-size:14px;margin-bottom:25px;line-height:1.6;flex-grow:1}
-        .card-btn{background:rgba(230,126,34,0.12);color:#e67e22;padding:12px 25px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.25);justify-content:center}
-        .card-btn:hover{background:#e67e22;color:white;box-shadow:0 5px 15px rgba(230,126,34,0.3)}
-        
-        /* CANLI YORUMLAR */
-        .yorum-kutusu{background:rgba(30,41,59,0.4);border:1px solid rgba(255,255,255,0.05);border-radius:22px;padding:30px;text-align:left;box-shadow:0 15px 30px rgba(0,0,0,0.15);transition:all 0.3s;display:flex;flex-direction:column;justify-content:space-between}
-        .yorum-kutusu:hover{border-color:#e67e22;transform:translateY(-3px);background:rgba(30,41,59,0.7)}
-        .yorum-kutusu .yildizlar{color:#fbbf24;margin-bottom:15px;font-size:16px;letter-spacing:2px}
-        .yorum-kutusu p{color:#cbd5e1;font-size:14.5px;font-style:italic;line-height:1.7}
-        .yorum-kutusu strong{color:#e67e22;display:block;margin-top:20px;font-size:14px;font-weight:700;letter-spacing:0.5px}
+        /* SIFIRDAN YARATILAN SİBER-MİNİMALİST TASARIM SİSTEMİ */
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: rgba(20, 27, 45, 0.7);
+            --neon-gold: #f59e0b;
+            --neon-orange: #f97316;
+            --text-glow: 0 0 12px rgba(249, 115, 22, 0.4);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
 
-        /* SLIDER PROJELER */
-        .slider-container{width:100%;overflow:hidden;position:relative;margin:30px 0;border-radius:24px;padding:10px 0}
-        .slider-track{display:flex;width:max-content;animation:kaydir 35s linear infinite}
-        .slider-track:hover{animation-play-state:paused}
-        .slide{flex-shrink:0;width:300px;margin-right:25px;border-radius:20px;overflow:hidden;box-shadow:0 15px 30px rgba(0,0,0,0.3);background:rgba(30,41,59,0.6);border:1px solid rgba(255,255,255,0.05);transition:all 0.3s}
-        .slide:hover{transform:translateY(-5px);border-color:#e67e22}
-        .slide img{width:100%;height:220px;object-fit:cover}
-        .slide span{display:block;padding:15px;text-align:center;font-weight:700;font-size:15px;color:#f39c12}
-        @keyframes kaydir{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        
-        /* SMART CONTACT FORM */
-        .contact-form{background:rgba(30,41,59,0.8);backdrop-filter:blur(15px);border-radius:30px;padding:45px 35px;margin:50px auto;max-width:550px;box-shadow:0 25px 50px rgba(0,0,0,0.4);border:1px solid rgba(230,126,34,0.35);text-align:center}
-        .contact-form h3{color:#f39c12;font-size:26px;font-weight:800;margin-bottom:8px}
-        .contact-form p{color:#94a3b8;font-size:15px;margin-bottom:25px}
-        .contact-form input,.contact-form textarea{width:100%;padding:14px 18px;margin:12px 0;background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:14px;font-size:15px;color:white;transition:all 0.3s}
-        .contact-form input:focus,.contact-form textarea:focus{border-color:#e67e22;outline:none;box-shadow:0 0 10px rgba(230,126,34,0.2)}
-        .contact-form input::placeholder,.contact-form textarea::placeholder{color:#64748b}
-        .contact-form button{background:#e67e22;color:white;border:none;padding:16px;border-radius:50px;font-weight:700;font-size:16px;cursor:pointer;margin-top:15px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.3s}
-        .contact-form button:hover{background:#d35400;box-shadow:0 10px 20px rgba(230,126,34,0.4);transform:translateY(-2px)}
-        
-        /* CONTACT CARDS */
-        .contact-card{background:rgba(30,41,59,0.4);backdrop-filter:blur(10px);border-radius:24px;padding:30px 20px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.15);border:1px solid rgba(255,255,255,0.05);text-decoration:none;display:block;transition:all 0.3s}
-        .contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.2);border-color:#e67e22}
-        .contact-icon{font-size:44px;margin-bottom:15px;transition:all 0.3s}
-        .contact-card:hover .contact-icon{transform:scale(1.1)}
-        .contact-card h4{font-size:18px;color:#f39c12;margin-bottom:6px;font-weight:700}
-        .contact-card p{color:#e67e22;font-weight:600;font-size:14px;margin-bottom:15px}
-        .contact-btn{background:rgba(230,126,34,0.12);color:#e67e22;padding:10px 20px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;transition:all 0.3s;border:1px solid rgba(230,126,34,0.2)}
-        .contact-card:hover .contact-btn{background:#e67e22;color:white}
-        
-        .fa-phone,.fa-whatsapp{color:#25D366}
-        .fa-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fa-envelope{color:#EA4335}
-        
-        /* HOURS & FAQ */
-        .hours{background:rgba(30,41,59,0.5);backdrop-filter:blur(10px);border-radius:24px;padding:25px;margin-top:35px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;box-shadow:0 10px 25px rgba(0,0,0,0.15);border:1px solid rgba(255,255,255,0.05)}
-        .hours-item{display:flex;align-items:center;gap:12px;font-size:16px;color:#cbd5e1}
-        .hours-item i{color:#e67e22;font-size:24px}
-        
-        .faq-item{background:rgba(30,41,59,0.4);backdrop-filter:blur(10px);padding:22px 30px;border-radius:18px;box-shadow:0 5px 15px rgba(0,0,0,0.1);border-left:5px solid #e67e22;margin-bottom:16px;cursor:pointer;transition:all 0.3s}
-        .faq-item:hover{background:rgba(230,126,34,0.08);transform:translateX(4px)}
-        .faq-item h4{font-size:18px;color:#f39c12;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-        .faq-item h4 i{transition:all 0.3s;font-size:14px;color:#e67e22}
-        .faq-item p{color:#94a3b8;font-size:15px;display:none;padding-top:12px;line-height:1.6}
-        .faq-item.active p{display:block}
-        .faq-item.active h4 i{transform:rotate(180deg)}
-        
-        /* ABOUT CARD */
-        .about-card{background:rgba(30,41,59,0.5);backdrop-filter:blur(10px);border-radius:35px;padding:50px 40px;box-shadow:0 25px 50px rgba(0,0,0,0.3);border:1px solid rgba(230,126,34,0.2)}
-        .about-card p{font-size:17px;line-height:1.8;margin-bottom:25px;color:#cbd5e1}
-        .about-card strong{color:#f39c12}
-        .stats{display:flex;justify-content:space-around;margin:35px 0;flex-wrap:wrap;gap:25px}
-        .stat-num{font-size:46px;font-weight:900;color:#e67e22;cursor:default}
-        .stat-label{font-size:13px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-top:5px}
-        .about-btn{background:#e67e22;color:white;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-block;transition:all 0.3s;border:2px solid #e67e22}
-        .about-btn:hover{background:transparent;color:#f39c12;border-color:#f39c12;transform:translateY(-2px)}
-        
-        /* FOOTER */
-        footer{background:#090d16;color:#94a3b8;padding:45px 30px;margin-top:60px;text-align:center;border-top:3px solid #e67e22}
-        footer h2{color:white;font-size:26px;margin-bottom:6px;font-weight:800;letter-spacing:1px}
-        footer p{color:#e67e22;font-size:14px;margin-bottom:25px;letter-spacing:2px;font-weight:600}
-        .footer-areas{color:#64748b;font-size:13px;margin:20px 0;line-height:1.8}
-        .footer-areas span{color:#e67e22;font-weight:700}
-        .footer-links{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:20px 0}
-        .footer-links a{color:#cbd5e1;text-decoration:none;font-size:14.5px;display:flex;align-items:center;gap:8px;transition:0.3s}
-        .footer-links a i{color:#e67e22}
-        .footer-links a:hover{color:#e67e22}
-        .copyright{margin-top:30px;opacity:0.4;font-size:12px;border-top:1px solid rgba(255,255,255,0.05);padding-top:20px}
-        
-        /* MOBILE CALL FIX BAR */
-        .mobile-call{display:none;position:fixed;bottom:0;left:0;width:100%;background:#e67e22;color:white;text-align:center;padding:15px;z-index:999;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 -5px 25px rgba(0,0,0,0.4);border-radius:15px 15px 0 0}
-        .mobile-call i{margin-right:8px}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-main); color: #f1f5f9; overflow-x: hidden; line-height: 1.6; }
 
-        /* RESPONSIVE */
-        @media(max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:650px){
-            .grid4{grid-template-columns:1fr}
-            .mobile-call{display:block}
-            header{justify-content:center;padding:12px 20px}
-            .brand .logo-text{font-size:22px}
-            .header-btn{padding:10px 16px;font-size:13px}
-            .hero{margin:15px 10px;padding:50px 20px;border-radius:25px}
-            .hero h1{font-size:28px}
-            .hero .slogan{font-size:18px}
-            .hero-buttons{flex-direction:column;gap:12px}
-            .btn-primary,.btn-outline{width:100%;justify-content:center;padding:14px 20px;font-size:15px}
-            .intro-text{padding:25px 20px;margin:20px 10px;border-radius:20px}
-            .why-us{margin:20px 10px;gap:15px}
-            .section-title{font-size:26px}
-            .slide{width:260px}
-            .slide img{height:180px}
-            .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-            .stat-num{font-size:32px}
-            .contact-form{padding:30px 20px;margin:30px 10px}
-            footer{padding:35px 20px 80px}
+        /* Arka Plan Efektleri */
+        .bg-glow {
+            position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%);
+            top: -100px; right: -100px; pointer-events: none; z-index: 0;
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+
+        /* PREMIUM NAV BAR */
+        nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px 0; position: sticky; top: 0; z-index: 1000; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-img { width: 45px; height: 45px; border-radius: 10px; box-shadow: var(--text-glow); border: 1px solid var(--neon-orange); }
+        .logo-title { font-size: 24px; font-weight: 900; letter-spacing: 2px; background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-btn { background: transparent; border: 1px solid var(--neon-orange); color: white; padding: 10px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: var(--text-glow); }
+        .nav-btn:hover { background: var(--gradient-accent); border-color: transparent; transform: translateY(-2px); }
+
+        /* ULTRA HERO SECTION */
+        .hero-section { padding: 120px 0 80px; text-align: center; position: relative; }
+        .luxury-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); padding: 8px 18px; border-radius: 50px; color: var(--neon-gold); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .hero-section h1 { font-size: 62px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 25px; }
+        .hero-section h1 span { background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero-p { font-size: 20px; color: #94a3b8; max-width: 700px; margin: 0 auto 40px; }
+        .hero-cta-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn-luxury { background: var(--gradient-accent); color: white; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3); transition: all 0.3s; }
+        .btn-luxury:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(249, 115, 22, 0.5); }
+
+        /* GOOGLE TRUST BADGE */
+        .google-trust { display: flex; align-items: center; justify-content: center; gap: 15px; max-width: 450px; margin: 50px auto 0; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); padding: 16px; border-radius: 16px; text-decoration: none; color: white; transition: 0.3s; }
+        .google-trust:hover { border-color: var(--neon-gold); transform: scale(1.02); }
+        .google-trust i { font-size: 30px; color: #4285F4; }
+        .google-info h5 { font-size: 16px; color: var(--neon-gold); font-weight: 800; }
+        .google-info p { font-size: 13px; color: #94a3b8; }
+
+        /* INTERAKTIF ÖNCE / SONRA SİMÜLATÖRÜ */
+        .section-header { text-align: center; margin: 100px 0 50px; }
+        .section-header h2 { font-size: 38px; font-weight: 800; margin-bottom: 10px; }
+        .section-header h2 span { color: var(--neon-orange); }
+        .section-header p { color: #64748b; font-size: 16px; }
+
+        .comparison-slider { position: relative; width: 100%; height: 450px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); }
+        .comparison-slider .image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .comparison-slider .background-img { background-image: url('tadilat.jpeg'); } /* SONRA (Yenilenmiş Hali) */
+        .comparison-slider .foreground-img { background-image: url('boya.jpeg'); width: 50%; } /* ÖNCE (Eski Hali) */
+        .comparison-slider .slider-bar { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: white; cursor: ew-resize; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .comparison-slider .slider-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-main); font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); pointer-events: none; }
+        .label-before, .label-after { position: absolute; bottom: 20px; padding: 6px 14px; background: rgba(0,0,0,0.7); font-size: 12px; font-weight: 700; letter-spacing: 1px; border-radius: 6px; text-transform: uppercase; }
+        .label-before { left: 20px; color: #ef4444; }
+        .label-after { right: 20px; color: #22c55e; }
+
+        /* YENİ NESİL MİMARİ HİZMET KARTLARI */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .premium-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.03); border-radius: 24px; padding: 40px 30px; position: relative; overflow: hidden; transition: all 0.4s; }
+        .premium-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, transparent 60%, rgba(249,115,22,0.05) 100%); opacity: 0; transition: 0.4s; }
+        .premium-card:hover { transform: translateY(-10px); border-color: rgba(249,115,22,0.3); box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1); }
+        .premium-card:hover::before { opacity: 1; }
+        .card-num { font-size: 60px; font-weight: 900; color: rgba(255,255,255,0.02); position: absolute; top: 10px; right: 20px; user-select: none; transition: 0.3s; }
+        .premium-card:hover .card-num { color: rgba(249,115,22,0.08); }
+        .card-icon-box { width: 65px; height: 65px; background: rgba(255,255,255,0.03); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .premium-card:hover .card-icon-box { background: var(--gradient-accent); color: white; border-color: transparent; box-shadow: var(--text-glow); }
+        .premium-card:hover .card-icon-box i { color: white; }
+        .card-icon-box i { font-size: 26px; color: var(--neon-gold); transition: 0.3s; }
+        .premium-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+        .premium-card p { color: #94a3b8; font-size: 15px; line-height: 1.7; }
+
+        /* İNTERAKTİF FİYAT SİHİRBAZI */
+        .wizard-box { background: var(--bg-card); border: 2px solid rgba(245, 158, 11, 0.15); border-radius: 32px; padding: 45px; max-width: 700px; margin: 40px auto; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+        .wizard-step { margin-bottom: 30px; text-align: left; }
+        .wizard-step label { font-size: 14px; font-weight: 700; text-transform: uppercase; color: var(--neon-gold); letter-spacing: 1px; display: block; margin-bottom: 15px; }
+        .option-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .option-btn { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 14px; color: #cbd5e1; cursor: pointer; font-weight: 600; text-align: center; transition: 0.3s; }
+        .option-btn.selected { background: rgba(249, 115, 22, 0.15); border-color: var(--neon-orange); color: white; box-shadow: var(--text-glow); }
+        .range-slider { width: 100%; -webkit-appearance: none; height: 6px; background: #1e293b; border-radius: 5px; outline: none; margin: 15px 0; }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; background: var(--neon-orange); border-radius: 50%; cursor: pointer; box-shadow: var(--text-glow); }
+        .price-display { margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .price-amount { text-align: left; }
+        .price-amount span { font-size: 13px; color: #64748b; display: block; }
+        .price-amount strong { font-size: 32px; color: #22c55e; font-weight: 900; }
+
+        /* PRESTİJLİ MÜŞTERİ REFERANSLARI */
+        .reviews-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+        .review-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 35px; border-radius: 20px; position: relative; }
+        .review-card::after { content: "“"; font-size: 100px; color: rgba(249,115,22,0.04); position: absolute; top: -20px; left: 20px; font-family: serif; }
+        .stars { color: #fbbf24; font-size: 14px; margin-bottom: 15px; }
+        .review-card p { font-style: italic; color: #cbd5e1; font-size: 15px; margin-bottom: 20px; }
+        .user-info { display: flex; align-items: center; gap: 12px; }
+        .user-avatar { width: 40px; height: 40px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--neon-gold); border: 1px solid rgba(245,158,11,0.3); }
+
+        /* ULTRA PRESTİJ FOOTER */
+        footer { background: #060911; padding: 80px 0 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 120px; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left; margin-bottom: 60px; }
+        .footer-col h4 { font-size: 16px; color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-col p, .footer-col a { color: #64748b; text-decoration: none; font-size: 14px; margin-bottom: 12px; display: block; transition: 0.3s; }
+        .footer-col a:hover { color: var(--neon-orange); }
+        .footer-col a i { margin-right: 8px; color: var(--neon-gold); }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.03); padding-top: 30px; font-size: 13px; color: #475569; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+
+        /* MOBİL AKSİYON PANELİ */
+        .action-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #0b0f19; border-top: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1fr; z-index: 9999; }
+        .action-item { text-align: center; padding: 16px; color: white; text-decoration: none; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .action-call { background: var(--gradient-accent); }
+        .action-wp { background: #25D366; }
+
+        /* RESPONSIVE AYARLARI */
+        @media(max-width: 768px) {
+            .hero-section h1 { font-size: 38px; }
+            .hero-p { font-size: 16px; }
+            .comparison-slider { height: 300px; }
+            .wizard-box { padding: 25px 15px; }
+            .option-group { grid-template-columns: 1fr; }
+            .nav-btn { display: none; }
+            .action-bar { display: grid; }
+            footer { padding-bottom: 100px; }
+            .copyright { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-<header>
-    <div class="logo-area">
-        <img src="abc.jpeg" alt="Güneş Yapı Logo" class="logo" onerror="this.style.display='none'">
-        <div class="brand"><div class="logo-text">GÜNEŞ YAPI</div><p>BOYA • TADİLAT • DEKORASYON</p></div>
-    </div>
-    <div class="header-contact">
-        <a href="tel:05359859535" class="header-btn"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-        <a href="https://wa.me/905359859535" target="_blank" class="header-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-</header>
+<div class="bg-glow"></div>
 
-<div class="hero">
-    <div class="live-badge"><i class="fas fa-circle" style="font-size:8px;"></i> Ekiplerimiz Sahada, Hizmete Hazır</div>
-    <h1>Darıca, Gebze, Çayırova Komple Tadilat & Boya Badana Ustası</h1>
-    <div class="slogan">"Yaşam alanlarınızı 10 yıllık usta tecrübesiyle yeniliyoruz."</div>
-    <div class="hero-buttons">
-        <a href="tel:05359859535" class="btn-primary"><i class="fas fa-phone-alt"></i> Ücretsiz Keşif İste</a>
-        <a href="#yorumlar" class="btn-outline"><i class="fas fa-star"></i> Müşteri Referansları</a>
+<nav>
+    <div class="container nav-flex">
+        <div class="logo-box">
+            <img src="abc.jpeg" alt="Güneş Yapı" class="logo-img" onerror="this.style.display='none'">
+            <div class="logo-title">GÜNEŞ YAPI</div>
+        </div>
+        <a href="tel:05359859535" class="nav-btn"><i class="fas fa-phone-alt"></i> Teklif Hattı</a>
     </div>
-</div>
-
-<div class="intro-text">
-    <h2>Güneş Yapı | Ev ve İş Yeri Anahtar Teslim Dekorasyon</h2>
-    <p>Evinizi baştan aşağı yenilemek veya sadece taze bir boya dokunuşu yapmak mı istiyorsunuz? <span class="highlight">Güneş Yapı</span> olarak <span class="highlight">Darıca, Gebze, Çayırova</span> ve civarında uzman kadromuzla <span class="highlight">komple tadilat, alçıpan, asma tavan, fayans ve boya badana</span> işlerinizi sıfır hata ile teslim ediyoruz.</p>
-    <p>Malzeme kalitesinden ödün vermeden, her aşamada <span class="highlight">2 yıl işçilik garantisi</span> veriyoruz. Detaylı bilgi ve fiyat teklifi için bizi hemen arayabilirsiniz.</p>
-</div>
-
-<a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="google-badge">
-    <i class="fab fa-google"></i>
-    <div class="badge-text">
-        <strong>Google İşletme Puanı: 5.0 ⭐</strong><br>
-        <span>60+ Gerçek Müşteri Yorumunu İnceleyin →</span>
-    </div>
-</a>
-
-<div class="why-us">
-    <div class="why-item"><i class="fas fa-map-marked-alt"></i><h4>Hızlı Ücretsiz Keşif</h4><p>Bölgenizdeki adresinize gelip yerinde ölçü ve bütçe planlaması yapıyoruz.</p></div>
-    <div class="why-item"><i class="fas fa-user-shield"></i><h4>2 Yıl Resmi Garanti</h4><p>Yaptığımız tüm anahtar teslim tadilatlar 2 yıl işçilik garantilidir.</p></div>
-    <div class="why-item"><i class="fas fa-business-time"></i><h4>Zamanında Teslim</h4><p>Sözleşmede belirttiğimiz gün ve saatte anahtarınızı teslim ediyoruz.</p></div>
-</div>
+</nav>
 
 <div class="container">
-    <div class="section-title">Hizmet Alanlarımız</div>
-    <div class="grid4">
-        <div class="card">
-            <img src="boya.jpeg" loading="lazy" alt="Boya Badana Ustası" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
-            <div class="card-icon" style="display:none;"><i class="fas fa-paint-roller"></i></div>
-            <h3>Boya & Badana</h3>
-            <p>Ev ve iş yerleri için lüks iç cephe, dış cephe koruma ve dekoratif İtalyan boya uygulamaları.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone-alt"></i> Fiyat Al</a>
+    <section class="hero-section">
+        <div class="luxury-badge"><i class="fas fa-gem"></i> Premium İç Mimari & Tadilat Stüdyosu</div>
+        <h1>Sıradan Alanları <span>Lüks Yaşam Alanlarına</span> Dönüştürüyoruz</h1>
+        <p class="hero-p">Darıca, Gebze ve Çayırova'da mimari vizyonu 10 yıllık kusursuz el işçiliği ile birleştiriyoruz. Evinizdeki değişimi hemen başlatın.</p>
+        <div class="hero-cta-group">
+            <a href="#sihirbaz" class="btn-luxury"><i class="fas fa-sliders-h"></i> Fiyatını Kendin Hesapla</a>
+            <a href="tel:05359859535" class="nav-btn" style="padding:16px 36px; display:inline-flex; align-items:center; gap:10px;"><i class="fas fa-phone-alt"></i> Ücretsiz Keşif Hattı</a>
         </div>
-        <div class="card">
-            <img src="alcipan.jpeg" loading="lazy" alt="Alçıpan Asma Tavan Ustası" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
-            <div class="card-icon" style="display:none;"><i class="fas fa-border-all"></i></div>
-            <h3>Alçı & Alçıpan</h3>
-            <p>Modern gizli ışıklı asma tavanlar, bölme duvarlar, niş tasarımları ve ses-ısı yalıtımı.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone-alt"></i> Fiyat Al</a>
-        </div>
-        <div class="card">
-            <img src="ChatGPT Image 25 May 2026 09_50_13.png" loading="lazy" alt="Fayans Seramik Döşeme" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
-            <div class="card-icon" style="display:none;"><i class="fas fa-th"></i></div>
-            <h3>Fayans & Seramik</h3>
-            <p>Banyo ve mutfak zemin-duvar kaplamaları, granit işçiliği ve %100 sızdırmaz su yalıtımı.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone-alt"></i> Fiyat Al</a>
-        </div>
-        <div class="card">
-            <img src="tadilat.jpeg" loading="lazy" alt="Anahtar Teslim Komple Tadilat" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
-            <div class="card-icon" style="display:none;"><i class="fas fa-tools"></i></div>
-            <h3>Komple Tadilat</h3>
-            <p>Eski dairenizi tamamen yıkıp sıfırdan mutfak, banyo, elektrik ve sıhhi tesisat dahil yeniliyoruz.</p>
-            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone-alt"></i> Fiyat Al</a>
-        </div>
-    </div>
+        
+        <a href="https://g.page/r/CTrDuH9tvHM5EBM/review" target="_blank" class="google-trust">
+            <i class="fab fa-google"></i>
+            <div class="google-info">
+                <h5>Google Haritalar Puanı: 5.0 / 5.0 ⭐</h5>
+                <p>60'tan fazla lüks projede %100 müşteri memnuniyeti sağladık.</p>
+            </div>
+        </a>
+    </section>
 
-    <div id="yorumlar" class="section-title">Müşterilerimiz Ne Diyor?</div>
-    <div class="grid4" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        <div class="yorum-kutusu">
-            <div class="yildizlar">⭐⭐⭐⭐⭐</div>
-            <p>"Darıca'daki dairemizin komple banyo fayans ve ev boyama işleri için Güneş Yapı ile çalıştık. Mehmet Usta inanılmaz temiz çalıştı, eşyalarımıza tek bir damla boya bulaşmadı. Emeğine sağlık."</p>
-            <strong>Ahmet Y. — Darıca</strong>
+    <section>
+        <div class="section-header">
+            <h2>Değişimi <span>Gözlerinle Gör</span></h2>
+            <p>Eski ve yıpranmış mekanları nasıl sanat eserine çevirdiğimizi görmek için ortadaki çubuğu kaydırın.</p>
         </div>
-        <div class="yorum-kutusu">
-            <div class="yildizlar">⭐⭐⭐⭐⭐</div>
-            <p>"Gebze'deki dükkanımızın asma tavan, alçıpan ve iç dekorasyon işlerini tam zamanında, konuştuğumuz bütçeyle teslim ettiler. Güvenilir ve profesyonel usta arayanlara tavsiyemdir."</p>
-            <strong>Murat K. — Gebze</strong>
+        
+        <div class="comparison-slider" id="sliderContainer">
+            <div class="image background-img"></div>
+            <div class="image foreground-img" id="foreImg"></div>
+            <div class="slider-bar" id="sliderBar"></div>
+            <div class="slider-button"><i class="fas fa-arrows-alt-h"></i></div>
+            <div class="label-before">Önce (Eski Hali)</div>
+            <div class="label-after">Sonra (Güneş Yapı İmzası)</div>
         </div>
-        <div class="yorum-kutusu">
-            <div class="yildizlar">⭐⭐⭐⭐⭐</div>
-            <p>"Çayırova'da anahtar teslim ev tadilatı yaptırdık. 2 yıl işçilik garantisi vermeleri bize büyük güven verdi. İşin arkasında duran, dürüst bir esnaf. Teşekkürler Güneş Yapı."</p>
-            <strong>Sevgi M. — Çayırova</strong>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h2>Hizmet <span>Matrisimiz</span></h2>
+            <p>En kaliteli İtalyan sıvalardan, milimetrik seramik işçiliklerine kadar üst segment çözümler.</p>
         </div>
-    </div>
-
-    <div class="section-title">Son Tamamlanan Projelerimiz</div>
-    <div class="slider-container">
-        <div class="slider-track">
-            <div class="slide"><img src="ABC99.jpeg" loading="lazy" alt="Asma Tavan Projesi" onerror="this.src='abc.jpeg'"><span>Lüks Asma Tavan Uygulaması</span></div>
-            <div class="slide"><img src="ABC88.jpeg" loading="lazy" alt="Ev Boyama İşleri" onerror="this.src='abc.jpeg'"><span>Daire İç Cephe Boyama</span></div>
-            <div class="slide"><img src="ABC77.jpeg" loading="lazy" alt="Banyo Yenileme" onerror="this.src='abc.jpeg'"><span>Modern Banyo Fayans Döşeme</span></div>
-            <div class="slide"><img src="ABC66.jpeg" loading="lazy" alt="Mutfak Dekorasyon" onerror="this.src='abc.jpeg'"><span>Anahtar Teslim Mutfak Tadilatı</span></div>
-            <div class="slide"><img src="ABC99.jpeg" loading="lazy" alt="Asma Tavan Projesi" onerror="this.src='abc.jpeg'"><span>Lüks Asma Tavan Uygulaması</span></div>
-            <div class="slide"><img src="ABC88.jpeg" loading="lazy" alt="Ev Boyama İşleri" onerror="this.src='abc.jpeg'"><span>Daire İç Cephe Boyama</span></div>
-            <div class="slide"><img src="ABC77.jpeg" loading="lazy" alt="Banyo Yenileme" onerror="this.src='abc.jpeg'"><span>Modern Banyo Fayans Döşeme</span></div>
-            <div class="slide"><img src="ABC66.jpeg" loading="lazy" alt="Mutfak Dekorasyon" onerror="this.src='abc.jpeg'"><span>Anahtar Teslim Mutfak Tadilatı</span></div>
+        <div class="services-grid">
+            <div class="premium-card">
+                <div class="card-num">01</div>
+                <div class="card-icon-box"><i class="fas fa-paint-roller"></i></div>
+                <h3>Artizan Boya & Efekt</h3>
+                <p>Lüks iç mekanlar için leke tutmayan mat korumalı boyalar, İtalyan dekoratif sıva ve özel renk kombinasyonları.</p>
+            </div>
+            <div class="premium-card">
+                <div class="card-num">02</div>
+                <div class="card-icon-box"><i class="fas fa-border-none"></i></div>
+                <h3>Sıra Dışı Alçıpan Mühendisliği</h3>
+                <p>Gizli LED kanallı asma tavanlar, akustik bölme duvarlar ve evinizin havasını değiştirecek özel tasarım TV nişleri.</p>
+            </div>
+            <div class="premium-card">
+                <div class="card-num">03</div>
+                <div class="card-icon-box"><i class="fas fa-gem"></i></div>
+                <h3>Makro Seramik & Granit</h3>
+                <p>Banyo ve mutfaklarda sıfır derz hatası ile büyük ebatlı granit döşeme ve sızdırmazlık garantili izolasyon.</p>
+            </div>
+            <div class="premium-card">
+                <div class="card-num">04</div>
+                <div class="card-icon-box"><i class="fas fa-couch"></i></div>
+                <h3>Anahtar Teslim Dönüşüm</h3>
+                <p>Eski dairenizi tamamen kırıp; elektrik, su tesisatı, mutfak dolapları dahil baştan aşağı lüks otel konseptine taşıyoruz.</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="contact-form" id="teklifFormu">
-        <h3>Hızlı Fiyat Teklifi Al</h3>
-        <p>Formu doldurun, talebiniz anında cebime WhatsApp mesajı olarak gelsin!</p>
-        <form id="wpYonlendirForm">
-            <input type="text" id="isim" placeholder="Adınız Soyadınız" required>
-            <input type="tel" id="telefon" placeholder="Telefon Numaranız" required>
-            <textarea id="mesaj" rows="3" placeholder="Yapılacak işi kısaca yazın (Örn: Darıca'da 3+1 ev boyanacak, banyo fayansı değişecek)" required></textarea>
-            <button type="submit"><i class="fab fa-whatsapp"></i> Bilgileri WhatsApp ile Ustaya Gönder</button>
-        </form>
-    </div>
-
-    <div class="section-title">Doğrudan İletişim Kanalları</div>
-    <div class="grid4">
-        <a href="tel:05359859535" class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h4>Telefon Hattı</h4><p>0535 985 95 35</p><span class="contact-btn">Hemen Ara</span></a>
-        <a href="https://wa.me/905359859535" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h4>WhatsApp Canlı</h4><p>0535 985 95 35</p><span class="contact-btn">Mesaj At</span></a>
-        <a href="https://instagram.com/mehmetgunes954" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-instagram"></i></div><h4>Instagram</h4><p>@mehmetgunes954</p><span class="contact-btn">Çalışmaları Gör</span></a>
-        <a href="mailto:mehmetgnes456@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>E-Posta</h4><p>mehmetgnes456@gmail.com</p><span class="contact-btn">Mail Gönder</span></a>
-    </div>
-
-    <div class="hours">
-        <div class="hours-item"><i class="far fa-clock"></i> <strong>Hafta İçi & Cumartesi:</strong> 08:00 - 18:00</div>
-        <div class="hours-item"><i class="far fa-calendar-check"></i> <strong>Pazar:</strong> 09:00 - 16:00 (Keşif ve Planlama)</div>
-    </div>
-
-    <div class="section-title">Sıkça Sorulan Sorular</div>
-    <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Keşif işlemleri ücretli mi? <i class="fas fa-chevron-down"></i></h4><p>Hayır, Darıca, Gebze ve Çayırova genelinde adresinize gelip yaptığımız keşif ve bütçe çıkartma işlemleri tamamen ücretsizdir.</p></div>
-    <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Tadilat sonrası temizlik yapıyor musunuz? <i class="fas fa-chevron-down"></i></h4><p>Evet, boya, alçıpan veya fayans işlerimiz bittikten sonra kaba inşaat pisliğini temizliyor, alanı size süpürülmüş ve düzenli bir şekilde teslim ediyoruz.</p></div>
-    <div class="faq-item" onclick="this.classList.toggle('active')"><h4>Malzemeleri siz mi alıyorsunuz yoksa biz mi almalıyız? <i class="fas fa-chevron-down"></i></h4><p>Her iki seçenek de mümkündür. İsterseniz en kaliteli markaların (Jotun, Filli Boya vb.) malzemelerini biz toptan fiyatına temin edebiliriz, isterseniz malzemeyi siz alırsınız biz sadece profesyonel işçiliğimizi sunarız.</p></div>
-    <div class="faq-item" onclick="this.classList.toggle('active')"><h4>İşçilik garantisi neleri kapsıyor? <i class="fas fa-chevron-down"></i></h4><p>Yaptığımız tüm uygulamalar 2 yıl boyunca firmamızın garantisi altındadır. Olası bir kabarma, çatlama veya usta hatasından kaynaklı problemde ücretsiz tamir desteği sağlıyoruz.</p></div>
-
-    <div class="section-title">Hakkımızda & Kurumsal</div>
-    <div class="about-card">
-        <p><strong>Güneş Yapı</strong>, Kocaeli ve İstanbul sınırlarında yer alan tüm yapıların modernizasyonu ve tadilatı için kurulmuş profesyonel bir usta kuruluşudur. Sektörde geçirdiğimiz 10 yılı aşkın sürede yüzlerce daire, ofis ve ticari işletmenin anahtar teslim tadilat mimarisini başarıyla tamamladık.</p>
-        <div class="stats">
-            <div class="stat-item"><div class="stat-num">300+</div><div class="stat-label">Biten Proje</div></div>
-            <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Yıl Tecrübe</div></div>
-            <div class="stat-item"><div class="stat-num">%100</div><div class="stat-label">Müşteri Memnuniyeti</div></div>
-            <div class="stat-item"><div class="stat-num">2 Yıl</div><div class="stat-label">Resmi Garanti</div></div>
+    <section id="sihirbaz">
+        <div class="section-header">
+            <h2>Akıllı Proje <span>Bütçe Sihirbazı</span></h2>
+            <p>Tadilat yaptırmak istediğiniz alanın kriterlerini seçin, saniyeler içinde ortalama maliyeti öğrenin.</p>
         </div>
-        <p>Gelişen dekorasyon trendlerini yakından takip ediyor, müşterilerimize sadece usta işçiliği değil, estetik ve fonksiyonel yaşam alanları vaat ediyoruz.</p>
-    </div>
+        
+        <div class="wizard-box">
+            <div class="wizard-step">
+                <label>1. Proje Türünü Seçin</label>
+                <div class="option-group">
+                    <div class="option-btn selected" onclick="selectType(this, 'Boya Badana')">Boya Badana</div>
+                    <div class="option-btn" onclick="selectType(this, 'Alçıpan & Tavan')">Alçıpan & Asma Tavan</div>
+                    <div class="option-btn" onclick="selectType(this, 'Banyo / Seramik')">Banyo & Seramik Yenileme</div>
+                    <div class="option-btn" onclick="selectType(this, 'Komple Anahtar Teslim')">Komple Daire Tadilatı</div>
+                </div>
+            </div>
+            
+            <div class="wizard-step">
+                <label>2. Yaklaşık Alan Ölçüsü: <span id="m2Value" style="color:white; font-weight:bold;">80</span> m²</label>
+                <input type="range" class="range-slider" id="m2Slider" min="20" max="250" value="80" oninput="updateM2(this.value)">
+            </div>
+            
+            <div class="price-display">
+                <div class="price-amount">
+                    <span>Tahmini Yatırım Bedeli:</span>
+                    <strong id="totalPrice">Hesaplanıyor...</strong>
+                </div>
+                <button class="btn-luxury" onclick="sendWizardData()" style="border:none; cursor:pointer;"><i class="fab fa-whatsapp"></i> Bu Bütçeyle Başlat</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h2>Söz <span>Müşterilerimizde</span></h2>
+            <p>Kocaeli bölgesinde mülkünü bize emanet edenlerin tarafsız deneyimleri.</p>
+        </div>
+        <div class="reviews-layout">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Darıca'da aldığımız sıfır dairenin tüm asma tavan ve boya işlerini teslim ettik. İşçilik kalitesi o kadar yüksek ki, ev resmen lüks bir rezidansa dönüştü. Emeğinize sağlık."</p>
+                <div class="user-info"><div class="user-avatar">AY</div><strong>Ahmet Y. — Darıca</strong></div>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Gebze'deki ofisimizin komple zemin seramikleri ve duvar dekorasyonunu 5 gün gibi inanılmaz kısa bir sürede sıfır hata ile tamamladılar. Hız ve temizlik 10 numara."</p>
+                <div class="user-info"><div class="user-avatar">MK</div><strong>Murat K. — Gebze</strong></div>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Eski evimizi satmayı düşünüyorduk, Güneş Yapı komple tadilat yaptıktan sonra evin değeri ikiye katlandı, vazgeçip kendimiz oturmaya başladık. Güvenilir esnaflık."</p>
+                <div class="user-info"><div class="user-avatar">SM</div><strong>Sevgi M. — Çayırova</strong></div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <footer>
-    <h2>GÜNEŞ YAPI</h2>
-    <p>BOYA • TADİLAT • DEKORASYON UZMANI</p>
-    <div class="footer-areas"><span>Hizmet Noktalarımız:</span> Darıca • Bayramoğlu • Gebze • Çayırova • Dilovası • Tuzla • Pendik</div>
-    <div class="footer-links">
-        <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
-        <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Canlı Destek</a>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Güneş Yapı 2026</h4>
+                <p style="color:#475569;">Premium tasarım ve usta el işçiliğinin Kocaeli'deki tek adresi.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hizmet Bölgeleri</h4>
+                <p>Darıca & Bayramoğlu</p>
+                <p>Gebze Sanayi & Merkez</p>
+                <p>Çayırova & Tuzla Çevresi</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı İletişim</h4>
+                <a href="tel:05359859535"><i class="fas fa-phone-alt"></i> 0535 985 95 35</a>
+                <a href="https://wa.me/905359859535" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Line</a>
+                <a href="mailto:mehmetgnes456@gmail.com"><i class="fas fa-envelope"></i> Proje Maili</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <div>© 2026 Güneş Yapı. Tüm Hakları Saklıdır.</div>
+            <div style="color:#334155;">Crafted for Architectural Dominance</div>
+        </div>
     </div>
-    <div class="copyright">© 2026 Güneş Yapı. Tüm hakları saklıdır. <br> "Hayalinizdeki yapıya, profesyonel ellere emanet."</div>
 </footer>
+
+<div class="action-bar">
+    <a href="tel:05359859535" class="action-item action-call"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
+    <a href="https://wa.me/905359859535" target="_blank" class="action-item action-wp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 </div>
 
-<a href="tel:05359859535" class="mobile-call"><i class="fas fa-phone-alt"></i> Ustayı Hemen Ara (Ücretsiz Keşif)</a>
-
 <script>
-document.getElementById('wpYonlendirForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var adSoyad = document.getElementById('isim').value;
-    var telNo = document.getElementById('telefon').value;
-    var musteriMesaji = document.getElementById('mesaj').value;
-    
-    // WhatsApp şablonu hazırlanıyor
-    var metin = "Merhaba Mehmet Usta, web sitenizdeki form üzerinden fiyat teklifi almak istiyorum:\n\n" + 
-                "👤 Müşteri Adı: " + adSoyad + "\n" +
-                "📞 Telefon: " + telNo + "\n" +
-                "📝 Yapılacak İş: " + musteriMesaji;
-    
-    var wpUrl = "https://wa.me/905359859535?text=" + encodeURIComponent(metin);
-    window.open(wpUrl, '_blank');
-});
+    // 1. Önce / Sonra Kaydırıcı Mekanizması
+    const sliderContainer = document.getElementById('sliderContainer');
+    const foreImg = document.getElementById('foreImg');
+    const sliderBar = document.getElementById('sliderBar');
+
+    function moveSlider(x) {
+        let rect = sliderContainer.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+        if (position < 0) position = 0;
+        if (position > 100) position = 100;
+        foreImg.style.width = position + '%';
+        sliderBar.style.left = position + '%';
+    }
+
+    sliderContainer.addEventListener('mousemove', (e) => { moveSlider(e.clientX); });
+    sliderContainer.addEventListener('touchmove', (e) => { moveSlider(e.touches[0].clientX); });
+
+    // 2. Akıllı Fiyat Hesaplayıcı Sihirbazı
+    let selectedType = "Boya Badana";
+    let baseRates = {
+        "Boya Badana": 180,
+        "Alçıpan & Tavan": 350,
+        "Banyo / Seramik": 650,
+        "Komple Anahtar Teslim": 2200
+    };
+
+    function selectType(element, typeName) {
+        document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+        element.classList.add('selected');
+        selectedType = typeName;
+        calculatePrice();
+    }
+
+    function updateM2(val) {
+        document.getElementById('m2Value').innerText = val;
+        calculatePrice();
+    }
+
+    function calculatePrice() {
+        let m2 = parseInt(document.getElementById('m2Slider').value);
+        let rate = baseRates[selectedType];
+        let total = m2 * rate;
+        
+        // Fiyatı formatlı gösterme (Örn: 15.000 TL - 18.000 TL baremi)
+        let minPrice = Math.round(total * 0.9);
+        let maxPrice = Math.round(total * 1.1);
+        document.getElementById('totalPrice').innerText = minPrice.toLocaleString('tr-TR') + " ₺ - " + maxPrice.toLocaleString('tr-TR') + " ₺";
+    }
+
+    function sendWizardData() {
+        let m2 = document.getElementById('m2Slider').value;
+        let tahminiFiyat = document.getElementById('totalPrice').innerText;
+        let metin = "Merhaba Mehmet Usta, Akıllı Sihirbaz üzerinden fiyat teklifi oluşturdum:\n\n" + 
+                    "🛠️ İstediğim Hizmet: " + selectedType + "\n" +
+                    "📐 Alan Ölçüsü: " + m2 + " m²\n" +
+                    "💰 Sitedeki Tahmini Barem: " + tahminiFiyat + "\n\n" + 
+                    "Ücretsiz keşif için randevu ayarlamak istiyorum.";
+        
+        window.open("https://wa.me/905359859535?text=" + encodeURIComponent(metin), '_blank');
+    }
+
+    // İlk açılışta fiyatı hesapla
+    calculatePrice();
 </script>
 
 </body>
