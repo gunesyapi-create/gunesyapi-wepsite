@@ -70,6 +70,8 @@
         .card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(230,126,34,0.3);border-color:#e67e22}
         .card-icon{font-size:42px;color:#e67e22;margin-bottom:18px;background:rgba(230,126,34,0.1);width:80px;height:80px;line-height:80px;border-radius:20px;margin-left:auto;margin-right:auto;transition:all 0.3s}
         .card:hover .card-icon{background:#e67e22;color:white;transform:rotate(5deg)scale(1.05)}
+        .card-img{width:80px;height:80px;border-radius:20px;margin:0 auto 18px;object-fit:cover;background:rgba(230,126,34,0.1);padding:10px;transition:all 0.3s}
+        .card:hover .card-img{background:#e67e22;padding:5px}
         .card h3{font-size:20px;font-weight:700;color:#f39c12;margin-bottom:10px}
         .card p{color:#aaa;font-size:14px;margin-bottom:20px}
         .card-btn{background:rgba(230,126,34,0.15);color:#e67e22;padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all 0.3s;border:1px solid rgba(230,126,34,0.3)}
@@ -156,6 +158,7 @@
             .section-title{font-size:24px}
             .container{padding:10px 15px}
             .card{padding:18px 12px}
+            .card-img{width:50px;height:50px}
             .card-icon{width:50px;height:50px;line-height:50px;font-size:25px;margin-bottom:12px}
             .card h3{font-size:17px;margin-bottom:6px}
             .card p{font-size:12px;line-height:1.4;margin-bottom:15px}
@@ -229,10 +232,34 @@
 <div class="container">
     <div class="section-title">Hizmetlerimiz</div>
     <div class="grid4">
-        <div class="card"><div class="card-icon"><i class="fas fa-paint-roller"></i></div><h3>Boya & Badana</h3><p>Darıca ve Gebze'de iç-dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-layer-group"></i></div><h3>Alçı & Alçıpan</h3><p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-vector-square"></i></div><h3>Fayans & Seramik</h3><p>Banyo, mutfak, zemin ve duvar kaplama. Su yalıtımı garantili.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-building"></i></div><h3>Tadilat & Dekorasyon</h3><p>Komple tadilat, mutfak ve banyo yenileme. Anahtar teslim.</p><a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a></div>
+        <div class="card">
+            <img src="boya.jpeg" alt="Boya Badana" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
+            <div class="card-icon" style="display:none;"><i class="fas fa-paint-roller"></i></div>
+            <h3>Boya & Badana</h3>
+            <p>Darıca ve Gebze'de iç-dış cephe, dekoratif boya. 10 yıl garantili işçilik.</p>
+            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <img src="alcipan.jpeg" alt="Alçı Alçıpan" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
+            <div class="card-icon" style="display:none;"><i class="fas fa-layer-group"></i></div>
+            <h3>Alçı & Alçıpan</h3>
+            <p>Asma tavan, bölme duvar, ses ve ısı yalıtımı. Temiz işçilik.</p>
+            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <img src="ChatGPT Image 25 May 2026 09_50_13.png" alt="Fayans Seramik" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
+            <div class="card-icon" style="display:none;"><i class="fas fa-vector-square"></i></div>
+            <h3>Fayans & Seramik</h3>
+            <p>Banyo, mutfak, zemin ve duvar kaplama. Su yalıtımı garantili.</p>
+            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
+        <div class="card">
+            <img src="tadilat.jpeg" alt="Tadilat Dekorasyon" class="card-img" onerror="this.style.display='none';this.parentElement.querySelector('.card-icon').style.display='block';">
+            <div class="card-icon" style="display:none;"><i class="fas fa-building"></i></div>
+            <h3>Tadilat & Dekorasyon</h3>
+            <p>Komple tadilat, mutfak ve banyo yenileme. Anahtar teslim.</p>
+            <a href="tel:05359859535" class="card-btn"><i class="fas fa-phone"></i> Teklif Al</a>
+        </div>
     </div>
 
     <div class="section-title">Projelerimiz</div>
@@ -407,25 +434,17 @@ function yorumAc(){
     document.getElementById('yorumPopup').style.visibility='visible';
     yorumlariYukle();
 }
-
 function yorumKapat(){
     document.getElementById('yorumPopup').style.opacity='0';
     document.getElementById('yorumPopup').style.visibility='hidden';
 }
-
 function yorumlariYukle(){
     const track = document.getElementById('yorumSliderTrack');
     track.innerHTML = '';
     const tumYorumlar = [...yorumlar, ...yorumlar];
     tumYorumlar.forEach(y => {
         const yildizHTML = '★'.repeat(y.yildiz);
-        track.innerHTML += `
-            <div class="yorum-kart">
-                <div class="yildiz">${yildizHTML}</div>
-                <p>"${y.mesaj}"</p>
-                <strong>- ${y.ad}</strong>
-            </div>
-        `;
+        track.innerHTML += `<div class="yorum-kart"><div class="yildiz">${yildizHTML}</div><p>"${y.mesaj}"</p><strong>- ${y.ad}</strong></div>`;
     });
 }
 </script>
